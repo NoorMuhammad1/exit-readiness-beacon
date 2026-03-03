@@ -14,7 +14,13 @@ const NARRATION_SILENCE_THRESHOLD = 3500;
 
 export interface AIVoiceContext {
   module: string;
-  narrationTopic?: string;   // what the agent should narrate (passed as dynamic variable)
+  /** Exact opening narration the agent speaks when the session starts.
+   *  Passed via overrides.agent.firstMessage — overrides the dashboard setting. */
+  firstMessage?: string;
+  /** Optional system prompt override for this module session. */
+  systemPrompt?: string;
+  /** Legacy: kept for dynamic variable passing (low priority). */
+  narrationTopic?: string;
   user_name?: string;
   revenue?: number;
   ebitda?: number;
@@ -91,7 +97,18 @@ export default function AIVoiceWidget({ context }: AIVoiceWidgetProps) {
       if (context.gap)              dynamicVariables.gap               = context.gap;
       if (context.industry)         dynamicVariables.industry          = context.industry;
 
-      await conversation.startSession({ agentId: AGENT_ID, dynamicVariables });
+      await conversation.startSession({
+        agentId: AGENT_ID,
+        dynamicVariables,
+        ...(context.firstMessage || context.systemPrompt ? {
+          overrides: {
+            agent: {
+              ...(context.firstMessage  && { firstMessage: context.firstMessage }),
+              ...(context.systemPrompt  && { prompt: { prompt: context.systemPrompt } }),
+            },
+          },
+        } : {}),
+      });
     } catch (err) {
       if (err instanceof Error && err.name === 'NotAllowedError') {
         setError('Microphone access denied. Please allow microphone in your browser.');

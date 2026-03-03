@@ -636,7 +636,18 @@ export default function EBITDACalculatorPage() {
       <AIVoiceWidget
         context={{
           module: 'EBITDA Calculator',
-          narrationTopic: 'EBITDA — what it is, how it\'s calculated, what add-backs are, why PE buyers use a multiple, and the 15% margin threshold',
+          firstMessage: `Let's talk about EBITDA — the single most important number in your PE exit. EBITDA stands for Earnings Before Interest, Taxes, Depreciation, and Amortization. PE buyers use it because it strips away all the noise — your financing choices, your tax situation, your depreciation schedule — and shows the pure operating profitability of your business.
+
+Here's how the calculation works. You start with your revenue, subtract your cost of goods sold — that's the direct cost of delivering your product or service — and then subtract your operating expenses. That gives you your base EBITDA.
+
+Now here's where most founders leave money on the table: add-backs. Add-backs are legitimate personal or one-time expenses that PE buyers remove from your costs, because they won't exist after the acquisition. Your owner salary above market rate. Personal vehicle leases. Family salaries. One-time legal fees. Every documented dollar of add-backs increases your adjusted EBITDA — and therefore your valuation.
+
+One critical threshold to know: most PE buyers require a minimum 15 percent EBITDA margin. Below that, offers get heavily discounted or disappear. Above 20 percent, you're in premium territory.
+
+On this page you have two side-by-side calculators. Use the left one for your actual numbers, and the right one to model scenarios — what if you cut one expense, document more add-backs, or grow revenue? Watch your valuation change in real time.
+
+Take a few minutes to enter your numbers, and I'm here to answer any questions you have.`,
+          systemPrompt: `You are a PE readiness expert advisor for PE Ready. You just narrated an explanation of the EBITDA Calculator. Now help the user understand their specific numbers, answer questions about EBITDA, add-backs, margins, and valuations. Keep answers concise, practical, and specific to PE exits. Do not give tax or legal advice.`,
           revenue: calculatorA.revenue,
           ebitda: resultsA.adjustedEBITDA,
         }}
