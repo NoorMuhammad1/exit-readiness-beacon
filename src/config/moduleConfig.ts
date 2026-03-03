@@ -4,6 +4,7 @@ export interface ModuleConfig {
   path: string;
   weekNumber: number;
   order: number;
+  mvpEnabled?: boolean; // mini-mvp branch only: true = accessible in lite portal
 }
 
 export interface WeekConfig {
@@ -34,13 +35,13 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Post-Closing Reality', path: '/portal/week-2/post-closing-reality', weekNumber: 2, order: 7 },
   
   // Week 3 - Performance Readiness
-  { name: 'EBITDA Calculator', path: '/portal/week-3/ebitda-calculator', weekNumber: 3, order: 1 },
+  { name: 'EBITDA Calculator', path: '/portal/week-3/ebitda-calculator', weekNumber: 3, order: 1, mvpEnabled: true },
   { name: 'Industry Multipliers', path: '/portal/week-3/industry-multipliers', weekNumber: 3, order: 2 },
   { name: 'Scenario Planning', path: '/portal/week-3/scenarios', weekNumber: 3, order: 3 },
   { name: 'Management Scorecard', path: '/portal/week-3/scorecard', weekNumber: 3, order: 4 },
   { name: 'Top Performers', path: '/portal/week-3/top-performers', weekNumber: 3, order: 5 },
-  { name: 'Business Scorecard', path: '/portal/week-3/business-scorecard', weekNumber: 3, order: 6 },
-  { name: 'Deal Killers Diagnostic', path: '/portal/week-3/deal-killers', weekNumber: 3, order: 7 },
+  { name: 'Business Scorecard', path: '/portal/week-3/business-scorecard', weekNumber: 3, order: 6, mvpEnabled: true },
+  { name: 'Deal Killers Diagnostic', path: '/portal/week-3/deal-killers', weekNumber: 3, order: 7, mvpEnabled: true },
   
   // Week 4 - Final Readiness (Updated Discovery Interview module)
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1 },
@@ -92,6 +93,17 @@ export const moveModuleToWeek = (moduleName: string, newWeekNumber: number, newO
     return module;
   });
 };
+
+// mini-mvp branch: check if a module is accessible in the lite portal
+export const isMvpEnabled = (module: ModuleConfig): boolean => module.mvpEnabled === true;
+
+// mini-mvp branch: get all modules accessible in the lite portal
+export const getMvpEnabledModules = (): ModuleConfig[] =>
+  moduleConfigurations.filter(m => m.mvpEnabled === true);
+
+// mini-mvp branch: check if a path is accessible in the lite portal
+export const isMvpEnabledPath = (path: string): boolean =>
+  moduleConfigurations.some(m => m.path === path && m.mvpEnabled === true);
 
 // Helper function to get the next module path
 export const getNextModulePath = (currentModuleName: string): string | null => {

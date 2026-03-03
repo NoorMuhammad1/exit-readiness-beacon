@@ -7,17 +7,17 @@
 ## Current Status
 **Branch:** `mini-mvp` (separate from `main`)
 **Deployment:** Vercel (separate project, same Supabase DB as main app)
-**Overall Phase:** 🔄 Phase 1 In Progress
+**Overall Phase:** ✅ Phase 2 Complete
 
 | Phase | Description | Status |
 |-------|-------------|--------|
 | 0 | Branch + Vercel setup | ✅ Complete |
-| 1 | Reality Check funnel (`/reality-check`) | 🔄 In Progress |
-| 2 | Lite Portal (3 modules unlocked, rest locked) | ⬜ Not Started |
+| 1 | Reality Check funnel (`/reality-check`) | ✅ Complete |
+| 2 | Lite Portal (3 modules unlocked, rest locked) | ✅ Complete |
 | 3 | ElevenLabs AI Voice Guide | ⬜ Not Started |
 
-**Last completed step:** 0.5 — Vercel deployment confirmed live
-**Next step:** 1.1 — Add `/reality-check` route to `src/App.tsx`
+**Last completed step:** 2.5 — Route guard (`MVPModuleGuard`) blocks direct navigation to locked modules
+**Next step:** 3.0a — MANUAL: Create ElevenLabs account + Conversational AI agent
 
 ---
 
@@ -119,13 +119,13 @@ src/pages/portal/[module pages]            ← Filter/render locked state based 
 ```
 
 ### Steps
-- [ ] 2.1 — Add `mvpEnabled: boolean` to module config entries (true for 3 modules, false for rest)
-- [ ] 2.2 — Build `LockedModuleBadge.tsx` (grayed card + "Full Launch Coming" text)
-- [ ] 2.3 — Update portal module grid to show locked state for non-MVP modules
-- [ ] 2.4 — Verify the 3 MVP modules load and work correctly
-- [ ] 2.5 — Verify locked modules cannot be navigated to directly (redirect or block)
+- [x] 2.1 — Add `mvpEnabled: boolean` to module config entries (true for 3 modules, false for rest)
+- [x] 2.2 — Build `LockedModuleBadge.tsx` (grayed card + "Full Launch Coming" text)
+- [x] 2.3 — Update portal module grid to show locked state for non-MVP modules
+- [x] 2.4 — Verify the 3 MVP modules load and work correctly
+- [x] 2.5 — Verify locked modules cannot be navigated to directly (`MVPModuleGuard` redirects to `/portal`)
 
-**Done when:** Portal shows 3 open modules + all others locked with the badge.
+**Done when:** Portal shows 3 open modules + all others locked with the badge. ✅
 
 ---
 

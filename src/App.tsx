@@ -48,6 +48,7 @@ import { ScheduleConsultationPage } from './pages/ScheduleConsultationPage';
 import DiscoveryInterviewPage from './pages/DiscoveryInterviewPage';
 import ExecutiveDiscoveryInterviewPage from './pages/ExecutiveDiscoveryInterviewPage';
 import RealityCheck from './pages/RealityCheck';
+import { MVPModuleGuard } from './components/mvp/MVPModuleGuard';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -97,46 +98,174 @@ function App() {
               
               {/* Client Portal Routes */}
               <Route path="/portal" element={<ClientPortalLayout><ClientPortalDashboard /></ClientPortalLayout>} />
-              <Route path="/portal/schedule-consultation" element={<ClientPortalLayout><ScheduleConsultationPage /></ClientPortalLayout>} />
+              <Route path="/portal/schedule-consultation" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/schedule-consultation"><ScheduleConsultationPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
 
-              {/* Week 1 Routes */}
-              <Route path="/portal/week-1/glossary" element={<ClientPortalLayout><InteractiveGlossaryPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/deal-progression" element={<ClientPortalLayout><DealProgressionPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/professional-advisors" element={<ClientPortalLayout><ProfessionalAdvisorsPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/know-your-buyer" element={<ClientPortalLayout><KnowYourBuyerPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/asset-free-education" element={<ClientPortalLayout><AssetFreeEducationPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/time-kills-deals" element={<ClientPortalLayout><TimeKillsDealsPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-1/ebitda-course" element={<ClientPortalLayout><EBITDAExplainedPage /></ClientPortalLayout>} />
+              {/* Week 1 Routes — locked in mini-mvp */}
+              <Route path="/portal/week-1/glossary" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/glossary"><InteractiveGlossaryPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/deal-progression" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/deal-progression"><DealProgressionPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/professional-advisors" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/professional-advisors"><ProfessionalAdvisorsPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/know-your-buyer" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/know-your-buyer"><KnowYourBuyerPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/asset-free-education" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/asset-free-education"><AssetFreeEducationPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/time-kills-deals" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/time-kills-deals"><TimeKillsDealsPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-1/ebitda-course" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-1/ebitda-course"><EBITDAExplainedPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
 
-              {/* Week 2 Routes */}
-              <Route path="/portal/week-2/data-room" element={<ClientPortalLayout><DataRoomIntroPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/data-room/workspace" element={<ClientPortalLayout><DataRoomWorkspacePage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/data-room/advanced" element={<ClientPortalLayout><DataRoomPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/asset-workshop" element={<ClientPortalLayout><AssetWorkshopPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/holdco-structure" element={<ClientPortalLayout><HoldCoStructurePage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/quick-wins" element={<ClientPortalLayout><QuickWinsPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/debt-interest" element={<ClientPortalLayout><DebtInterestPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/earnouts-multipliers" element={<ClientPortalLayout><EarnoutsMultipliersPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-2/post-closing-reality" element={<ClientPortalLayout><PostClosingRealityPage /></ClientPortalLayout>} />
+              {/* Week 2 Routes — locked in mini-mvp */}
+              <Route path="/portal/week-2/data-room" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/data-room"><DataRoomIntroPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/data-room/workspace" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/data-room/workspace"><DataRoomWorkspacePage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/data-room/advanced" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/data-room/advanced"><DataRoomPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/asset-workshop" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/asset-workshop"><AssetWorkshopPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/holdco-structure" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/holdco-structure"><HoldCoStructurePage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/quick-wins" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/quick-wins"><QuickWinsPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/debt-interest" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/debt-interest"><DebtInterestPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/earnouts-multipliers" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/earnouts-multipliers"><EarnoutsMultipliersPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-2/post-closing-reality" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-2/post-closing-reality"><PostClosingRealityPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
 
-              {/* Week 3 Routes */}
-              <Route path="/portal/week-3/ebitda-calculator" element={<ClientPortalLayout><EbitdaCalculatorPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/multiples" element={<ClientPortalLayout><MultiplesPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/industry-multipliers" element={<ClientPortalLayout><MultiplesPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/scenarios" element={<ClientPortalLayout><ScenarioPlanningPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/scorecard" element={<ClientPortalLayout><ScorecardPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/top-performers" element={<ClientPortalLayout><TopPerformersPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/business-scorecard" element={<ClientPortalLayout><BusinessScorecardPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-3/deal-killers" element={<ClientPortalLayout><DealKillersPage /></ClientPortalLayout>} />
+              {/* Week 3 Routes — EBITDA Calculator, Business Scorecard, Deal Killers are MVP-enabled */}
+              <Route path="/portal/week-3/ebitda-calculator" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/ebitda-calculator"><EbitdaCalculatorPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/multiples" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/multiples"><MultiplesPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/industry-multipliers" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/industry-multipliers"><MultiplesPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/scenarios" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/scenarios"><ScenarioPlanningPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/scorecard" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/scorecard"><ScorecardPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/top-performers" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/top-performers"><TopPerformersPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/business-scorecard" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/business-scorecard"><BusinessScorecardPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-3/deal-killers" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-3/deal-killers"><DealKillersPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
 
-              {/* Week 4 Routes */}
-              <Route path="/portal/week-4/dd-checklist" element={<ClientPortalLayout><DueDiligenceChecklistPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/loi-review" element={<ClientPortalLayout><LOIReviewPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/final-report" element={<ClientPortalLayout><FinalReportPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/discovery-interview" element={<ClientPortalLayout><DiscoveryInterviewPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/executive-discovery" element={<ClientPortalLayout><ExecutiveDiscoveryInterviewPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/value-builder" element={<ClientPortalLayout><StrategyDocBuilderPage /></ClientPortalLayout>} />
-              <Route path="/portal/week-4/kpis-okrs" element={<ClientPortalLayout><KPIandOKRPage /></ClientPortalLayout>} />
+              {/* Week 4 Routes — locked in mini-mvp */}
+              <Route path="/portal/week-4/dd-checklist" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/dd-checklist"><DueDiligenceChecklistPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/loi-review" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/loi-review"><LOIReviewPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/final-report" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/final-report"><FinalReportPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/discovery-interview" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/discovery-interview"><DiscoveryInterviewPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/executive-discovery" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/executive-discovery"><ExecutiveDiscoveryInterviewPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/value-builder" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/value-builder"><StrategyDocBuilderPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
+              <Route path="/portal/week-4/kpis-okrs" element={
+                <ClientPortalLayout>
+                  <MVPModuleGuard modulePath="/portal/week-4/kpis-okrs"><KPIandOKRPage /></MVPModuleGuard>
+                </ClientPortalLayout>
+              } />
               
               {/* Catch-all 404 route */}
               <Route path="*" element={<NotFound />} />
