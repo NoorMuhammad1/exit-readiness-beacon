@@ -17,7 +17,10 @@ const DealKillersDiagnosticPage = () => {
 
       <DealKillersDiagnostic />
 
-      <AIVoiceWidget context={{ module: 'Deal Killers Diagnostic' }} />
+      <AIVoiceWidget context={{
+        module: 'Deal Killers Diagnostic',
+        narrationTopic: 'what the most common deal killers are, why they matter to PE buyers, how to identify them in your own business, and what steps to take to address each one',
+      }} />
     </div>
   );
 };

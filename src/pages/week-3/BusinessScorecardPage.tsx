@@ -17,7 +17,10 @@ const BusinessScorecardPage = () => {
 
       <BusinessScorecard />
 
-      <AIVoiceWidget context={{ module: 'Business Scorecard' }} />
+      <AIVoiceWidget context={{
+        module: 'Business Scorecard',
+        narrationTopic: 'how the Business Scorecard works, what each dimension measures, what PE buyers look for in a strong scorecard, and how to interpret your score',
+      }} />
     </div>
   );
 };

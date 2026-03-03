@@ -458,14 +458,94 @@ export default function EBITDACalculatorPage() {
   return (
     <div className="min-h-screen p-6">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center justify-between mb-8">
-          <h1 className="text-3xl font-bold text-white">EBITDA Calculator - Side by Side Comparison</h1>
+
+        {/* ── Page header ── */}
+        <div className="flex items-center justify-between mb-6">
+          <h1 className="text-3xl font-bold text-white">EBITDA Calculator</h1>
           <button
             onClick={loadNewSampleData}
             className="bg-white/10 text-white px-4 py-2 rounded-lg hover:bg-white/20 transition"
           >
             Refresh Sample Data
           </button>
+        </div>
+
+        {/* ── Educational explainer ── */}
+        <div className="mb-10 space-y-6">
+          <div>
+            <p className="text-white/60 text-base max-w-3xl leading-relaxed">
+              EBITDA is the number PE buyers use to value your business. Understanding how it's calculated — and how to optimize it — is the single highest-leverage thing you can do before going to market.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+            {/* Card 1 */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                <Calculator className="w-4 h-4 text-blue-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-white">What is EBITDA?</h3>
+              <p className="text-xs text-white/50 leading-relaxed">
+                <strong className="text-white/70">E</strong>arnings{' '}
+                <strong className="text-white/70">B</strong>efore{' '}
+                <strong className="text-white/70">I</strong>nterest,{' '}
+                <strong className="text-white/70">T</strong>axes,{' '}
+                <strong className="text-white/70">D</strong>epreciation &{' '}
+                <strong className="text-white/70">A</strong>mortization. It's your operating profit stripped of financing decisions and accounting choices — the truest measure of what your business generates from operations.
+              </p>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-accent/20 flex items-center justify-center">
+                <TrendingUp className="w-4 h-4 text-accent" />
+              </div>
+              <h3 className="text-sm font-semibold text-white">Why PE buyers use it</h3>
+              <p className="text-xs text-white/50 leading-relaxed">
+                Buyers evaluate hundreds of businesses. They need a number that's comparable regardless of how each company is financed or structured. EBITDA is the industry standard — your multiple gets applied directly to it to calculate your enterprise value.
+              </p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">
+                <FileText className="w-4 h-4 text-green-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-white">What are add-backs?</h3>
+              <p className="text-xs text-white/50 leading-relaxed">
+                Add-backs are legitimate expenses that PE buyers remove from your costs — because those costs won't exist post-acquisition. Owner salary above market rate, personal vehicle leases, family salaries, one-time legal fees. Each dollar of documented add-backs directly increases your EBITDA and therefore your valuation.
+              </p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-5 space-y-2">
+              <div className="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">
+                <AlertCircle className="w-4 h-4 text-yellow-400" />
+              </div>
+              <h3 className="text-sm font-semibold text-white">The 15% threshold</h3>
+              <p className="text-xs text-white/50 leading-relaxed">
+                Most PE buyers set a hard floor of 15% EBITDA margin. Below that, you're likely to get a pass or a heavily discounted offer. Above 20% puts you in premium territory. Use the scenario calculator on the right to model what it takes to hit these targets.
+              </p>
+            </div>
+          </div>
+
+          {/* Formula bar */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+            <p className="text-xs text-white/40 uppercase tracking-wider mb-3">The PE valuation formula</p>
+            <div className="flex flex-wrap items-center gap-2 text-sm font-mono">
+              <span className="bg-blue-500/20 text-blue-300 px-3 py-1.5 rounded-lg">Revenue − COGS − OpEx</span>
+              <span className="text-white/30">=</span>
+              <span className="bg-white/10 text-white/70 px-3 py-1.5 rounded-lg">Base EBITDA</span>
+              <span className="text-white/30">+</span>
+              <span className="bg-green-500/20 text-green-300 px-3 py-1.5 rounded-lg">Add-backs</span>
+              <span className="text-white/30">=</span>
+              <span className="bg-accent/20 text-accent px-3 py-1.5 rounded-lg">Adjusted EBITDA</span>
+              <span className="text-white/30">×</span>
+              <span className="bg-yellow-500/20 text-yellow-300 px-3 py-1.5 rounded-lg">Multiple (3–8x)</span>
+              <span className="text-white/30">=</span>
+              <span className="bg-white/20 text-white font-bold px-3 py-1.5 rounded-lg">Enterprise Value</span>
+            </div>
+          </div>
         </div>
         
         {/* Delta Summary Bar */}
@@ -556,6 +636,7 @@ export default function EBITDACalculatorPage() {
       <AIVoiceWidget
         context={{
           module: 'EBITDA Calculator',
+          narrationTopic: 'EBITDA — what it is, how it\'s calculated, what add-backs are, why PE buyers use a multiple, and the 15% margin threshold',
           revenue: calculatorA.revenue,
           ebitda: resultsA.adjustedEBITDA,
         }}
