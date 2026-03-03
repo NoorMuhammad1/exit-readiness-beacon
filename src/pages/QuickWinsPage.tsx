@@ -29,7 +29,7 @@ interface CustomItem {
 
 const QuickWinsModule = {
   title: "Quick Wins Checklist",
-  purpose: "Help founders identify and document the five most common, high-impact add-backs that can instantly boost EBITDA and valuation. Designed to drive early momentum in the exit readiness journey.",
+  purpose: "Help founders identify and document the five most common, high-impact add-backs that can instantly boost EBITDA and valuation. Designed to drive early momentum in the PE Ready journey.",
   introContent: {
     hook: "What if I told you there's $500K+ hiding in your P&L right now — and PE buyers already know where to find it?",
     reality: "Most owners leave millions on the table by failing to document non-operating, discretionary, or one-time expenses that PE firms will normalize. This module shows you exactly where to look and how to prove it."

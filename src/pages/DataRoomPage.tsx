@@ -454,7 +454,7 @@ export default function DataRoomPage() {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-foreground mb-2">Data Room</h1>
-          <p className="text-foreground/70">Build your PE-ready data room while learning exit readiness</p>
+          <p className="text-foreground/70">Build your PE-ready data room with PE Ready</p>
         </div>
 
         {/* Data Room Information */}

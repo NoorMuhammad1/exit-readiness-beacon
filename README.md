@@ -1,8 +1,8 @@
-# Exit Readiness Beacon
+# PE Ready
 
 ## Project info
 
-A business exit readiness assessment tool built with Vite, React, TypeScript, shadcn-ui, and Tailwind CSS.
+A PE readiness assessment tool built with Vite, React, TypeScript, shadcn-ui, and Tailwind CSS.
 
 ## How can I edit this code?
 

@@ -25,7 +25,7 @@ const HeroSection = () => {
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight">
                 Are You{" "}
                 <span className="text-luxury bg-gradient-to-r from-accent to-accent/70 bg-clip-text text-transparent">
-                  Exit Ready?
+                  PE Ready?
                 </span>
               </h1>
               <p className="text-xl md:text-2xl text-foreground-secondary leading-relaxed">
@@ -63,7 +63,7 @@ const HeroSection = () => {
                     "Management Team Depth",
                     "Growth Trajectory Analysis",
                     "Risk Factor Assessment",
-                    "Exit Readiness Rating"
+                    "PE Ready Rating"
                   ].map((item, index) => (
                     <div key={index} className="flex items-center gap-3">
                       <CheckCircle className="h-5 w-5 text-success flex-shrink-0" />

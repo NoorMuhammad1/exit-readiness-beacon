@@ -45,7 +45,7 @@ export default function ClientPortalDashboard() {
             Your Journey Progress
           </CardTitle>
           <CardDescription>
-            Track your progress through the 4-week exit readiness program
+            Track your progress through the 4-week PE Ready program
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">

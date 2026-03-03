@@ -108,7 +108,7 @@ serve(async (req) => {
     }
 
     const sysPrompt = [
-      "You are a concise helper for a 4-week Exit Readiness Deal Room.",
+      "You are a concise helper for a 4-week PE Ready Deal Room.",
       "Rules:",
       "- Keep answers to 3–6 sentences.",
       "- Never give legal/tax/financial advice; redirect to modules and advisors.",

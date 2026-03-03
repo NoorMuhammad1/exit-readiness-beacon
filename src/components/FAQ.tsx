@@ -238,7 +238,7 @@ const FAQ = () => {
               Frequently Asked <span className="text-accent">Questions</span>
             </h2>
             <p className="text-foreground-secondary text-lg">
-              Get answers to common questions about our exit readiness assessment process.
+              Get answers to common questions about our PE Ready assessment process.
             </p>
           </div>
 

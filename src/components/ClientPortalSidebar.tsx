@@ -45,7 +45,7 @@ export function ClientPortalSidebar() {
             {!collapsed && (
               <div className="px-3 py-2 text-xs text-muted-foreground">
                 <p>Welcome to your exclusive Deal Room</p>
-                <p className="mt-1 font-medium text-slate-50">4-Week Exit Readiness Program</p>
+                <p className="mt-1 font-medium text-slate-50">4-Week PE Ready Program</p>
               </div>
             )}
           </SidebarGroupContent>

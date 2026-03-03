@@ -470,7 +470,7 @@ export default function ExecutiveDiscoveryInterviewPage() {
 
               {/* Readiness Score */}
               <Card className="p-8">
-                <h2 className="text-2xl font-bold text-foreground mb-4">Exit Readiness Score</h2>
+                <h2 className="text-2xl font-bold text-foreground mb-4">PE Ready Score</h2>
                 <div className="text-center">
                   <ReadinessIcon className={`w-16 h-16 mx-auto mb-4 ${
                     readinessResult.color === 'red' ? 'text-destructive' : 
@@ -580,7 +580,7 @@ export default function ExecutiveDiscoveryInterviewPage() {
             <p className="text-sm text-muted-foreground">
               {getCurrentSection() === 'goals' 
                 ? 'Understanding your timeline, goals, and preferences'
-                : 'Evaluating your business\'s exit readiness'
+                : 'Evaluating your business\'s PE readiness'
               }
             </p>
           </div>

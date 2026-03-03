@@ -28,7 +28,7 @@ export const ClientPortalLayout = ({ children }: ClientPortalLayoutProps) => {
               <SidebarTrigger className="ml-4" />
               <div className="ml-4">
                 <h1 className="text-lg font-semibold text-foreground">Deal Room</h1>
-                <p className="text-sm text-muted-foreground">Exit Readiness Journey</p>
+                <p className="text-sm text-muted-foreground">PE Ready Journey</p>
               </div>
             </div>
             <div className="flex items-center gap-2 mr-4">

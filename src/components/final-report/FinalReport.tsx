@@ -240,7 +240,7 @@ export const FinalReport: React.FC = () => {
       {/* Header */}
       <div className="text-center space-y-2">
         <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-          PE Exit Readiness Report
+          PE Ready Report
         </h1>
         <p className="text-xl text-zinc-400">
           {reportData.companyName} - {new Date().toLocaleDateString()}
