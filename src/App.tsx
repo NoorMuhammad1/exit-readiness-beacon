@@ -47,6 +47,7 @@ import { ClientPortalLayout } from './components/ClientPortalLayout';
 import { ScheduleConsultationPage } from './pages/ScheduleConsultationPage';
 import DiscoveryInterviewPage from './pages/DiscoveryInterviewPage';
 import ExecutiveDiscoveryInterviewPage from './pages/ExecutiveDiscoveryInterviewPage';
+import RealityCheck from './pages/RealityCheck';
 
 // Create a client
 const queryClient = new QueryClient({
@@ -68,6 +69,7 @@ function App() {
               <Route path="/" element={<Index />} />
               <Route path="/auth" element={<AuthPage />} />
               <Route path="/assessment" element={<AssessmentPage />} />
+              <Route path="/reality-check" element={<RealityCheck />} />
               
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
