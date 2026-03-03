@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { BusinessScorecard } from '@/components/business-scorecard/BusinessScorecard';
+import AIVoiceWidget from '@/components/mvp/AIVoiceWidget';
 
 const BusinessScorecardPage = () => {
   return (
@@ -13,8 +14,10 @@ const BusinessScorecardPage = () => {
           Discover exactly how PE firms score your business and what every weakness costs you.
         </p>
       </div>
-      
+
       <BusinessScorecard />
+
+      <AIVoiceWidget context={{ module: 'Business Scorecard' }} />
     </div>
   );
 };

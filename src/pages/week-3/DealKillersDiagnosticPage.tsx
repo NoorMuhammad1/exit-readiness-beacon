@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { DealKillersDiagnostic } from '@/components/deal-killers/DealKillersDiagnostic';
+import AIVoiceWidget from '@/components/mvp/AIVoiceWidget';
 
 const DealKillersDiagnosticPage = () => {
   return (
@@ -13,8 +14,10 @@ const DealKillersDiagnosticPage = () => {
           Brutal honesty about the two biggest deal killers: stubborn sellers and hidden issues.
         </p>
       </div>
-      
+
       <DealKillersDiagnostic />
+
+      <AIVoiceWidget context={{ module: 'Deal Killers Diagnostic' }} />
     </div>
   );
 };

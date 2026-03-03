@@ -4,6 +4,7 @@ import StepQuestionnaire from '@/components/mvp/StepQuestionnaire';
 import GapReveal from '@/components/mvp/GapReveal';
 import DealKillerCards from '@/components/mvp/DealKillerCards';
 import MVPEmailCapture from '@/components/mvp/MVPEmailCapture';
+import AIVoiceWidget from '@/components/mvp/AIVoiceWidget';
 
 // ─── Shared Types ─────────────────────────────────────────────────────────────
 
@@ -132,6 +133,18 @@ export default function RealityCheck() {
               </button>
               <p className="text-xs text-foreground-muted">Free to join. Full platform launching soon.</p>
             </div>
+            <AIVoiceWidget
+              context={{
+                module: 'Reality Check — Gap Analysis',
+                user_name: results.firstName,
+                revenue: results.ebitda / (results.ebitdaMargin / 100),
+                ebitda: results.ebitda,
+                perceived_value: results.perceivedValue,
+                pe_value: results.peValue,
+                gap: results.gap,
+                industry: results.industry,
+              }}
+            />
           </>
         )}
 

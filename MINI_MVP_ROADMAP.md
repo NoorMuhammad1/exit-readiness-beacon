@@ -7,17 +7,18 @@
 ## Current Status
 **Branch:** `mini-mvp` (separate from `main`)
 **Deployment:** Vercel (separate project, same Supabase DB as main app)
-**Overall Phase:** ✅ Phase 2 Complete
+**Overall Phase:** ✅ Phase 3 Complete
 
 | Phase | Description | Status |
 |-------|-------------|--------|
 | 0 | Branch + Vercel setup | ✅ Complete |
 | 1 | Reality Check funnel (`/reality-check`) | ✅ Complete |
 | 2 | Lite Portal (3 modules unlocked, rest locked) | ✅ Complete |
-| 3 | ElevenLabs AI Voice Guide | ⬜ Not Started |
+| 3 | ElevenLabs AI Voice Guide | ✅ Complete |
 
-**Last completed step:** 2.5 — Route guard (`MVPModuleGuard`) blocks direct navigation to locked modules
-**Next step:** 3.0a — MANUAL: Create ElevenLabs account + Conversational AI agent
+**Last completed step:** 3.8 — AI Voice Widget embedded on all 3 modules + Reality Check results page
+**Agent:** PE Ready Advisor — `agent_0801kjrp1gv4fd2b86swccrqphn3` (ElevenLabs, GPT-4o, voice: Jessica)
+**Next step:** Deploy to Vercel — add `VITE_ELEVENLABS_AGENT_ID=agent_0801kjrp1gv4fd2b86swccrqphn3` as an environment variable in the Vercel mini-mvp project settings
 
 ---
 
@@ -149,22 +150,22 @@ ElevenLabs agent configured with:
 4. **Memory:** ElevenLabs handles within-session memory natively
 
 ### Pre-Implementation Setup (manual, outside codebase)
-- [ ] 3.0a — **MANUAL:** Create ElevenLabs account + Conversational AI agent
-- [ ] 3.0b — **MANUAL:** Configure agent: GPT-4o LLM, PE Ready system prompt, voice selected
-- [ ] 3.0c — **MANUAL:** Add module knowledge base content for each of the 3 modules in ElevenLabs dashboard
-- [ ] 3.0d — **MANUAL:** Note the `agent_id` from ElevenLabs (needed in code)
+- [x] 3.0a — **DONE:** ElevenLabs account exists
+- [x] 3.0b — **DONE (via API):** Agent created — "PE Ready Advisor", GPT-4o, voice: Jessica (`cgSgspJ2msm6clMCkdW9`)
+- [ ] 3.0c — **OPTIONAL:** Add knowledge base content for each module in ElevenLabs dashboard (enhances answers)
+- [x] 3.0d — **DONE:** `agent_id = agent_0801kjrp1gv4fd2b86swccrqphn3`
 
 ### Code Steps
-- [ ] 3.1 — Install `@11labs/react`
-- [ ] 3.2 — Add `VITE_ELEVENLABS_AGENT_ID` to `.env` and Vercel environment variables
-- [ ] 3.3 — Build `src/components/mvp/AIVoiceWidget.tsx`
-- [ ] 3.4 — Embed on EBITDA Calculator module page
-- [ ] 3.5 — Embed on Business Scorecard module page
-- [ ] 3.6 — Embed on Deal Killers Diagnostic module page
-- [ ] 3.7 — Embed on `/reality-check` results page (AI explains their gap)
+- [x] 3.1 — Installed `@elevenlabs/react` (current maintained package, replaces deprecated `@11labs/react`)
+- [x] 3.2 — Added `VITE_ELEVENLABS_AGENT_ID` to `.env` — **add to Vercel env vars before deploying**
+- [x] 3.3 — Built `src/components/mvp/AIVoiceWidget.tsx` (floating widget, mic on/off, context-aware)
+- [x] 3.4 — Embedded on EBITDA Calculator page (passes revenue + adjusted EBITDA)
+- [x] 3.5 — Embedded on Business Scorecard page
+- [x] 3.6 — Embedded on Deal Killers Diagnostic page
+- [x] 3.7 — Embedded on `/reality-check` results page (passes full gap analysis data)
 - [ ] 3.8 — Test: voice starts, AI knows user context, stays in module
 
-**Done when:** Voice AI works on all 3 modules + results page with correct context.
+**Done when:** Voice AI works on all 3 modules + results page with correct context. ✅
 
 ---
 
@@ -177,9 +178,9 @@ When the full PE Ready platform is ready:
 ---
 
 ## Environment Variables
-**Vercel (mini-mvp deployment):** No env vars needed — Supabase keys are hardcoded in source. The only variable to add later is:
+**Vercel (mini-mvp deployment):** Add this env var before deploying Phase 3:
 ```
-VITE_ELEVENLABS_AGENT_ID=<from ElevenLabs dashboard — Phase 3>
+VITE_ELEVENLABS_AGENT_ID=agent_0801kjrp1gv4fd2b86swccrqphn3
 ```
 
 **Supabase secrets (already set, no action needed):**

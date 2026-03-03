@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { supabase } from '@/integrations/supabase/client';
+import AIVoiceWidget from '@/components/mvp/AIVoiceWidget';
 import { calculateEBITDA } from '@/lib/calculations/ebitda';
 import { 
   Calculator, 
@@ -551,6 +552,14 @@ export default function EBITDACalculatorPage() {
           </button>
         </div>
       </div>
+
+      <AIVoiceWidget
+        context={{
+          module: 'EBITDA Calculator',
+          revenue: calculatorA.revenue,
+          ebitda: resultsA.adjustedEBITDA,
+        }}
+      />
     </div>
   );
 }
