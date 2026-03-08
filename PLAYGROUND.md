@@ -92,7 +92,7 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/returns-analysis/SKILL.md
 
 ### Enhancement 6: Management Presentation Prep
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 2, commit 4680693)
 **Upgrades:** Week 4 Discovery Interview module
 **What it does:** Adds the exact questions PE firms ask in management presentations. Categories: Business Overview, Revenue & Growth, Competitive Positioning, Operations & Team, Financial Deep-Dive, Forward Look. Also adds Customer Reference Call questions and Expert Network Call questions. Ends with "What haven't we asked that we should?" The business owner can practice answering before the real meeting.
 **Source plugin:** private-equity/skills/dd-meeting-prep/SKILL.md
@@ -110,7 +110,7 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/unit-economics/SKILL.md
 
 ### Enhancement 9: Traffic Light KPI Dashboard
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 2, commit 04224ce)
 **Upgrades:** Week 4 KPIs and OKRs module
 **What it does:** Adds Green/Yellow/Red status indicators to KPIs. Green = within 5% of target. Yellow = 5-15% below target. Red = more than 15% below or critical issue. Specific financial KPI list (Revenue vs budget, EBITDA margin vs budget, leverage ratio, interest coverage, FCF) and operational KPIs (customer count, revenue per customer, headcount, churn).
 **Source plugin:** private-equity/skills/portfolio-monitoring/SKILL.md
@@ -122,7 +122,7 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** investment-banking/skills/cim-builder/SKILL.md (teaser section)
 
 ### Enhancement 11: Buyer List Framework
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 2, commit 2ff807a)
 **Upgrades:** Week 1 Know Your Buyer module
 **What it does:** Upgrades the buyer type quiz to show specific buyer categories: strategic buyers (direct competitors, adjacent players, vertical integrators, platform builders) and financial sponsors (platform investors, add-on buyers, growth equity). Adds tiered prioritization (Tier 1: 5-10 best fits, Tier 2: 10-15 solid, Tier 3: 10-20 long shots). Shows what each buyer type looks for, recent M&A activity signals, fund vintage and deployment pace.
 **Source plugin:** investment-banking/skills/buyer-targeting/SKILL.md
@@ -141,8 +141,31 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 - Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
 - Created CHANGELOG.md (working session tracker) and ARCHIVE.md (permanent history)
 - Full code audit of existing KPI/OKR module and Anthropic portfolio-monitoring plugin
-- Enhancement 9 (Traffic Light KPI Dashboard) selected as first build
-- _(more entries as session progresses)_
+- **Built Enhancement 9: Traffic Light KPI Dashboard**
+  - Auto-calculated green/yellow/red based on progress vs target
+  - Traffic light summary bar at top of dashboard
+  - Gauge and metric colors now auto-calculated
+  - Action Focus shows red flags first, then yellow
+  - 5 new PE Financial Health KPI templates added
+  - ENHANCED badge on sidebar + page header
+- Commit: `04224ce` — pushed to noor_frank_playground
+- Fixed KPI page loading bug (pre-existing: loading spinner when not logged in) — commit `24979af`
+- **Built Enhancement 6: Mock Management Presentation Prep**
+  - Added 6 categories of real PE interview questions to Discovery Interview results
+  - Collapsible sections with coaching notes per category
+  - "The Closing Question" highlight at the bottom
+  - ENHANCED badge on sidebar + page header
+- Commit: `4680693` — pushed to noor_frank_playground
+- **Built Enhancement 11: Buyer Targeting Framework**
+  - Strategic vs Financial buyer categories with sub-types
+  - Tiered prioritization (Tier 1/2/3) with descriptions
+  - What to look for in potential buyers
+  - ENHANCED badge on sidebar + page header
+- Commit: `2ff807a` — pushed to noor_frank_playground
+- Fixed Know Your Buyer loading bug (same pre-existing issue) — commit `4d310ef`
+- **Known issue:** "Lower is better" metrics don't calculate correctly (pre-existing)
+- **Known issue:** Multiple pages likely have the same loading bug (return early without setLoading(false) when !user). Check other pages as we enhance them.
+- **Next:** 9 enhancements remaining. Frank picks next.
 
 ### Session 1 — Mar 8, 2026
 - Created `noor_frank_playground` branch
