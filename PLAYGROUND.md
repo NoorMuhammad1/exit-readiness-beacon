@@ -254,6 +254,7 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - Pricing tiers: Solo ($0-29/mo), Team ($79-99/mo), Business ($199-299/mo)
   - Estimated 5-7 sessions to build
   - **Open questions for Frank:** auth switch approval, build order (team feature vs Wave 2 enhancements), loop Noor in, pricing timing
+- **Settings Menu needed** — Anthropic-style settings page with Account, Team, and Billing tabs. The Team tab is where "Add Team Member" lives (name, email, role). This is the next thing to build — UI shell first, backend wiring in later sessions.
 - **IMPORTANT: PE Ready is its own product — completely separate from CCS. Noor is head of dev. Never cross-reference CCS projects.**
 
 ### Session 8 — Mar 8, 2026
