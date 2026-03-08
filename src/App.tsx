@@ -31,6 +31,7 @@ const AdminCompanyDetail = lazy(() => import('./pages/AdminCompanyDetail'));
 // Client Portal Dashboard
 const ClientPortalDashboard = lazy(() => import('./pages/ClientPortalDashboard'));
 const CompanyProfilePage = lazy(() => import('./pages/CompanyProfilePage'));
+const SettingsPage = lazy(() => import('./pages/SettingsPage'));
 const ScheduleConsultationPage = lazy(() => import('./pages/ScheduleConsultationPage').then(m => ({ default: m.ScheduleConsultationPage })));
 
 // Week 1 pages
@@ -130,6 +131,7 @@ function App() {
               <Route path="/portal" element={<ClientPortalLayout><ClientPortalDashboard /></ClientPortalLayout>} />
               <Route path="/portal/schedule-consultation" element={<ClientPortalLayout><ScheduleConsultationPage /></ClientPortalLayout>} />
               <Route path="/portal/company-profile" element={<ClientPortalLayout><CompanyProfilePage /></ClientPortalLayout>} />
+              <Route path="/portal/settings" element={<ClientPortalLayout><SettingsPage /></ClientPortalLayout>} />
 
               {/* Week 1 Routes */}
               <Route path="/portal/week-1/glossary" element={<ClientPortalLayout><InteractiveGlossaryPage /></ClientPortalLayout>} />

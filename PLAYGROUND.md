@@ -224,6 +224,18 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 10 — Mar 8, 2026
+- **Built Settings Page** — Anthropic-style settings with 4-tab layout
+  - **Account tab:** Display name, email (localStorage), password change (placeholder), Danger Zone with Delete Account (disabled)
+  - **Organization tab:** Company name, industry, city, state, year founded, employee count, business model — all wired to shared Company Profile store, auto-syncs with all connected modules
+  - **Team tab:** "Add Member" form (name, email, role dropdown), team list with avatar initial, role badges (Owner/Member/Advisor), status badges (Active/Pending), remove button. Roles Explained card. All persisted in localStorage (`pe-ready-team-v1`)
+  - **Billing tab:** Three plan cards (Solo $29/mo, Team $99/mo, Business $249/mo) with feature comparison, Current badge, upgrade buttons (disabled), payment method placeholder
+  - Settings link added to sidebar with gear icon, below Company Profile
+  - New file: `src/pages/SettingsPage.tsx`
+  - Route: `/portal/settings`
+  - localStorage keys: `pe-ready-team-v1` (team), `pe-ready-account-v1` (account)
+- Commit: TBD — pushing now
+
 ### Session 9 — Mar 8, 2026
 - **Deep dive into Anthropic financial-services-plugins repo** — read all 52 skills across 7 categories
 - Identified 10 new enhancements (Wave 2) that map to PE Ready from unused plugins

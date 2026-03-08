@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BookOpen, Calculator, Target, FileCheck, Crown, TrendingUp, CheckCircle, Building2 } from 'lucide-react';
+import { BookOpen, Calculator, Target, FileCheck, Crown, TrendingUp, CheckCircle, Building2, Settings } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProgress } from '@/hooks/useProgress';
@@ -64,6 +64,17 @@ export function ClientPortalSidebar() {
                     >
                       <Building2 className="h-4 w-4" />
                       <span className="text-sm">Company Profile</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to="/portal/settings"
+                      className={getNavClasses('/portal/settings')}
+                    >
+                      <Settings className="h-4 w-4" />
+                      <span className="text-sm">Settings</span>
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
