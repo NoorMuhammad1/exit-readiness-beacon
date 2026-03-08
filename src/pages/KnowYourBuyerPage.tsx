@@ -209,7 +209,10 @@ export default function KnowYourBuyerPage() {
   }, [quizAnswers, selectedBuyer]);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
     const loadProgress = async () => {
       try {
         const { data } = await supabase
