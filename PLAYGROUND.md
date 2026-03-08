@@ -146,6 +146,26 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 
 ## Session Log
 
+### Session 8 — Mar 8, 2026
+- **Shared Company Profile — data de-duplication fix**
+  - Problem: Users were re-entering the same data across modules (revenue 6x, company name 3x, EBITDA 4x)
+  - Created shared data store: `src/lib/companyProfile.ts` with `useCompanyProfile()` hook + `company-profile-v1` localStorage key
+  - Created Company Profile page: `src/pages/CompanyProfilePage.tsx` with Company Info, Financial Overview, Customer Metrics, Deal Context sections
+  - Added Company Profile link to sidebar (above Week 1)
+  - Wired 6 modules to auto-fill from profile:
+    - Anonymous Teaser: company name, industry, city, state, revenue, EBITDA, growth, employees, year, deal type
+    - CIM Generator: all of the above + timeline, EBITDA margin (replaces old patchwork import)
+    - PE Screening Scorecard: revenue, EBITDA, margin, growth, industry, customer concentration
+    - Returns Sensitivity: EBITDA, growth rate
+    - Revenue Quality Score: revenue, gross margin, growth, EBITDA margin, customers, concentration, business model
+    - Value Creation Plan: revenue, EBITDA
+  - Profile uses $M for revenue/EBITDA (PE standard). Raw-dollar modules auto-convert.
+  - Existing user data takes priority — profile only fills empty fields, never overwrites.
+  - Full plan documented in `SHARED-PROFILE-PLAN.md`
+  - Route: `/portal/company-profile`
+- Commit: `78b65ba` — pushed to noor_frank_playground
+- **Remaining from plan:** Assessment bridge (connecting Supabase assessment data to profile) — future session
+
 ### Session 7 — Mar 8, 2026
 - **Built Enhancement 8: Revenue Quality Score** (final enhancement — 12 of 12 complete!)
   - 4-tab module: Revenue Profile, Customer & Retention, Unit Economics Dashboard, Revenue Quality Score
