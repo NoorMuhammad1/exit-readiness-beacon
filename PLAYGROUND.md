@@ -98,7 +98,7 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/dd-meeting-prep/SKILL.md
 
 ### Enhancement 7: Draft CIM Generator
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 6, commit b7ee4ee)
 **Upgrades:** New premium feature — Week 4 graduation deliverable
 **What it does:** Auto-generates a draft Confidential Information Memorandum from data entered throughout the program. Sections: Executive Summary, Company Overview, Industry Overview, Growth Opportunities, Customers & Sales, Operations, Financial Overview. Anonymization options included. Output as downloadable document.
 **Source plugin:** investment-banking/skills/cim-builder/SKILL.md
@@ -145,6 +145,25 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 ---
 
 ## Session Log
+
+### Session 6 — Mar 8, 2026
+- **Built Enhancement 7: Draft CIM Generator** (graduation deliverable)
+  - 6-step wizard: Introduction → Company & Deal Setup → Business Description → Market & Growth → Customers, Team & Financials → Generated CIM Document
+  - 7-section professional CIM layout: I. Executive Summary, II. Company Overview, III. Industry Overview, IV. Growth Opportunities, V. Customers & Sales, VI. Operations, VII. Financial Overview
+  - Anonymization mode: company name → code name, location → region, financials → ranges, employee count → ranges
+  - Auto-imports data from other PE Ready modules (company name, key personnel, EBITDA, value creation levers)
+  - Auto-generated investment highlights from financial data when none manually entered
+  - Financial snapshot tables in Executive Summary and Financial Overview sections
+  - Market size / growth trends callout boxes in Industry Overview
+  - Customer concentration and retention metrics callout boxes
+  - Downloadable text export (full CIM draft with all 7 sections)
+  - localStorage persistence (`cim-generator-v1`) — users can leave and return to edit
+  - Confidentiality disclaimer in document footer
+  - ENHANCED badge on sidebar + page header
+  - New files: `src/components/cim-generator/CIMGenerator.tsx`, `src/pages/week-4/CIMGeneratorPage.tsx`
+  - Route: `/portal/week-4/cim-generator`
+- Commit: `b7ee4ee` — pushed to noor_frank_playground
+- **Next:** 1 enhancement remaining (#8: Revenue Quality Score). Then the app-wide purple theme redesign.
 
 ### Session 5 — Mar 8, 2026
 - **Built Enhancement 1: Sector-Tailored DD Checklists** (largest enhancement)
