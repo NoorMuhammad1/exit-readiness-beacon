@@ -3,14 +3,14 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { 
-  Plus, 
-  Trash2, 
-  Download, 
-  ChevronRight, 
-  BarChart3, 
-  Target, 
-  TrendingUp, 
+import {
+  Plus,
+  Trash2,
+  Download,
+  ChevronRight,
+  BarChart3,
+  Target,
+  TrendingUp,
   AlertCircle,
   TrendingDown,
   AlertTriangle,
@@ -19,8 +19,10 @@ import {
   ArrowRight,
   Info,
   Edit3,
-  ChevronDown
+  ChevronDown,
+  Sparkles
 } from "lucide-react";
+import { Badge } from '@/components/ui/badge';
 import { toast } from "sonner";
 import { Card } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
@@ -57,7 +59,8 @@ interface KeyResult {
 const SimpleGauge = ({ value, label, status }: any) => {
   const getColor = () => {
     if (status === 'green') return 'text-green-400';
-    if (status === 'amber') return 'text-yellow-400';
+    if (status === 'amber' || status === 'yellow') return 'text-yellow-400';
+    if (status === 'gray') return 'text-gray-400';
     return 'text-red-400';
   };
   
@@ -139,6 +142,55 @@ const peValueDriverTemplates = [
     unitOfMeasure: "score",
     valuationImpact: "Medium" as const,
     ebitdaImpact: 300000
+  }
+];
+
+// Financial health KPIs from PE portfolio monitoring frameworks
+const peFinancialTemplates = [
+  {
+    metricName: "EBITDA Margin",
+    category: "Financial" as const,
+    currentValue: 0,
+    targetValue: 20,
+    unitOfMeasure: "%",
+    valuationImpact: "High" as const,
+    ebitdaImpact: 0
+  },
+  {
+    metricName: "Interest Coverage Ratio",
+    category: "Financial" as const,
+    currentValue: 0,
+    targetValue: 3,
+    unitOfMeasure: "x",
+    valuationImpact: "High" as const,
+    ebitdaImpact: 0
+  },
+  {
+    metricName: "Free Cash Flow",
+    category: "Financial" as const,
+    currentValue: 0,
+    targetValue: 500000,
+    unitOfMeasure: "$",
+    valuationImpact: "High" as const,
+    ebitdaImpact: 0
+  },
+  {
+    metricName: "Revenue per Customer",
+    category: "Customer" as const,
+    currentValue: 0,
+    targetValue: 50000,
+    unitOfMeasure: "$",
+    valuationImpact: "Medium" as const,
+    ebitdaImpact: 0
+  },
+  {
+    metricName: "Revenue per Employee",
+    category: "Operational" as const,
+    currentValue: 0,
+    targetValue: 200000,
+    unitOfMeasure: "$",
+    valuationImpact: "Medium" as const,
+    ebitdaImpact: 0
   }
 ];
 
@@ -436,6 +488,42 @@ export default function KPIandOKRPage() {
     return Math.min(Math.round(progress), 100);
   };
 
+  // Traffic light auto-calculation based on progress toward target
+  // Green = within 5% of target (95%+), Yellow = 85-94%, Red = below 85%
+  const getTrafficLight = (metric: KPIMetric): 'green' | 'yellow' | 'red' | 'gray' => {
+    if (metric.currentValue === 0 && metric.status === 'Not Started') return 'gray';
+    if (metric.targetValue === 0) return 'gray';
+    const progress = calculateProgress(metric);
+    if (progress >= 95) return 'green';
+    if (progress >= 85) return 'yellow';
+    return 'red';
+  };
+
+  const getTrafficLightLabel = (color: 'green' | 'yellow' | 'red' | 'gray'): string => {
+    switch (color) {
+      case 'green': return 'On Track';
+      case 'yellow': return 'Caution';
+      case 'red': return 'Needs Attention';
+      case 'gray': return 'Not Started';
+    }
+  };
+
+  const getTrafficLightColors = (color: 'green' | 'yellow' | 'red' | 'gray') => {
+    switch (color) {
+      case 'green': return { dot: 'bg-green-500', text: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/30' };
+      case 'yellow': return { dot: 'bg-yellow-500', text: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/30' };
+      case 'red': return { dot: 'bg-red-500', text: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/30' };
+      case 'gray': return { dot: 'bg-gray-500', text: 'text-gray-400', bg: 'bg-gray-500/10', border: 'border-gray-500/30' };
+    }
+  };
+
+  // Count metrics by traffic light color
+  const trafficCounts = metrics.reduce((acc, m) => {
+    const light = getTrafficLight(m);
+    acc[light] = (acc[light] || 0) + 1;
+    return acc;
+  }, {} as Record<string, number>);
+
   const getTotalEBITDAImpact = () => {
     return metrics.reduce((sum, metric) => sum + (metric.ebitdaImpact || 0), 0);
   };
@@ -503,8 +591,14 @@ ${i + 1}. ${kr.keyResult}
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">KPIs & Performance Dashboard</h1>
-          <p className="text-white/70">Define, track, and optimize your value drivers</p>
+          <div className="flex items-center gap-3 mb-2">
+            <h1 className="text-3xl font-bold text-white">KPIs & Performance Dashboard</h1>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2 py-0.5">
+              <Sparkles className="w-3 h-3 mr-1" />
+              ENHANCED
+            </Badge>
+          </div>
+          <p className="text-white/70">Define, track, and optimize your value drivers — now with automatic traffic light scoring</p>
         </div>
 
         {/* Setup Section (Collapsible) */}
@@ -579,23 +673,47 @@ ${i + 1}. ${kr.keyResult}
 
               {/* Templates */}
               {showTemplates && (
-                <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
-                  <h3 className="text-white font-semibold mb-3">Quick Add: PE Value Driver Templates</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                    {peValueDriverTemplates.map((template, index) => (
-                      <button
-                        key={index}
-                        onClick={() => {
-                          addMetric('KPI', template);
-                          setShowTemplates(false);
-                        }}
-                        className="text-left p-3 bg-black/30 border border-white/10 rounded-lg hover:bg-white/10 transition"
-                      >
-                        <p className="text-white text-sm font-medium">{template.metricName}</p>
-                        <p className="text-white/60 text-xs">Target: {template.targetValue} {template.unitOfMeasure}</p>
-                        <p className="text-green-400 text-xs mt-1">+${template.ebitdaImpact.toLocaleString()} EBITDA</p>
-                      </button>
-                    ))}
+                <div className="mb-6 space-y-4">
+                  <div className="p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                    <h3 className="text-white font-semibold mb-3">Core PE Value Drivers</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {peValueDriverTemplates.map((template, index) => (
+                        <button
+                          key={index}
+                          onClick={() => {
+                            addMetric('KPI', template);
+                            setShowTemplates(false);
+                          }}
+                          className="text-left p-3 bg-black/30 border border-white/10 rounded-lg hover:bg-white/10 transition"
+                        >
+                          <p className="text-white text-sm font-medium">{template.metricName}</p>
+                          <p className="text-white/60 text-xs">Target: {template.targetValue} {template.unitOfMeasure}</p>
+                          {template.ebitdaImpact > 0 && (
+                            <p className="text-green-400 text-xs mt-1">+${template.ebitdaImpact.toLocaleString()} EBITDA</p>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                    <h3 className="text-white font-semibold mb-1">Financial Health KPIs</h3>
+                    <p className="text-white/50 text-xs mb-3">From PE portfolio monitoring frameworks — the metrics PE firms track after acquisition</p>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                      {peFinancialTemplates.map((template, index) => (
+                        <button
+                          key={`fin-${index}`}
+                          onClick={() => {
+                            addMetric('KPI', template);
+                            setShowTemplates(false);
+                          }}
+                          className="text-left p-3 bg-black/30 border border-white/10 rounded-lg hover:bg-white/10 transition"
+                        >
+                          <p className="text-white text-sm font-medium">{template.metricName}</p>
+                          <p className="text-white/60 text-xs">Target: {template.targetValue.toLocaleString()} {template.unitOfMeasure}</p>
+                          <p className="text-blue-400 text-xs mt-1">{template.category} • {template.valuationImpact} Impact</p>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 </div>
               )}
@@ -716,6 +834,48 @@ ${i + 1}. ${kr.keyResult}
         {/* Dashboard Section - Only show if there are real metrics */}
         {metrics.length > 0 ? (
           <div className="space-y-8">
+            {/* Traffic Light Summary Bar */}
+            <Card className="bg-white/5 border-white/10 p-5">
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex items-center gap-6">
+                  {(trafficCounts['green'] || 0) > 0 && (
+                    <div className="flex items-center gap-2">
+                      <div className="w-3.5 h-3.5 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.4)]" />
+                      <span className="text-green-400 font-bold text-lg">{trafficCounts['green']}</span>
+                      <span className="text-white/50 text-sm">On Track</span>
+                    </div>
+                  )}
+                  {(trafficCounts['yellow'] || 0) > 0 && (
+                    <div className="flex items-center gap-2">
+                      <div className="w-3.5 h-3.5 rounded-full bg-yellow-500 shadow-[0_0_8px_rgba(234,179,8,0.4)]" />
+                      <span className="text-yellow-400 font-bold text-lg">{trafficCounts['yellow']}</span>
+                      <span className="text-white/50 text-sm">Caution</span>
+                    </div>
+                  )}
+                  {(trafficCounts['red'] || 0) > 0 && (
+                    <div className="flex items-center gap-2">
+                      <div className="w-3.5 h-3.5 rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.4)]" />
+                      <span className="text-red-400 font-bold text-lg">{trafficCounts['red']}</span>
+                      <span className="text-white/50 text-sm">Needs Attention</span>
+                    </div>
+                  )}
+                  {(trafficCounts['gray'] || 0) > 0 && (
+                    <div className="flex items-center gap-2">
+                      <div className="w-3.5 h-3.5 rounded-full bg-gray-500" />
+                      <span className="text-gray-400 font-bold text-lg">{trafficCounts['gray']}</span>
+                      <span className="text-white/50 text-sm">Not Started</span>
+                    </div>
+                  )}
+                </div>
+                <div className="text-right">
+                  <p className="text-white/40 text-xs">Overall Progress</p>
+                  <p className="text-white font-bold text-lg">
+                    {Math.round(metrics.reduce((acc, m) => acc + calculateProgress(m), 0) / metrics.length)}%
+                  </p>
+                </div>
+              </div>
+            </Card>
+
             {/* Executive Summary */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <Card className="glass-card p-6">
@@ -729,7 +889,7 @@ ${i + 1}. ${kr.keyResult}
                   <TrendingUp className="w-8 h-8 text-primary" />
                 </div>
               </Card>
-              
+
               <Card className="glass-card p-6">
                 <div className="flex items-center justify-between">
                   <div>
@@ -741,16 +901,16 @@ ${i + 1}. ${kr.keyResult}
                   <Target className="w-8 h-8 text-primary" />
                 </div>
               </Card>
-              
+
               <Card className="glass-card p-6">
                 <div className="flex items-center justify-between">
                   <div>
-                    <p className="text-sm text-muted-foreground">Avg. Progress</p>
+                    <p className="text-sm text-muted-foreground">EBITDA Impact</p>
                     <p className="text-3xl font-bold text-primary">
-                      {Math.round(metrics.reduce((acc, m) => acc + calculateProgress(m), 0) / metrics.length)}%
+                      ${getTotalEBITDAImpact() > 0 ? (getTotalEBITDAImpact() / 1000000).toFixed(1) + 'M' : '0'}
                     </p>
                   </div>
-                  <BarChart3 className="w-8 h-8 text-primary" />
+                  <DollarSign className="w-8 h-8 text-primary" />
                 </div>
               </Card>
             </div>
@@ -765,10 +925,10 @@ ${i + 1}. ${kr.keyResult}
                 <div className="grid grid-cols-2 gap-4">
                   {metrics.slice(0, 4).map((metric) => (
                     <div key={metric.id} className="text-center">
-                      <SimpleGauge 
-                        value={calculateProgress(metric)} 
+                      <SimpleGauge
+                        value={calculateProgress(metric)}
                         label={metric.metricName || 'Untitled Metric'}
-                        status={metric.status === 'Achieved' ? 'green' : metric.status === 'On Track' ? 'amber' : 'red'}
+                        status={getTrafficLight(metric)}
                       />
                     </div>
                   ))}
@@ -781,60 +941,82 @@ ${i + 1}. ${kr.keyResult}
                   Metrics Overview
                 </h3>
                 <div className="space-y-4">
-                  {metrics.slice(0, 5).map((metric) => (
-                    <div key={metric.id} className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="font-medium">{metric.metricName || 'Untitled Metric'}</p>
-                        <p className="text-sm text-muted-foreground">
-                          {metric.currentValue} / {metric.targetValue} {metric.unitOfMeasure}
-                        </p>
+                  {metrics.slice(0, 5).map((metric) => {
+                    const light = getTrafficLight(metric);
+                    const colors = getTrafficLightColors(light);
+                    return (
+                      <div key={metric.id} className="flex items-center justify-between">
+                        <div className="flex items-center gap-3 flex-1">
+                          <div className={`w-3 h-3 rounded-full flex-shrink-0 ${colors.dot}`} />
+                          <div>
+                            <p className="font-medium">{metric.metricName || 'Untitled Metric'}</p>
+                            <p className="text-sm text-muted-foreground">
+                              {metric.currentValue.toLocaleString()} / {metric.targetValue.toLocaleString()} {metric.unitOfMeasure}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="text-right">
+                          <p className={`text-sm font-medium ${colors.text}`}>
+                            {calculateProgress(metric)}%
+                          </p>
+                          <p className={`text-xs ${colors.text}`}>{getTrafficLightLabel(light)}</p>
+                        </div>
                       </div>
-                      <div className="text-right">
-                        <p className={`text-sm font-medium ${getStatusColor(metric.status)}`}>
-                          {calculateProgress(metric)}%
-                        </p>
-                        <p className="text-xs text-muted-foreground">{metric.status}</p>
-                      </div>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </Card>
             </div>
 
-            {/* Action Focus Section */}
+            {/* Action Focus Section — Red flags first, then Yellow */}
             <Card className="glass-card p-6">
               <h3 className="text-xl font-semibold mb-6 flex items-center gap-2">
                 <AlertCircle className="w-5 h-5" />
                 Action Focus
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {metrics
-                  .filter(m => calculateProgress(m) < 70)
-                  .slice(0, 3)
-                  .map((metric) => (
-                    <div key={metric.id} className="p-4 bg-orange-500/10 border border-orange-500/20 rounded-lg">
-                      <div className="flex items-center gap-2 mb-2">
-                        <div className="w-2 h-2 bg-orange-500 rounded-full"></div>
-                        <span className="text-sm font-medium">{metric.metricType}</span>
-                      </div>
-                      <p className="font-semibold">{metric.metricName || 'Untitled Metric'}</p>
-                      <p className="text-sm text-muted-foreground">
-                        {calculateProgress(metric)}% complete - Needs attention
-                      </p>
-                      <div className="mt-2">
-                        <div className="w-full bg-orange-900/20 rounded-full h-2">
-                          <div 
-                            className="bg-orange-500 h-2 rounded-full transition-all duration-300"
-                            style={{ width: `${calculateProgress(metric)}%` }}
-                          ></div>
+                {[...metrics]
+                  .filter(m => {
+                    const light = getTrafficLight(m);
+                    return light === 'red' || light === 'yellow';
+                  })
+                  .sort((a, b) => {
+                    // Red items first, then yellow
+                    const order = { red: 0, yellow: 1, green: 2, gray: 3 };
+                    return order[getTrafficLight(a)] - order[getTrafficLight(b)];
+                  })
+                  .slice(0, 6)
+                  .map((metric) => {
+                    const light = getTrafficLight(metric);
+                    const colors = getTrafficLightColors(light);
+                    return (
+                      <div key={metric.id} className={`p-4 ${colors.bg} border ${colors.border} rounded-lg`}>
+                        <div className="flex items-center gap-2 mb-2">
+                          <div className={`w-3 h-3 rounded-full ${colors.dot}`} />
+                          <span className={`text-sm font-medium ${colors.text}`}>{getTrafficLightLabel(light)}</span>
+                        </div>
+                        <p className="font-semibold">{metric.metricName || 'Untitled Metric'}</p>
+                        <p className="text-sm text-muted-foreground">
+                          {calculateProgress(metric)}% of target ({metric.currentValue.toLocaleString()} / {metric.targetValue.toLocaleString()} {metric.unitOfMeasure})
+                        </p>
+                        <div className="mt-2">
+                          <div className={`w-full ${light === 'red' ? 'bg-red-900/20' : 'bg-yellow-900/20'} rounded-full h-2`}>
+                            <div
+                              className={`${colors.dot} h-2 rounded-full transition-all duration-300`}
+                              style={{ width: `${calculateProgress(metric)}%` }}
+                            />
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
-                {metrics.filter(m => calculateProgress(m) < 70).length === 0 && (
+                    );
+                  })}
+                {metrics.filter(m => {
+                  const light = getTrafficLight(m);
+                  return light === 'red' || light === 'yellow';
+                }).length === 0 && (
                   <div className="col-span-full text-center py-8 text-muted-foreground">
                     <CheckCircle className="w-12 h-12 mx-auto mb-2 text-green-500" />
-                    <p>All metrics are performing well!</p>
+                    <p>All metrics are on track! No items need attention.</p>
                   </div>
                 )}
               </div>

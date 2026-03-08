@@ -115,9 +115,34 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **What it does:** Adds Green/Yellow/Red status indicators to KPIs. Green = within 5% of target. Yellow = 5-15% below target. Red = more than 15% below or critical issue. Specific financial KPI list (Revenue vs budget, EBITDA margin vs budget, leverage ratio, interest coverage, FCF) and operational KPIs (customer count, revenue per customer, headcount, churn).
 **Source plugin:** private-equity/skills/portfolio-monitoring/SKILL.md
 
+### Enhancement 10: Anonymous Teaser Generator
+**Status:** NOT STARTED
+**Upgrades:** New premium feature — pairs with CIM Generator
+**What it does:** Auto-generates a one-page blind teaser from assessment data. Includes deal code name, 4-6 investment highlight bullets, financial summary table, and anonymization rules (no company name, region instead of city, revenue ranges instead of exact figures). This is the "movie trailer" a banker sends to potential buyers before revealing the company identity.
+**Source plugin:** investment-banking/skills/cim-builder/SKILL.md (teaser section)
+
+### Enhancement 11: Buyer List Framework
+**Status:** NOT STARTED
+**Upgrades:** Week 1 Know Your Buyer module
+**What it does:** Upgrades the buyer type quiz to show specific buyer categories: strategic buyers (direct competitors, adjacent players, vertical integrators, platform builders) and financial sponsors (platform investors, add-on buyers, growth equity). Adds tiered prioritization (Tier 1: 5-10 best fits, Tier 2: 10-15 solid, Tier 3: 10-20 long shots). Shows what each buyer type looks for, recent M&A activity signals, fund vintage and deployment pace.
+**Source plugin:** investment-banking/skills/buyer-targeting/SKILL.md
+
+### Enhancement 12: Competitive Analysis Frameworks
+**Status:** NOT STARTED
+**Upgrades:** Week 3 Business Scorecard area
+**What it does:** Adds TAM/SAM/SOM market sizing framework, Porter's Five Forces analysis, and competitive positioning maps (2x2 matrices with industry-specific axes). Answers "How big is your market and what's your share?" — exactly what PE firms want in the Company Overview section of any deal document.
+**Source plugin:** equity-research/skills/industry-analysis/SKILL.md
+
 ---
 
 ## Session Log
+
+### Session 2 — Mar 8, 2026
+- Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
+- Created CHANGELOG.md (working session tracker) and ARCHIVE.md (permanent history)
+- Full code audit of existing KPI/OKR module and Anthropic portfolio-monitoring plugin
+- Enhancement 9 (Traffic Light KPI Dashboard) selected as first build
+- _(more entries as session progresses)_
 
 ### Session 1 — Mar 8, 2026
 - Created `noor_frank_playground` branch
@@ -126,6 +151,5 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 - Created conversation starter document for Frank
 - Dev server confirmed running on port 8080
 - No code changes yet — planning session only
-- **Next:** Frank picks which enhancement to build first
 
 ---

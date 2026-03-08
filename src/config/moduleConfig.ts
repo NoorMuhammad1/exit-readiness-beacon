@@ -4,6 +4,7 @@ export interface ModuleConfig {
   path: string;
   weekNumber: number;
   order: number;
+  enhancement?: 'ENHANCED' | 'NEW';
 }
 
 export interface WeekConfig {
@@ -48,7 +49,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 3 },
   { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4 },
   { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 5 },
-  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6 }
+  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6, enhancement: 'ENHANCED' }
 ];
 
 // Helper function to get modules by week

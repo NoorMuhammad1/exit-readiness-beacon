@@ -90,11 +90,23 @@ export function ClientPortalSidebar() {
                       return (
                         <SidebarMenuItem key={module.name}>
                           <SidebarMenuButton asChild>
-                            <NavLink 
-                              to={module.path} 
+                            <NavLink
+                              to={module.path}
                               className={getNavClasses(module.path)}
                             >
                               <span className="text-sm">{module.name}</span>
+                              {module.enhancement && (
+                                <Badge
+                                  variant={module.enhancement === 'NEW' ? 'default' : 'secondary'}
+                                  className={`text-[10px] px-1.5 py-0 h-4 ml-1 ${
+                                    module.enhancement === 'ENHANCED'
+                                      ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
+                                      : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                                  }`}
+                                >
+                                  {module.enhancement}
+                                </Badge>
+                              )}
                               {moduleCompleted ? (
                                 <CheckCircle className="h-4 w-4 ml-auto text-primary" />
                               ) : isActive(module.path) ? (
