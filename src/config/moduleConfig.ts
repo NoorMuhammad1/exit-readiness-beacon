@@ -47,7 +47,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1 },
   { name: 'LOI Review', path: '/portal/week-4/loi-review', weekNumber: 4, order: 2 },
   { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 3 },
-  { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4 },
+  { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4, enhancement: 'ENHANCED' },
   { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 5 },
   { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6, enhancement: 'ENHANCED' }
 ];

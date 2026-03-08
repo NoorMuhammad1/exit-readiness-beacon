@@ -1,11 +1,85 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
-import { Clock, TrendingUp, Target, ChevronRight, AlertCircle, CheckCircle2, XCircle } from 'lucide-react';
+// import { supabase } from '@/integrations/supabase/client'; // Removed - using MongoDB backend
+import { Clock, TrendingUp, Target, ChevronRight, ChevronDown, AlertCircle, CheckCircle2, XCircle, Sparkles, MessageSquare, Users, BarChart3, Briefcase, Eye, Lightbulb } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+
+// PE interview questions — the exact questions PE firms ask in management presentations
+const peInterviewCategories = [
+  {
+    id: 'overview',
+    title: 'Business Overview (Warm-Up)',
+    icon: Briefcase,
+    description: 'They start friendly to get you talking. Don\'t ramble — be concise.',
+    questions: [
+      'Walk us through the founding story and key milestones.',
+      'How do you describe the business to someone unfamiliar with the space?',
+      'What are you most proud of building? What would you do differently?'
+    ]
+  },
+  {
+    id: 'revenue',
+    title: 'Revenue & Growth',
+    icon: TrendingUp,
+    description: 'This is where they test if you really understand your own numbers.',
+    questions: [
+      'Walk us through revenue by customer, segment, and geography.',
+      'What\'s driving growth? Is it price, volume, or new customers?',
+      'What does the sales cycle look like? How has win rate trended?',
+      'Where do you see the biggest growth opportunities in the next 3-5 years?'
+    ]
+  },
+  {
+    id: 'competitive',
+    title: 'Competitive Positioning',
+    icon: Target,
+    description: 'They want to know your moat. If you can\'t articulate it, they assume you don\'t have one.',
+    questions: [
+      'Who do you lose deals to and why?',
+      'What\'s your moat? How defensible is it?',
+      'How do customers evaluate you vs. alternatives?'
+    ]
+  },
+  {
+    id: 'operations',
+    title: 'Operations & Team',
+    icon: Users,
+    description: 'They\'re evaluating whether the business runs without you.',
+    questions: [
+      'Walk us through the org chart — who are the key people?',
+      'What roles are you hiring for? What\'s been hardest to fill?',
+      'What keeps you up at night operationally?'
+    ]
+  },
+  {
+    id: 'financial',
+    title: 'Financial Deep-Dive',
+    icon: BarChart3,
+    description: 'They\'ll probe every line item. Know your numbers cold.',
+    questions: [
+      'Walk us through the margin bridge — what\'s changed and why?',
+      'Any one-time or non-recurring items we should understand?',
+      'How do you think about capex — maintenance vs. growth?',
+      'Working capital seasonality?'
+    ]
+  },
+  {
+    id: 'forward',
+    title: 'Forward Look',
+    icon: Eye,
+    description: 'This is the "can we trust the projections?" section.',
+    questions: [
+      'Walk us through the budget/plan for next year.',
+      'What assumptions are you most confident in? Least confident?',
+      'What would need to go right to significantly beat plan?',
+      'What would need to go wrong to significantly miss plan?'
+    ]
+  }
+];
 
 // Combined question interface
 interface ExecutiveQuestion {
@@ -288,6 +362,7 @@ export default function ExecutiveDiscoveryInterviewPage() {
   const [saving, setSaving] = useState(false);
   const [readinessScore, setReadinessScore] = useState(0);
   const [recommendedPath, setRecommendedPath] = useState<string>('');
+  const [expandedCategories, setExpandedCategories] = useState<Record<string, boolean>>({});
 
   const question = executiveQuestions[currentQuestion];
 
@@ -379,14 +454,14 @@ export default function ExecutiveDiscoveryInterviewPage() {
     if (!user) return;
     setSaving(true);
     try {
-      const { error } = await supabase.from('exit_readiness_assessments').upsert({
-        user_id: user.id,
+      // Backend doesn't have exit_readiness_assessments table yet
+      // Save to localStorage for now
+      localStorage.setItem(`exit_assessment_${user.id}`, JSON.stringify({
         answers,
         score: readinessScore,
-        assessment_version: '2.0', // Updated version for combined assessment
+        assessment_version: '2.0',
         completed_at: new Date().toISOString()
-      });
-      if (error) throw error;
+      }));
       toast.success('Assessment saved!');
     } catch (err) {
       toast.error('Failed to save assessment');
@@ -541,7 +616,7 @@ export default function ExecutiveDiscoveryInterviewPage() {
             <div className="bg-accent/50 border border-border rounded-xl p-8">
               <h3 className="text-2xl font-semibold text-foreground mb-4">Your 90-Day Action Plan</h3>
               <p className="text-muted-foreground mb-6">
-                Based on your {recommendedPathData?.title.toLowerCase()} goal and {readinessScore}% readiness score, 
+                Based on your {recommendedPathData?.title.toLowerCase()} goal and {readinessScore}% readiness score,
                 here's your personalized roadmap to bridge the gap.
               </p>
               <div className="flex gap-4 justify-center">
@@ -549,8 +624,8 @@ export default function ExecutiveDiscoveryInterviewPage() {
                   Build Your Action Plan
                   <ChevronRight className="w-4 h-4 ml-2" />
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   onClick={() => navigate('/portal/schedule-consultation')}
                   size="lg"
                 >
@@ -558,6 +633,78 @@ export default function ExecutiveDiscoveryInterviewPage() {
                 </Button>
               </div>
             </div>
+
+            {/* Mock Management Presentation Prep */}
+            <Card className="p-8 mt-8 text-left">
+              <div className="flex items-center gap-3 mb-2">
+                <MessageSquare className="w-6 h-6 text-primary" />
+                <h2 className="text-2xl font-bold text-foreground">Mock Management Presentation Prep</h2>
+                <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2 py-0.5">
+                  <Sparkles className="w-3 h-3 mr-1" />
+                  ENHANCED
+                </Badge>
+              </div>
+              <p className="text-muted-foreground mb-6">
+                These are the exact questions PE firms ask during management presentations.
+                Review them, practice your answers, and walk into that meeting prepared.
+                A typical management presentation is 60-90 minutes — you won't get through more than 15-20 questions.
+              </p>
+
+              <div className="space-y-3">
+                {peInterviewCategories.map((category) => {
+                  const isExpanded = expandedCategories[category.id];
+                  const CategoryIcon = category.icon;
+                  return (
+                    <div key={category.id} className="border border-border rounded-lg overflow-hidden">
+                      <button
+                        onClick={() => setExpandedCategories(prev => ({
+                          ...prev,
+                          [category.id]: !prev[category.id]
+                        }))}
+                        className="w-full flex items-center justify-between p-4 hover:bg-muted/50 transition-colors"
+                      >
+                        <div className="flex items-center gap-3">
+                          <CategoryIcon className="w-5 h-5 text-primary" />
+                          <div className="text-left">
+                            <span className="font-semibold text-foreground">{category.title}</span>
+                            <span className="text-muted-foreground text-sm ml-2">({category.questions.length} questions)</span>
+                          </div>
+                        </div>
+                        <ChevronDown className={`w-5 h-5 text-muted-foreground transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                      </button>
+                      {isExpanded && (
+                        <div className="px-4 pb-4 border-t border-border">
+                          <p className="text-sm text-muted-foreground italic my-3">{category.description}</p>
+                          <ol className="space-y-3">
+                            {category.questions.map((q, i) => (
+                              <li key={i} className="flex gap-3 text-foreground">
+                                <span className="text-primary font-semibold flex-shrink-0">{i + 1}.</span>
+                                <span>{q}</span>
+                              </li>
+                            ))}
+                          </ol>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+
+                {/* The Killer Question */}
+                <div className="mt-6 p-4 bg-primary/10 border border-primary/30 rounded-lg">
+                  <div className="flex items-start gap-3">
+                    <Lightbulb className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="font-semibold text-foreground mb-1">The Closing Question They Always Ask</p>
+                      <p className="text-foreground italic">"What haven't we asked about that we should?"</p>
+                      <p className="text-sm text-muted-foreground mt-2">
+                        Have an answer ready. This is your chance to address the elephant in the room
+                        before they find it in due diligence.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Card>
           </div>
         </div>
       </div>
@@ -570,9 +717,15 @@ export default function ExecutiveDiscoveryInterviewPage() {
     <div className="min-h-screen bg-background p-6">
       <div className="max-w-3xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-foreground mb-2">Executive Discovery Interview</h1>
+          <div className="flex items-center gap-3 mb-2">
+            <h1 className="text-3xl font-bold text-foreground">Executive Discovery Interview</h1>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2 py-0.5">
+              <Sparkles className="w-3 h-3 mr-1" />
+              ENHANCED
+            </Badge>
+          </div>
           <p className="text-muted-foreground mb-6">
-            Comprehensive assessment to determine your optimal exit path and business readiness
+            Comprehensive assessment to determine your optimal exit path and business readiness — now with PE interview prep
           </p>
           
           <div className="bg-accent/50 border border-border rounded-lg p-4 mb-6">
