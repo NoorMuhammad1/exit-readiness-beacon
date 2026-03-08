@@ -239,8 +239,22 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - 21: Company One-Pager (strip-profile plugin)
   - 22: PE Pitch Deck Builder (pitch-deck-population plugin)
 - Added Navigation Restructure plan to Future To-Do (weeks → phases, pillar vs supplemental, industry tags)
-- **Building Enhancement 13: Deal Process Roadmap** — BINGO received
-- (commits TBD — in progress)
+- **Built Enhancement 13: Deal Process Roadmap** — 8-stage interactive M&A timeline
+  - Stages: Preparation → Marketing → IOIs → Management Presentations → Due Diligence → Final Bids → Signing → Closing
+  - Each stage: what happens, what you need ready, common pitfalls, key documents, who's involved, pro tip
+  - CSV export, PE Ready connection card at bottom
+  - New files: `src/components/deal-process-roadmap/DealProcessRoadmap.tsx`, `src/pages/week-1/DealProcessRoadmapPage.tsx`
+  - Route: `/portal/week-1/deal-process`, ENHANCED badge in sidebar
+- Commit: `e305c16` — pushed to noor_frank_playground
+- **Team Invite Feature — full plan written** (`TEAM-INVITE-PLAN.md` in project root)
+  - Owner-controlled model: owner adds members by name/email, pays per seat, shares login link
+  - New member clicks link → sets password → joins team workspace
+  - Three roles: Owner (full control + billing), Member (edit), Advisor (view-only, free)
+  - Requires foundation work: auth migration (MongoDB → Supabase), data migration (localStorage → Supabase)
+  - Pricing tiers: Solo ($0-29/mo), Team ($79-99/mo), Business ($199-299/mo)
+  - Estimated 5-7 sessions to build
+  - **Open questions for Frank:** auth switch approval, build order (team feature vs Wave 2 enhancements), loop Noor in, pricing timing
+- **IMPORTANT: PE Ready is its own product — completely separate from CCS. Noor is head of dev. Never cross-reference CCS projects.**
 
 ### Session 8 — Mar 8, 2026
 - **Shared Company Profile — data de-duplication fix**
