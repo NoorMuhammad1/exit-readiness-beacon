@@ -80,7 +80,7 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/ic-memo/SKILL.md
 
 ### Enhancement 4: EBITDA Bridge + 100-Day Plan
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 5, commit a547ad7)
 **Upgrades:** Week 3 Scenario Planning + Week 4 Strategy Doc Builder
 **What it does:** Adds an EBITDA bridge table (current EBITDA > value creation levers > target EBITDA over 5 years). Adds a 100-day post-close plan template (Days 1-30 Stabilize, Days 31-60 Plan, Days 61-100 Execute). Adds KPI dashboard with Current/Target/Owner/Frequency columns. Categories: Revenue growth levers, margin expansion levers, strategic/multiple expansion levers.
 **Source plugin:** private-equity/skills/value-creation-plan/SKILL.md
@@ -164,8 +164,18 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
   - Rebuilt component: `src/components/due-diligence/DueDiligenceChecklist.tsx`
   - localStorage key: `dd-checklist-v2` (new data structure, won't conflict with old)
 - Commit: `d28cfea` — pushed to noor_frank_playground
+- **Built Enhancement 4: EBITDA Bridge + 100-Day Plan + Value Creation KPIs**
+  - New standalone module: Value Creation Plan (Week 3, route: `/portal/week-3/value-creation`)
+  - Tab 1: Baseline Financials + Value Creation Levers in 3 categories (Revenue Growth, Margin Expansion, Strategic/Multiple Expansion)
+  - Each lever: name, description, current/target state, 5-year EBITDA impact by year, investment required, confidence (high/medium/low)
+  - Tab 2: EBITDA Bridge — auto-calculated 5-year walk from base EBITDA to pro forma, color-coded subtotals by category, growth %, implied margin
+  - Tab 3: 100-Day Post-Close Plan — 3 phase cards (Days 1-30 Stabilize, 31-60 Plan, 61-100 Execute) with checkboxes, owners, priorities, progress bar
+  - Tab 4: KPI Dashboard — 7 default KPIs (Revenue, EBITDA, Margin, Customer Wins, Retention, Turnover, Cash Conversion) with Current/Target/Owner/Frequency
+  - CSV export, ENHANCED badge on sidebar + page header
+  - localStorage key: `value-creation-plan-v1`
+- Commit: `a547ad7` — pushed to noor_frank_playground
 - **Set up Obsidian** (v1.12.4) vault at `C:\Users\FrankDalton\myProjects` for browsing all project .md files
-- **Next:** 3 enhancements remaining (#4, #7, #8). Frank picks next.
+- **Next:** 2 enhancements remaining (#7, #8). Frank picks next.
 
 ### Session 4 — Mar 8, 2026
 - **Built Enhancement 3: Mock IC Memo (Final Report Upgrade)**
