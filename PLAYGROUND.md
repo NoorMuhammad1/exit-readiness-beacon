@@ -203,17 +203,15 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Future To-Do (Not Enhancements — Separate Sessions)
 
-### Navigation Restructure: Weeks to Phases + Course Tiering
-**Status:** NOT STARTED — Design approved, needs pillar list from Frank before building
-**What it does:** Three-layer redesign of the sidebar navigation:
-1. **Remove week labels** — Replace "Week 1/2/3/4" headers with descriptive phase names (e.g., Foundation, Deal Readiness, Performance Analytics, Final Readiness). No timeline language. Self-paced journey.
-2. **Pillar vs. Supplemental distinction** — Core courses (essential to every exit) get bold/accent styling. Supplemental courses get muted styling. All courses remain accessible — visual hierarchy only.
-3. **Industry relevance tags** — Courses that don't apply to every business type (e.g., a doctor's office) get a subtle "Industry Specific" indicator. Could auto-flag based on industry selected in Company Profile.
-**Before building, Frank needs to provide:**
-- Final phase names (or approve: Foundation / Deal Readiness / Performance Analytics / Final Readiness)
+### Navigation Restructure: Course Tiering (Pillar vs Supplemental + Industry Tags)
+**Status:** PHASE 1 COMPLETE (Session 10) — Week labels stripped, flat module list live
+**Remaining work:**
+1. **Pillar vs. Supplemental distinction** — Core courses (essential to every exit) get bold/accent styling. Supplemental courses get muted styling. All courses remain accessible — visual hierarchy only.
+2. **Industry relevance tags** — Courses that don't apply to every business type (e.g., a doctor's office) get a subtle "Industry Specific" indicator. Could auto-flag based on industry selected in Company Profile.
+**Before building remaining layers, Frank needs to provide:**
 - Pillar course list (which courses are core to every exit regardless of industry)
 - Industry-to-course relevance map (which courses get flagged for which industries)
-**Estimated sessions:** 2 (Session A: phase names + pillar/supplemental | Session B: industry relevance tagging)
+**Estimated sessions:** 1-2 for remaining layers
 
 ### App-Wide UI Redesign: Premium Purple Theme
 **Status:** NOT STARTED
@@ -234,6 +232,14 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - New file: `src/pages/SettingsPage.tsx`
   - Route: `/portal/settings`
   - localStorage keys: `pe-ready-team-v1` (team), `pe-ready-account-v1` (account)
+- Commit: `fb6f55b` — pushed to noor_frank_playground
+- **Navigation Restructure — stripped week groupings from sidebar**
+  - Removed Week 1/2/3/4 headers, progress badges, "Active" badges, and section titles
+  - All modules now in one flat scrollable list under "Modules" label
+  - Company Profile and Settings remain at top
+  - Welcome text updated: "4-Week Exit Readiness Program" → "Exit Readiness Program"
+  - No routes, module content, or functionality changed — sidebar only
+  - Cleaned up unused imports (week icons, getWeekProgress)
 - Commit: TBD — pushing now
 
 ### Session 9 — Mar 8, 2026
