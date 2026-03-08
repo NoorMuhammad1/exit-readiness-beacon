@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-import { ChevronRight, Target, AlertCircle, CheckCircle } from "lucide-react";
+import { ChevronRight, Target, AlertCircle, CheckCircle, Sparkles, Building2, Landmark, Layers } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 // Custom debounce - no lodash needed
 function debounce(fn: (...args: any[]) => void, delay: number) {
@@ -242,7 +243,13 @@ export default function KnowYourBuyerPage() {
     <div className="min-h-screen p-6">
       <div className="max-w-7xl mx-auto">
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-white mb-2">{KnowYourBuyerModule.title}</h1>
+          <div className="flex items-center gap-3 mb-2">
+            <h1 className="text-3xl font-bold text-white">{KnowYourBuyerModule.title}</h1>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2 py-0.5">
+              <Sparkles className="w-3 h-3 mr-1" />
+              ENHANCED
+            </Badge>
+          </div>
           <p className="text-white/70">{KnowYourBuyerModule.purpose}</p>
           <p className="text-white/60 mt-2">{KnowYourBuyerModule.introContent.reality}</p>
         </div>
@@ -351,6 +358,101 @@ export default function KnowYourBuyerPage() {
             })()}
           </div>
         )}
+
+        {/* Buyer Targeting Framework — from PE deal sourcing frameworks */}
+        <div className="mt-12 mb-8">
+          <div className="flex items-center gap-3 mb-2">
+            <h2 className="text-2xl font-bold text-white">Buyer Targeting Framework</h2>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-2 py-0.5">
+              <Sparkles className="w-3 h-3 mr-1" />
+              NEW
+            </Badge>
+          </div>
+          <p className="text-white/60 mb-8">How investment bankers actually categorize and prioritize potential acquirers for your business.</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* Strategic Buyers */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Building2 className="w-6 h-6 text-blue-400" />
+                <h3 className="text-lg font-semibold text-white">Strategic Buyers</h3>
+              </div>
+              <p className="text-white/60 text-sm mb-4">Companies that buy you because you make their existing business stronger.</p>
+              <div className="space-y-3">
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Direct Competitors</p>
+                  <p className="text-white/50 text-xs">Want your market share, customers, or geographic reach</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Adjacent Players</p>
+                  <p className="text-white/50 text-xs">In a related space — your product fills a gap in their offering</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Vertical Integrators</p>
+                  <p className="text-white/50 text-xs">Want to own more of the supply chain — your company is upstream or downstream</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Platform Builders</p>
+                  <p className="text-white/50 text-xs">Assembling a group of companies under one roof — you fit the puzzle</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Financial Sponsors */}
+            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+              <div className="flex items-center gap-3 mb-4">
+                <Landmark className="w-6 h-6 text-green-400" />
+                <h3 className="text-lg font-semibold text-white">Financial Sponsors</h3>
+              </div>
+              <p className="text-white/60 text-sm mb-4">Investors who buy you to grow the business and sell it later at a profit.</p>
+              <div className="space-y-3">
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Platform Investors</p>
+                  <p className="text-white/50 text-xs">You become the foundation — they'll bolt on more companies around you</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Add-On Buyers</p>
+                  <p className="text-white/50 text-xs">They already own a platform — you get added to it for scale or capability</p>
+                </div>
+                <div className="bg-black/20 rounded-lg p-3">
+                  <p className="text-white text-sm font-medium">Growth Equity</p>
+                  <p className="text-white/50 text-xs">Minority or majority stake — they inject capital and expertise to accelerate growth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Tiered Prioritization */}
+          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <div className="flex items-center gap-3 mb-4">
+              <Layers className="w-6 h-6 text-purple-400" />
+              <h3 className="text-lg font-semibold text-white">How Bankers Prioritize Your Buyer List</h3>
+            </div>
+            <p className="text-white/60 text-sm mb-6">When an investment banker puts together your buyer list, they rank every potential acquirer into tiers.</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-green-500/10 border border-green-500/30 rounded-lg p-4">
+                <p className="text-green-400 font-bold text-lg mb-1">Tier 1</p>
+                <p className="text-green-400 text-sm font-medium mb-2">5-10 Best Fits</p>
+                <p className="text-white/60 text-xs">Highest strategic fit, most likely to pay a premium. These get called first.</p>
+              </div>
+              <div className="bg-yellow-500/10 border border-yellow-500/30 rounded-lg p-4">
+                <p className="text-yellow-400 font-bold text-lg mb-1">Tier 2</p>
+                <p className="text-yellow-400 text-sm font-medium mb-2">10-15 Solid Prospects</p>
+                <p className="text-white/60 text-xs">Good fit but may need more convincing. Creates competitive tension in the process.</p>
+              </div>
+              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
+                <p className="text-blue-400 font-bold text-lg mb-1">Tier 3</p>
+                <p className="text-blue-400 text-sm font-medium mb-2">10-20 Long Shots</p>
+                <p className="text-white/60 text-xs">Opportunistic — might surprise you. Sometimes the dark horse wins the auction.</p>
+              </div>
+            </div>
+            <div className="mt-4 p-4 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+              <p className="text-white/80 text-sm">
+                <strong className="text-purple-400">What to look for in potential buyers:</strong> Recent M&A activity in your space, fund vintage and how much capital they still need to deploy, public statements about growth strategy, and whether your business fills a known gap in their portfolio.
+              </p>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div>
