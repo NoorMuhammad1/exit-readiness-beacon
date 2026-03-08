@@ -61,6 +61,7 @@ const TopPerformersPage = lazy(() => import('./pages/week-3/TopPerformersPage'))
 const BusinessScorecardPage = lazy(() => import('./pages/week-3/BusinessScorecardPage'));
 const DealKillersPage = lazy(() => import('./pages/week-3/DealKillersDiagnosticPage'));
 const PEScreeningScorecardPage = lazy(() => import('./pages/week-3/PEScreeningScorecardPage'));
+const CompetitiveAnalysisPage = lazy(() => import('./pages/week-3/CompetitiveAnalysisPage'));
 
 // Week 4 pages
 const DueDiligenceChecklistPage = lazy(() => import('./pages/week-4/DueDiligenceChecklistPage'));
@@ -152,6 +153,7 @@ function App() {
               <Route path="/portal/week-3/business-scorecard" element={<ClientPortalLayout><BusinessScorecardPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/deal-killers" element={<ClientPortalLayout><DealKillersPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/pe-screening" element={<ClientPortalLayout><PEScreeningScorecardPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-3/competitive-analysis" element={<ClientPortalLayout><CompetitiveAnalysisPage /></ClientPortalLayout>} />
 
               {/* Week 4 Routes */}
               <Route path="/portal/week-4/dd-checklist" element={<ClientPortalLayout><DueDiligenceChecklistPage /></ClientPortalLayout>} />
