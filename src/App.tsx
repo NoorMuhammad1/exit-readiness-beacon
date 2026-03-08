@@ -72,6 +72,7 @@ const DiscoveryInterviewPage = lazy(() => import('./pages/DiscoveryInterviewPage
 const ExecutiveDiscoveryInterviewPage = lazy(() => import('./pages/ExecutiveDiscoveryInterviewPage'));
 const StrategyDocBuilderPage = lazy(() => import('./pages/StrategyDocBuilderPage'));
 const KPIandOKRPage = lazy(() => import('./pages/KPIandOKRPage'));
+const AnonymousTeaserPage = lazy(() => import('./pages/week-4/AnonymousTeaserPage'));
 
 // Create a client
 const queryClient = new QueryClient({
@@ -165,6 +166,7 @@ function App() {
               <Route path="/portal/week-4/executive-discovery" element={<ClientPortalLayout><ExecutiveDiscoveryInterviewPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/value-builder" element={<ClientPortalLayout><StrategyDocBuilderPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/kpis-okrs" element={<ClientPortalLayout><KPIandOKRPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-4/anonymous-teaser" element={<ClientPortalLayout><AnonymousTeaserPage /></ClientPortalLayout>} />
               
               {/* Catch-all 404 route */}
               <Route path="*" element={<NotFound />} />

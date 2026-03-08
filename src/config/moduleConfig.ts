@@ -52,7 +52,8 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 3 },
   { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4, enhancement: 'ENHANCED' },
   { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 5 },
-  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6, enhancement: 'ENHANCED' }
+  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6, enhancement: 'ENHANCED' },
+  { name: 'Anonymous Teaser', path: '/portal/week-4/anonymous-teaser', weekNumber: 4, order: 7, enhancement: 'ENHANCED' }
 ];
 
 // Helper function to get modules by week
