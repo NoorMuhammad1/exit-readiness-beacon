@@ -135,6 +135,15 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 
 ---
 
+## Future To-Do (Not Enhancements — Separate Sessions)
+
+### App-Wide UI Redesign: Premium Purple Theme
+**Status:** NOT STARTED
+**What it does:** Redesign the entire PE Ready app to match a premium dark + purple gradient aesthetic. Reference screenshot saved at `ui-reference.png` in project root. Key elements: purple radial gradient backgrounds, oversized bold typography, solid black cards, decorative SVG arc lines, consistent purple accent color across all pages (sidebar, nav, every module). This is a multi-session styling overhaul — no structural/logic changes.
+**Reference:** `ui-reference.png` (NixtNode-style design)
+
+---
+
 ## Session Log
 
 ### Session 4 — Mar 8, 2026
