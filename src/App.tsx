@@ -41,6 +41,7 @@ const KnowYourBuyerPage = lazy(() => import('./pages/KnowYourBuyerPage'));
 const AssetFreeEducationPage = lazy(() => import('./pages/AssetFreeEducationPage'));
 const TimeKillsDealsPage = lazy(() => import('./pages/TimeKillsDealsPage'));
 const EBITDAExplainedPage = lazy(() => import('./pages/EBITDACoursePage'));
+const DealProcessRoadmapPage = lazy(() => import('./pages/week-1/DealProcessRoadmapPage'));
 
 // Week 2 pages
 const DataRoomIntroPage = lazy(() => import('./pages/DataRoomIntroPage').then(m => ({ default: m.DataRoomIntroPage })));
@@ -138,6 +139,7 @@ function App() {
               <Route path="/portal/week-1/asset-free-education" element={<ClientPortalLayout><AssetFreeEducationPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/time-kills-deals" element={<ClientPortalLayout><TimeKillsDealsPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/ebitda-course" element={<ClientPortalLayout><EBITDAExplainedPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/deal-process" element={<ClientPortalLayout><DealProcessRoadmapPage /></ClientPortalLayout>} />
 
               {/* Week 2 Routes */}
               <Route path="/portal/week-2/data-room" element={<ClientPortalLayout><DataRoomIntroPage /></ClientPortalLayout>} />

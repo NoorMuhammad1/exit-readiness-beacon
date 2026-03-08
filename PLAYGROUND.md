@@ -135,7 +135,85 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 
 ---
 
+## Enhancement Wave 2 — Approved by Frank, Not Yet Built
+
+These were identified from a deep dive into the Anthropic financial-services-plugins repo (Session 9). All use frameworks/logic from the plugins — no code imported.
+
+### Enhancement 13: Deal Process Roadmap
+**Status:** NOT STARTED
+**Upgrades:** New module — could live in Week 1 or Week 4
+**What it does:** Visual timeline of the entire PE deal process from start to close. Stages: Pre-Mandate → Engaged → Marketing/CIM → IOI (Indication of Interest) → Due Diligence → Final Bids → Signing → Close. Each stage shows: what happens, how long it typically takes, what the business owner needs to have ready, and common pitfalls. Interactive — user can see "you are here" based on their progress through PE Ready. Think of it as a GPS for the deal process.
+**Source plugin:** investment-banking/skills/deal-tracker/SKILL.md + investment-banking/skills/process-letter/SKILL.md
+
+### Enhancement 14: Comparable Company Analysis (Comps)
+**Status:** NOT STARTED
+**Upgrades:** Week 3 Performance Readiness — new module
+**What it does:** Shows business owners how they stack up against comparable companies in their industry. User enters their metrics (revenue, EBITDA, margins, growth). System shows where they fall in the distribution — are they above median, below 25th percentile, etc.? Includes: operating metrics comparison (revenue growth, EBITDA margin, gross margin), valuation multiples context (EV/EBITDA, EV/Revenue ranges for their industry), and a "premium vs. discount" assessment explaining what drives higher valuations. Statistical benchmarks: Max, 75th percentile, Median, 25th percentile, Min.
+**Source plugin:** financial-analysis/skills/comps-analysis/SKILL.md
+
+### Enhancement 15: LBO Explainer (How PE Firms Buy Your Company)
+**Status:** NOT STARTED
+**Upgrades:** Week 1 Foundation or Week 2 Deal Readiness — new educational module
+**What it does:** Interactive walkthrough of a leveraged buyout using the business owner's actual numbers. Shows: Sources & Uses (how much equity the PE firm puts up, how much they borrow), debt structure (senior debt, mezzanine, equity split), how the company's cash flow pays down debt over 5 years, and the PE firm's return (IRR/MOIC) at exit. Sensitivity tables showing how entry price, growth rate, and exit multiple affect the PE firm's returns. Key insight: "This is why PE firms care so much about your EBITDA and cash flow — it's literally paying off their loan."
+**Source plugin:** financial-analysis/skills/lbo-model/SKILL.md
+
+### Enhancement 16: DCF Valuation (What's Your Business Really Worth?)
+**Status:** NOT STARTED
+**Upgrades:** Week 3 Performance Readiness — complements Returns Sensitivity module
+**What it does:** A second valuation approach alongside EBITDA × multiple. User enters revenue, growth rate, margins, and capex. System builds a simplified DCF: projects 5 years of free cash flow, applies a discount rate (WACC), calculates terminal value, and arrives at an enterprise value. Includes Bear/Base/Bull scenarios and sensitivity tables (WACC vs. growth rate, margin vs. growth rate). Educational: explains why faster growth and lower risk = higher valuation. Two methods arriving at similar numbers = much more credible in front of a PE firm.
+**Source plugin:** financial-analysis/skills/dcf-model/SKILL.md
+
+### Enhancement 17: Financial Data Room Prep
+**Status:** NOT STARTED
+**Upgrades:** Week 4 Data Room module — complements existing document checklist
+**What it does:** Helps business owners organize their financial data into the standardized format PE firms expect. Guided input for: 3-5 years of Income Statement, Balance Sheet, Cash Flow Statement, plus operating metrics. System normalizes the data — flags non-recurring items, calculates adjusted EBITDA, identifies items that need explanation. Output: a clean financial summary in the 8-section format PE firms use (Executive Summary, Historical P&L, Balance Sheet, Cash Flow, Operating Metrics, Segment Performance, Market Context, Investment Highlights). Think of it as "translate your QuickBooks into PE-speak."
+**Source plugin:** investment-banking/skills/datapack-builder/SKILL.md
+
+### Enhancement 18: Life After Exit (Post-Sale Financial Planning)
+**Status:** NOT STARTED
+**Upgrades:** New module — Week 4 or standalone post-program section
+**What it does:** What happens after you sell? Covers: tax implications of the sale (capital gains, installment sales, earnout taxation), wealth preservation strategies, retirement projections based on sale proceeds, estate planning basics, and the psychological transition from operator to investor. Scenario modeling: "If you sell for $X after tax, here's what your retirement looks like at different spending levels." Addresses the question nobody talks about: "I just got a check for $15M. Now what?"
+**Source plugin:** wealth-management/skills/financial-plan/SKILL.md
+
+### Enhancement 19: Merger Math (Why Strategic Buyers Pay More)
+**Status:** NOT STARTED
+**Upgrades:** Week 1 Know Your Buyer or Week 2 Deal Readiness — educational module
+**What it does:** Explains accretion/dilution — the math behind why a strategic buyer can pay a higher price than a financial buyer. User enters their EBITDA. System shows: if a public company (acquirer) buys them, how does it affect the acquirer's earnings per share? If accretive (EPS goes up), the buyer can justify a higher price. Shows synergy math: "If the buyer can cut $500K in costs by combining operations, they can pay $3M more for your company." Includes sensitivity tables on synergies vs. premium. Key takeaway: understanding this math gives sellers negotiating leverage.
+**Source plugin:** investment-banking/skills/merger-model/SKILL.md
+
+### Enhancement 20: The Process Letter (What Buyers Receive)
+**Status:** NOT STARTED
+**Upgrades:** Week 2 Deal Readiness — educational module
+**What it does:** Shows business owners exactly what a sell-side process looks like from the buyer's perspective. Walks through: the initial process letter (what your banker sends to buyers), IOI instructions (what buyers must include in their first-round bid), final bid requirements (binding offer terms, financing certainty, timeline), and management meeting logistics. Educational — the business owner sees the actual documents and understands what's happening behind the scenes. Removes the mystery from the M&A process.
+**Source plugin:** investment-banking/skills/process-letter/SKILL.md
+
+### Enhancement 21: Company One-Pager (Strip Profile)
+**Status:** NOT STARTED
+**Upgrades:** Week 4 Final Readiness — premium deliverable alongside Teaser and CIM
+**What it does:** Auto-generates a professional one-page company profile in the format investment bankers use for pitch books. Four-quadrant layout: Company Overview (HQ, founding, key stats), Business & Positioning (revenue drivers, competitive moat), Key Financials (revenue, EBITDA, margins table), and Recent Developments/Ownership. Information-dense, designed to be understood in 30 seconds. Uses data from Company Profile and other modules. A third deliverable alongside the Anonymous Teaser and Draft CIM.
+**Source plugin:** investment-banking/skills/strip-profile/SKILL.md
+
+### Enhancement 22: PE Pitch Deck Builder
+**Status:** NOT STARTED
+**Upgrades:** Week 4 Final Readiness — premium deliverable
+**What it does:** Auto-generates a management presentation / pitch deck from data entered throughout the program. Slides: Company Overview, Business Model & Revenue Drivers, Market Opportunity (TAM/SAM/SOM from Competitive Analysis), Financial Summary (revenue, EBITDA, margins, growth), Growth Strategy & Value Creation Levers, Management Team, Investment Highlights, and Transaction Overview. Uses professional slide layouts with charts, tables, and clean formatting. The business owner completes PE Ready and walks out with a full deal package: Anonymous Teaser + CIM + Company One-Pager + Pitch Deck. That's what a $50K investment banker produces — your users get a starter version for free.
+**Source plugin:** investment-banking/skills/pitch-deck-population/SKILL.md
+
+---
+
 ## Future To-Do (Not Enhancements — Separate Sessions)
+
+### Navigation Restructure: Weeks to Phases + Course Tiering
+**Status:** NOT STARTED — Design approved, needs pillar list from Frank before building
+**What it does:** Three-layer redesign of the sidebar navigation:
+1. **Remove week labels** — Replace "Week 1/2/3/4" headers with descriptive phase names (e.g., Foundation, Deal Readiness, Performance Analytics, Final Readiness). No timeline language. Self-paced journey.
+2. **Pillar vs. Supplemental distinction** — Core courses (essential to every exit) get bold/accent styling. Supplemental courses get muted styling. All courses remain accessible — visual hierarchy only.
+3. **Industry relevance tags** — Courses that don't apply to every business type (e.g., a doctor's office) get a subtle "Industry Specific" indicator. Could auto-flag based on industry selected in Company Profile.
+**Before building, Frank needs to provide:**
+- Final phase names (or approve: Foundation / Deal Readiness / Performance Analytics / Final Readiness)
+- Pillar course list (which courses are core to every exit regardless of industry)
+- Industry-to-course relevance map (which courses get flagged for which industries)
+**Estimated sessions:** 2 (Session A: phase names + pillar/supplemental | Session B: industry relevance tagging)
 
 ### App-Wide UI Redesign: Premium Purple Theme
 **Status:** NOT STARTED
@@ -145,6 +223,24 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 ---
 
 ## Session Log
+
+### Session 9 — Mar 8, 2026
+- **Deep dive into Anthropic financial-services-plugins repo** — read all 52 skills across 7 categories
+- Identified 10 new enhancements (Wave 2) that map to PE Ready from unused plugins
+- Added Enhancements 13-22 to PLAYGROUND.md roadmap:
+  - 13: Deal Process Roadmap (deal-tracker + process-letter plugins)
+  - 14: Comparable Company Analysis (comps-analysis plugin)
+  - 15: LBO Explainer (lbo-model plugin)
+  - 16: DCF Valuation (dcf-model plugin)
+  - 17: Financial Data Room Prep (datapack-builder plugin)
+  - 18: Life After Exit (financial-plan plugin)
+  - 19: Merger Math (merger-model plugin)
+  - 20: The Process Letter (process-letter plugin)
+  - 21: Company One-Pager (strip-profile plugin)
+  - 22: PE Pitch Deck Builder (pitch-deck-population plugin)
+- Added Navigation Restructure plan to Future To-Do (weeks → phases, pillar vs supplemental, industry tags)
+- **Building Enhancement 13: Deal Process Roadmap** — BINGO received
+- (commits TBD — in progress)
 
 ### Session 8 — Mar 8, 2026
 - **Shared Company Profile — data de-duplication fix**

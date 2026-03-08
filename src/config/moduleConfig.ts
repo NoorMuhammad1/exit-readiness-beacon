@@ -24,6 +24,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Asset Free, Debt Free', path: '/portal/week-1/asset-free-education', weekNumber: 1, order: 5 },
   { name: 'Time Kills Deals', path: '/portal/week-1/time-kills-deals', weekNumber: 1, order: 6 },
   { name: 'EBITDA Explained', path: '/portal/week-1/ebitda-course', weekNumber: 1, order: 7 },
+  { name: 'Deal Process Roadmap', path: '/portal/week-1/deal-process', weekNumber: 1, order: 8, enhancement: 'ENHANCED' },
   
   // Week 2 - Deal Readiness
   { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 1 },
