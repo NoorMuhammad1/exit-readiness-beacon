@@ -86,8 +86,8 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/value-creation-plan/SKILL.md
 
 ### Enhancement 5: Returns Sensitivity Tables
-**Status:** NOT STARTED
-**Upgrades:** Week 3 EBITDA Calculator + Industry Multipliers
+**Status:** COMPLETE (Session 3, commit 0580de9)
+**Upgrades:** Week 3 Performance Readiness — new module
 **What it does:** Adds IRR and MOIC calculations alongside the existing EBITDA x multiple valuation. Adds 2-way sensitivity tables (entry multiple vs exit multiple, growth vs exit multiple). Adds Bull/Base/Bear scenario comparison. Shows returns attribution: how much comes from growth vs multiple expansion vs debt paydown.
 **Source plugin:** private-equity/skills/returns-analysis/SKILL.md
 
@@ -154,7 +154,16 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
   - Combined report page with overall verdict + PE-ready market narrative template
   - ENHANCED badge on sidebar + page header
 - Commit: `1f8a540` — pushed to noor_frank_playground
-- **Next:** 7 enhancements remaining. Frank picks next.
+- **Built Enhancement 5: Returns Sensitivity Tables**
+  - IRR/MOIC calculations with Bull/Base/Bear scenario cards
+  - Returns attribution waterfall (growth vs multiple expansion vs debt paydown)
+  - 2-way sensitivity table: entry multiple vs exit multiple (color-coded)
+  - 2-way sensitivity table: growth rate vs exit multiple (color-coded)
+  - Live deal summary with equity check calculation
+  - Auto-fill bull/bear scenarios from base case
+  - ENHANCED badge on sidebar + page header
+- Commit: `0580de9` — pushed to noor_frank_playground
+- **Next:** 6 enhancements remaining. Frank picks next.
 
 ### Session 2 — Mar 8, 2026
 - Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
