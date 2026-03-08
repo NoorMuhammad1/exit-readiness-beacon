@@ -68,8 +68,8 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/dd-checklist/SKILL.md
 
 ### Enhancement 2: PE Screening Scorecard
-**Status:** NOT STARTED
-**Upgrades:** Assessment results / could be new module
+**Status:** COMPLETE (Session 3, commit d20c2de)
+**Upgrades:** Week 3 Performance Readiness — new module
 **What it does:** Shows business owners how a PE firm would score their company across 10 criteria: Revenue range, EBITDA range, EBITDA margin, Growth profile, Sector fit, Geography, Deal size/EV, Valuation multiple, Customer concentration, Management continuity. Gives a Pass/Further Diligence/Hard Pass verdict with bull case and bear case bullets.
 **Source plugin:** private-equity/skills/deal-screening/SKILL.md
 
@@ -136,6 +136,18 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 ---
 
 ## Session Log
+
+### Session 3 — Mar 8, 2026
+- **Built Enhancement 2: PE Screening Scorecard**
+  - 4-step flow: Intro > Company Financials > Deal Fit > Screening Results
+  - 10 PE investment criteria with Pass/Caution/Fail per criterion
+  - Overall verdict: Pass / Further Diligence / Hard Pass
+  - Bull case and bear case bullets generated from actual results
+  - "Questions PE Will Ask You" tailored to weak spots
+  - Auto-calculates EBITDA margin and enterprise value
+  - ENHANCED badge on sidebar + page header
+- Commit: `d20c2de` — pushed to noor_frank_playground
+- **Next:** 8 enhancements remaining. Frank picks next.
 
 ### Session 2 — Mar 8, 2026
 - Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
