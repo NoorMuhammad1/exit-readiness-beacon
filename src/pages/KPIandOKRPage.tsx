@@ -219,8 +219,11 @@ export default function KPIandOKRPage() {
   }, [isEditing]);
 
   const loadMetrics = async () => {
-    if (!user) return;
-    
+    if (!user) {
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data: metricsData, error: metricsError } = await supabase
         .from("kpi_metrics")
