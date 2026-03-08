@@ -116,8 +116,8 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** private-equity/skills/portfolio-monitoring/SKILL.md
 
 ### Enhancement 10: Anonymous Teaser Generator
-**Status:** NOT STARTED
-**Upgrades:** New premium feature — pairs with CIM Generator
+**Status:** COMPLETE (Session 3, commit 53904eb)
+**Upgrades:** Week 4 Final Readiness — new premium module
 **What it does:** Auto-generates a one-page blind teaser from assessment data. Includes deal code name, 4-6 investment highlight bullets, financial summary table, and anonymization rules (no company name, region instead of city, revenue ranges instead of exact figures). This is the "movie trailer" a banker sends to potential buyers before revealing the company identity.
 **Source plugin:** investment-banking/skills/cim-builder/SKILL.md (teaser section)
 
@@ -163,7 +163,14 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
   - Auto-fill bull/bear scenarios from base case
   - ENHANCED badge on sidebar + page header
 - Commit: `0580de9` — pushed to noor_frank_playground
-- **Next:** 6 enhancements remaining. Frank picks next.
+- **Built Enhancement 10: Anonymous Teaser Generator**
+  - 3-step flow: Intro > Company Details > Generated Teaser
+  - Auto-anonymization: name to code name, city to region, exact financials to ranges
+  - Professional teaser layout with investment highlights and financial summary table
+  - Confidentiality disclaimer
+  - ENHANCED badge on sidebar + page header
+- Commit: `53904eb` — pushed to noor_frank_playground
+- **Next:** 5 enhancements remaining. Frank picks next.
 
 ### Session 2 — Mar 8, 2026
 - Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
