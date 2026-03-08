@@ -1,52 +1,75 @@
 
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import Index from './pages/Index';
-import AuthPage from './pages/AuthPage';
-import AssessmentPage from './pages/AssessmentPage';
-import ClientPortalDashboard from './pages/ClientPortalDashboard';
-import DueDiligenceChecklistPage from './pages/week-4/DueDiligenceChecklistPage';
-import LOIReviewPage from './pages/LOIReviewPage';
-import FinalReportPage from './pages/week-4/FinalReportPage';
-import StrategyDocBuilderPage from './pages/StrategyDocBuilderPage';
-import KPIandOKRPage from './pages/KPIandOKRPage';
-import InteractiveGlossaryPage from './pages/GlossaryPage';
-import DealProgressionPage from './pages/DealProgressionPage';
-import ProfessionalAdvisorsPage from './pages/ProfessionalAdvisorsPage';
-import KnowYourBuyerPage from './pages/KnowYourBuyerPage';
-import AssetFreeEducationPage from './pages/AssetFreeEducationPage';
-import TimeKillsDealsPage from './pages/TimeKillsDealsPage';
-import EBITDAExplainedPage from './pages/EBITDACoursePage';
-import DataRoomPage from './pages/DataRoomPage';
-import { DataRoomIntroPage } from './pages/DataRoomIntroPage';
-import { DataRoomWorkspacePage } from './pages/DataRoomWorkspacePage';
-import AssetWorkshopPage from './pages/AssetWorkshopPage';
-import HoldCoStructurePage from './pages/week-2/HoldCoStructurePage';
-import QuickWinsPage from './pages/QuickWinsPage';
-import DebtInterestPage from './pages/week-2/DebtInterestPage';
-import EarnoutsMultipliersPage from './pages/week-2/EarnoutsMultipliersPage';
-import PostClosingRealityPage from './pages/week-2/PostClosingRealityPage';
-import EbitdaCalculatorPage from './pages/EBITDACalculatorPage';
-import MultiplesPage from './pages/IndustryMultiplesPage';
-import { ScenarioPlanningPage } from './pages/ScenarioPlanningPage';
-import ScorecardPage from './pages/week-3/ManagementScorecardPage';
-import TopPerformersPage from './pages/week-3/TopPerformersPage';
-import BusinessScorecardPage from './pages/week-3/BusinessScorecardPage';
-import DealKillersPage from './pages/week-3/DealKillersDiagnosticPage';
-import NotFound from './pages/NotFound';
-import AdminLogin from './pages/AdminLogin';
-import AdminDashboard from './pages/AdminDashboard';
-import AdminInquiries from './pages/AdminInquiries';
-import AdminCompanyDetail from './pages/AdminCompanyDetail';
-import AdminRoute from './components/AdminRoute';
-import AdminLayout from './components/AdminLayout';
 import { AuthProvider } from './components/AuthProvider';
 import { ProgressProvider } from './components/ProgressProvider';
 import { ClientPortalLayout } from './components/ClientPortalLayout';
-import { ScheduleConsultationPage } from './pages/ScheduleConsultationPage';
-import DiscoveryInterviewPage from './pages/DiscoveryInterviewPage';
-import ExecutiveDiscoveryInterviewPage from './pages/ExecutiveDiscoveryInterviewPage';
+import AdminRoute from './components/AdminRoute';
+import AdminLayout from './components/AdminLayout';
+import ErrorBoundary from './components/ErrorBoundary';
+
+// Loading component
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+  </div>
+);
+
+// Lazy load pages for better code splitting
+const Index = lazy(() => import('./pages/Index'));
+const AuthPage = lazy(() => import('./pages/AuthPage'));
+const AssessmentPage = lazy(() => import('./pages/AssessmentPage'));
+const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Admin pages
+const AdminLogin = lazy(() => import('./pages/AdminLogin'));
+const AdminDashboard = lazy(() => import('./pages/AdminDashboard'));
+const AdminInquiries = lazy(() => import('./pages/AdminInquiries'));
+const AdminCompanyDetail = lazy(() => import('./pages/AdminCompanyDetail'));
+
+// Client Portal Dashboard
+const ClientPortalDashboard = lazy(() => import('./pages/ClientPortalDashboard'));
+const ScheduleConsultationPage = lazy(() => import('./pages/ScheduleConsultationPage').then(m => ({ default: m.ScheduleConsultationPage })));
+
+// Week 1 pages
+const InteractiveGlossaryPage = lazy(() => import('./pages/GlossaryPage'));
+const DealProgressionPage = lazy(() => import('./pages/DealProgressionPage'));
+const ProfessionalAdvisorsPage = lazy(() => import('./pages/ProfessionalAdvisorsPage'));
+const KnowYourBuyerPage = lazy(() => import('./pages/KnowYourBuyerPage'));
+const AssetFreeEducationPage = lazy(() => import('./pages/AssetFreeEducationPage'));
+const TimeKillsDealsPage = lazy(() => import('./pages/TimeKillsDealsPage'));
+const EBITDAExplainedPage = lazy(() => import('./pages/EBITDACoursePage'));
+
+// Week 2 pages
+const DataRoomIntroPage = lazy(() => import('./pages/DataRoomIntroPage').then(m => ({ default: m.DataRoomIntroPage })));
+const DataRoomWorkspacePage = lazy(() => import('./pages/DataRoomWorkspacePage').then(m => ({ default: m.DataRoomWorkspacePage })));
+const DataRoomPage = lazy(() => import('./pages/DataRoomPage'));
+const AssetWorkshopPage = lazy(() => import('./pages/AssetWorkshopPage'));
+const HoldCoStructurePage = lazy(() => import('./pages/week-2/HoldCoStructurePage'));
+const QuickWinsPage = lazy(() => import('./pages/QuickWinsPage'));
+const DebtInterestPage = lazy(() => import('./pages/week-2/DebtInterestPage'));
+const EarnoutsMultipliersPage = lazy(() => import('./pages/week-2/EarnoutsMultipliersPage'));
+const PostClosingRealityPage = lazy(() => import('./pages/week-2/PostClosingRealityPage'));
+
+// Week 3 pages
+const EbitdaCalculatorPage = lazy(() => import('./pages/EBITDACalculatorPage'));
+const MultiplesPage = lazy(() => import('./pages/IndustryMultiplesPage'));
+const ScenarioPlanningPage = lazy(() => import('./pages/ScenarioPlanningPage').then(m => ({ default: m.ScenarioPlanningPage })));
+const ScorecardPage = lazy(() => import('./pages/week-3/ManagementScorecardPage'));
+const TopPerformersPage = lazy(() => import('./pages/week-3/TopPerformersPage'));
+const BusinessScorecardPage = lazy(() => import('./pages/week-3/BusinessScorecardPage'));
+const DealKillersPage = lazy(() => import('./pages/week-3/DealKillersDiagnosticPage'));
+const PEScreeningScorecardPage = lazy(() => import('./pages/week-3/PEScreeningScorecardPage'));
+
+// Week 4 pages
+const DueDiligenceChecklistPage = lazy(() => import('./pages/week-4/DueDiligenceChecklistPage'));
+const LOIReviewPage = lazy(() => import('./pages/LOIReviewPage'));
+const FinalReportPage = lazy(() => import('./pages/week-4/FinalReportPage'));
+const DiscoveryInterviewPage = lazy(() => import('./pages/DiscoveryInterviewPage'));
+const ExecutiveDiscoveryInterviewPage = lazy(() => import('./pages/ExecutiveDiscoveryInterviewPage'));
+const StrategyDocBuilderPage = lazy(() => import('./pages/StrategyDocBuilderPage'));
+const KPIandOKRPage = lazy(() => import('./pages/KPIandOKRPage'));
 
 // Create a client
 const queryClient = new QueryClient({
@@ -60,14 +83,16 @@ const queryClient = new QueryClient({
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <ProgressProvider>
-          <Router>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="/auth" element={<AuthPage />} />
-              <Route path="/assessment" element={<AssessmentPage />} />
+    <ErrorBoundary>
+      <QueryClientProvider client={queryClient}>
+        <AuthProvider>
+          <ProgressProvider>
+            <Router>
+              <Suspense fallback={<PageLoader />}>
+                <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/auth" element={<AuthPage />} />
+                <Route path="/assessment" element={<AssessmentPage />} />
               
               {/* Admin Routes */}
               <Route path="/admin/login" element={<AdminLogin />} />
@@ -126,6 +151,7 @@ function App() {
               <Route path="/portal/week-3/top-performers" element={<ClientPortalLayout><TopPerformersPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/business-scorecard" element={<ClientPortalLayout><BusinessScorecardPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/deal-killers" element={<ClientPortalLayout><DealKillersPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-3/pe-screening" element={<ClientPortalLayout><PEScreeningScorecardPage /></ClientPortalLayout>} />
 
               {/* Week 4 Routes */}
               <Route path="/portal/week-4/dd-checklist" element={<ClientPortalLayout><DueDiligenceChecklistPage /></ClientPortalLayout>} />
@@ -138,11 +164,13 @@ function App() {
               
               {/* Catch-all 404 route */}
               <Route path="*" element={<NotFound />} />
-            </Routes>
-          </Router>
-        </ProgressProvider>
-      </AuthProvider>
-    </QueryClientProvider>
+                </Routes>
+              </Suspense>
+            </Router>
+          </ProgressProvider>
+        </AuthProvider>
+      </QueryClientProvider>
+    </ErrorBoundary>
   );
 }
 

@@ -42,6 +42,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Top Performers', path: '/portal/week-3/top-performers', weekNumber: 3, order: 5 },
   { name: 'Business Scorecard', path: '/portal/week-3/business-scorecard', weekNumber: 3, order: 6 },
   { name: 'Deal Killers Diagnostic', path: '/portal/week-3/deal-killers', weekNumber: 3, order: 7 },
+  { name: 'PE Screening Scorecard', path: '/portal/week-3/pe-screening', weekNumber: 3, order: 8, enhancement: 'ENHANCED' },
   
   // Week 4 - Final Readiness (Updated Discovery Interview module)
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1 },
