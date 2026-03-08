@@ -97,7 +97,10 @@ export default function DataRoomPage() {
   }, [user, checkSampleDataExists]);
 
   const loadDataRoom = async () => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
 
     try {
       // Load folder structure

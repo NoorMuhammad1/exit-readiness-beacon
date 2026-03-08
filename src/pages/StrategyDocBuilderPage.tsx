@@ -72,7 +72,10 @@ export default function StrategyDocBuilderPage() {
   }, [user]);
 
   const loadStrategy = async () => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
     
     try {
       const { data, error } = await supabase

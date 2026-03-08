@@ -150,7 +150,10 @@ export default function QuickWinsPage() {
   useDebounce(saveProgress, 1000, [completedItems, values, notes, multiple, customItems, vehicleAssets]);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setLoading(false);
+      return;
+    }
     const loadProgress = async () => {
       try {
         const { data, error } = await supabase
