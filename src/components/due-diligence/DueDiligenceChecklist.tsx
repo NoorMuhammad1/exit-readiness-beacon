@@ -1,156 +1,208 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Search, Download, Filter, CheckCircle2, Clock, AlertCircle } from "lucide-react";
+import {
+  Search, Download, Filter, CheckCircle2, Clock, AlertTriangle,
+  ChevronDown, ChevronUp, Building2, Stethoscope, Factory, Landmark,
+  ShoppingBag, ArrowLeft, RotateCcw, Flag, Shield, FileText,
+  Users, Monitor, Leaf, Briefcase, BarChart3
+} from "lucide-react";
+import {
+  type Sector, type Workstream, type ItemStatus, type Priority,
+  type RedFlagSeverity, type DDChecklistItem, type DDChecklistState,
+  sectorLabels, sectorDescriptions, workstreamLabels, statusLabels,
+  statusColors, statusBgColors, priorityColors, priorityLabels,
+  severityColors, generateChecklist, getWorkstreams, getAllSectors,
+} from "@/lib/checklists/sectorDDChecklist";
 
-interface ChecklistItem {
-  id: string;
-  category: string;
-  item: string;
-  status: 'pending' | 'in-progress' | 'completed';
-  priority: 'high' | 'medium' | 'low';
-  assignee?: string;
-  dueDate?: string;
-  notes?: string;
-}
+const STORAGE_KEY = 'dd-checklist-v2';
 
-const defaultChecklist: ChecklistItem[] = [
-  // Financial Documents
-  { id: '1', category: 'Financial Documents', item: 'Audited Financial Statements (3-5 years)', status: 'pending', priority: 'high' },
-  { id: '2', category: 'Financial Documents', item: 'Monthly Financial Statements (Current Year)', status: 'pending', priority: 'high' },
-  { id: '3', category: 'Financial Documents', item: 'Tax Returns (3-5 years)', status: 'pending', priority: 'high' },
-  { id: '4', category: 'Financial Documents', item: 'Management Letter from Auditors', status: 'pending', priority: 'medium' },
-  { id: '5', category: 'Financial Documents', item: 'Budget vs Actual Reports', status: 'pending', priority: 'medium' },
-  { id: '6', category: 'Financial Documents', item: 'Cash Flow Statements', status: 'pending', priority: 'high' },
-  { id: '7', category: 'Financial Documents', item: 'Accounts Receivable Aging', status: 'pending', priority: 'medium' },
-  { id: '8', category: 'Financial Documents', item: 'Accounts Payable Summary', status: 'pending', priority: 'medium' },
-  
-  // Legal & Corporate
-  { id: '9', category: 'Legal & Corporate', item: 'Articles of Incorporation', status: 'pending', priority: 'high' },
-  { id: '10', category: 'Legal & Corporate', item: 'Corporate Bylaws', status: 'pending', priority: 'high' },
-  { id: '11', category: 'Legal & Corporate', item: 'Stock Records & Cap Table', status: 'pending', priority: 'high' },
-  { id: '12', category: 'Legal & Corporate', item: 'Board Meeting Minutes', status: 'pending', priority: 'medium' },
-  { id: '13', category: 'Legal & Corporate', item: 'Material Contracts & Agreements', status: 'pending', priority: 'high' },
-  { id: '14', category: 'Legal & Corporate', item: 'Litigation History & Status', status: 'pending', priority: 'high' },
-  { id: '15', category: 'Legal & Corporate', item: 'Insurance Policies', status: 'pending', priority: 'medium' },
-  { id: '16', category: 'Legal & Corporate', item: 'Intellectual Property Documentation', status: 'pending', priority: 'medium' },
-  
-  // Operations
-  { id: '17', category: 'Operations', item: 'Organizational Chart', status: 'pending', priority: 'medium' },
-  { id: '18', category: 'Operations', item: 'Key Employee Contracts', status: 'pending', priority: 'high' },
-  { id: '19', category: 'Operations', item: 'Employee Handbook & Policies', status: 'pending', priority: 'low' },
-  { id: '20', category: 'Operations', item: 'Benefit Plans & Administration', status: 'pending', priority: 'medium' },
-  { id: '21', category: 'Operations', item: 'Customer List & Contracts', status: 'pending', priority: 'high' },
-  { id: '22', category: 'Operations', item: 'Supplier/Vendor Agreements', status: 'pending', priority: 'medium' },
-  { id: '23', category: 'Operations', item: 'Operating Procedures Manual', status: 'pending', priority: 'low' },
-  { id: '24', category: 'Operations', item: 'Quality Control Documentation', status: 'pending', priority: 'medium' },
-  
-  // Technology & IP
-  { id: '25', category: 'Technology & IP', item: 'IT Infrastructure Assessment', status: 'pending', priority: 'medium' },
-  { id: '26', category: 'Technology & IP', item: 'Software Licenses & Agreements', status: 'pending', priority: 'medium' },
-  { id: '27', category: 'Technology & IP', item: 'Data Security & Privacy Policies', status: 'pending', priority: 'high' },
-  { id: '28', category: 'Technology & IP', item: 'Cybersecurity Assessment', status: 'pending', priority: 'high' },
-  { id: '29', category: 'Technology & IP', item: 'Patent & Trademark Portfolio', status: 'pending', priority: 'medium' },
-  
-  // Regulatory & Compliance
-  { id: '30', category: 'Regulatory & Compliance', item: 'Business Licenses & Permits', status: 'pending', priority: 'high' },
-  { id: '31', category: 'Regulatory & Compliance', item: 'Environmental Compliance', status: 'pending', priority: 'medium' },
-  { id: '32', category: 'Regulatory & Compliance', item: 'Industry Regulatory Filings', status: 'pending', priority: 'medium' },
-  { id: '33', category: 'Regulatory & Compliance', item: 'Employment Law Compliance', status: 'pending', priority: 'medium' },
-  { id: '34', category: 'Regulatory & Compliance', item: 'Health & Safety Records', status: 'pending', priority: 'medium' },
-];
+const sectorIcons: Record<Sector, React.ReactNode> = {
+  'saas': <Monitor className="h-8 w-8" />,
+  'healthcare': <Stethoscope className="h-8 w-8" />,
+  'manufacturing': <Factory className="h-8 w-8" />,
+  'financial-services': <Landmark className="h-8 w-8" />,
+  'consumer': <ShoppingBag className="h-8 w-8" />,
+};
+
+const workstreamIcons: Record<Workstream, React.ReactNode> = {
+  'financial': <BarChart3 className="h-4 w-4" />,
+  'commercial': <Briefcase className="h-4 w-4" />,
+  'legal': <FileText className="h-4 w-4" />,
+  'operational': <Building2 className="h-4 w-4" />,
+  'hr-people': <Users className="h-4 w-4" />,
+  'it-tech': <Monitor className="h-4 w-4" />,
+  'esg': <Leaf className="h-4 w-4" />,
+};
+
+const statusIcons: Record<ItemStatus, React.ReactNode> = {
+  'not-started': <Clock className="h-4 w-4 text-gray-400" />,
+  'requested': <Clock className="h-4 w-4 text-blue-500" />,
+  'received': <CheckCircle2 className="h-4 w-4 text-purple-500" />,
+  'in-review': <Clock className="h-4 w-4 text-yellow-600" />,
+  'complete': <CheckCircle2 className="h-4 w-4 text-green-600" />,
+  'red-flag': <Flag className="h-4 w-4 text-red-600" />,
+};
 
 export const DueDiligenceChecklist: React.FC = () => {
-  const [checklist, setChecklist] = useState<ChecklistItem[]>(defaultChecklist);
+  const [state, setState] = useState<DDChecklistState | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('all');
-  const [statusFilter, setStatusFilter] = useState('all');
-  const [priorityFilter, setPriorityFilter] = useState('all');
+  const [statusFilter, setStatusFilter] = useState<ItemStatus | 'all'>('all');
+  const [priorityFilter, setPriorityFilter] = useState<Priority | 'all'>('all');
+  const [activeWorkstream, setActiveWorkstream] = useState<Workstream | 'all'>('all');
+  const [redFlagPanelOpen, setRedFlagPanelOpen] = useState(true);
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
-  // Load from localStorage on mount
+  // Load saved state
   useEffect(() => {
-    const saved = localStorage.getItem('dd-checklist');
+    const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        setChecklist(JSON.parse(saved));
-      } catch (error) {
-        console.error('Error loading checklist from localStorage:', error);
+        setState(JSON.parse(saved));
+      } catch (e) {
+        console.error('Error loading DD checklist:', e);
       }
     }
   }, []);
 
-  // Save to localStorage whenever checklist changes
+  // Save state on every change
   useEffect(() => {
-    localStorage.setItem('dd-checklist', JSON.stringify(checklist));
-  }, [checklist]);
+    if (state) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
+  }, [state]);
 
-  const categories = Array.from(new Set(checklist.map(item => item.category)));
-  
-  const filteredItems = checklist.filter(item => {
-    const matchesSearch = item.item.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.category.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'all' || item.category === selectedCategory;
-    const matchesStatus = statusFilter === 'all' || item.status === statusFilter;
-    const matchesPriority = priorityFilter === 'all' || item.priority === priorityFilter;
-    
-    return matchesSearch && matchesCategory && matchesStatus && matchesPriority;
-  });
+  const selectSector = (sector: Sector) => {
+    setState({ sector, items: generateChecklist(sector) });
+  };
 
-  const updateItemStatus = (id: string, status: ChecklistItem['status']) => {
-    setChecklist(prev => prev.map(item => 
-      item.id === id ? { ...item, status } : item
-    ));
+  const resetChecklist = () => {
+    localStorage.removeItem(STORAGE_KEY);
+    setState(null);
+    setShowResetConfirm(false);
+    setSearchTerm('');
+    setStatusFilter('all');
+    setPriorityFilter('all');
+    setActiveWorkstream('all');
+  };
+
+  const updateItemStatus = (id: string, status: ItemStatus) => {
+    if (!state) return;
+    setState(prev => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        items: prev.items.map(item => {
+          if (item.id !== id) return item;
+          const updated = { ...item, status };
+          // Clear red flag data when changing away from red-flag status
+          if (status !== 'red-flag' && item.redFlag) {
+            const { redFlag, ...rest } = updated;
+            return rest as DDChecklistItem;
+          }
+          // Initialize red flag data when setting to red-flag
+          if (status === 'red-flag' && !item.redFlag) {
+            updated.redFlag = { severity: 'manageable', finding: '', mitigant: '' };
+          }
+          return updated;
+        }),
+      };
+    });
   };
 
   const updateItemNotes = (id: string, notes: string) => {
-    setChecklist(prev => prev.map(item => 
-      item.id === id ? { ...item, notes } : item
-    ));
+    if (!state) return;
+    setState(prev => prev ? {
+      ...prev,
+      items: prev.items.map(item => item.id === id ? { ...item, notes } : item),
+    } : prev);
   };
 
-  const getStatusIcon = (status: ChecklistItem['status']) => {
-    switch (status) {
-      case 'completed':
-        return <CheckCircle2 className="h-4 w-4 text-green-600" />;
-      case 'in-progress':
-        return <Clock className="h-4 w-4 text-yellow-600" />;
-      default:
-        return <AlertCircle className="h-4 w-4 text-red-600" />;
-    }
+  const updateRedFlag = (id: string, field: 'severity' | 'finding' | 'mitigant', value: string) => {
+    if (!state) return;
+    setState(prev => {
+      if (!prev) return prev;
+      return {
+        ...prev,
+        items: prev.items.map(item => {
+          if (item.id !== id || !item.redFlag) return item;
+          return { ...item, redFlag: { ...item.redFlag, [field]: value } };
+        }),
+      };
+    });
   };
 
-  const getPriorityColor = (priority: ChecklistItem['priority']) => {
-    switch (priority) {
-      case 'high':
-        return 'bg-red-100 text-red-800';
-      case 'medium':
-        return 'bg-yellow-100 text-yellow-800';
-      default:
-        return 'bg-green-100 text-green-800';
-    }
-  };
+  // Derived data
+  const workstreams = getWorkstreams();
 
-  const getProgress = () => {
-    const completed = checklist.filter(item => item.status === 'completed').length;
-    return Math.round((completed / checklist.length) * 100);
-  };
+  const filteredItems = useMemo(() => {
+    if (!state) return [];
+    return state.items.filter(item => {
+      const matchesSearch = searchTerm === '' ||
+        item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchTerm.toLowerCase());
+      const matchesStatus = statusFilter === 'all' || item.status === statusFilter;
+      const matchesPriority = priorityFilter === 'all' || item.priority === priorityFilter;
+      const matchesWorkstream = activeWorkstream === 'all' || item.workstream === activeWorkstream;
+      return matchesSearch && matchesStatus && matchesPriority && matchesWorkstream;
+    });
+  }, [state, searchTerm, statusFilter, priorityFilter, activeWorkstream]);
+
+  const redFlagItems = useMemo(() => {
+    if (!state) return [];
+    return state.items.filter(item => item.status === 'red-flag');
+  }, [state]);
+
+  const overallProgress = useMemo(() => {
+    if (!state || state.items.length === 0) return 0;
+    const completed = state.items.filter(i => i.status === 'complete').length;
+    return Math.round((completed / state.items.length) * 100);
+  }, [state]);
+
+  const workstreamStats = useMemo(() => {
+    if (!state) return {};
+    const stats: Record<Workstream, { total: number; complete: number; redFlags: number }> = {} as any;
+    workstreams.forEach(ws => {
+      const wsItems = state.items.filter(i => i.workstream === ws);
+      stats[ws] = {
+        total: wsItems.length,
+        complete: wsItems.filter(i => i.status === 'complete').length,
+        redFlags: wsItems.filter(i => i.status === 'red-flag').length,
+      };
+    });
+    return stats;
+  }, [state, workstreams]);
+
+  const statusCounts = useMemo(() => {
+    if (!state) return {} as Record<ItemStatus, number>;
+    const counts: Record<ItemStatus, number> = {
+      'not-started': 0, 'requested': 0, 'received': 0,
+      'in-review': 0, 'complete': 0, 'red-flag': 0,
+    };
+    state.items.forEach(item => { counts[item.status]++; });
+    return counts;
+  }, [state]);
 
   const exportToCSV = () => {
-    const headers = ['Category', 'Item', 'Status', 'Priority', 'Notes'];
+    if (!state) return;
+    const headers = ['Workstream', 'Item', 'Description', 'Priority', 'Status', 'Notes', 'Red Flag Severity', 'Red Flag Finding', 'Red Flag Mitigant'];
     const csvContent = [
       headers.join(','),
-      ...checklist.map(item => [
-        `"${item.category}"`,
-        `"${item.item}"`,
-        item.status,
+      ...state.items.map(item => [
+        `"${workstreamLabels[item.workstream]}"`,
+        `"${item.title}"`,
+        `"${item.description}"`,
         item.priority,
-        `"${item.notes || ''}"`
+        statusLabels[item.status],
+        `"${item.notes || ''}"`,
+        item.redFlag ? item.redFlag.severity : '',
+        item.redFlag ? `"${item.redFlag.finding}"` : '',
+        item.redFlag ? `"${item.redFlag.mitigant}"` : '',
       ].join(','))
     ].join('\n');
 
@@ -158,70 +210,223 @@ export const DueDiligenceChecklist: React.FC = () => {
     const url = window.URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'due-diligence-checklist.csv';
+    link.download = `dd-checklist-${state.sector}-${new Date().toISOString().split('T')[0]}.csv`;
     link.click();
+    window.URL.revokeObjectURL(url);
   };
 
-  return (
-    <div className="space-y-6">
-      <div className="flex justify-between items-center">
-        <div>
-          <h1 className="text-3xl font-bold">Due Diligence Checklist</h1>
-          <p className="text-muted-foreground mt-2">
-            Track and manage all due diligence requirements for your transaction
+  // ─── INDUSTRY SELECTION SCREEN ──────────────────────────────────
+  if (!state) {
+    return (
+      <div className="space-y-6">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center gap-2 mb-2">
+            <Shield className="h-8 w-8 text-blue-600" />
+            <h1 className="text-3xl font-bold">Due Diligence Checklist</h1>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-1.5 py-0 h-5">
+              ENHANCED
+            </Badge>
+          </div>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+            Select your industry to generate a tailored due diligence checklist with sector-specific items across 7 professional workstreams.
           </p>
         </div>
-        <Button onClick={exportToCSV} className="flex items-center gap-2">
-          <Download className="h-4 w-4" />
-          Export CSV
-        </Button>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          {getAllSectors().map(sector => (
+            <Card
+              key={sector}
+              className="cursor-pointer hover:border-blue-500 hover:shadow-lg transition-all duration-200 group"
+              onClick={() => selectSector(sector)}
+            >
+              <CardContent className="pt-6 text-center">
+                <div className="mb-3 text-blue-600 group-hover:scale-110 transition-transform inline-block">
+                  {sectorIcons[sector]}
+                </div>
+                <h3 className="font-semibold text-lg mb-1">{sectorLabels[sector]}</h3>
+                <p className="text-sm text-muted-foreground">{sectorDescriptions[sector]}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        <div className="text-center mt-6">
+          <p className="text-xs text-muted-foreground">
+            Each sector generates a base checklist plus industry-specific diligence items.
+            <br />You can change your selection later (progress will reset).
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  // ─── MAIN CHECKLIST SCREEN ──────────────────────────────────────
+  return (
+    <div className="space-y-6">
+      {/* Header */}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <div className="flex items-center gap-2 mb-1">
+            <Shield className="h-6 w-6 text-blue-600" />
+            <h1 className="text-3xl font-bold">Due Diligence Checklist</h1>
+            <Badge className="bg-emerald-500/20 text-emerald-400 border-emerald-500/30 text-xs px-1.5 py-0 h-5">
+              ENHANCED
+            </Badge>
+          </div>
+          <div className="flex items-center gap-2 text-muted-foreground">
+            <span>Sector:</span>
+            <Badge variant="outline" className="font-medium">
+              {sectorIcons[state.sector]}
+              <span className="ml-1">{sectorLabels[state.sector]}</span>
+            </Badge>
+            <span className="text-sm">
+              ({state.items.length} items across 7 workstreams)
+            </span>
+          </div>
+        </div>
+        <div className="flex items-center gap-2">
+          <Button variant="outline" size="sm" onClick={exportToCSV}>
+            <Download className="h-4 w-4 mr-1" /> Export CSV
+          </Button>
+          {showResetConfirm ? (
+            <div className="flex items-center gap-1">
+              <span className="text-xs text-red-600 mr-1">Reset all progress?</span>
+              <Button variant="destructive" size="sm" onClick={resetChecklist}>Yes, Reset</Button>
+              <Button variant="outline" size="sm" onClick={() => setShowResetConfirm(false)}>Cancel</Button>
+            </div>
+          ) : (
+            <Button variant="outline" size="sm" onClick={() => setShowResetConfirm(true)}>
+              <RotateCcw className="h-4 w-4 mr-1" /> Change Sector
+            </Button>
+          )}
+        </div>
       </div>
 
-      {/* Progress Overview */}
+      {/* Progress Dashboard */}
       <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <CheckCircle2 className="h-5 w-5" />
-            Progress Overview
+        <CardHeader className="pb-3">
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <BarChart3 className="h-5 w-5" />
+            Progress Dashboard
           </CardTitle>
         </CardHeader>
-        <CardContent>
-          <div className="space-y-4">
-            <div>
-              <div className="flex justify-between text-sm mb-2">
-                <span>Overall Progress</span>
-                <span>{getProgress()}% Complete</span>
-              </div>
-              <Progress value={getProgress()} className="h-2" />
+        <CardContent className="space-y-4">
+          {/* Overall progress bar */}
+          <div>
+            <div className="flex justify-between text-sm mb-1">
+              <span className="font-medium">Overall Completion</span>
+              <span className="font-bold text-lg">{overallProgress}%</span>
             </div>
-            <div className="grid grid-cols-3 gap-4 text-center">
-              <div>
-                <div className="text-2xl font-bold text-red-600">
-                  {checklist.filter(item => item.status === 'pending').length}
+            <Progress value={overallProgress} className="h-3" />
+          </div>
+
+          {/* Status counts */}
+          <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 text-center">
+            {(Object.keys(statusCounts) as ItemStatus[]).map(status => (
+              <div key={status} className="p-2 rounded-lg bg-muted/50">
+                <div className={`text-xl font-bold ${statusColors[status]}`}>
+                  {statusCounts[status]}
                 </div>
-                <div className="text-sm text-muted-foreground">Pending</div>
+                <div className="text-[10px] text-muted-foreground leading-tight">{statusLabels[status]}</div>
               </div>
-              <div>
-                <div className="text-2xl font-bold text-yellow-600">
-                  {checklist.filter(item => item.status === 'in-progress').length}
+            ))}
+          </div>
+
+          {/* Per-workstream progress bars */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-2">
+            {workstreams.map(ws => {
+              const stats = workstreamStats[ws];
+              if (!stats) return null;
+              const pct = stats.total > 0 ? Math.round((stats.complete / stats.total) * 100) : 0;
+              return (
+                <div key={ws} className="flex items-center gap-2">
+                  {workstreamIcons[ws]}
+                  <span className="text-xs w-20 truncate">{workstreamLabels[ws]}</span>
+                  <div className="flex-1">
+                    <Progress value={pct} className="h-2" />
+                  </div>
+                  <span className="text-xs text-muted-foreground w-16 text-right">
+                    {stats.complete}/{stats.total}
+                    {stats.redFlags > 0 && (
+                      <span className="text-red-500 ml-1">({stats.redFlags} <Flag className="h-3 w-3 inline" />)</span>
+                    )}
+                  </span>
                 </div>
-                <div className="text-sm text-muted-foreground">In Progress</div>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-green-600">
-                  {checklist.filter(item => item.status === 'completed').length}
-                </div>
-                <div className="text-sm text-muted-foreground">Completed</div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </CardContent>
       </Card>
 
+      {/* Red Flag Panel */}
+      {redFlagItems.length > 0 && (
+        <Card className="border-red-300 bg-red-50/50">
+          <CardHeader className="pb-2 cursor-pointer" onClick={() => setRedFlagPanelOpen(!redFlagPanelOpen)}>
+            <CardTitle className="flex items-center justify-between text-lg text-red-700">
+              <div className="flex items-center gap-2">
+                <AlertTriangle className="h-5 w-5" />
+                Red Flags ({redFlagItems.length})
+                <span className="text-xs font-normal ml-2">
+                  {redFlagItems.filter(i => i.redFlag?.severity === 'deal-breaker').length > 0 && (
+                    <Badge className="bg-red-600 text-white text-[10px] mr-1">
+                      {redFlagItems.filter(i => i.redFlag?.severity === 'deal-breaker').length} Deal-Breaker
+                    </Badge>
+                  )}
+                  {redFlagItems.filter(i => i.redFlag?.severity === 'significant').length > 0 && (
+                    <Badge className="bg-orange-500 text-white text-[10px] mr-1">
+                      {redFlagItems.filter(i => i.redFlag?.severity === 'significant').length} Significant
+                    </Badge>
+                  )}
+                  {redFlagItems.filter(i => i.redFlag?.severity === 'manageable').length > 0 && (
+                    <Badge className="bg-yellow-500 text-white text-[10px]">
+                      {redFlagItems.filter(i => i.redFlag?.severity === 'manageable').length} Manageable
+                    </Badge>
+                  )}
+                </span>
+              </div>
+              {redFlagPanelOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
+            </CardTitle>
+          </CardHeader>
+          {redFlagPanelOpen && (
+            <CardContent>
+              <div className="space-y-3">
+                {redFlagItems.map(item => (
+                  <div key={item.id} className="bg-white rounded-lg p-3 border border-red-200">
+                    <div className="flex items-start justify-between gap-2 mb-2">
+                      <div>
+                        <span className="font-medium text-sm">{item.title}</span>
+                        <span className="text-xs text-muted-foreground ml-2">({workstreamLabels[item.workstream]})</span>
+                      </div>
+                      {item.redFlag && (
+                        <Badge className={`${severityColors[item.redFlag.severity]} text-[10px] shrink-0`}>
+                          {item.redFlag.severity}
+                        </Badge>
+                      )}
+                    </div>
+                    {item.redFlag && (
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs">
+                        <div>
+                          <label className="font-medium text-red-700 block mb-1">Finding:</label>
+                          <span className="text-muted-foreground">{item.redFlag.finding || '(not documented)'}</span>
+                        </div>
+                        <div>
+                          <label className="font-medium text-red-700 block mb-1">Mitigant:</label>
+                          <span className="text-muted-foreground">{item.redFlag.mitigant || '(not documented)'}</span>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          )}
+        </Card>
+      )}
+
       {/* Filters */}
       <Card>
-        <CardContent className="pt-6">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
+        <CardContent className="pt-4 pb-4">
+          <div className="grid grid-cols-1 sm:grid-cols-4 gap-3">
             <div className="relative">
               <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
               <Input
@@ -232,105 +437,89 @@ export const DueDiligenceChecklist: React.FC = () => {
               />
             </div>
             <select
-              value={selectedCategory}
-              onChange={(e) => setSelectedCategory(e.target.value)}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
+              value={statusFilter}
+              onChange={(e) => setStatusFilter(e.target.value as ItemStatus | 'all')}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
             >
-              <option value="all">All Categories</option>
-              {categories.map(category => (
-                <option key={category} value={category}>{category}</option>
+              <option value="all">All Status</option>
+              {(Object.keys(statusLabels) as ItemStatus[]).map(s => (
+                <option key={s} value={s}>{statusLabels[s]}</option>
               ))}
             </select>
             <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value)}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
-            >
-              <option value="all">All Status</option>
-              <option value="pending">Pending</option>
-              <option value="in-progress">In Progress</option>
-              <option value="completed">Completed</option>
-            </select>
-            <select
               value={priorityFilter}
-              onChange={(e) => setPriorityFilter(e.target.value)}
-              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background"
+              onChange={(e) => setPriorityFilter(e.target.value as Priority | 'all')}
+              className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
             >
               <option value="all">All Priority</option>
-              <option value="high">High</option>
-              <option value="medium">Medium</option>
-              <option value="low">Low</option>
+              <option value="P0">P0 — Critical</option>
+              <option value="P1">P1 — Important</option>
+              <option value="P2">P2 — Nice to Have</option>
             </select>
             <Button
               variant="outline"
               onClick={() => {
                 setSearchTerm('');
-                setSelectedCategory('all');
                 setStatusFilter('all');
                 setPriorityFilter('all');
               }}
               className="flex items-center gap-2"
             >
               <Filter className="h-4 w-4" />
-              Clear
+              Clear Filters
             </Button>
           </div>
         </CardContent>
       </Card>
 
-      {/* Checklist by Category */}
-      <Tabs value={selectedCategory} onValueChange={setSelectedCategory}>
-        <TabsList className="grid w-full grid-cols-6">
-          <TabsTrigger value="all">All</TabsTrigger>
-          {categories.slice(0, 5).map(category => (
-            <TabsTrigger key={category} value={category} className="text-xs">
-              {category.split(' ')[0]}
-            </TabsTrigger>
-          ))}
+      {/* Workstream Tabs + Checklist Items */}
+      <Tabs value={activeWorkstream} onValueChange={(v) => setActiveWorkstream(v as Workstream | 'all')}>
+        <TabsList className="flex flex-wrap h-auto gap-1 bg-muted/50 p-1">
+          <TabsTrigger value="all" className="text-xs">
+            All ({state.items.length})
+          </TabsTrigger>
+          {workstreams.map(ws => {
+            const stats = workstreamStats[ws];
+            return (
+              <TabsTrigger key={ws} value={ws} className="text-xs flex items-center gap-1">
+                {workstreamIcons[ws]}
+                <span className="hidden sm:inline">{workstreamLabels[ws]}</span>
+                <span className="sm:hidden">{workstreamLabels[ws].split(' ')[0]}</span>
+                {stats && stats.redFlags > 0 && (
+                  <span className="bg-red-500 text-white rounded-full w-4 h-4 text-[10px] flex items-center justify-center">
+                    {stats.redFlags}
+                  </span>
+                )}
+              </TabsTrigger>
+            );
+          })}
         </TabsList>
 
-        <TabsContent value={selectedCategory} className="space-y-4">
-          {selectedCategory === 'all' ? (
-            categories.map(category => {
-              const categoryItems = filteredItems.filter(item => item.category === category);
-              if (categoryItems.length === 0) return null;
-              
+        <TabsContent value={activeWorkstream} className="space-y-3 mt-4">
+          {activeWorkstream === 'all' ? (
+            // All workstreams view — grouped by workstream
+            workstreams.map(ws => {
+              const wsItems = filteredItems.filter(i => i.workstream === ws);
+              if (wsItems.length === 0) return null;
               return (
-                <Card key={category}>
-                  <CardHeader>
-                    <CardTitle className="text-lg">{category}</CardTitle>
+                <Card key={ws}>
+                  <CardHeader className="pb-2">
+                    <CardTitle className="text-base flex items-center gap-2">
+                      {workstreamIcons[ws]}
+                      {workstreamLabels[ws]}
+                      <span className="text-xs text-muted-foreground font-normal">({wsItems.length} items)</span>
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div className="space-y-3">
-                      {categoryItems.map(item => (
-                        <div key={item.id} className="flex items-start gap-3 p-3 border rounded-lg">
-                          <div className="flex items-center gap-2 min-w-0 flex-1">
-                            {getStatusIcon(item.status)}
-                            <div className="min-w-0 flex-1">
-                              <div className="font-medium">{item.item}</div>
-                              <div className="flex items-center gap-2 mt-1">
-                                <Badge className={getPriorityColor(item.priority)}>
-                                  {item.priority}
-                                </Badge>
-                                <select
-                                  value={item.status}
-                                  onChange={(e) => updateItemStatus(item.id, e.target.value as ChecklistItem['status'])}
-                                  className="text-xs border rounded px-2 py-1"
-                                >
-                                  <option value="pending">Pending</option>
-                                  <option value="in-progress">In Progress</option>
-                                  <option value="completed">Completed</option>
-                                </select>
-                              </div>
-                              <Input
-                                placeholder="Add notes..."
-                                value={item.notes || ''}
-                                onChange={(e) => updateItemNotes(item.id, e.target.value)}
-                                className="mt-2 text-xs"
-                              />
-                            </div>
-                          </div>
-                        </div>
+                    <div className="space-y-2">
+                      {wsItems.map(item => (
+                        <ChecklistItemRow
+                          key={item.id}
+                          item={item}
+                          onStatusChange={updateItemStatus}
+                          onNotesChange={updateItemNotes}
+                          onRedFlagChange={updateRedFlag}
+                        />
                       ))}
                     </div>
                   </CardContent>
@@ -338,48 +527,153 @@ export const DueDiligenceChecklist: React.FC = () => {
               );
             })
           ) : (
+            // Single workstream view
             <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">{selectedCategory}</CardTitle>
+              <CardHeader className="pb-2">
+                <CardTitle className="text-base flex items-center gap-2">
+                  {workstreamIcons[activeWorkstream]}
+                  {workstreamLabels[activeWorkstream]}
+                  <span className="text-xs text-muted-foreground font-normal">({filteredItems.length} items)</span>
+                </CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-3">
-                  {filteredItems.map(item => (
-                    <div key={item.id} className="flex items-start gap-3 p-3 border rounded-lg">
-                      <div className="flex items-center gap-2 min-w-0 flex-1">
-                        {getStatusIcon(item.status)}
-                        <div className="min-w-0 flex-1">
-                          <div className="font-medium">{item.item}</div>
-                          <div className="flex items-center gap-2 mt-1">
-                            <Badge className={getPriorityColor(item.priority)}>
-                              {item.priority}
-                            </Badge>
-                            <select
-                              value={item.status}
-                              onChange={(e) => updateItemStatus(item.id, e.target.value as ChecklistItem['status'])}
-                              className="text-xs border rounded px-2 py-1"
-                            >
-                              <option value="pending">Pending</option>
-                              <option value="in-progress">In Progress</option>
-                              <option value="completed">Completed</option>
-                            </select>
-                          </div>
-                          <Input
-                            placeholder="Add notes..."
-                            value={item.notes || ''}
-                            onChange={(e) => updateItemNotes(item.id, e.target.value)}
-                            className="mt-2 text-xs"
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  ))}
+                <div className="space-y-2">
+                  {filteredItems.length === 0 ? (
+                    <p className="text-sm text-muted-foreground text-center py-4">No items match your filters.</p>
+                  ) : (
+                    filteredItems.map(item => (
+                      <ChecklistItemRow
+                        key={item.id}
+                        item={item}
+                        onStatusChange={updateItemStatus}
+                        onNotesChange={updateItemNotes}
+                        onRedFlagChange={updateRedFlag}
+                      />
+                    ))
+                  )}
                 </div>
               </CardContent>
             </Card>
           )}
+          {filteredItems.length === 0 && activeWorkstream === 'all' && (
+            <p className="text-sm text-muted-foreground text-center py-8">No items match your filters.</p>
+          )}
         </TabsContent>
       </Tabs>
+
+      {/* Educational disclaimer */}
+      <div className="text-center text-xs text-muted-foreground border-t pt-4 mt-8">
+        <p>
+          This is an educational due diligence checklist for PE transaction readiness preparation.
+          <br />For actual transactions, work with your legal, financial, and M&A advisors.
+        </p>
+      </div>
+    </div>
+  );
+};
+
+// ─── CHECKLIST ITEM ROW COMPONENT ───────────────────────────────────
+
+interface ChecklistItemRowProps {
+  item: DDChecklistItem;
+  onStatusChange: (id: string, status: ItemStatus) => void;
+  onNotesChange: (id: string, notes: string) => void;
+  onRedFlagChange: (id: string, field: 'severity' | 'finding' | 'mitigant', value: string) => void;
+}
+
+const ChecklistItemRow: React.FC<ChecklistItemRowProps> = ({
+  item, onStatusChange, onNotesChange, onRedFlagChange,
+}) => {
+  const [expanded, setExpanded] = useState(false);
+  const isRedFlag = item.status === 'red-flag';
+
+  return (
+    <div className={`border rounded-lg transition-colors ${isRedFlag ? 'border-red-300 bg-red-50/30' : ''}`}>
+      {/* Main row */}
+      <div className="flex items-start gap-3 p-3">
+        <div className="mt-0.5 shrink-0">{statusIcons[item.status]}</div>
+        <div className="flex-1 min-w-0">
+          <div className="flex items-center gap-2 flex-wrap">
+            <span className={`font-medium text-sm ${item.status === 'complete' ? 'line-through text-muted-foreground' : ''}`}>
+              {item.title}
+            </span>
+            <Badge className={`${priorityColors[item.priority]} text-[10px] px-1.5 py-0 h-4 border`}>
+              {item.priority}
+            </Badge>
+          </div>
+          <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+        </div>
+        <div className="flex items-center gap-2 shrink-0">
+          <select
+            value={item.status}
+            onChange={(e) => onStatusChange(item.id, e.target.value as ItemStatus)}
+            className={`text-xs border rounded px-2 py-1.5 ${statusBgColors[item.status]}`}
+          >
+            {(Object.keys(statusLabels) as ItemStatus[]).map(s => (
+              <option key={s} value={s}>{statusLabels[s]}</option>
+            ))}
+          </select>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-7 w-7 p-0"
+            onClick={() => setExpanded(!expanded)}
+          >
+            {expanded ? <ChevronUp className="h-3 w-3" /> : <ChevronDown className="h-3 w-3" />}
+          </Button>
+        </div>
+      </div>
+
+      {/* Expanded section */}
+      {expanded && (
+        <div className="px-3 pb-3 pt-0 border-t mx-3 mt-0">
+          <div className="mt-2 space-y-2">
+            <div>
+              <label className="text-xs font-medium text-muted-foreground">Notes</label>
+              <Input
+                placeholder="Add notes about this item..."
+                value={item.notes || ''}
+                onChange={(e) => onNotesChange(item.id, e.target.value)}
+                className="text-xs mt-1 h-8"
+              />
+            </div>
+            {isRedFlag && item.redFlag && (
+              <div className="bg-red-50 rounded-lg p-2 space-y-2">
+                <div className="flex items-center gap-2">
+                  <label className="text-xs font-medium text-red-700">Severity:</label>
+                  <select
+                    value={item.redFlag.severity}
+                    onChange={(e) => onRedFlagChange(item.id, 'severity', e.target.value)}
+                    className="text-xs border border-red-200 rounded px-2 py-1"
+                  >
+                    <option value="manageable">Manageable</option>
+                    <option value="significant">Significant</option>
+                    <option value="deal-breaker">Deal-Breaker</option>
+                  </select>
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-red-700">What was found:</label>
+                  <Input
+                    placeholder="Describe the red flag finding..."
+                    value={item.redFlag.finding}
+                    onChange={(e) => onRedFlagChange(item.id, 'finding', e.target.value)}
+                    className="text-xs mt-1 h-8 border-red-200"
+                  />
+                </div>
+                <div>
+                  <label className="text-xs font-medium text-red-700">Mitigant / Path to Resolution:</label>
+                  <Input
+                    placeholder="How can this be resolved or mitigated?"
+                    value={item.redFlag.mitigant}
+                    onChange={(e) => onRedFlagChange(item.id, 'mitigant', e.target.value)}
+                    className="text-xs mt-1 h-8 border-red-200"
+                  />
+                </div>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

@@ -47,7 +47,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Returns Sensitivity', path: '/portal/week-3/returns-sensitivity', weekNumber: 3, order: 10, enhancement: 'ENHANCED' },
   
   // Week 4 - Final Readiness (Updated Discovery Interview module)
-  { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1 },
+  { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1, enhancement: 'ENHANCED' },
   { name: 'LOI Review', path: '/portal/week-4/loi-review', weekNumber: 4, order: 2 },
   { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 3, enhancement: 'ENHANCED' },
   { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4, enhancement: 'ENHANCED' },
