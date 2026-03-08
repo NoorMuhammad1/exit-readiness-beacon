@@ -165,7 +165,14 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
   - Print/Share/Download PDF buttons preserved
   - ENHANCED badge on sidebar
 - Commit: `cb48270` — pushed to noor_frank_playground
+- Added UI redesign to-do (premium purple theme, reference: `ui-reference.png`)
+- Commit: `7e351c3` — pushed to noor_frank_playground
+- **Fixed loading spinner bug on 3 pages:** DataRoomPage, QuickWinsPage, StrategyDocBuilderPage
+  - Same `if (!user) { setLoading(false); return; }` fix from Session 2
+  - All 5 affected pages now fixed (KPIs + KnowYourBuyer were done in Session 2)
+- Commit: `162c723` — pushed to noor_frank_playground
 - **Next:** 4 enhancements remaining (#1, #4, #7, #8). Frank picks next.
+- **Future:** App-wide UI redesign to premium purple theme (see Future To-Do section)
 
 ### Session 3 — Mar 8, 2026
 - **Built Enhancement 2: PE Screening Scorecard**
