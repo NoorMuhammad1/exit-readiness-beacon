@@ -128,10 +128,10 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
 **Source plugin:** investment-banking/skills/buyer-targeting/SKILL.md
 
 ### Enhancement 12: Competitive Analysis Frameworks
-**Status:** NOT STARTED
-**Upgrades:** Week 3 Business Scorecard area
+**Status:** COMPLETE (Session 3, commit 1f8a540)
+**Upgrades:** Week 3 Performance Readiness — new module
 **What it does:** Adds TAM/SAM/SOM market sizing framework, Porter's Five Forces analysis, and competitive positioning maps (2x2 matrices with industry-specific axes). Answers "How big is your market and what's your share?" — exactly what PE firms want in the Company Overview section of any deal document.
-**Source plugin:** equity-research/skills/industry-analysis/SKILL.md
+**Source plugin:** equity-research/skills/sector-overview/SKILL.md
 
 ---
 
@@ -147,7 +147,14 @@ Each enhancement is independent. We tackle them one at a time, in whatever order
   - Auto-calculates EBITDA margin and enterprise value
   - ENHANCED badge on sidebar + page header
 - Commit: `d20c2de` — pushed to noor_frank_playground
-- **Next:** 8 enhancements remaining. Frank picks next.
+- **Built Enhancement 12: Competitive Analysis Frameworks**
+  - TAM/SAM/SOM market sizing with visual funnel bar chart
+  - Porter's Five Forces with low/medium/high per force + industry attractiveness score
+  - Competitive positioning map (SVG 2D chart: quality vs price)
+  - Combined report page with overall verdict + PE-ready market narrative template
+  - ENHANCED badge on sidebar + page header
+- Commit: `1f8a540` — pushed to noor_frank_playground
+- **Next:** 7 enhancements remaining. Frank picks next.
 
 ### Session 2 — Mar 8, 2026
 - Added 3 missing enhancements to roadmap (10: Anonymous Teaser, 11: Buyer List Framework, 12: Competitive Analysis) — now 12 total
