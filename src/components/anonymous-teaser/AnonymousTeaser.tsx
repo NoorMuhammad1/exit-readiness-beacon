@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -435,11 +435,41 @@ export const AnonymousTeaser: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [pageAnswered, setPageAnswered] = useState<Record<number, boolean>>({});
 
-  const [inputs, setInputs] = useState<TeaserInputs>({
-    companyName: '', sector: '', city: '', state: '',
-    revenue: '', ebitda: '', growthRate: '', employeeCount: '',
-    yearFounded: '', highlight1: '', highlight2: '', highlight3: '',
-    highlight4: '', dealType: '',
+  const [inputs, setInputs] = useState<TeaserInputs>(() => {
+    // Pre-fill from Company Profile
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        const sectorMap: Record<string, string> = {
+          'Technology / SaaS': 'technology', 'Healthcare': 'healthcare',
+          'Manufacturing / Industrial': 'industrials', 'Financial Services': 'financial-services',
+          'Consumer / Retail': 'consumer', 'Business Services': 'business-services',
+          'Education': 'education', 'Food & Beverage': 'food-beverage',
+          'Construction': 'construction', 'Distribution': 'distribution',
+          'Energy': 'energy', 'Real Estate': 'other', 'Other': 'other',
+        };
+        return {
+          companyName: cp.companyName || '',
+          sector: sectorMap[cp.industry] || '',
+          city: cp.city || '',
+          state: cp.state || '',
+          revenue: cp.annualRevenue ? String(cp.annualRevenue) : '',
+          ebitda: cp.ebitda ? String(cp.ebitda) : '',
+          growthRate: cp.revenueGrowthRate ? String(cp.revenueGrowthRate) : '',
+          employeeCount: cp.employeeCount ? String(cp.employeeCount) : '',
+          yearFounded: cp.yearFounded ? String(cp.yearFounded) : '',
+          highlight1: '', highlight2: '', highlight3: '', highlight4: '',
+          dealType: cp.transactionType || '',
+        };
+      }
+    } catch (e) { /* ignore */ }
+    return {
+      companyName: '', sector: '', city: '', state: '',
+      revenue: '', ebitda: '', growthRate: '', employeeCount: '',
+      yearFounded: '', highlight1: '', highlight2: '', highlight3: '',
+      highlight4: '', dealType: '',
+    };
   });
 
   const pages = useMemo(() => [

@@ -174,8 +174,37 @@ function anonymizeLocation(stateCode: string): string {
 function tryImportExistingData(): Partial<CIMData> {
   const imported: Partial<CIMData> = {};
   try {
-    const companyName = localStorage.getItem('company-name');
-    if (companyName) imported.companyName = companyName;
+    // Import from Company Profile (primary source)
+    const cpRaw = localStorage.getItem('company-profile-v1');
+    if (cpRaw) {
+      const cp = JSON.parse(cpRaw);
+      const sectorMap: Record<string, string> = {
+        'Technology / SaaS': 'saas', 'Healthcare': 'healthcare',
+        'Manufacturing / Industrial': 'industrials', 'Financial Services': 'financial-services',
+        'Consumer / Retail': 'consumer', 'Business Services': 'business-services',
+        'Education': 'education', 'Food & Beverage': 'food-beverage',
+        'Construction': 'construction', 'Distribution': 'distribution',
+        'Energy': 'other', 'Real Estate': 'other', 'Other': 'other',
+      };
+      if (cp.companyName) imported.companyName = cp.companyName;
+      if (cp.industry) imported.sector = sectorMap[cp.industry] || '';
+      if (cp.yearFounded) imported.yearFounded = String(cp.yearFounded);
+      if (cp.city) imported.headquarters = cp.city;
+      if (cp.state) imported.state = cp.state;
+      if (cp.employeeCount) imported.employeeCount = String(cp.employeeCount);
+      if (cp.transactionType) imported.dealType = cp.transactionType;
+      if (cp.exitTimeline) imported.timeline = cp.exitTimeline;
+      if (cp.annualRevenue) imported.revenue = String(cp.annualRevenue);
+      if (cp.revenueGrowthRate) imported.revenueGrowth = String(cp.revenueGrowthRate);
+      if (cp.ebitda) imported.ebitda = String(cp.ebitda);
+      if (cp.ebitdaMargin) imported.ebitdaMargin = String(cp.ebitdaMargin);
+    }
+
+    // Legacy imports (still useful for fields not in Company Profile)
+    if (!imported.companyName) {
+      const companyName = localStorage.getItem('company-name');
+      if (companyName) imported.companyName = companyName;
+    }
 
     const ownerName = localStorage.getItem('owner-name');
     if (ownerName) imported.keyPersonnel = ownerName + ' (Owner/CEO)';
@@ -183,7 +212,7 @@ function tryImportExistingData(): Partial<CIMData> {
     const vcpRaw = localStorage.getItem('value-creation-plan-v1');
     if (vcpRaw) {
       const vcp = JSON.parse(vcpRaw);
-      if (vcp.baseEbitda) imported.ebitda = String(vcp.baseEbitda);
+      if (!imported.ebitda && vcp.baseEbitda) imported.ebitda = String(vcp.baseEbitda);
       if (vcp.levers && Array.isArray(vcp.levers) && vcp.levers.length > 0) {
         const leverNames = vcp.levers.map((l: { name: string }) => l.name).filter(Boolean);
         if (leverNames.length > 0) {

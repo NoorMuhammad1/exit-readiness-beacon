@@ -154,17 +154,23 @@ const ValueCreationPlanPage: React.FC = () => {
   const [state, setState] = useState<ValueCreationState>(defaultState);
   const [activeTab, setActiveTab] = useState('baseline');
 
-  // Load saved state
+  // Load saved state, then fill gaps from Company Profile
   useEffect(() => {
+    let loaded = { ...defaultState };
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setState({ ...defaultState, ...parsed });
-      } catch (e) {
-        console.error('Error loading value creation plan:', e);
-      }
+      try { loaded = { ...defaultState, ...JSON.parse(saved) }; } catch (e) { /* ignore */ }
     }
+    // Fill empty financials from Company Profile (profile uses $M, this module uses raw $)
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        if (!loaded.currentRevenue && cp.annualRevenue) loaded.currentRevenue = cp.annualRevenue * 1_000_000;
+        if (!loaded.currentEBITDA && cp.ebitda) loaded.currentEBITDA = cp.ebitda * 1_000_000;
+      }
+    } catch (e) { /* ignore */ }
+    setState(loaded);
   }, []);
 
   // Save on every change

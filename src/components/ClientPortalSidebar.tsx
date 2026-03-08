@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BookOpen, Calculator, Target, FileCheck, Crown, TrendingUp, CheckCircle } from 'lucide-react';
+import { BookOpen, Calculator, Target, FileCheck, Crown, TrendingUp, CheckCircle, Building2 } from 'lucide-react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
 import { useProgress } from '@/hooks/useProgress';
@@ -50,6 +50,27 @@ export function ClientPortalSidebar() {
             )}
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Company Profile */}
+        {!collapsed && (
+          <SidebarGroup>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton asChild>
+                    <NavLink
+                      to="/portal/company-profile"
+                      className={getNavClasses('/portal/company-profile')}
+                    >
+                      <Building2 className="h-4 w-4" />
+                      <span className="text-sm">Company Profile</span>
+                    </NavLink>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
+        )}
 
         {/* Weekly Modules */}
         {weeks.map(week => {

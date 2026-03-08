@@ -753,19 +753,52 @@ export const PEScreeningScorecard: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [pageAnswered, setPageAnswered] = useState<Record<number, boolean>>({});
 
-  const [profile, setProfile] = useState<CompanyProfile>({
-    revenue: '',
-    ebitda: '',
-    ebitdaMargin: '',
-    growthRate: '',
+  const [profile, setProfile] = useState<CompanyProfile>(() => {
+    // Pre-fill from Company Profile
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        const rev = cp.annualRevenue ? String(cp.annualRevenue) : '';
+        const ebitda = cp.ebitda ? String(cp.ebitda) : '';
+        const margin = (cp.annualRevenue && cp.ebitda)
+          ? ((cp.ebitda / cp.annualRevenue) * 100).toFixed(1)
+          : '';
+        return {
+          revenue: rev,
+          ebitda: ebitda,
+          ebitdaMargin: margin,
+          growthRate: cp.revenueGrowthRate ? String(cp.revenueGrowthRate) : '',
+        };
+      }
+    } catch (e) { /* ignore */ }
+    return { revenue: '', ebitda: '', ebitdaMargin: '', growthRate: '' };
   });
 
-  const [dealFit, setDealFit] = useState<DealFit>({
-    sector: '',
-    geography: '',
-    valuationMultiple: '',
-    customerConcentration: '',
-    managementContinuity: '',
+  const [dealFit, setDealFit] = useState<DealFit>(() => {
+    // Pre-fill from Company Profile
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        const sectorMap: Record<string, string> = {
+          'Technology / SaaS': 'technology', 'Healthcare': 'healthcare',
+          'Manufacturing / Industrial': 'industrials', 'Financial Services': 'financial-services',
+          'Consumer / Retail': 'consumer', 'Business Services': 'business-services',
+          'Education': 'education', 'Food & Beverage': 'food-beverage',
+          'Construction': 'construction', 'Distribution': 'distribution',
+          'Energy': 'energy', 'Real Estate': 'real-estate', 'Other': 'other',
+        };
+        return {
+          sector: sectorMap[cp.industry] || '',
+          geography: '',
+          valuationMultiple: '',
+          customerConcentration: cp.top10CustomerConcentration ? String(cp.top10CustomerConcentration) : '',
+          managementContinuity: '',
+        };
+      }
+    } catch (e) { /* ignore */ }
+    return { sector: '', geography: '', valuationMultiple: '', customerConcentration: '', managementContinuity: '' };
   });
 
   // Auto-calculate margin when revenue and ebitda change

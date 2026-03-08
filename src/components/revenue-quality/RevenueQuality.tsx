@@ -177,17 +177,28 @@ export const RevenueQuality: React.FC = () => {
   const [state, setState] = useState<RevenueQualityState>(defaultState);
   const [activeTab, setActiveTab] = useState('revenue');
 
-  // Load from localStorage
+  // Load from localStorage, then fill gaps from Company Profile
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
+    let loaded = { ...defaultState };
     if (saved) {
-      try {
-        const parsed = JSON.parse(saved);
-        setState({ ...defaultState, ...parsed });
-      } catch (e) {
-        console.error('Error loading revenue quality data', e);
-      }
+      try { loaded = { ...defaultState, ...JSON.parse(saved) }; } catch (e) { /* ignore */ }
     }
+    // Fill empty fields from Company Profile (profile uses $M, this module uses raw $)
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        if (!loaded.totalRevenue && cp.annualRevenue) loaded.totalRevenue = cp.annualRevenue * 1_000_000;
+        if (!loaded.grossMarginPercent && cp.grossMarginPercent) loaded.grossMarginPercent = cp.grossMarginPercent;
+        if (!loaded.revenueGrowthRate && cp.revenueGrowthRate) loaded.revenueGrowthRate = cp.revenueGrowthRate;
+        if (!loaded.ebitdaMargin && cp.ebitdaMargin) loaded.ebitdaMargin = cp.ebitdaMargin;
+        if (!loaded.totalCustomers && cp.customerCount) loaded.totalCustomers = cp.customerCount;
+        if (!loaded.top10CustomersPercent && cp.top10CustomerConcentration) loaded.top10CustomersPercent = cp.top10CustomerConcentration;
+        if (!loaded.businessModel && cp.businessModel) loaded.businessModel = cp.businessModel as any;
+      }
+    } catch (e) { /* ignore */ }
+    setState(loaded);
   }, []);
 
   // Save on change

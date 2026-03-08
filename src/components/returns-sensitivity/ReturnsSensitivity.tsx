@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -663,20 +663,44 @@ export const ReturnsSensitivity: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(0);
   const [pageAnswered, setPageAnswered] = useState<Record<number, boolean>>({});
 
-  const [deal, setDeal] = useState<DealInputs>({
-    ebitda: '',
-    entryMultiple: '',
-    debtMultiple: '3',
-    holdPeriod: '5',
+  const [deal, setDeal] = useState<DealInputs>(() => {
+    // Pre-fill from Company Profile
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        return {
+          ebitda: cp.ebitda ? String(cp.ebitda) : '',
+          entryMultiple: '',
+          debtMultiple: '3',
+          holdPeriod: '5',
+        };
+      }
+    } catch (e) { /* ignore */ }
+    return { ebitda: '', entryMultiple: '', debtMultiple: '3', holdPeriod: '5' };
   });
 
-  const [growth, setGrowth] = useState<GrowthInputs>({
-    baseGrowthRate: '',
-    baseExitMultiple: '',
-    bullGrowthRate: '',
-    bullExitMultiple: '',
-    bearGrowthRate: '',
-    bearExitMultiple: '',
+  const [growth, setGrowth] = useState<GrowthInputs>(() => {
+    // Pre-fill growth rate from Company Profile
+    try {
+      const raw = localStorage.getItem('company-profile-v1');
+      if (raw) {
+        const cp = JSON.parse(raw);
+        return {
+          baseGrowthRate: cp.revenueGrowthRate ? String(cp.revenueGrowthRate) : '',
+          baseExitMultiple: '',
+          bullGrowthRate: '',
+          bullExitMultiple: '',
+          bearGrowthRate: '',
+          bearExitMultiple: '',
+        };
+      }
+    } catch (e) { /* ignore */ }
+    return {
+      baseGrowthRate: '', baseExitMultiple: '',
+      bullGrowthRate: '', bullExitMultiple: '',
+      bearGrowthRate: '', bearExitMultiple: '',
+    };
   });
 
   const pages = useMemo(() => [
