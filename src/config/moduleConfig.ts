@@ -46,6 +46,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Competitive Analysis', path: '/portal/week-3/competitive-analysis', weekNumber: 3, order: 9, enhancement: 'ENHANCED' },
   { name: 'Returns Sensitivity', path: '/portal/week-3/returns-sensitivity', weekNumber: 3, order: 10, enhancement: 'ENHANCED' },
   { name: 'Value Creation Plan', path: '/portal/week-3/value-creation', weekNumber: 3, order: 11, enhancement: 'ENHANCED' },
+  { name: 'Revenue Quality Score', path: '/portal/week-3/revenue-quality', weekNumber: 3, order: 12, enhancement: 'ENHANCED' },
   
   // Week 4 - Final Readiness (Updated Discovery Interview module)
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1, enhancement: 'ENHANCED' },
