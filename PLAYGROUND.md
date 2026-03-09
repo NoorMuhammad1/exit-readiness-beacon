@@ -158,7 +158,7 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** financial-analysis/skills/lbo-model/SKILL.md
 
 ### Enhancement 16: DCF Valuation (What's Your Business Really Worth?)
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 18, commit 32169e8)
 **Upgrades:** Week 3 Performance Readiness — complements Returns Sensitivity module
 **What it does:** A second valuation approach alongside EBITDA × multiple. User enters revenue, growth rate, margins, and capex. System builds a simplified DCF: projects 5 years of free cash flow, applies a discount rate (WACC), calculates terminal value, and arrives at an enterprise value. Includes Bear/Base/Bull scenarios and sensitivity tables (WACC vs. growth rate, margin vs. growth rate). Educational: explains why faster growth and lower risk = higher valuation. Two methods arriving at similar numbers = much more credible in front of a PE firm.
 **Source plugin:** financial-analysis/skills/dcf-model/SKILL.md
@@ -235,7 +235,19 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - New files: `src/components/comparable-analysis/ComparableAnalysis.tsx`, `src/pages/week-3/ComparableAnalysisPage.tsx`
 - Commit: `ad13430` — pushed to noor_frank_playground
 - **Phase 3 Wave 2: 3 of 9 complete** (LBO #15 done Session 13, Financial Data Room #17 done Session 17, now Comps #14)
-- **Next:** DCF Valuation (#16), The Process Letter (#20), Life After Exit (#18), Company One-Pager (#21), PE Pitch Deck Builder (#22), Merger Math (#19)
+- **Built DCF Valuation** — Enhancement #16, "What's Your Business Really Worth?"
+  - 4 tabs: What is a DCF? / Your Assumptions / Your Valuation / Your Report
+  - Tab 1: Educational intro — 4 building blocks (projections, FCF, discount rate, terminal value), why DCF + comps together, discount rate risk tiers (8-20%+)
+  - Tab 2: Current financials (revenue, EBITDA, auto-calc margin), Bear/Base/Bull growth + margin scenario table, cash flow assumptions (CapEx, D&A, NWC, tax rate), discount rate + terminal growth + hold period, validation warning if terminal growth >= WACC
+  - Tab 3: 3 scenario summary cards with EV + implied multiple, base case 5-year projection table (revenue, EBITDA, margin, FCF, PV of FCF), valuation bridge (PV FCFs + PV terminal value = EV), TV% health check, 2 sensitivity tables (WACC × terminal growth, growth × margin) with base case highlighted
+  - Tab 4: Full report — EV range bar (bear/base/bull), key assumptions table, "What Drives Your Value" narrative (growth, margins, risk), "What PE Firms Will Think" commentary, CSV export
+  - Auto-fills from Company Profile (revenue, EBITDA, growth rate)
+  - localStorage: `dcf-valuation-v1`
+  - Route: `/portal/week-3/dcf-valuation`, NEW badge
+  - New files: `src/components/dcf-valuation/DCFValuation.tsx`, `src/pages/week-3/DCFValuationPage.tsx`
+- Commit: `32169e8` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 4 of 9 complete** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF)
+- **Next:** The Process Letter (#20), Life After Exit (#18), Company One-Pager (#21), PE Pitch Deck Builder (#22), Merger Math (#19)
 
 ### Session 15 — Mar 9, 2026
 - **Built Emotional Side of Selling** — "Are You Actually Ready?" (Phase 2 Module F — LAST Phase 2 module)
