@@ -146,13 +146,13 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/deal-tracker/SKILL.md + investment-banking/skills/process-letter/SKILL.md
 
 ### Enhancement 14: Comparable Company Analysis (Comps)
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 18, commit ad13430)
 **Upgrades:** Week 3 Performance Readiness — new module
 **What it does:** Shows business owners how they stack up against comparable companies in their industry. User enters their metrics (revenue, EBITDA, margins, growth). System shows where they fall in the distribution — are they above median, below 25th percentile, etc.? Includes: operating metrics comparison (revenue growth, EBITDA margin, gross margin), valuation multiples context (EV/EBITDA, EV/Revenue ranges for their industry), and a "premium vs. discount" assessment explaining what drives higher valuations. Statistical benchmarks: Max, 75th percentile, Median, 25th percentile, Min.
 **Source plugin:** financial-analysis/skills/comps-analysis/SKILL.md
 
 ### Enhancement 15: LBO Explainer (How PE Firms Buy Your Company)
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 13, commit f6db3e7)
 **Upgrades:** Week 1 Foundation or Week 2 Deal Readiness — new educational module
 **What it does:** Interactive walkthrough of a leveraged buyout using the business owner's actual numbers. Shows: Sources & Uses (how much equity the PE firm puts up, how much they borrow), debt structure (senior debt, mezzanine, equity split), how the company's cash flow pays down debt over 5 years, and the PE firm's return (IRR/MOIC) at exit. Sensitivity tables showing how entry price, growth rate, and exit multiple affect the PE firm's returns. Key insight: "This is why PE firms care so much about your EBITDA and cash flow — it's literally paying off their loan."
 **Source plugin:** financial-analysis/skills/lbo-model/SKILL.md
@@ -221,6 +221,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 18 — Mar 9, 2026
+- **Built Comparable Company Analysis** — Enhancement #14, "How Do You Stack Up?"
+  - 4 tabs: What Are Comps? / Your Numbers / How You Stack Up / Your Report
+  - Tab 1: Educational intro — what PE firms compare (growth, margins, revenue quality, efficiency), how percentiles work (top quartile → bottom quartile with color coding), impact on valuation ($15M difference example)
+  - Tab 2: Industry selector (6 industries: SaaS/Software, Healthcare Services, Manufacturing/Industrial, Professional Services, Consumer/Retail, Construction/Trades), financial metrics entry (revenue, growth, gross margin, EBITDA, EBITDA margin, net margin), operating metrics (customer count, top customer %, recurring revenue %, employee count), auto-calculated revenue/employee
+  - Tab 3: Percentile bar charts for 7 metrics (Revenue Growth, Gross Margin, EBITDA Margin, Net Margin, Top Customer %, Recurring Revenue, Revenue/Employee) with visual position markers against Min/25th/Median/75th/Max, color-coded quartile positioning, implied valuation range with EV/EBITDA multiple interpolation, industry-specific premium and discount drivers
+  - Tab 4: Full report — overall assessment (Premium/Above Average/Average/Below Average/Discount Territory), metric-by-metric table, strengths and concerns, implied valuation, "What PE Firms Will Think" bull/bear/bottom-line narrative, CSV export
+  - Auto-fills from Company Profile (industry, revenue, EBITDA, margins, growth, customers, employees)
+  - localStorage: `comparable-analysis-v1`
+  - Route: `/portal/week-3/comparable-analysis`, NEW badge
+  - New files: `src/components/comparable-analysis/ComparableAnalysis.tsx`, `src/pages/week-3/ComparableAnalysisPage.tsx`
+- Commit: `ad13430` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 3 of 9 complete** (LBO #15 done Session 13, Financial Data Room #17 done Session 17, now Comps #14)
+- **Next:** DCF Valuation (#16), The Process Letter (#20), Life After Exit (#18), Company One-Pager (#21), PE Pitch Deck Builder (#22), Merger Math (#19)
 
 ### Session 15 — Mar 9, 2026
 - **Built Emotional Side of Selling** — "Are You Actually Ready?" (Phase 2 Module F — LAST Phase 2 module)
