@@ -83,6 +83,7 @@ const ReturnsSensitivityPage = lazy(() => import('./pages/week-3/ReturnsSensitiv
 const ValueCreationPlanPage = lazy(() => import('./pages/week-3/ValueCreationPlanPage'));
 const RevenueQualityPage = lazy(() => import('./pages/week-3/RevenueQualityPage'));
 const ComparableAnalysisPage = lazy(() => import('./pages/week-3/ComparableAnalysisPage'));
+const DCFValuationPage = lazy(() => import('./pages/week-3/DCFValuationPage'));
 
 // Week 4 pages
 const DueDiligenceChecklistPage = lazy(() => import('./pages/week-4/DueDiligenceChecklistPage'));
@@ -196,6 +197,7 @@ function App() {
               <Route path="/portal/week-3/value-creation" element={<ClientPortalLayout><ValueCreationPlanPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/revenue-quality" element={<ClientPortalLayout><RevenueQualityPage /></ClientPortalLayout>} />
               <Route path="/portal/week-3/comparable-analysis" element={<ClientPortalLayout><ComparableAnalysisPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-3/dcf-valuation" element={<ClientPortalLayout><DCFValuationPage /></ClientPortalLayout>} />
 
               {/* Week 4 Routes */}
               <Route path="/portal/week-4/dd-checklist" element={<ClientPortalLayout><DueDiligenceChecklistPage /></ClientPortalLayout>} />
