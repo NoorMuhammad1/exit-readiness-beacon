@@ -246,6 +246,38 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 - Commit: `c64700b` — pushed to noor_frank_playground
 - **Next:** Remaining Buyer Perspective modules (Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide), Phase 3 Wave 2 enhancements, settings polish, purple theme
 
+### Session 16 — Mar 9, 2026
+- **Built all 4 remaining Buyer Perspective counter-game modules in one session**
+- **BUYER PERSPECTIVE SERIES COMPLETE — all 5 of 5 modules built**
+- **The Auction** — "Why 3+ Bidders Changes Everything"
+  - 4 tabs: Why Process Wins / The 8 Stages / Process Readiness Check / Your Report
+  - Tab 1: The #1 rule (never negotiate with one buyer), bidder count impact table (1→8+ bidders), 5 costly mistakes with expandable cards + dollar costs, banker fee ROI math ($800K fee → $7.5M net benefit)
+  - Tab 2: 8 stages of competitive sale (Preparation → Buyer Outreach → IOIs → Management Presentations → Final Bids → Due Diligence → Definitive Agreement → Closing), each expandable with seller role, banker role, key docs, common mistake, pro tip
+  - Tab 3: 17-question process readiness check (5 categories: Process Setup, Financial Readiness, Team & Operations, Legal & Data Room, Seller Mindset), "why it matters" on flagged answers
+  - Tab 4: Overall readiness score, category breakdown, gaps, 5-step action plan, CSV export
+  - localStorage: `the-auction-v1`, Route: `/portal/week-1/the-auction`, NEW badge
+- **See Through PE Eyes** — "Input Your P&L, See Every Red Flag"
+  - 4 tabs: What PE Sees / Enter Your Numbers / Red Flag Analysis / Your Report
+  - Tab 1: How PE reads a P&L, the 8 things PE scrutinizes first
+  - Tab 2: Monthly P&L input table (12 months × 12 line items), additional context inputs (market owner comp, customer concentration, recurring revenue %)
+  - Tab 3: Automated red flag engine (12+ checks: owner comp vs market, seasonality, revenue variance, H2 decline, gross margin trend, customer concentration, low recurring revenue, T&E, EBITDA margin, scale), each flag shows finding + buyer thinking + dollar impact + action
+  - Tab 4: Overall verdict, implied valuation range (5x/7x/9x), summary of findings, preparation checklist, CSV export
+  - localStorage: `pe-eyes-v1`, Route: `/portal/week-1/pe-eyes`, NEW badge
+- **The 24-Month Countdown** — "Enter Your Target Close Date"
+  - 3 tabs: The Timeline / Your Countdown / Your Report
+  - Tab 1: 6 milestone phases (24mo → 18mo → 12mo → 9mo → 6mo → 3mo), 30 total tasks across 5 categories (financial, legal, team, operations, advisory), critical flags, checkbox completion tracking
+  - Tab 2: Target close date input, months remaining calculator, behind-schedule detector with item-level warnings, progress by phase with BEHIND badges
+  - Tab 3: Overall completion score, critical items status, behind schedule items, CSV export
+  - localStorage: `countdown-24-v1`, Route: `/portal/week-1/countdown-24`, NEW badge
+- **Purchase Agreement Survival Guide** — "The 15 Clauses That Cost Sellers the Most"
+  - 3 tabs: The 15 Clauses / Agreement Check / Your Report
+  - Tab 1: 15 expandable clause cards (Escrow, Indemnification Cap, Basket/Deductible, Survival Periods, Sandbagging, Working Capital, Earnout, R&W Insurance, Non-Compete, Disclosure Schedules, Closing Conditions, Purchase Price Adjustments, Fraud Carve-Out, Specific Indemnities, Dispute Resolution), each with what it means, why it costs you, market terms, buyer wants, seller should push for, negotiation tip
+  - Tab 2: 15-question agreement checker (yes/no), good answer + bad sign feedback
+  - Tab 3: Overall assessment (Well-Protected → Heavily Buyer-Favored), terms to renegotiate, seller-friendly terms, 6-point attorney discussion guide, CSV export
+  - localStorage: `purchase-agreement-v1`, Route: `/portal/week-1/purchase-agreement`, NEW badge
+- Commit: `f7c3310` — pushed to noor_frank_playground
+- **Next:** Phase 3 Wave 2 enhancements (Financial Data Room Prep, Comparable Company Analysis, DCF Valuation, etc.), Phase 4 thin module upgrades, settings polish, purple theme
+
 ### Session 14 — Mar 8, 2026
 - **Built Reps & Warranties** — "What Are You Promising?"
   - 4 tabs: What Are R&Ws? / Common Reps / Exposure Checker / Your Report
