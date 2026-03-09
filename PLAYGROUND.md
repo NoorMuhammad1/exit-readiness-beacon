@@ -222,6 +222,56 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 13 — Mar 8, 2026
+- **Module reordering** — rearranged entire curriculum to follow natural deal flow
+  - Deal Process Roadmap → #1 (was #8), EBITDA Explained → #2 (was #7)
+  - Data Room → end of deal readiness (was #1 in Week 2)
+  - Valuation tools grouped: EBITDA Calc → Multipliers → Returns Sensitivity → Scenario Planning
+  - Sidebar is flat list (no week headers since Session 10), sorted by weekNumber + order
+- Commit: `a70d46c` — pushed to noor_frank_playground
+- **Built QoE Explainer** — "Surviving the Quality of Earnings"
+  - 4 tabs: What is a QoE? / Common Adjustments / Red Flag Checker / Your Report
+  - 15-question interactive Red Flag Checker with severity ratings (high/medium/low)
+  - Common adjustments in 3 tiers: accepted (green), contested (yellow), rejected (red)
+  - Worked EBITDA bridge example showing $164K net adjustment = ~$1M in purchase price
+  - Personalized report with assessment, flagged items, clear items, CSV export
+  - localStorage: `qoe-explainer-v1`
+  - Route: `/portal/week-2/qoe-explainer`, NEW badge
+  - New files: `src/components/qoe-explainer/QoEExplainer.tsx`, `src/pages/week-2/QoEExplainerPage.tsx`
+- Commits: `ff25676`, `1c0c50a` — pushed to noor_frank_playground
+- **Built Working Capital** — "The Surprise at Closing"
+  - 4 tabs: What Is Working Capital? / How the Peg Works / WC Estimator / Your Analysis
+  - 5-step peg process, $500K real-world example, seasonal business trap
+  - PE negotiation tactics with seller defenses
+  - Monthly WC estimator: 10 line items × 12 months, closing month selector, collar slider
+  - Bar chart visualization of monthly WC vs peg, assessment, CSV export
+  - localStorage: `working-capital-v1`
+  - Route: `/portal/week-2/working-capital`, NEW badge
+  - New files: `src/components/working-capital/WorkingCapital.tsx`, `src/pages/week-2/WorkingCapitalPage.tsx`
+- **Built LBO Explainer** — "How PE Firms Buy Companies"
+  - 4 tabs: How PE Makes Money / Your Deal Model / Returns Breakdown / What-If Tables
+  - 3 levers explained: EBITDA growth, multiple expansion, debt paydown
+  - Interactive deal model: 7 sliders (EBITDA, entry multiple, debt %, interest, growth, hold, exit multiple)
+  - Sources & uses visual, year-by-year debt paydown table
+  - Returns: MOIC/IRR, exit waterfall, attribution bars with commentary
+  - 2 sensitivity tables: entry×exit multiple, growth×exit multiple (color-coded green/yellow/red)
+  - localStorage: `lbo-explainer-v1`
+  - Route: `/portal/week-1/lbo-explainer`, NEW badge
+  - New files: `src/components/lbo-explainer/LBOExplainer.tsx`, `src/pages/week-1/LBOExplainerPage.tsx`
+- Commit: `f6db3e7` — pushed to noor_frank_playground
+- **Built Tax Structuring** — "Asset Deal vs. Stock Deal"
+  - 4 tabs: Asset vs Stock / Side-by-Side / Tax Calculator / Strategies
+  - Stock vs asset sale: buyer/seller preferences, C-Corp double tax trap
+  - 10-row feature comparison table, 338(h)(10) compromise, installment sales
+  - Calculator: deal value, entity type, rates, asset allocation → after-tax comparison
+  - C-Corp double tax warning with full breakdown when entity = C-Corp
+  - 8 tax strategies: allocation negotiation, 338(h)(10), installment, rollover, QSBS, CRT, OZ, state
+  - localStorage: `tax-structuring-v1`
+  - Route: `/portal/week-2/tax-structuring`, NEW badge
+  - New files: `src/components/tax-structuring/TaxStructuring.tsx`, `src/pages/week-2/TaxStructuringPage.tsx`
+- Commit: `fbde250` — pushed to noor_frank_playground
+- **Next:** Reps & Warranties, Rollover/MEPs, Emotional Side (3 remaining Phase 2 modules)
+
 ### Session 10 — Mar 8, 2026
 - **Built Settings Page** — Anthropic-style settings with 4-tab layout
   - **Account tab:** Display name, email (localStorage), password change (placeholder), Danger Zone with Delete Account (disabled)
@@ -240,7 +290,17 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - Welcome text updated: "4-Week Exit Readiness Program" → "Exit Readiness Program"
   - No routes, module content, or functionality changed — sidebar only
   - Cleaned up unused imports (week icons, getWeekProgress)
-- Commit: TBD — pushing now
+- Commit: `9a44b49` — pushed to noor_frank_playground
+- **Settings page UI redesign — NixtNode-inspired premium dark + purple aesthetic**
+  - Purple-to-black gradient background (visible purple glow at top, fading to black)
+  - Solid black cards with subtle white/8% borders — clear contrast against gradient
+  - Decorative SVG arc line across top (like NixtNode reference)
+  - Purple solid-fill active tab with glow shadow
+  - Native HTML inputs/selects replacing shadcn to avoid dark theme conflicts
+  - Centered header layout, text-5xl bold title, uppercase tracking labels
+  - Current plan card has purple border glow (`shadow-[0_0_60px]`)
+  - ~94% there per Frank — remaining polish for future session
+  - Commit: `61ea12f` — pushed to noor_frank_playground
 
 ### Session 9 — Mar 8, 2026
 - **Deep dive into Anthropic financial-services-plugins repo** — read all 52 skills across 7 categories
