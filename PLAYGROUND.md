@@ -222,6 +222,30 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 15 — Mar 9, 2026
+- **Built Emotional Side of Selling** — "Are You Actually Ready?" (Phase 2 Module F — LAST Phase 2 module)
+  - 4 tabs: The Emotional Journey / What You'll Face / Readiness Assessment / Your Report
+  - Tab 1: Why emotional prep matters, 3 stats (60-70% remorse, 50% non-financial deal failures, 75% wish they'd prepared), 6-stage emotional timeline (Preparation → Marketing → LOI → DD → Final Negotiations → Closing), tips per stage
+  - Tab 2: 6 emotional challenges with expandable cards (Seller's Remorse, Identity Crisis, Family Dynamics, Decision Fatigue, Monday Morning Problem, Pause vs Push Through), triggers + coping advice, side-by-side pause/push-through signal lists
+  - Tab 3: 15-question self-assessment on 1-5 scale across 5 categories (Post-Exit Vision, Family & Relationships, Identity & Letting Go, Emotional Stamina, Preparation & Support), "why it matters" per question, progress bar, question navigator grid
+  - Tab 4: Overall score (Ready/Almost Ready/Needs Work/Not Ready Yet), category breakdown with progress bars, individual question dot scores, action items per category, 5-point "conversations to have before you start" guide, CSV export
+  - localStorage: `emotional-readiness-v1`
+  - Route: `/portal/week-1/emotional-readiness`, NEW badge
+  - New files: `src/components/emotional-readiness/EmotionalReadiness.tsx`, `src/pages/week-1/EmotionalReadinessPage.tsx`
+- Commit: `cd33cce` — pushed to noor_frank_playground
+- **PHASE 2 COMPLETE — all 6 of 6 modules built**
+- **Built When to Walk Away** — buyer counter-game module from THE-BUYER-PERSPECTIVE.md
+  - 4 tabs: Why Walking Away is Power / The Red Lines / Evaluate Your Deal / Your Playbook
+  - Tab 1: Competitive process, BATNA, pre-set red lines, 5 common seller mistakes with dollar costs ($500K-$5M each), the paradox of walking away
+  - Tab 2: 5 deal stages (IOI, LOI, Due Diligence, Definitive Docs, Pre-Close) with 20+ specific red-line signals, each with threshold, severity (Walk/Pause/Negotiate), explanation, specific action step
+  - Tab 3: 19-question Deal Health Evaluator (yes/no), color-coded by severity, question navigator grid
+  - Tab 4: Overall assessment (Walk Away/Serious Concern/Pause & Reassess/Negotiate Hard/Manageable/Green Light), flagged items grouped by severity, clear items, 6-point attorney discussion guide, CSV export
+  - localStorage: `when-to-walk-v1`
+  - Route: `/portal/week-1/when-to-walk`, NEW badge
+  - New files: `src/components/when-to-walk/WhenToWalk.tsx`, `src/pages/week-1/WhenToWalkPage.tsx`
+- Commit: `c64700b` — pushed to noor_frank_playground
+- **Next:** Remaining Buyer Perspective modules (Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide), Phase 3 Wave 2 enhancements, settings polish, purple theme
+
 ### Session 14 — Mar 8, 2026
 - **Built Reps & Warranties** — "What Are You Promising?"
   - 4 tabs: What Are R&Ws? / Common Reps / Exposure Checker / Your Report
