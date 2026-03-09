@@ -69,7 +69,8 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 6 },
   { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 7, enhancement: 'ENHANCED' },
   { name: 'Anonymous Teaser', path: '/portal/week-4/anonymous-teaser', weekNumber: 4, order: 8, enhancement: 'ENHANCED' },
-  { name: 'Draft CIM Generator', path: '/portal/week-4/cim-generator', weekNumber: 4, order: 9, enhancement: 'ENHANCED' }
+  { name: 'Draft CIM Generator', path: '/portal/week-4/cim-generator', weekNumber: 4, order: 9, enhancement: 'ENHANCED' },
+  { name: 'Financial Data Room Prep', path: '/portal/week-4/financial-data-room', weekNumber: 4, order: 10, enhancement: 'NEW' }
 ];
 
 // Helper function to get modules by week
