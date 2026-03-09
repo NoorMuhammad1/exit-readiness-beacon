@@ -68,6 +68,7 @@ const DebtInterestPage = lazy(() => import('./pages/week-2/DebtInterestPage'));
 const EarnoutsMultipliersPage = lazy(() => import('./pages/week-2/EarnoutsMultipliersPage'));
 const RolloverEquityPage = lazy(() => import('./pages/week-2/RolloverEquityPage'));
 const PostClosingRealityPage = lazy(() => import('./pages/week-2/PostClosingRealityPage'));
+const MergerMathPage = lazy(() => import('./pages/week-2/MergerMathPage'));
 
 // Week 3 pages
 const EbitdaCalculatorPage = lazy(() => import('./pages/EBITDACalculatorPage'));
@@ -181,6 +182,7 @@ function App() {
               <Route path="/portal/week-2/earnouts-multipliers" element={<ClientPortalLayout><EarnoutsMultipliersPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/rollover-equity" element={<ClientPortalLayout><RolloverEquityPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/post-closing-reality" element={<ClientPortalLayout><PostClosingRealityPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-2/merger-math" element={<ClientPortalLayout><MergerMathPage /></ClientPortalLayout>} />
 
               {/* Week 3 Routes */}
               <Route path="/portal/week-3/ebitda-calculator" element={<ClientPortalLayout><EbitdaCalculatorPage /></ClientPortalLayout>} />
