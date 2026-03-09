@@ -176,9 +176,9 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** wealth-management/skills/financial-plan/SKILL.md
 
 ### Enhancement 19: Merger Math (Why Strategic Buyers Pay More)
-**Status:** NOT STARTED
-**Upgrades:** Week 1 Know Your Buyer or Week 2 Deal Readiness — educational module
-**What it does:** Explains accretion/dilution — the math behind why a strategic buyer can pay a higher price than a financial buyer. User enters their EBITDA. System shows: if a public company (acquirer) buys them, how does it affect the acquirer's earnings per share? If accretive (EPS goes up), the buyer can justify a higher price. Shows synergy math: "If the buyer can cut $500K in costs by combining operations, they can pay $3M more for your company." Includes sensitivity tables on synergies vs. premium. Key takeaway: understanding this math gives sellers negotiating leverage.
+**Status:** COMPLETE (Session 19, commit 8ebced5)
+**Upgrades:** Week 2 Deal Readiness — educational module
+**What it does:** Teaches three value creation engines: cost synergies, revenue synergies, and multiple arbitrage (PE roll-up math). 4 tabs: educational intro with EBITDA tier table and negotiation formula, interactive deal modeler with 7 synergy categories + roll-up model (platform + add-on with multiple expansion), full analysis with sensitivity tables and value creation waterfall, report with 5 negotiation leverage points and CSV export. Auto-fills from Company Profile. localStorage: `merger-math-v1`. Route: `/portal/week-2/merger-math`.
 **Source plugin:** investment-banking/skills/merger-model/SKILL.md
 
 ### Enhancement 20: The Process Letter (What Buyers Receive)
@@ -221,6 +221,22 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 19 — Mar 9, 2026
+- **Built Merger Math** — Enhancement #19, "Why Strategic Buyers Pay More"
+  - 4 tabs: Why Buyers Pay More / Model Your Deal / The Numbers / Your Report
+  - Tab 1: Educational intro — 1+1=3 concept with $8M+$16M=$42M+ example, Financial vs Strategic buyer comparison, Three Engines of Value Creation (cost synergies, revenue synergies, multiple arbitrage), EBITDA tier table (5 tiers from 3.5x to 11x with market reasoning), PE roll-up playbook, negotiation leverage formula (standalone + synergies x multiple x share %)
+  - Tab 2: Your Company (revenue, EBITDA, growth — auto-fill from Company Profile), standalone multiple slider, 7 synergy categories (5 cost: headcount overlap, facility consolidation, procurement savings, tech & systems, G&A/back office; 2 revenue: cross-selling, market expansion), each with $ amount, confidence level, time to realize. Buyer assumptions: realization rate, synergy multiple, years to full. Roll-Up Model (ADVANCED): acquirer EBITDA slider with auto-tier detection, synergy lift % slider, real-time combined platform preview
+  - Tab 3: 4 summary cards (standalone, synergy value, strategic value, premium %), standalone vs strategic bar chart visualization, synergy breakdown table with confidence badges, confidence-level summary (high/medium/low). Multiple Arbitrage section: 3-column Your Company vs Acquirer vs Combined Platform with tier/multiple/value, value creation waterfall (naive sum → multiple expansion → synergy lift → combined), bar visualization, key insight. 2 sensitivity tables (synergy level x multiple, realization % x premium) with base-case highlighting
+  - Tab 4: Overall assessment (Strong Value Creation / Meaningful Upside / Modest Potential / Limited Premium), deal summary table covering both synergy and roll-up analysis, 5 negotiation leverage points (lead with high-confidence synergies, don't show all cards, competitive process, roll-up premium, sharing formula), "What PE Firms Will Think" commentary, CSV export
+  - Auto-fills from Company Profile (revenue, EBITDA, growth rate)
+  - localStorage: `merger-math-v1`
+  - Route: `/portal/week-2/merger-math`, NEW badge
+  - New files: `src/components/merger-math/MergerMath.tsx`, `src/pages/week-2/MergerMathPage.tsx`
+  - Frank's research on multiple arbitrage and PE roll-up math directly influenced the module — added EBITDA tier system, platform+add-on framing, and value creation waterfall
+- Commit: `8ebced5` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 5 of 9 complete** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF, #19 Merger Math)
+- **Next:** The Process Letter (#20), Life After Exit (#18), Company One-Pager (#21), PE Pitch Deck Builder (#22)
 
 ### Session 18 — Mar 9, 2026
 - **Built Comparable Company Analysis** — Enhancement #14, "How Do You Stack Up?"
