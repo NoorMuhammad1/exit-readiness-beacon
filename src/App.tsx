@@ -60,6 +60,7 @@ const HoldCoStructurePage = lazy(() => import('./pages/week-2/HoldCoStructurePag
 const QuickWinsPage = lazy(() => import('./pages/QuickWinsPage'));
 const DebtInterestPage = lazy(() => import('./pages/week-2/DebtInterestPage'));
 const EarnoutsMultipliersPage = lazy(() => import('./pages/week-2/EarnoutsMultipliersPage'));
+const RolloverEquityPage = lazy(() => import('./pages/week-2/RolloverEquityPage'));
 const PostClosingRealityPage = lazy(() => import('./pages/week-2/PostClosingRealityPage'));
 
 // Week 3 pages
@@ -163,6 +164,7 @@ function App() {
               <Route path="/portal/week-2/quick-wins" element={<ClientPortalLayout><QuickWinsPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/debt-interest" element={<ClientPortalLayout><DebtInterestPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/earnouts-multipliers" element={<ClientPortalLayout><EarnoutsMultipliersPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-2/rollover-equity" element={<ClientPortalLayout><RolloverEquityPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/post-closing-reality" element={<ClientPortalLayout><PostClosingRealityPage /></ClientPortalLayout>} />
 
               {/* Week 3 Routes */}

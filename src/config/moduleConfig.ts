@@ -36,8 +36,9 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Add Backs', path: '/portal/week-2/quick-wins', weekNumber: 2, order: 6 },
   { name: 'Debt & Interest Payments', path: '/portal/week-2/debt-interest', weekNumber: 2, order: 7 },
   { name: 'Seller Earnouts & Performance Multipliers', path: '/portal/week-2/earnouts-multipliers', weekNumber: 2, order: 8 },
-  { name: 'Post-Closing Reality', path: '/portal/week-2/post-closing-reality', weekNumber: 2, order: 9 },
-  { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 10 },
+  { name: 'Your Second Bite', path: '/portal/week-2/rollover-equity', weekNumber: 2, order: 9, enhancement: 'NEW' },
+  { name: 'Post-Closing Reality', path: '/portal/week-2/post-closing-reality', weekNumber: 2, order: 10 },
+  { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 11 },
 
   // Performance — valuation tools grouped, then diagnostics
   { name: 'EBITDA Calculator', path: '/portal/week-3/ebitda-calculator', weekNumber: 3, order: 1 },
