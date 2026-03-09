@@ -222,6 +222,29 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 14 — Mar 8, 2026
+- **Built Reps & Warranties** — "What Are You Promising?"
+  - 4 tabs: What Are R&Ws? / Common Reps / Exposure Checker / Your Report
+  - Tab 1: Reps vs warranties explained, escrow holdback (5-15%), fundamental vs general survival periods, 4 protection mechanisms (knowledge qualifiers, basket/deductible, liability cap, R&W insurance), sandbagging
+  - Tab 2: 6 rep categories (Financial, Legal, Contracts, Employees, IP, Property) with 16 individual reps, risk levels, expandable cards, what PE looks for
+  - Tab 3: 15-question interactive Exposure Checker — yes/no/unsure, contextual explanations + action steps on flagged answers, progress bar
+  - Tab 4: Overall risk assessment (Clean/Low/Moderate/High), flagged items sorted by severity, clear items, 7-point attorney discussion guide, CSV export
+  - localStorage: `reps-warranties-v1`
+  - Route: `/portal/week-4/reps-warranties`, NEW badge
+  - New files: `src/components/reps-warranties/RepsWarranties.tsx`, `src/pages/week-4/RepsWarrantiesPage.tsx`
+- Commit: `beb6e8e` — pushed to noor_frank_playground
+- **Built Rollover Equity & MEPs** — "Your Second Bite"
+  - 4 tabs: The Second Bite / How It Works / Calculator / Your Analysis
+  - Tab 1: Why PE wants rollover (alignment, confidence, cash savings, transition), first vs second bite visualization, tax deferral benefit
+  - Tab 2: MEP equity pools (10-15%), vesting (time/performance/hybrid), good leaver vs bad leaver, waterfall distribution (debt → preferred → capital → profit), drag-along/tag-along rights, 5 negotiation points
+  - Tab 3: Second Bite Calculator — 10 sliders (deal value, EBITDA, rollover %, debt %, growth rate, exit multiple, hold period, interest rate, MEP pool), first bite cash, second bite payout, rollover MOIC, total vs no-rollover comparison
+  - Tab 4: Deal summary dashboard, rollover vs 100% cash table, color-coded assessment (green 2.5x+ to red <1x), return driver breakdown, CSV export
+  - localStorage: `rollover-equity-v1`
+  - Route: `/portal/week-2/rollover-equity`, NEW badge
+  - New files: `src/components/rollover-equity/RolloverEquity.tsx`, `src/pages/week-2/RolloverEquityPage.tsx`
+- Commit: `75e8d54` — pushed to noor_frank_playground
+- **Next:** Emotional Side of Selling (last Phase 2 module), then Buyer Perspective 6
+
 ### Session 13 — Mar 8, 2026
 - **Module reordering** — rearranged entire curriculum to follow natural deal flow
   - Deal Process Roadmap → #1 (was #8), EBITDA Explained → #2 (was #7)
