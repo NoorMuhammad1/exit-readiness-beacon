@@ -45,6 +45,7 @@ const EBITDAExplainedPage = lazy(() => import('./pages/EBITDACoursePage'));
 const DealProcessRoadmapPage = lazy(() => import('./pages/week-1/DealProcessRoadmapPage'));
 const LBOExplainerPage = lazy(() => import('./pages/week-1/LBOExplainerPage'));
 const EmotionalReadinessPage = lazy(() => import('./pages/week-1/EmotionalReadinessPage'));
+const WhenToWalkPage = lazy(() => import('./pages/week-1/WhenToWalkPage'));
 
 // Week 4 new modules
 const RepsWarrantiesPage = lazy(() => import('./pages/week-4/RepsWarrantiesPage'));
@@ -153,6 +154,7 @@ function App() {
               <Route path="/portal/week-1/deal-process" element={<ClientPortalLayout><DealProcessRoadmapPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/lbo-explainer" element={<ClientPortalLayout><LBOExplainerPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/emotional-readiness" element={<ClientPortalLayout><EmotionalReadinessPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/when-to-walk" element={<ClientPortalLayout><WhenToWalkPage /></ClientPortalLayout>} />
 
               {/* Week 2 Routes */}
               <Route path="/portal/week-2/qoe-explainer" element={<ClientPortalLayout><QoEExplainerPage /></ClientPortalLayout>} />

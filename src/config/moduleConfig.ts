@@ -27,6 +27,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Asset Free, Debt Free', path: '/portal/week-1/asset-free-education', weekNumber: 1, order: 8 },
   { name: 'Time Kills Deals', path: '/portal/week-1/time-kills-deals', weekNumber: 1, order: 9 },
   { name: 'The Emotional Side', path: '/portal/week-1/emotional-readiness', weekNumber: 1, order: 10, enhancement: 'NEW' },
+  { name: 'When to Walk Away', path: '/portal/week-1/when-to-walk', weekNumber: 1, order: 11, enhancement: 'NEW' },
 
   // Deal Readiness — understand the money before organizing the paperwork
   { name: 'Surviving the QoE', path: '/portal/week-2/qoe-explainer', weekNumber: 2, order: 1, enhancement: 'NEW' },
