@@ -19,12 +19,13 @@ export const moduleConfigurations: ModuleConfig[] = [
   // Foundation — big picture first, then the language and players
   { name: 'Deal Process Roadmap', path: '/portal/week-1/deal-process', weekNumber: 1, order: 1, enhancement: 'ENHANCED' },
   { name: 'EBITDA Explained', path: '/portal/week-1/ebitda-course', weekNumber: 1, order: 2 },
-  { name: 'Interactive Glossary', path: '/portal/week-1/glossary', weekNumber: 1, order: 3 },
-  { name: 'Deal Progression', path: '/portal/week-1/deal-progression', weekNumber: 1, order: 4 },
-  { name: 'Professional Advisors', path: '/portal/week-1/professional-advisors', weekNumber: 1, order: 5 },
-  { name: 'Know Your Buyer', path: '/portal/week-1/know-your-buyer', weekNumber: 1, order: 6, enhancement: 'ENHANCED' },
-  { name: 'Asset Free, Debt Free', path: '/portal/week-1/asset-free-education', weekNumber: 1, order: 7 },
-  { name: 'Time Kills Deals', path: '/portal/week-1/time-kills-deals', weekNumber: 1, order: 8 },
+  { name: 'How PE Firms Buy Companies', path: '/portal/week-1/lbo-explainer', weekNumber: 1, order: 3, enhancement: 'NEW' },
+  { name: 'Interactive Glossary', path: '/portal/week-1/glossary', weekNumber: 1, order: 4 },
+  { name: 'Deal Progression', path: '/portal/week-1/deal-progression', weekNumber: 1, order: 5 },
+  { name: 'Professional Advisors', path: '/portal/week-1/professional-advisors', weekNumber: 1, order: 6 },
+  { name: 'Know Your Buyer', path: '/portal/week-1/know-your-buyer', weekNumber: 1, order: 7, enhancement: 'ENHANCED' },
+  { name: 'Asset Free, Debt Free', path: '/portal/week-1/asset-free-education', weekNumber: 1, order: 8 },
+  { name: 'Time Kills Deals', path: '/portal/week-1/time-kills-deals', weekNumber: 1, order: 9 },
 
   // Deal Readiness — understand the money before organizing the paperwork
   { name: 'Surviving the QoE', path: '/portal/week-2/qoe-explainer', weekNumber: 2, order: 1, enhancement: 'NEW' },

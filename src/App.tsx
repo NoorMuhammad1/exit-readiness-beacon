@@ -43,6 +43,7 @@ const AssetFreeEducationPage = lazy(() => import('./pages/AssetFreeEducationPage
 const TimeKillsDealsPage = lazy(() => import('./pages/TimeKillsDealsPage'));
 const EBITDAExplainedPage = lazy(() => import('./pages/EBITDACoursePage'));
 const DealProcessRoadmapPage = lazy(() => import('./pages/week-1/DealProcessRoadmapPage'));
+const LBOExplainerPage = lazy(() => import('./pages/week-1/LBOExplainerPage'));
 
 // Week 2 pages
 const QoEExplainerPage = lazy(() => import('./pages/week-2/QoEExplainerPage'));
@@ -144,6 +145,7 @@ function App() {
               <Route path="/portal/week-1/time-kills-deals" element={<ClientPortalLayout><TimeKillsDealsPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/ebitda-course" element={<ClientPortalLayout><EBITDAExplainedPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/deal-process" element={<ClientPortalLayout><DealProcessRoadmapPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/lbo-explainer" element={<ClientPortalLayout><LBOExplainerPage /></ClientPortalLayout>} />
 
               {/* Week 2 Routes */}
               <Route path="/portal/week-2/qoe-explainer" element={<ClientPortalLayout><QoEExplainerPage /></ClientPortalLayout>} />
