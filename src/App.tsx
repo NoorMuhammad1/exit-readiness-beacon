@@ -46,6 +46,10 @@ const DealProcessRoadmapPage = lazy(() => import('./pages/week-1/DealProcessRoad
 const LBOExplainerPage = lazy(() => import('./pages/week-1/LBOExplainerPage'));
 const EmotionalReadinessPage = lazy(() => import('./pages/week-1/EmotionalReadinessPage'));
 const WhenToWalkPage = lazy(() => import('./pages/week-1/WhenToWalkPage'));
+const TheAuctionPage = lazy(() => import('./pages/week-1/TheAuctionPage'));
+const PEEyesPage = lazy(() => import('./pages/week-1/PEEyesPage'));
+const Countdown24Page = lazy(() => import('./pages/week-1/Countdown24Page'));
+const PurchaseAgreementPage = lazy(() => import('./pages/week-1/PurchaseAgreementPage'));
 
 // Week 4 new modules
 const RepsWarrantiesPage = lazy(() => import('./pages/week-4/RepsWarrantiesPage'));
@@ -155,6 +159,10 @@ function App() {
               <Route path="/portal/week-1/lbo-explainer" element={<ClientPortalLayout><LBOExplainerPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/emotional-readiness" element={<ClientPortalLayout><EmotionalReadinessPage /></ClientPortalLayout>} />
               <Route path="/portal/week-1/when-to-walk" element={<ClientPortalLayout><WhenToWalkPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/the-auction" element={<ClientPortalLayout><TheAuctionPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/pe-eyes" element={<ClientPortalLayout><PEEyesPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/countdown-24" element={<ClientPortalLayout><Countdown24Page /></ClientPortalLayout>} />
+              <Route path="/portal/week-1/purchase-agreement" element={<ClientPortalLayout><PurchaseAgreementPage /></ClientPortalLayout>} />
 
               {/* Week 2 Routes */}
               <Route path="/portal/week-2/qoe-explainer" element={<ClientPortalLayout><QoEExplainerPage /></ClientPortalLayout>} />

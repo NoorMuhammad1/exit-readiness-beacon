@@ -28,6 +28,10 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Time Kills Deals', path: '/portal/week-1/time-kills-deals', weekNumber: 1, order: 9 },
   { name: 'The Emotional Side', path: '/portal/week-1/emotional-readiness', weekNumber: 1, order: 10, enhancement: 'NEW' },
   { name: 'When to Walk Away', path: '/portal/week-1/when-to-walk', weekNumber: 1, order: 11, enhancement: 'NEW' },
+  { name: 'The Auction', path: '/portal/week-1/the-auction', weekNumber: 1, order: 12, enhancement: 'NEW' },
+  { name: 'See Through PE Eyes', path: '/portal/week-1/pe-eyes', weekNumber: 1, order: 13, enhancement: 'NEW' },
+  { name: 'The 24-Month Countdown', path: '/portal/week-1/countdown-24', weekNumber: 1, order: 14, enhancement: 'NEW' },
+  { name: 'Purchase Agreement Guide', path: '/portal/week-1/purchase-agreement', weekNumber: 1, order: 15, enhancement: 'NEW' },
 
   // Deal Readiness — understand the money before organizing the paperwork
   { name: 'Surviving the QoE', path: '/portal/week-2/qoe-explainer', weekNumber: 2, order: 1, enhancement: 'NEW' },
