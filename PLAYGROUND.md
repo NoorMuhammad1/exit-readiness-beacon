@@ -164,7 +164,7 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** financial-analysis/skills/dcf-model/SKILL.md
 
 ### Enhancement 17: Financial Data Room Prep
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 17, commit 5c9fb35)
 **Upgrades:** Week 4 Data Room module — complements existing document checklist
 **What it does:** Helps business owners organize their financial data into the standardized format PE firms expect. Guided input for: 3-5 years of Income Statement, Balance Sheet, Cash Flow Statement, plus operating metrics. System normalizes the data — flags non-recurring items, calculates adjusted EBITDA, identifies items that need explanation. Output: a clean financial summary in the 8-section format PE firms use (Executive Summary, Historical P&L, Balance Sheet, Cash Flow, Operating Metrics, Segment Performance, Market Context, Investment Highlights). Think of it as "translate your QuickBooks into PE-speak."
 **Source plugin:** investment-banking/skills/datapack-builder/SKILL.md
@@ -245,6 +245,33 @@ These were identified from a deep dive into the Anthropic financial-services-plu
   - New files: `src/components/when-to-walk/WhenToWalk.tsx`, `src/pages/week-1/WhenToWalkPage.tsx`
 - Commit: `c64700b` — pushed to noor_frank_playground
 - **Next:** Remaining Buyer Perspective modules (Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide), Phase 3 Wave 2 enhancements, settings polish, purple theme
+
+### Session 17 — Mar 9, 2026
+- **Built Financial Data Room Prep** — Enhancement #17, "Translate Your QuickBooks into PE-Speak"
+  - 4 tabs: Why PE Needs This / Your Financials / PE Analysis / Your Financial Package
+  - Tab 1: Side-by-side QuickBooks vs PE-format comparison, the 8 sections of a PE financial package, 3-step process overview, educational disclaimer
+  - Tab 2: Year selector (3/4/5 years), 4 collapsible data entry sections:
+    - Income Statement: Revenue, COGS, OpEx, Owner Comp, D&A, Interest, Other Income — auto-calculates Gross Profit, Gross Margin, EBITDA, EBITDA Margin, Net Income
+    - Balance Sheet: Cash, AR, Inventory, Other Current, Fixed Assets, Other LT, AP, Accrued, Current Debt, LT Debt — auto-calculates Total Current Assets, Total Assets, Total Current Liabilities, Total Liabilities, Equity, Working Capital (ex-cash)
+    - Operating Metrics: Customer count, Employee count, Recurring Revenue %, Top Customer %, CapEx — auto-calculates Revenue/Customer, Revenue/Employee
+    - EBITDA Adjustments: 6 pre-built add-back categories (Excess Owner Comp, One-Time Legal, Personal Expenses, Related Party, Non-Recurring, Other) — shows Reported EBITDA → Adjusted EBITDA per year
+  - Tab 3: Key metrics dashboard (4 cards), EBITDA Bridge (reported → each add-back → adjusted), Red Flag Engine (10+ automated checks: declining growth, margin compression, high owner comp, customer concentration, low recurring revenue, WC deterioration, high leverage, under-investment, revenue volatility, oversized adjustments), each flag with finding + buyer thinking + action step, YoY trend table
+  - Tab 4: Full PE Financial Package in 8 sections:
+    - I. Executive Summary (key metrics grid)
+    - II. Historical P&L (clean formatted table)
+    - III. Balance Sheet Summary
+    - IV. Cash Flow Analysis (UFCF + cash conversion)
+    - V. Operating Metrics
+    - VI. EBITDA Adjustment Schedule
+    - VII. Key Financial Highlights (auto-generated from data)
+    - VIII. Items Requiring Explanation (from red flags)
+  - CSV export of complete financial package
+  - localStorage: `financial-data-room-v1`
+  - Route: `/portal/week-4/financial-data-room`, NEW badge
+  - New files: `src/components/financial-data-room/FinancialDataRoom.tsx`, `src/pages/week-4/FinancialDataRoomPage.tsx`
+- Commit: `5c9fb35` — pushed to noor_frank_playground
+- **Relationship to existing Data Room:** Financial Data Room Prep produces the cleaned-up financial content that goes INTO the Data Room's Financials folder. Data Room = the filing cabinet. Financial Data Room Prep = making sure financials are clean before they go in.
+- **Next:** Comparable Company Analysis (#14), DCF Valuation (#16), remaining Phase 3 Wave 2 enhancements
 
 ### Session 16 — Mar 9, 2026
 - **Built all 4 remaining Buyer Perspective counter-game modules in one session**
