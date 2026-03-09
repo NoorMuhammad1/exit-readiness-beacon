@@ -48,6 +48,7 @@ const LBOExplainerPage = lazy(() => import('./pages/week-1/LBOExplainerPage'));
 // Week 2 pages
 const QoEExplainerPage = lazy(() => import('./pages/week-2/QoEExplainerPage'));
 const WorkingCapitalPage = lazy(() => import('./pages/week-2/WorkingCapitalPage'));
+const TaxStructuringPage = lazy(() => import('./pages/week-2/TaxStructuringPage'));
 const DataRoomIntroPage = lazy(() => import('./pages/DataRoomIntroPage').then(m => ({ default: m.DataRoomIntroPage })));
 const DataRoomWorkspacePage = lazy(() => import('./pages/DataRoomWorkspacePage').then(m => ({ default: m.DataRoomWorkspacePage })));
 const DataRoomPage = lazy(() => import('./pages/DataRoomPage'));
@@ -150,6 +151,7 @@ function App() {
               {/* Week 2 Routes */}
               <Route path="/portal/week-2/qoe-explainer" element={<ClientPortalLayout><QoEExplainerPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/working-capital" element={<ClientPortalLayout><WorkingCapitalPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-2/tax-structuring" element={<ClientPortalLayout><TaxStructuringPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/data-room" element={<ClientPortalLayout><DataRoomIntroPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/data-room/workspace" element={<ClientPortalLayout><DataRoomWorkspacePage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/data-room/advanced" element={<ClientPortalLayout><DataRoomPage /></ClientPortalLayout>} />

@@ -30,13 +30,14 @@ export const moduleConfigurations: ModuleConfig[] = [
   // Deal Readiness — understand the money before organizing the paperwork
   { name: 'Surviving the QoE', path: '/portal/week-2/qoe-explainer', weekNumber: 2, order: 1, enhancement: 'NEW' },
   { name: 'Working Capital', path: '/portal/week-2/working-capital', weekNumber: 2, order: 2, enhancement: 'NEW' },
-  { name: 'Asset Workshop', path: '/portal/week-2/asset-workshop', weekNumber: 2, order: 3 },
-  { name: 'HoldCo Structure', path: '/portal/week-2/holdco-structure', weekNumber: 2, order: 4 },
-  { name: 'Add Backs', path: '/portal/week-2/quick-wins', weekNumber: 2, order: 5 },
-  { name: 'Debt & Interest Payments', path: '/portal/week-2/debt-interest', weekNumber: 2, order: 6 },
-  { name: 'Seller Earnouts & Performance Multipliers', path: '/portal/week-2/earnouts-multipliers', weekNumber: 2, order: 7 },
-  { name: 'Post-Closing Reality', path: '/portal/week-2/post-closing-reality', weekNumber: 2, order: 8 },
-  { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 9 },
+  { name: 'Tax Structuring', path: '/portal/week-2/tax-structuring', weekNumber: 2, order: 3, enhancement: 'NEW' },
+  { name: 'Asset Workshop', path: '/portal/week-2/asset-workshop', weekNumber: 2, order: 4 },
+  { name: 'HoldCo Structure', path: '/portal/week-2/holdco-structure', weekNumber: 2, order: 5 },
+  { name: 'Add Backs', path: '/portal/week-2/quick-wins', weekNumber: 2, order: 6 },
+  { name: 'Debt & Interest Payments', path: '/portal/week-2/debt-interest', weekNumber: 2, order: 7 },
+  { name: 'Seller Earnouts & Performance Multipliers', path: '/portal/week-2/earnouts-multipliers', weekNumber: 2, order: 8 },
+  { name: 'Post-Closing Reality', path: '/portal/week-2/post-closing-reality', weekNumber: 2, order: 9 },
+  { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 10 },
 
   // Performance — valuation tools grouped, then diagnostics
   { name: 'EBITDA Calculator', path: '/portal/week-3/ebitda-calculator', weekNumber: 3, order: 1 },
