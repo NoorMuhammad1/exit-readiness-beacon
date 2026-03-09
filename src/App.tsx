@@ -45,6 +45,9 @@ const EBITDAExplainedPage = lazy(() => import('./pages/EBITDACoursePage'));
 const DealProcessRoadmapPage = lazy(() => import('./pages/week-1/DealProcessRoadmapPage'));
 const LBOExplainerPage = lazy(() => import('./pages/week-1/LBOExplainerPage'));
 
+// Week 4 new modules
+const RepsWarrantiesPage = lazy(() => import('./pages/week-4/RepsWarrantiesPage'));
+
 // Week 2 pages
 const QoEExplainerPage = lazy(() => import('./pages/week-2/QoEExplainerPage'));
 const WorkingCapitalPage = lazy(() => import('./pages/week-2/WorkingCapitalPage'));
@@ -180,6 +183,7 @@ function App() {
               {/* Week 4 Routes */}
               <Route path="/portal/week-4/dd-checklist" element={<ClientPortalLayout><DueDiligenceChecklistPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/loi-review" element={<ClientPortalLayout><LOIReviewPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-4/reps-warranties" element={<ClientPortalLayout><RepsWarrantiesPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/final-report" element={<ClientPortalLayout><FinalReportPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/discovery-interview" element={<ClientPortalLayout><DiscoveryInterviewPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/executive-discovery" element={<ClientPortalLayout><ExecutiveDiscoveryInterviewPage /></ClientPortalLayout>} />

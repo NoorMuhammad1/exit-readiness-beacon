@@ -56,12 +56,13 @@ export const moduleConfigurations: ModuleConfig[] = [
   // Final Readiness — no changes, this flow already works
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1, enhancement: 'ENHANCED' },
   { name: 'LOI Review', path: '/portal/week-4/loi-review', weekNumber: 4, order: 2 },
-  { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 3, enhancement: 'ENHANCED' },
-  { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 4, enhancement: 'ENHANCED' },
-  { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 5 },
-  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 6, enhancement: 'ENHANCED' },
-  { name: 'Anonymous Teaser', path: '/portal/week-4/anonymous-teaser', weekNumber: 4, order: 7, enhancement: 'ENHANCED' },
-  { name: 'Draft CIM Generator', path: '/portal/week-4/cim-generator', weekNumber: 4, order: 8, enhancement: 'ENHANCED' }
+  { name: 'Reps & Warranties', path: '/portal/week-4/reps-warranties', weekNumber: 4, order: 3, enhancement: 'NEW' },
+  { name: 'Final Report', path: '/portal/week-4/final-report', weekNumber: 4, order: 4, enhancement: 'ENHANCED' },
+  { name: 'Discovery Interview', path: '/portal/week-4/discovery-interview', weekNumber: 4, order: 5, enhancement: 'ENHANCED' },
+  { name: 'Strategy Doc Builder', path: '/portal/week-4/value-builder', weekNumber: 4, order: 6 },
+  { name: 'KPIs and OKRs', path: '/portal/week-4/kpis-okrs', weekNumber: 4, order: 7, enhancement: 'ENHANCED' },
+  { name: 'Anonymous Teaser', path: '/portal/week-4/anonymous-teaser', weekNumber: 4, order: 8, enhancement: 'ENHANCED' },
+  { name: 'Draft CIM Generator', path: '/portal/week-4/cim-generator', weekNumber: 4, order: 9, enhancement: 'ENHANCED' }
 ];
 
 // Helper function to get modules by week
