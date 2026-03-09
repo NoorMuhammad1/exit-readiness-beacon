@@ -59,6 +59,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Competitive Analysis', path: '/portal/week-3/competitive-analysis', weekNumber: 3, order: 10, enhancement: 'ENHANCED' },
   { name: 'Value Creation Plan', path: '/portal/week-3/value-creation', weekNumber: 3, order: 11, enhancement: 'ENHANCED' },
   { name: 'Revenue Quality Score', path: '/portal/week-3/revenue-quality', weekNumber: 3, order: 12, enhancement: 'ENHANCED' },
+  { name: 'Comparable Analysis', path: '/portal/week-3/comparable-analysis', weekNumber: 3, order: 13, enhancement: 'NEW' },
 
   // Final Readiness — no changes, this flow already works
   { name: 'Due Diligence Checklist', path: '/portal/week-4/dd-checklist', weekNumber: 4, order: 1, enhancement: 'ENHANCED' },
