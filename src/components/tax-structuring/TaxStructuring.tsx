@@ -459,7 +459,7 @@ export function TaxStructuring() {
                     onChange={e => updateInput('dealValue', e.target.value)}
                     className="flex-1"
                   />
-                  <span className="text-white font-mono text-sm w-14 text-right">${inputs.dealValue}M</span>
+                  <span className="text-white text-sm w-14 text-right">${inputs.dealValue}M</span>
                 </div>
               </CardContent>
             </Card>
@@ -501,7 +501,7 @@ export function TaxStructuring() {
                         onChange={e => updateInput(field.key, e.target.value)}
                         className="flex-1"
                       />
-                      <span className="text-white font-mono text-xs w-10 text-right">{inputs[field.key]}%</span>
+                      <span className="text-white text-xs w-10 text-right">{inputs[field.key]}%</span>
                     </div>
                   </div>
                 ))}
@@ -531,7 +531,7 @@ export function TaxStructuring() {
                         onChange={e => updateInput(field.key, e.target.value)}
                         className="flex-1"
                       />
-                      <span className="text-white font-mono text-xs w-10 text-right">{inputs[field.key]}%</span>
+                      <span className="text-white text-xs w-10 text-right">{inputs[field.key]}%</span>
                     </div>
                   </div>
                 ))}
@@ -552,7 +552,7 @@ export function TaxStructuring() {
                 <CardTitle className="text-green-400 text-base">Stock Sale</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-sm font-mono">
+                <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/80 py-1 border-b border-white/10">
                     <span>Deal Value</span><span>{fmt(dealValueDollars)}</span>
                   </div>
@@ -572,7 +572,7 @@ export function TaxStructuring() {
                 <CardTitle className="text-white text-base">Asset Sale</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-sm font-mono">
+                <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/80 py-1 border-b border-white/10">
                     <span>Deal Value</span><span>{fmt(dealValueDollars)}</span>
                   </div>
@@ -612,7 +612,7 @@ export function TaxStructuring() {
                   <AlertTriangle className="w-6 h-6 text-red-400 shrink-0" />
                   <div>
                     <h3 className="text-red-300 font-bold mb-2">C-Corp Double Tax Warning</h3>
-                    <div className="space-y-2 text-sm font-mono">
+                    <div className="space-y-2 text-sm">
                       <div className="flex justify-between text-white/70 py-1">
                         <span>Corporate tax (21%)</span><span>−{fmt(cCorpCorpTax)}</span>
                       </div>

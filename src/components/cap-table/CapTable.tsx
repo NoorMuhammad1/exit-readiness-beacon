@@ -254,7 +254,7 @@ export default function CapTable() {
                   <div className="grid grid-cols-3 gap-3 mt-4">
                     <div className="bg-white/5 border border-white/30/15 rounded p-3">
                       <div className="text-[9px] text-white tracking-[2px] mb-1.5">FORMULA</div>
-                      <div className="text-[10px] text-white/60 leading-[1.7] font-mono">{c.formula}</div>
+                      <div className="text-[10px] text-white/60 leading-[1.7]">{c.formula}</div>
                     </div>
                     <div className="bg-white/5 border border-white/10 rounded p-3">
                       <div className="text-[9px] text-emerald-400 tracking-[2px] mb-1.5">EXAMPLE</div>

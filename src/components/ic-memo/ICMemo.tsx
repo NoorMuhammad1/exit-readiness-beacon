@@ -19,7 +19,7 @@ const ANATOMY = [
   {
     section: "EXECUTIVE SUMMARY",
     weight: "15%",
-    color: "#3B82F6",
+    color: "#ffffff",
     purpose: "The section partners read first and sometimes only. Must state the deal in 3 sentences: who, why, what we're paying.",
     mustHave: ["Company name, sector, HQ", "Entry valuation and equity check", "1-sentence investment thesis", "Recommended entry multiple", "IC recommendation (invest / pass)"],
     killers: ["Burying the recommendation", "No stated entry multiple", "Thesis that's just a description of the business"],
@@ -37,7 +37,7 @@ const ANATOMY = [
   {
     section: "INVESTMENT THESIS",
     weight: "20%",
-    color: "#3B82F6",
+    color: "#ffffff",
     purpose: "The 3–5 reasons this deal creates value. Each bullet must be a claim with evidence, not an adjective.",
     mustHave: ["3–5 specific, falsifiable claims", "Each thesis supported by data", "Link to value creation mechanism", "Differentiation from comps", "What the seller gets wrong about their own business"],
     killers: ["'Strong management team'", "'Large and growing market'", "Thesis points that apply to every deal in the sector"],
@@ -55,7 +55,7 @@ const ANATOMY = [
   {
     section: "FINANCIAL ANALYSIS",
     weight: "20%",
-    color: "#5a8a6a",
+    color: "#22c55e",
     purpose: "Historical performance + projected financials. The numbers must tell a coherent story.",
     mustHave: ["3 years historical revenue + EBITDA", "LTM as the bridge to entry", "3–5 year projection (base case)", "Key assumptions made explicit", "QoE adjustments noted"],
     killers: ["Projections with no stated assumptions", "Missing QoE bridge", "Revenue hockey stick with no operational driver", "EBITDA margin expansion unexplained"],
@@ -64,7 +64,7 @@ const ANATOMY = [
   {
     section: "DEAL STRUCTURE",
     weight: "12%",
-    color: "#8a4a4a",
+    color: "#dc2626",
     purpose: "Sources and uses, debt structure, equity check, management rollover. Exactly how money moves at close.",
     mustHave: ["Sources & Uses table", "Debt/equity split", "Entry multiple and basis", "Management rollover %", "Key reps & warranties"],
     killers: ["Sources don't equal uses", "Debt terms not specified", "Missing management economics", "No W&I insurance note"],
@@ -73,7 +73,7 @@ const ANATOMY = [
   {
     section: "VALUE CREATION PLAN",
     weight: "15%",
-    color: "#3B82F6",
+    color: "#ffffff",
     purpose: "The 100-day plan and 5-year roadmap. Where does the return actually come from?",
     mustHave: ["Operational improvement levers", "M&A / add-on pipeline", "Revenue growth initiatives", "Cost reduction opportunities", "Multiple expansion rationale"],
     killers: ["'Work with management to improve operations'", "Add-on strategy with no named targets", "Value creation that's just market growth"],
@@ -91,7 +91,7 @@ const ANATOMY = [
   {
     section: "RISKS & MITIGANTS",
     weight: "8%",
-    color: "#8a6a3a",
+    color: "#d97706",
     purpose: "Honest enumeration of what could go wrong, paired with specific mitigants.",
     mustHave: ["5–7 specific risks", "Each risk has a mitigant", "Downside case scenario", "Customer concentration risk", "Key person risk"],
     killers: ["Risks that are softened into non-risks", "No downside case", "Missing customer/supplier concentration", "Boilerplate 'competitive market' risk"],
@@ -100,7 +100,7 @@ const ANATOMY = [
   {
     section: "RETURNS ANALYSIS",
     weight: "15%",
-    color: "#5a8a6a",
+    color: "#22c55e",
     purpose: "Base/bull/bear returns with explicit assumptions. The final answer to: does this work?",
     mustHave: ["Three scenarios (bear/base/bull)", "Entry and exit multiple stated", "Explicit hold period", "IRR and MOIC per scenario", "Sensitivity table (exit multiple vs. EBITDA growth)"],
     killers: ["Only a base case", "Exit multiple higher than entry with no rationale", "Missing debt paydown in returns calc", "IRR that doesn't survive a 1-turn multiple compression"],
@@ -157,9 +157,9 @@ const QUIZ = [
 ];
 
 const SCENARIOS = {
-  bear:  { label: "BEAR", color: "#8a4a4a", exitMult: 0.85, ebitdaGrowth: 0.00 },
-  base:  { label: "BASE", color: "#5a8a6a", exitMult: 1.00, ebitdaGrowth: 0.12 },
-  bull:  { label: "BULL", color: "#3B82F6", exitMult: 1.20, ebitdaGrowth: 0.22 },
+  bear:  { label: "BEAR", color: "#dc2626", exitMult: 0.85, ebitdaGrowth: 0.00 },
+  base:  { label: "BASE", color: "#22c55e", exitMult: 1.00, ebitdaGrowth: 0.12 },
+  bull:  { label: "BULL", color: "#ffffff", exitMult: 1.20, ebitdaGrowth: 0.22 },
 };
 
 export default function ICMemo() {
@@ -260,17 +260,17 @@ export default function ICMemo() {
   ];
 
   return (
-    <div style={{background:"#0f1d3d",minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
+    <div style={{minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
       <style>{`
 
         button{cursor:pointer;font-family:inherit;}
         .tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;}
-        .tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
+        .tb.on{color:#ffffff;border-bottom-color:#ffffff;}
         .tb:not(.on){color:#2a2838;}
         .tb:hover:not(.on){color:#555;}
-        .card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
+        .card{background:transparent;border:1px solid #1c2a4a;border-radius:5px;}
         input,textarea,select{background:#17305a;border:1px solid #1c2a4a;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        input:focus,textarea:focus{border-color:#3B82F6;}
+        input:focus,textarea:focus{border-color:#ffffff;}
         textarea{resize:vertical;line-height:1.6;}
         .pill{display:inline-block;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:2px;font-weight:600;}
       `}</style>
@@ -278,11 +278,11 @@ export default function ICMemo() {
       {/* Header */}
       <div style={{marginBottom:20}}>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:4}}>
-          <div style={{ fontSize:36,letterSpacing:6,color:"#3B82F6",lineHeight:1}}>IC MEMO</div>
-          <div style={{ fontSize:36,letterSpacing:6,color:"#1c2a4a",lineHeight:1}}>BUILDER</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#ffffff",lineHeight:1}}>IC MEMO</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"rgba(255,255,255,0.1)",lineHeight:1}}>BUILDER</div>
           <div style={{fontSize:9,color:"#2a2838",letterSpacing:3,marginLeft:8}}>WAVE 3 · INVESTMENT COMMITTEE</div>
         </div>
-        <div style={{fontSize:11,color:"#333",lineHeight:1.7,maxWidth:620}}>
+        <div style={{fontSize:11,color:"rgba(255,255,255,0.2)",lineHeight:1.7,maxWidth:620}}>
           The Investment Committee memo is the internal document that gets a deal approved or killed. Everything you've built — valuation, deal structure, diligence — lives or dies in this document.
         </div>
       </div>
@@ -298,7 +298,7 @@ export default function ICMemo() {
       {tab==="anatomy" && (
         <div>
           <div style={{display:"flex",gap:10,marginBottom:16,flexWrap:"wrap",alignItems:"center"}}>
-            <div style={{fontSize:10,color:"#555",letterSpacing:1}}>IC ATTENTION WEIGHT</div>
+            <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",letterSpacing:1}}>IC ATTENTION WEIGHT</div>
             {ANATOMY.map((s,i) => (
               <div key={i} title={s.section} style={{height:8,width:`${parseInt(s.weight)*3}px`,background:s.color,opacity:.7,borderRadius:2}} />
             ))}
@@ -311,38 +311,38 @@ export default function ICMemo() {
                   <div style={{ fontSize:16,color:"#111",minWidth:32}}>{String(i+1).padStart(2,"0")}</div>
                   <div>
                     <div style={{ fontSize:14,color:s.color,letterSpacing:2}}>{s.section}</div>
-                    <div style={{fontSize:10,color:"#444",marginTop:2}}>{s.purpose.substring(0,80)}...</div>
+                    <div style={{fontSize:10,color:"rgba(255,255,255,0.3)",marginTop:2}}>{s.purpose.substring(0,80)}...</div>
                   </div>
                 </div>
                 <div style={{display:"flex",alignItems:"center",gap:12}}>
                   <div style={{ fontSize:18,color:s.color}}>{s.weight}</div>
-                  <div style={{color:"#333",fontSize:12}}>{expanded===i?"\u25B2":"\u25BC"}</div>
+                  <div style={{color:"rgba(255,255,255,0.2)",fontSize:12}}>{expanded===i?"\u25B2":"\u25BC"}</div>
                 </div>
               </div>
 
               {expanded===i && (
                 <div style={{padding:"0 18px 16px",borderTop:"1px solid #17305a"}}>
-                  <div style={{marginTop:14,fontSize:11,color:"#888",lineHeight:1.8}}>{s.purpose}</div>
+                  <div style={{marginTop:14,fontSize:11,color:"rgba(255,255,255,0.6)",lineHeight:1.8}}>{s.purpose}</div>
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginTop:16}}>
                     <div>
-                      <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:8}}>MUST HAVE</div>
+                      <div style={{fontSize:9,color:"#22c55e",letterSpacing:2,marginBottom:8}}>MUST HAVE</div>
                       {s.mustHave.map((m,j) => (
-                        <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"#777",lineHeight:1.5}}>
-                          <span style={{color:"#5a8a6a",flexShrink:0}}>{"\u2713"}</span>{m}
+                        <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
+                          <span style={{color:"#22c55e",flexShrink:0}}>{"\u2713"}</span>{m}
                         </div>
                       ))}
                     </div>
                     <div>
-                      <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:8}}>INSTANT KILLERS</div>
+                      <div style={{fontSize:9,color:"#dc2626",letterSpacing:2,marginBottom:8}}>INSTANT KILLERS</div>
                       {s.killers.map((k,j) => (
-                        <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"#777",lineHeight:1.5}}>
-                          <span style={{color:"#8a4a4a",flexShrink:0}}>{"\u2717"}</span>{k}
+                        <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
+                          <span style={{color:"#dc2626",flexShrink:0}}>{"\u2717"}</span>{k}
                         </div>
                       ))}
                     </div>
-                    <div style={{background:"#0f1d3d",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
+                    <div style={{background:"transparent",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
                       <div style={{fontSize:9,color:s.color,letterSpacing:2,marginBottom:8}}>IC READS THIS AS</div>
-                      <div style={{fontSize:10,color:"#888",lineHeight:1.7,fontStyle:"italic"}}>{s.icWeight}</div>
+                      <div style={{fontSize:10,color:"rgba(255,255,255,0.6)",lineHeight:1.7,fontStyle:"italic"}}>{s.icWeight}</div>
                     </div>
                   </div>
                 </div>
@@ -357,7 +357,7 @@ export default function ICMemo() {
         <div style={{display:"grid",gridTemplateColumns:"340px 1fr",gap:16}}>
           {/* Inputs */}
           <div className="card" style={{padding:"20px 22px"}}>
-            <div style={{ fontSize:16,color:"#3B82F6",letterSpacing:3,marginBottom:18}}>DEAL INPUTS</div>
+            <div style={{ fontSize:16,color:"#ffffff",letterSpacing:3,marginBottom:18}}>DEAL INPUTS</div>
             {[
               {label:"LTM EBITDA ($)", val:entryEBITDA, set:setEntryEBITDA, ph:"4000000"},
               {label:"Entry Multiple (x EBITDA)", val:entryMult, set:setEntryMult, ph:"6.5"},
@@ -367,39 +367,39 @@ export default function ICMemo() {
               {label:"EBITDA CAGR — base case %", val:ebitdaCAGR, set:setEbitdaCAGR, ph:"12"},
             ].map(({label,val,set,ph}) => (
               <div key={label} style={{marginBottom:12}}>
-                <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{label}</div>
+                <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2,marginBottom:5}}>{label}</div>
                 <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
               </div>
             ))}
 
-            <div style={{marginTop:16,padding:"12px 14px",background:"#0f1d3d",border:"1px solid #1c2a4a",borderRadius:4}}>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,fontSize:10,color:"#666"}}>
-                <div>Enterprise Value<div style={{color:"#3B82F6",fontSize:14}}>{fmt(ev)}</div></div>
-                <div>Debt at Entry<div style={{color:"#8a4a4a",fontSize:14}}>{fmt(debt)}</div></div>
-                <div>Equity Check<div style={{color:"#5a8a6a",fontSize:14}}>{fmt(equityIn)}</div></div>
-                <div>Debt/EBITDA<div style={{color:"#888",fontSize:14}}>{entryEBITDA&&debtPct&&entryMult?`${(debt/parseFloat(entryEBITDA)).toFixed(1)}x`:"—"}</div></div>
+            <div style={{marginTop:16,padding:"12px 14px",background:"transparent",border:"1px solid rgba(255,255,255,0.1)",borderRadius:4}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:10,fontSize:10,color:"rgba(255,255,255,0.45)"}}>
+                <div>Enterprise Value<div style={{color:"#ffffff",fontSize:14}}>{fmt(ev)}</div></div>
+                <div>Debt at Entry<div style={{color:"#dc2626",fontSize:14}}>{fmt(debt)}</div></div>
+                <div>Equity Check<div style={{color:"#22c55e",fontSize:14}}>{fmt(equityIn)}</div></div>
+                <div>Debt/EBITDA<div style={{color:"rgba(255,255,255,0.6)",fontSize:14}}>{entryEBITDA&&debtPct&&entryMult?`${(debt/parseFloat(entryEBITDA)).toFixed(1)}x`:"—"}</div></div>
               </div>
             </div>
           </div>
 
           {/* Scenarios */}
           <div>
-            <div style={{ fontSize:16,color:"#3B82F6",letterSpacing:3,marginBottom:16}}>SCENARIO RETURNS</div>
+            <div style={{ fontSize:16,color:"#ffffff",letterSpacing:3,marginBottom:16}}>SCENARIO RETURNS</div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:16}}>
               {scenarioReturns.map(s => (
                 <div key={s.key} className="card" style={{padding:"18px 20px",borderLeft:`3px solid ${s.color}`}}>
                   <div style={{ fontSize:18,color:s.color,letterSpacing:4,marginBottom:12}}>{s.label}</div>
                   <div style={{marginBottom:12}}>
-                    <div style={{fontSize:9,color:"#555",letterSpacing:2}}>EXIT MOIC</div>
+                    <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2}}>EXIT MOIC</div>
                     <div style={{ fontSize:32,color:s.color}}>{s.moic}x</div>
                   </div>
                   <div style={{marginBottom:12}}>
-                    <div style={{fontSize:9,color:"#555",letterSpacing:2}}>IRR</div>
-                    <div style={{ fontSize:24,color:parseFloat(s.irr as string)>=20?s.color:parseFloat(s.irr as string)>=12?"#888":"#8a4a4a"}}>
+                    <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2}}>IRR</div>
+                    <div style={{ fontSize:24,color:parseFloat(s.irr as string)>=20?s.color:parseFloat(s.irr as string)>=12?"#888":"#dc2626"}}>
                       {s.irr}%
                     </div>
                   </div>
-                  <div style={{fontSize:10,color:"#555",lineHeight:1.7}}>
+                  <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",lineHeight:1.7}}>
                     <div>Exit EV: {fmt(s.exitEV)}</div>
                     <div>Exit EBITDA: {fmt(s.exitEBITDA)}</div>
                     <div>Exit mult adj: {(parseFloat(exitMult)*s.exitMult).toFixed(1)}x</div>
@@ -415,10 +415,10 @@ export default function ICMemo() {
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
                 {scenarioReturns.map(s => {
                   const irr = parseFloat(s.irr as string);
-                  const verdict = irr >= 25 ? {text:"Strong — above typical hurdle", color:"#5a8a6a"} :
-                                  irr >= 15 ? {text:"Acceptable — clears cost of capital", color:"#888"} :
-                                  irr >= 8  ? {text:"Marginal — needs repricing or pass", color:"#8a6a3a"} :
-                                              {text:"Fail — does not clear hurdle", color:"#8a4a4a"};
+                  const verdict = irr >= 25 ? {text:"Strong — above typical hurdle", color:"#22c55e"} :
+                                  irr >= 15 ? {text:"Acceptable — clears cost of capital", color:"rgba(255,255,255,0.6)"} :
+                                  irr >= 8  ? {text:"Marginal — needs repricing or pass", color:"#d97706"} :
+                                              {text:"Fail — does not clear hurdle", color:"#dc2626"};
                   return (
                     <div key={s.key}>
                       <div style={{ fontSize:11,color:s.color,letterSpacing:2,marginBottom:4}}>{s.label}</div>
@@ -427,28 +427,28 @@ export default function ICMemo() {
                   );
                 })}
               </div>
-              <div style={{marginTop:12,fontSize:10,color:"#444",lineHeight:1.7,borderTop:"1px solid #17305a",paddingTop:12}}>
+              <div style={{marginTop:12,fontSize:10,color:"rgba(255,255,255,0.3)",lineHeight:1.7,borderTop:"1px solid #17305a",paddingTop:12}}>
                 IC rule: bear case must clear cost of capital (typically 8–12%). A deal that only works in base or bull doesn't get approved — it gets repriced.
               </div>
             </div>
 
             {/* Sensitivity table */}
             <div className="card" style={{marginTop:12,padding:"16px 20px"}}>
-              <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:12}}>IRR SENSITIVITY — EXIT MULTIPLE vs. EBITDA CAGR (BASE CASE HOLD)</div>
+              <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:12}}>IRR SENSITIVITY — EXIT MULTIPLE vs. EBITDA CAGR (BASE CASE HOLD)</div>
               <div style={{overflowX:"auto"}}>
                 <table style={{width:"100%",fontSize:10,borderCollapse:"collapse"}}>
                   <thead>
                     <tr>
-                      <td style={{padding:"6px 8px",color:"#555",fontSize:9}}>EBITDA CAGR &rarr;<br/>Exit Mult &darr;</td>
+                      <td style={{padding:"6px 8px",color:"rgba(255,255,255,0.4)",fontSize:9}}>EBITDA CAGR &rarr;<br/>Exit Mult &darr;</td>
                       {[5,8,12,15,20].map(c=>(
-                        <td key={c} style={{padding:"6px 8px",color:"#888",textAlign:"center"}}>{c}%</td>
+                        <td key={c} style={{padding:"6px 8px",color:"rgba(255,255,255,0.6)",textAlign:"center"}}>{c}%</td>
                       ))}
                     </tr>
                   </thead>
                   <tbody>
                     {[6.0,7.0,8.0,9.0,10.0].map(em=>(
                       <tr key={em} style={{borderTop:"1px solid #17305a"}}>
-                        <td style={{padding:"6px 8px",color:"#888"}}>{em}x</td>
+                        <td style={{padding:"6px 8px",color:"rgba(255,255,255,0.6)"}}>{em}x</td>
                         {[5,8,12,15,20].map(cagr=>{
                           const exitE = parseFloat(entryEBITDA||"4000000") * Math.pow(1+cagr/100, parseFloat(holdYears||"5"));
                           const exitV = exitE * em;
@@ -457,7 +457,7 @@ export default function ICMemo() {
                           const eqOut = Math.max(0, exitV - debtR);
                           const irr = eqIn > 0 ? parseFloat(calcIRR(eqIn,eqOut,parseFloat(holdYears||"5")) || "0") : 0;
                           const bg = irr>=25?"#5a8a6a22":irr>=15?"#88882222":irr>=8?"#8a6a3a22":"#8a4a4a22";
-                          const col = irr>=25?"#5a8a6a":irr>=15?"#888":irr>=8?"#8a6a3a":"#8a4a4a";
+                          const col = irr>=25?"#22c55e":irr>=15?"#888":irr>=8?"#d97706":"#dc2626";
                           return <td key={cagr} style={{padding:"6px 8px",background:bg,color:col,textAlign:"center"}}>{irr.toFixed(1)}%</td>;
                         })}
                       </tr>
@@ -475,35 +475,35 @@ export default function ICMemo() {
         <div>
           <div style={{display:"flex",gap:8,marginBottom:16}}>
             {["ALL","KILL","HIGH","MEDIUM"].map(f=>(
-              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?(f==="KILL"?"#8a4a4a":f==="HIGH"?"#8a6a3a":f==="MEDIUM"?"#555":"#3B82F6"):"transparent",border:`1px solid ${rfFilter===f?"transparent":"#1c2a4a"}`,color:rfFilter===f?"#fff":"#555",padding:"6px 14px",fontSize:9,letterSpacing:2,borderRadius:3}}>
+              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?(f==="KILL"?"#dc2626":f==="HIGH"?"#d97706":f==="MEDIUM"?"#555":"#ffffff"):"transparent",border:`1px solid ${rfFilter===f?"transparent":"rgba(255,255,255,0.1)"}`,color:rfFilter===f?"#fff":"#555",padding:"6px 14px",fontSize:9,letterSpacing:2,borderRadius:3}}>
                 {f}
               </button>
             ))}
-            <div style={{marginLeft:"auto",fontSize:10,color:"#333",letterSpacing:1,alignSelf:"center"}}>
+            <div style={{marginLeft:"auto",fontSize:10,color:"rgba(255,255,255,0.2)",letterSpacing:1,alignSelf:"center"}}>
               {RED_FLAGS.filter(r=>rfFilter==="ALL"||r.severity===rfFilter).length} FLAGS
             </div>
           </div>
 
           {RED_FLAGS.filter(r=>rfFilter==="ALL"||r.severity===rfFilter).map((r,i)=>(
-            <div key={i} className="card" style={{marginBottom:8,padding:"14px 18px",borderLeft:`3px solid ${r.severity==="KILL"?"#8a4a4a":r.severity==="HIGH"?"#8a6a3a":"#555"}33`}}>
+            <div key={i} className="card" style={{marginBottom:8,padding:"14px 18px",borderLeft:`3px solid ${r.severity==="KILL"?"#dc2626":r.severity==="HIGH"?"#d97706":"#555"}33`}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start"}}>
                 <div style={{flex:1}}>
                   <div style={{display:"flex",gap:10,alignItems:"center",marginBottom:6}}>
                     <span className="pill" style={{background:r.severity==="KILL"?"#8a4a4a33":r.severity==="HIGH"?"#8a6a3a33":"#55555533",color:r.severity==="KILL"?"#c87a7a":r.severity==="HIGH"?"#c8a87a":"#888"}}>
                       {r.severity}
                     </span>
-                    <span style={{fontSize:9,color:"#444",letterSpacing:1}}>{r.section.toUpperCase()}</span>
+                    <span style={{fontSize:9,color:"rgba(255,255,255,0.3)",letterSpacing:1}}>{r.section.toUpperCase()}</span>
                   </div>
-                  <div style={{ fontSize:13,color:"#ccc",letterSpacing:1,marginBottom:8}}>{r.flag.toUpperCase()}</div>
-                  <div style={{fontSize:11,color:"#666",lineHeight:1.7}}>{r.detail}</div>
+                  <div style={{ fontSize:13,color:"rgba(255,255,255,0.8)",letterSpacing:1,marginBottom:8}}>{r.flag.toUpperCase()}</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.7}}>{r.detail}</div>
                 </div>
               </div>
             </div>
           ))}
 
-          <div style={{marginTop:16,padding:"14px 18px",background:"#0f1d3d",border:"1px solid #3B82F622",borderRadius:5}}>
-            <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>IC PATTERN</div>
-            <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
+          <div style={{marginTop:16,padding:"14px 18px",background:"transparent",border:"1px solid rgba(255,255,255,0.13)",borderRadius:5}}>
+            <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:8}}>IC PATTERN</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.8}}>
               Kill flags (4) will stop a deal at IC even if everything else is strong. High flags (5) require a credible answer before IC will vote. Medium flags (3) get noted but don't kill — they become conditions or follow-ups. No IC memo is perfect. The goal is zero Kill flags and a credible response to every High flag.
             </div>
           </div>
@@ -516,20 +516,20 @@ export default function ICMemo() {
           {/* Step progress */}
           <div style={{display:"flex",gap:0,marginBottom:20}}>
             {BUILDER_STEPS.map((s,i)=>(
-              <div key={i} onClick={()=>setBuilderStep(i)} style={{flex:1,padding:"8px 12px",background:builderStep===i?"#3B82F611":"transparent",borderBottom:`2px solid ${builderStep===i?"#3B82F6":"#1c2a4a"}`,cursor:"pointer",textAlign:"center"}}>
-                <div style={{fontSize:8,letterSpacing:2,color:builderStep===i?"#3B82F6":"#333"}}>{s.label}</div>
+              <div key={i} onClick={()=>setBuilderStep(i)} style={{flex:1,padding:"8px 12px",background:builderStep===i?"rgba(255,255,255,0.07)":"transparent",borderBottom:`2px solid ${builderStep===i?"#ffffff":"rgba(255,255,255,0.1)"}`,cursor:"pointer",textAlign:"center"}}>
+                <div style={{fontSize:8,letterSpacing:2,color:builderStep===i?"#ffffff":"#333"}}>{s.label}</div>
               </div>
             ))}
           </div>
 
           <div className="card" style={{padding:"20px 24px",marginBottom:16}}>
-            <div style={{ fontSize:16,color:"#3B82F6",letterSpacing:3,marginBottom:18}}>
+            <div style={{ fontSize:16,color:"#ffffff",letterSpacing:3,marginBottom:18}}>
               {BUILDER_STEPS[builderStep].label}
             </div>
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:14}}>
               {BUILDER_STEPS[builderStep].fields.map(f=>(
                 <div key={f.key} style={{gridColumn:f.key.includes("thesis")||f.key.includes("mit")||f.key==="tagline"||f.key.startsWith("vc")?"1 / -1":"auto"}}>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{f.label.toUpperCase()}</div>
+                  <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2,marginBottom:5}}>{f.label.toUpperCase()}</div>
                   {f.key.includes("thesis")||f.key.includes("mit")||f.key.startsWith("vc")||f.key==="tagline"
                     ? <textarea rows={2} placeholder={f.ph} value={memo[f.key as keyof typeof memo]} onChange={e=>setM(f.key,e.target.value)} />
                     : <input type="text" placeholder={f.ph} value={memo[f.key as keyof typeof memo]} onChange={e=>setM(f.key,e.target.value)} />
@@ -538,10 +538,10 @@ export default function ICMemo() {
               ))}
             </div>
             <div style={{display:"flex",justifyContent:"space-between",marginTop:16}}>
-              <button onClick={()=>setBuilderStep(s=>Math.max(0,s-1))} disabled={builderStep===0} style={{background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"7px 18px",fontSize:10,letterSpacing:2,borderRadius:3,opacity:builderStep===0?0.3:1}}>
+              <button onClick={()=>setBuilderStep(s=>Math.max(0,s-1))} disabled={builderStep===0} style={{background:"transparent",border:"1px solid rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)",padding:"7px 18px",fontSize:10,letterSpacing:2,borderRadius:3,opacity:builderStep===0?0.3:1}}>
                 &larr; BACK
               </button>
-              <button onClick={()=>setBuilderStep(s=>Math.min(BUILDER_STEPS.length-1,s+1))} disabled={builderStep===BUILDER_STEPS.length-1} style={{background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"7px 18px",fontSize:10,letterSpacing:2,borderRadius:3,opacity:builderStep===BUILDER_STEPS.length-1?0.3:1}}>
+              <button onClick={()=>setBuilderStep(s=>Math.min(BUILDER_STEPS.length-1,s+1))} disabled={builderStep===BUILDER_STEPS.length-1} style={{background:"transparent",border:"1px solid rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)",padding:"7px 18px",fontSize:10,letterSpacing:2,borderRadius:3,opacity:builderStep===BUILDER_STEPS.length-1?0.3:1}}>
                 NEXT &rarr;
               </button>
             </div>
@@ -550,19 +550,19 @@ export default function ICMemo() {
           {/* IC Memo preview */}
           {(memo.company||memo.thesis1) && (
             <div className="card" style={{padding:"20px 24px"}}>
-              <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:14}}>IC MEMO DRAFT — EXECUTIVE SUMMARY</div>
-              <div style={{borderLeft:"3px solid #3B82F6",paddingLeft:16,marginBottom:16}}>
-                <div style={{ fontSize:22,color:"#3B82F6",letterSpacing:3}}>{memo.company||"[COMPANY NAME]"}</div>
-                <div style={{fontSize:11,color:"#888",marginTop:4}}>{memo.sector} {memo.hq&&`\u00B7 ${memo.hq}`}</div>
-                <div style={{fontSize:11,color:"#666",marginTop:8,fontStyle:"italic"}}>{memo.tagline}</div>
+              <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:14}}>IC MEMO DRAFT — EXECUTIVE SUMMARY</div>
+              <div style={{borderLeft:"3px solid rgba(255,255,255,0.3)",paddingLeft:16,marginBottom:16}}>
+                <div style={{ fontSize:22,color:"#ffffff",letterSpacing:3}}>{memo.company||"[COMPANY NAME]"}</div>
+                <div style={{fontSize:11,color:"rgba(255,255,255,0.6)",marginTop:4}}>{memo.sector} {memo.hq&&`\u00B7 ${memo.hq}`}</div>
+                <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",marginTop:8,fontStyle:"italic"}}>{memo.tagline}</div>
               </div>
 
               {(memo.thesis1||memo.thesis2||memo.thesis3) && (
                 <div style={{marginBottom:16}}>
-                  <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:10}}>INVESTMENT THESIS</div>
+                  <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:10}}>INVESTMENT THESIS</div>
                   {[memo.thesis1,memo.thesis2,memo.thesis3].filter(Boolean).map((t,i)=>(
-                    <div key={i} style={{display:"flex",gap:10,marginBottom:8,fontSize:11,color:"#888",lineHeight:1.6}}>
-                      <span style={{color:"#3B82F6",flexShrink:0}}>&rarr;</span>{t}
+                    <div key={i} style={{display:"flex",gap:10,marginBottom:8,fontSize:11,color:"rgba(255,255,255,0.6)",lineHeight:1.6}}>
+                      <span style={{color:"#ffffff",flexShrink:0}}>&rarr;</span>{t}
                     </div>
                   ))}
                 </div>
@@ -570,19 +570,19 @@ export default function ICMemo() {
 
               {(memo.risk1||memo.risk2) && (
                 <div>
-                  <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:10}}>KEY RISKS & MITIGANTS</div>
+                  <div style={{fontSize:9,color:"#dc2626",letterSpacing:2,marginBottom:10}}>KEY RISKS & MITIGANTS</div>
                   {[[memo.risk1,memo.risk1mit],[memo.risk2,memo.risk2mit],[memo.risk3,memo.risk3mit]].filter(([r])=>r).map(([r,m],i)=>(
-                    <div key={i} style={{marginBottom:8,padding:"8px 12px",background:"#0f1d3d",borderRadius:3,border:"1px solid #1c2a4a"}}>
+                    <div key={i} style={{marginBottom:8,padding:"8px 12px",background:"transparent",borderRadius:3,border:"1px solid rgba(255,255,255,0.1)"}}>
                       <div style={{fontSize:10,color:"#c87a7a",marginBottom:3}}>{r}</div>
-                      {m&&<div style={{fontSize:10,color:"#666",lineHeight:1.6}}><span style={{color:"#5a8a6a"}}>Mitigant: </span>{m}</div>}
+                      {m&&<div style={{fontSize:10,color:"rgba(255,255,255,0.45)",lineHeight:1.6}}><span style={{color:"#22c55e"}}>Mitigant: </span>{m}</div>}
                     </div>
                   ))}
                 </div>
               )}
 
-              <div style={{marginTop:14,padding:"10px 14px",background:"#0f1d3d",border:"1px solid #5a8a6a33",borderRadius:4,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2}}>IC RECOMMENDATION</div>
-                <select value={memo.recommendation} onChange={e=>setM("recommendation",e.target.value)} style={{width:"auto",background:"transparent",border:"none",color:"#3B82F6",fontSize:14,letterSpacing:2}}>
+              <div style={{marginTop:14,padding:"10px 14px",background:"transparent",border:"1px solid #5a8a6a33",borderRadius:4,display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div style={{fontSize:9,color:"#22c55e",letterSpacing:2}}>IC RECOMMENDATION</div>
+                <select value={memo.recommendation} onChange={e=>setM("recommendation",e.target.value)} style={{width:"auto",background:"transparent",border:"none",color:"#ffffff",fontSize:14,letterSpacing:2}}>
                   <option value="INVEST">INVEST</option>
                   <option value="PASS">PASS</option>
                   <option value="FURTHER DILIGENCE">FURTHER DILIGENCE</option>
@@ -599,25 +599,25 @@ export default function ICMemo() {
           {!quizDone ? (
             <div>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:20}}>
-                <div style={{fontSize:10,color:"#555",letterSpacing:2}}>QUESTION {quizIdx+1} OF {QUIZ.length}</div>
-                <div style={{fontSize:10,color:"#3B82F6",letterSpacing:2}}>{quizScore} CORRECT</div>
+                <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",letterSpacing:2}}>QUESTION {quizIdx+1} OF {QUIZ.length}</div>
+                <div style={{fontSize:10,color:"#ffffff",letterSpacing:2}}>{quizScore} CORRECT</div>
               </div>
-              <div style={{height:2,background:"#17305a",borderRadius:1,marginBottom:20}}>
-                <div style={{height:"100%",width:`${((quizIdx)/QUIZ.length)*100}%`,background:"#3B82F6",borderRadius:1,transition:"width .3s"}} />
+              <div style={{height:2,background:"rgba(255,255,255,0.08)",borderRadius:1,marginBottom:20}}>
+                <div style={{height:"100%",width:`${((quizIdx)/QUIZ.length)*100}%`,background:"#ffffff",borderRadius:1,transition:"width .3s"}} />
               </div>
 
               <div className="card" style={{padding:"22px 24px",marginBottom:12}}>
-                <div style={{fontSize:11,color:"#ccc",lineHeight:1.8,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
+                <div style={{fontSize:11,color:"rgba(255,255,255,0.8)",lineHeight:1.8,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
                 <div style={{display:"flex",flexDirection:"column",gap:8}}>
                   {QUIZ[quizIdx].opts.map((o,i)=>{
                     const isCorrect = i===QUIZ[quizIdx].correct;
                     const isSelected = quizSelected===i;
                     const bg = !quizRevealed?"#0f1d3d":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#0f1d3d";
-                    const border = !quizRevealed?"#1c2a4a":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1c2a4a";
-                    const color = !quizRevealed?"#888":isCorrect?"#7aba8a":isSelected?"#c87a7a":"#555";
+                    const border = !quizRevealed?"rgba(255,255,255,0.1)":isCorrect?"#22c55e":isSelected?"#dc2626":"rgba(255,255,255,0.1)";
+                    const color = !quizRevealed?"#888":isCorrect?"#4ade80":isSelected?"#c87a7a":"#555";
                     return (
                       <button key={i} onClick={()=>handleQuiz(i)} style={{background:bg,border:`1px solid ${border}`,borderRadius:4,padding:"12px 16px",textAlign:"left",fontSize:11,color,lineHeight:1.6,transition:"all .15s"}}>
-                        <span style={{color:isCorrect&&quizRevealed?"#5a8a6a":isSelected&&quizRevealed?"#8a4a4a":"#444",marginRight:10,fontSize:9,letterSpacing:1}}>{String.fromCharCode(65+i)}.</span>
+                        <span style={{color:isCorrect&&quizRevealed?"#22c55e":isSelected&&quizRevealed?"#dc2626":"#444",marginRight:10,fontSize:9,letterSpacing:1}}>{String.fromCharCode(65+i)}.</span>
                         {o}
                       </button>
                     );
@@ -626,10 +626,10 @@ export default function ICMemo() {
               </div>
 
               {quizRevealed && (
-                <div className="card" style={{padding:"16px 20px",marginBottom:12,borderLeft:"3px solid #3B82F633"}}>
-                  <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>IC INSIGHT</div>
-                  <div style={{fontSize:11,color:"#888",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} style={{marginTop:14,background:"#3B82F6",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
+                <div className="card" style={{padding:"16px 20px",marginBottom:12,borderLeft:"3px solid rgba(255,255,255,0.2)"}}>
+                  <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:8}}>IC INSIGHT</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.6)",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
+                  <button onClick={nextQ} style={{marginTop:14,background:"#ffffff",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
                     {quizIdx<QUIZ.length-1?"NEXT QUESTION \u2192":"SEE RESULTS \u2192"}
                   </button>
                 </div>
@@ -637,18 +637,18 @@ export default function ICMemo() {
             </div>
           ) : (
             <div className="card" style={{padding:"32px",textAlign:"center"}}>
-              <div style={{ fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>IC ASSESSMENT</div>
-              <div style={{ fontSize:64,color:"#3B82F6"}}>{quizScore}/{QUIZ.length}</div>
-              <div style={{fontSize:13,color:"#888",marginTop:12,marginBottom:24}}>
+              <div style={{ fontSize:14,color:"rgba(255,255,255,0.4)",letterSpacing:4,marginBottom:12}}>IC ASSESSMENT</div>
+              <div style={{ fontSize:64,color:"#ffffff"}}>{quizScore}/{QUIZ.length}</div>
+              <div style={{fontSize:13,color:"rgba(255,255,255,0.6)",marginTop:12,marginBottom:24}}>
                 {quizScore===5?"IC approves. Deal moves to exclusivity.":quizScore>=3?"Solid — a few gaps, but you'd survive IC.":"More prep needed before you're in front of a real IC."}
               </div>
-              <div style={{fontSize:10,color:"#444",letterSpacing:2,marginBottom:20}}>IC MODULES COMPLETED THIS SESSION</div>
+              <div style={{fontSize:10,color:"rgba(255,255,255,0.3)",letterSpacing:2,marginBottom:20}}>IC MODULES COMPLETED THIS SESSION</div>
               <div style={{display:"flex",justifyContent:"center",gap:8,flexWrap:"wrap"}}>
                 {["Anatomy","Returns","Red Flags","Builder"].map(m=>(
-                  <span key={m} className="pill" style={{background:"#5a8a6a22",color:"#7aba8a",padding:"4px 12px"}}>{m}</span>
+                  <span key={m} className="pill" style={{background:"#5a8a6a22",color:"#4ade80",padding:"4px 12px"}}>{m}</span>
                 ))}
               </div>
-              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{marginTop:24,background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
+              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{marginTop:24,background:"transparent",border:"1px solid rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
                 RETAKE
               </button>
             </div>

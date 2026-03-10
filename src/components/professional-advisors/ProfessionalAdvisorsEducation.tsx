@@ -180,11 +180,11 @@ const AccountantPage: React.FC = () => (
     <div className="bg-accent/10 backdrop-blur-sm p-4 rounded-lg border-l-4 border-accent/30">
       <div className="text-center mb-4">
         <p className="text-muted-foreground">Your CPA says:</p>
-        <p className="text-3xl font-mono">$3M EBITDA</p>
+        <p className="text-3xl">$3M EBITDA</p>
       </div>
       <div className="text-center">
         <p className="text-accent">QoE finds:</p>
-        <p className="text-3xl font-mono">$4.2M EBITDA</p>
+        <p className="text-3xl">$4.2M EBITDA</p>
       </div>
       <p className="text-success text-center mt-4">= $6M more at 5x multiple</p>
     </div>

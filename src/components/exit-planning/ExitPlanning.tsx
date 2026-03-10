@@ -17,7 +17,7 @@ const EXIT_ROUTES = [
   {
     id: "strategic",
     label: "STRATEGIC SALE",
-    color: "#3B82F6",
+    color: "#ffffff",
     freq: "45%",
     headline: "Sell to a competitor, customer, or adjacent player who pays a premium for what you have.",
     when: "When the business has strategic assets a buyer can\u2019t easily replicate \u2014 market position, customer relationships, IP, geographic density, or talent.",
@@ -56,7 +56,7 @@ const EXIT_ROUTES = [
   {
     id: "ipo",
     label: "IPO / PUBLIC MARKETS",
-    color: "#5a8a6a",
+    color: "#22c55e",
     freq: "5%",
     headline: "List the company on a public exchange. Rare in lower middle market. Relevant for platforms above $50M EBITDA.",
     when: "When the business is large enough, predictable enough, and institutional enough to withstand public market scrutiny. Rule of thumb: $50M+ EBITDA, recurring revenue model, institutional-grade finance function.",
@@ -69,7 +69,7 @@ const EXIT_ROUTES = [
   {
     id: "mgmt",
     label: "MANAGEMENT BUYOUT",
-    color: "#8a6a3a",
+    color: "#d97706",
     freq: "3%",
     headline: "Sell to the management team, often backed by subordinated debt or seller financing.",
     when: "When no strategic or financial buyer emerges, management has conviction in the business, and the PE sponsor prefers a clean exit over a distressed sale or write-down.",
@@ -83,7 +83,7 @@ const EXIT_ROUTES = [
 
 // ── READINESS CHECKLIST ────────────────────────────────────────────────
 const READINESS_ITEMS = [
-  { category: "FINANCIALS", color: "#3B82F6", items: [
+  { category: "FINANCIALS", color: "#ffffff", items: [
     { item: "3 years of clean, audited (or reviewed) financials", critical: true },
     { item: "LTM P&L with no one-time items unexplained", critical: true },
     { item: "QoE-defensible EBITDA add-back schedule prepared", critical: true },
@@ -107,7 +107,7 @@ const READINESS_ITEMS = [
     { item: "Cap table clean \u2014 no informal grants, side letters, or disputes", critical: false },
     { item: "W&I insurance feasibility assessed", critical: false },
   ]},
-  { category: "MANAGEMENT & OPS", color: "#5a8a6a", items: [
+  { category: "MANAGEMENT & OPS", color: "#22c55e", items: [
     { item: "Management team stable \u2014 no open C-suite roles", critical: true },
     { item: "Key employee retention agreements in place", critical: true },
     { item: "Org chart documented \u2014 no single point of failure below CEO", critical: false },
@@ -115,7 +115,7 @@ const READINESS_ITEMS = [
     { item: "ERP / systems modern enough to withstand buyer tech DD", critical: false },
     { item: "Finance function capable of monthly close + board reporting", critical: true },
   ]},
-  { category: "NARRATIVE", color: "#8a6a3a", items: [
+  { category: "NARRATIVE", color: "#d97706", items: [
     { item: "Investment thesis written from buyer\u2019s chair (not seller\u2019s)", critical: true },
     { item: "Value creation documented \u2014 what was built, not just current state", critical: true },
     { item: "Exit thesis in one sentence (buyer type, multiple, year)", critical: true },
@@ -141,12 +141,12 @@ const TIMING = [
 
 // ── EXIT PROCESS ───────────────────────────────────────────────────────
 const PROCESS_STEPS = [
-  { phase: "PREPARATION", weeks: "Months \u20136 to \u20133", color: "#3B82F6", seller: ["Finalize exit readiness checklist", "Engage investment banker", "Prepare CIM and management presentation", "Clean up data room", "Identify and prioritize buyer list"], buyerLens: "Buyers are not involved yet \u2014 but the quality of the CIM determines who engages seriously and at what valuation." },
+  { phase: "PREPARATION", weeks: "Months \u20136 to \u20133", color: "#ffffff", seller: ["Finalize exit readiness checklist", "Engage investment banker", "Prepare CIM and management presentation", "Clean up data room", "Identify and prioritize buyer list"], buyerLens: "Buyers are not involved yet \u2014 but the quality of the CIM determines who engages seriously and at what valuation." },
   { phase: "LAUNCH", weeks: "Month 0", color: "#5a8a9a", seller: ["Banker sends teaser to target buyer list", "NDAs executed with interested parties", "CIM distributed to qualified buyers", "Management presentation scheduling begins"], buyerLens: "Buyers evaluate the teaser in 48 hours. Most pass based on sector, size, or initial price signal. The ones who request the CIM are your real pool." },
   { phase: "FIRST ROUND", weeks: "Weeks 3\u20136", color: "#6a5a9a", seller: ["Management presentations to 6\u201312 buyers", "Preliminary Q&A on CIM", "First-round bids submitted (non-binding)", "Banker advises on bid quality and terms"], buyerLens: "Buyers submit preliminary IOIs \u2014 Indication of Interest letters with valuation range and proposed structure. These are non-binding and designed to get to second round." },
-  { phase: "SECOND ROUND", weeks: "Weeks 7\u201312", color: "#5a8a6a", seller: ["Shortlist to 3\u20135 buyers", "Full data room access granted", "Management deep-dives with finalist buyers", "Draft purchase agreement distributed"], buyerLens: "Real DD begins. QoE firms engaged. Customer calls. Site visits. Buyers price the deal based on what they find \u2014 final bids are binding and include markup on the purchase agreement." },
-  { phase: "EXCLUSIVITY", weeks: "Weeks 13\u201318", color: "#8a6a3a", seller: ["Winner selected, exclusivity granted (45\u201360 days)", "Final DD and confirmatory diligence", "Purchase agreement negotiation", "Financing documentation"], buyerLens: "Buyer has leverage \u2014 seller has limited ability to re-trade. Issues found in final DD become price chips or walk threats. W&I insurance bound. Management retention agreements finalized." },
-  { phase: "CLOSE", weeks: "Week 18\u201322", color: "#3B82F6", seller: ["Purchase agreement executed", "Funds wired", "Management transition plan activated", "Seller communications to employees and customers"], buyerLens: "Wire day. Proceeds distributed per the waterfall. Management rollover equity transferred. New ownership day 1." },
+  { phase: "SECOND ROUND", weeks: "Weeks 7\u201312", color: "#22c55e", seller: ["Shortlist to 3\u20135 buyers", "Full data room access granted", "Management deep-dives with finalist buyers", "Draft purchase agreement distributed"], buyerLens: "Real DD begins. QoE firms engaged. Customer calls. Site visits. Buyers price the deal based on what they find \u2014 final bids are binding and include markup on the purchase agreement." },
+  { phase: "EXCLUSIVITY", weeks: "Weeks 13\u201318", color: "#d97706", seller: ["Winner selected, exclusivity granted (45\u201360 days)", "Final DD and confirmatory diligence", "Purchase agreement negotiation", "Financing documentation"], buyerLens: "Buyer has leverage \u2014 seller has limited ability to re-trade. Issues found in final DD become price chips or walk threats. W&I insurance bound. Management retention agreements finalized." },
+  { phase: "CLOSE", weeks: "Week 18\u201322", color: "#ffffff", seller: ["Purchase agreement executed", "Funds wired", "Management transition plan activated", "Seller communications to employees and customers"], buyerLens: "Wire day. Proceeds distributed per the waterfall. Management rollover equity transferred. New ownership day 1." },
 ];
 
 // ── QUIZ ───────────────────────────────────────────────────────────────
@@ -233,17 +233,17 @@ export default function ExitPlanning() {
   };
 
   return (
-    <div style={{background:"#0f1d3d",minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
+    <div style={{minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
       <style>{`
 
         .ep-btn{cursor:pointer;font-family:inherit;}
         .ep-tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit;}
-        .ep-tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
+        .ep-tb.on{color:#ffffff;border-bottom-color:#ffffff;}
         .ep-tb:not(.on){color:#2a2838;}
         .ep-tb:hover:not(.on){color:#555;}
-        .ep-card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
+        .ep-card{background:transparent;border:1px solid #1c2a4a;border-radius:5px;}
         .ep-input{background:#17305a;border:1px solid #1c2a4a;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        .ep-input:focus{border-color:#3B82F6;}
+        .ep-input:focus{border-color:#ffffff;}
         .ep-chk{width:16px;height:16px;border:1px solid #2a2838;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;}
         .ep-chk.done{background:#5a8a6a;border-color:#5a8a6a;}
         .ep-pill{display:inline-block;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:2px;font-weight:600;}
@@ -252,11 +252,11 @@ export default function ExitPlanning() {
       {/* Header */}
       <div style={{marginBottom:20}}>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:6,flexWrap:"wrap"}}>
-          <div style={{ fontSize:36,letterSpacing:6,color:"#3B82F6",lineHeight:1}}>EXIT</div>
-          <div style={{ fontSize:36,letterSpacing:6,color:"#1c2a4a",lineHeight:1}}>PLANNING</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#ffffff",lineHeight:1}}>EXIT</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"rgba(255,255,255,0.1)",lineHeight:1}}>PLANNING</div>
           <div style={{fontSize:9,color:"#2a2838",letterSpacing:3,marginLeft:8}}>WAVE 3 &middot; THE FULL LIFECYCLE CLOSE</div>
         </div>
-        <div style={{fontSize:11,color:"#333",lineHeight:1.7,maxWidth:640}}>
+        <div style={{fontSize:11,color:"rgba(255,255,255,0.2)",lineHeight:1.7,maxWidth:640}}>
           Everything you've built &mdash; IC memo, DD, deal structure, 100-day plan, cap table &mdash; was always pointing here. The exit is where PE value creation is realized or not. Five routes. One process. The question is always the same: who pays the most, and when?
         </div>
       </div>
@@ -276,18 +276,18 @@ export default function ExitPlanning() {
             {EXIT_ROUTES.map(r => {
               const active = activeRoute === r.id;
               return (
-                <div key={r.id} onClick={()=>setActiveRoute(r.id)} style={{padding:"12px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?r.color+"55":"#1c2a4a"}`,background:active?r.color+"0e":"#0f1d3d",borderLeft:`3px solid ${active?r.color:r.color+"33"}`,transition:"all .15s"}}>
-                  <div style={{ fontSize:11,color:active?r.color:"#444",letterSpacing:2}}>{r.label}</div>
+                <div key={r.id} onClick={()=>setActiveRoute(r.id)} style={{padding:"12px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?r.color+"55":"rgba(255,255,255,0.1)"}`,background:active?r.color+"0e":"#0f1d3d",borderLeft:`3px solid ${active?r.color:r.color+"33"}`,transition:"all .15s"}}>
+                  <div style={{ fontSize:11,color:active?r.color:"rgba(255,255,255,0.3)",letterSpacing:2}}>{r.label}</div>
                   <div style={{display:"flex",justifyContent:"space-between",marginTop:4}}>
-                    <div style={{fontSize:9,color:"#333"}}>~{r.freq} of exits</div>
+                    <div style={{fontSize:9,color:"rgba(255,255,255,0.2)"}}>~{r.freq} of exits</div>
                   </div>
                 </div>
               );
             })}
 
             {/* Returns calc */}
-            <div style={{marginTop:16,padding:"14px",background:"#0f1d3d",border:"1px solid #1c2a4a",borderRadius:4}}>
-              <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:12}}>QUICK RETURNS CALC</div>
+            <div style={{marginTop:16,padding:"14px",background:"transparent",border:"1px solid rgba(255,255,255,0.1)",borderRadius:4}}>
+              <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:12}}>QUICK RETURNS CALC</div>
               {[
                 {label:"Entry EBITDA",val:entryEBITDA,set:setEntryEBITDA,ph:"4000000"},
                 {label:"Entry Multiple",val:entryMult,set:setEntryMult,ph:"6.5"},
@@ -297,19 +297,19 @@ export default function ExitPlanning() {
                 {label:"Hold (years)",val:holdYears,set:setHoldYears,ph:"5"},
               ].map(({label,val,set,ph})=>(
                 <div key={label} style={{marginBottom:8}}>
-                  <div style={{fontSize:8,color:"#555",letterSpacing:1,marginBottom:3}}>{label}</div>
+                  <div style={{fontSize:8,color:"rgba(255,255,255,0.4)",letterSpacing:1,marginBottom:3}}>{label}</div>
                   <input className="ep-input" value={val} onChange={e=>set(e.target.value)} placeholder={ph} style={{fontSize:10,padding:"5px 8px"}} />
                 </div>
               ))}
               <div style={{marginTop:12,borderTop:"1px solid #17305a",paddingTop:12,display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
                 {[
-                  {l:"EV AT EXIT",v:fmt(exitEV),c:"#3B82F6"},
+                  {l:"EV AT EXIT",v:fmt(exitEV),c:"#ffffff"},
                   {l:"EQUITY IN",v:fmt(equityIn),c:"#888"},
-                  {l:"MOIC",v:fmtX(moic),c:moic>=2.5?"#5a8a6a":moic>=1.5?"#888":"#8a4a4a"},
-                  {l:"IRR",v:`${irr}%`,c:parseFloat(String(irr))>=20?"#5a8a6a":parseFloat(String(irr))>=12?"#888":"#8a4a4a"},
+                  {l:"MOIC",v:fmtX(moic),c:moic>=2.5?"#22c55e":moic>=1.5?"#888":"#dc2626"},
+                  {l:"IRR",v:`${irr}%`,c:parseFloat(String(irr))>=20?"#22c55e":parseFloat(String(irr))>=12?"#888":"#dc2626"},
                 ].map(({l,v,c})=>(
                   <div key={l} style={{textAlign:"center"}}>
-                    <div style={{fontSize:8,color:"#444",letterSpacing:1}}>{l}</div>
+                    <div style={{fontSize:8,color:"rgba(255,255,255,0.3)",letterSpacing:1}}>{l}</div>
                     <div style={{ fontSize:16,color:c}}>{v}</div>
                   </div>
                 ))}
@@ -323,46 +323,46 @@ export default function ExitPlanning() {
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12,flexWrap:"wrap",gap:12}}>
                 <div>
                   <div style={{ fontSize:22,color:route.color,letterSpacing:3}}>{route.label}</div>
-                  <div style={{fontSize:11,color:"#888",marginTop:6,lineHeight:1.7,maxWidth:500}}>{route.headline}</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.6)",marginTop:6,lineHeight:1.7,maxWidth:500}}>{route.headline}</div>
                 </div>
                 <div style={{textAlign:"right"}}>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2}}>FREQUENCY</div>
+                  <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2}}>FREQUENCY</div>
                   <div style={{ fontSize:28,color:route.color}}>{route.freq}</div>
                 </div>
               </div>
               <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,borderTop:"1px solid #17305a",paddingTop:14}}>
                 <div>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:6}}>WHEN IT MAKES SENSE</div>
-                  <div style={{fontSize:11,color:"#777",lineHeight:1.7}}>{route.when}</div>
+                  <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2,marginBottom:6}}>WHEN IT MAKES SENSE</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.5)",lineHeight:1.7}}>{route.when}</div>
                 </div>
                 <div>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:6}}>MULTIPLE DYNAMICS</div>
-                  <div style={{fontSize:11,color:"#777",lineHeight:1.7}}>{route.multiple}</div>
+                  <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2,marginBottom:6}}>MULTIPLE DYNAMICS</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.5)",lineHeight:1.7}}>{route.multiple}</div>
                 </div>
               </div>
             </div>
 
             <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginBottom:12}}>
               <div className="ep-card" style={{padding:"16px 18px",borderLeft:"3px solid #5a8a6a33"}}>
-                <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:10}}>ADVANTAGES</div>
+                <div style={{fontSize:9,color:"#22c55e",letterSpacing:2,marginBottom:10}}>ADVANTAGES</div>
                 {route.pros.map((p,i)=>(
-                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"#777",lineHeight:1.5}}>
-                    <span style={{color:"#5a8a6a",flexShrink:0}}>+</span>{p}
+                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
+                    <span style={{color:"#22c55e",flexShrink:0}}>+</span>{p}
                   </div>
                 ))}
               </div>
               <div className="ep-card" style={{padding:"16px 18px",borderLeft:"3px solid #8a4a4a33"}}>
-                <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:10}}>DISADVANTAGES</div>
+                <div style={{fontSize:9,color:"#dc2626",letterSpacing:2,marginBottom:10}}>DISADVANTAGES</div>
                 {route.cons.map((c,i)=>(
-                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"#777",lineHeight:1.5}}>
-                    <span style={{color:"#8a4a4a",flexShrink:0}}>&minus;</span>{c}
+                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
+                    <span style={{color:"#dc2626",flexShrink:0}}>&minus;</span>{c}
                   </div>
                 ))}
               </div>
               <div className="ep-card" style={{padding:"16px 18px",borderLeft:`3px solid ${route.color}33`}}>
                 <div style={{fontSize:9,color:route.color,letterSpacing:2,marginBottom:10}}>READINESS REQUIREMENTS</div>
                 {route.readiness.map((r,i)=>(
-                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"#777",lineHeight:1.5}}>
+                  <div key={i} style={{display:"flex",gap:8,marginBottom:7,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
                     <span style={{color:route.color,flexShrink:0,fontSize:8}}>&rarr;</span>{r}
                   </div>
                 ))}
@@ -371,7 +371,7 @@ export default function ExitPlanning() {
 
             <div className="ep-card" style={{padding:"14px 18px",borderLeft:`3px solid ${route.color}22`}}>
               <div style={{fontSize:9,color:route.color,letterSpacing:2,marginBottom:8}}>PE SPONSOR READS THIS EXIT AS</div>
-              <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>{route.icNote}</div>
+              <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.8}}>{route.icNote}</div>
             </div>
           </div>
         </div>
@@ -383,13 +383,13 @@ export default function ExitPlanning() {
           <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:20,flexWrap:"wrap"}}>
             <div style={{flex:1,maxWidth:500}}>
               <div style={{height:6,background:"#1a1a26",borderRadius:3,overflow:"hidden"}}>
-                <div style={{height:"100%",width:`${readinessPct}%`,background:`linear-gradient(90deg,${readinessPct>70?"#5a8a6a":readinessPct>40?"#8a6a3a":"#8a4a4a"},#3B82F6)`,borderRadius:3,transition:"width .4s"}} />
+                <div style={{height:"100%",width:`${readinessPct}%`,background:`linear-gradient(90deg,${readinessPct>70?"#22c55e":readinessPct>40?"#d97706":"#dc2626"},rgba(255,255,255,0.2))`,borderRadius:3,transition:"width .4s"}} />
               </div>
             </div>
-            <div style={{fontSize:12,color:readinessPct>70?"#5a8a6a":readinessPct>40?"#3B82F6":"#8a4a4a",letterSpacing:1}}>
+            <div style={{fontSize:12,color:readinessPct>70?"#22c55e":readinessPct>40?"#ffffff":"#dc2626",letterSpacing:1}}>
               {readinessPct}% EXIT READY
             </div>
-            <div style={{fontSize:10,color:"#333"}}>{doneItems}/{totalItems} items</div>
+            <div style={{fontSize:10,color:"rgba(255,255,255,0.2)"}}>{doneItems}/{totalItems} items</div>
           </div>
 
           {READINESS_ITEMS.map(cat => {
@@ -399,8 +399,8 @@ export default function ExitPlanning() {
                 <div style={{padding:"14px 18px 10px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                   <div style={{ fontSize:14,color:cat.color,letterSpacing:3}}>{cat.category}</div>
                   <div style={{display:"flex",alignItems:"center",gap:12}}>
-                    <div style={{fontSize:10,color:catDone===cat.items.length?"#5a8a6a":"#444"}}>{catDone}/{cat.items.length}</div>
-                    <div style={{width:80,height:3,background:"#17305a",borderRadius:2,overflow:"hidden"}}>
+                    <div style={{fontSize:10,color:catDone===cat.items.length?"#22c55e":"#444"}}>{catDone}/{cat.items.length}</div>
+                    <div style={{width:80,height:3,background:"rgba(255,255,255,0.08)",borderRadius:2,overflow:"hidden"}}>
                       <div style={{height:"100%",width:`${catDone/cat.items.length*100}%`,background:cat.color,borderRadius:2,transition:"width .3s"}} />
                     </div>
                   </div>
@@ -427,8 +427,8 @@ export default function ExitPlanning() {
           })}
 
           <div className="ep-card" style={{padding:"14px 18px",borderLeft:"3px solid #8a4a4a33"}}>
-            <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:8}}>THE ITEM THAT KILLS THE MOST EXITS</div>
-            <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>Customer concentration. A single customer at 30% of revenue can eliminate the strategic buyer universe entirely and compress PE multiples by 1&ndash;2 turns. Start diversifying 24 months before your target exit window &mdash; not 6 months before. One year of demonstrated diversification changes the story; a plan to diversify after close does not.
+            <div style={{fontSize:9,color:"#dc2626",letterSpacing:2,marginBottom:8}}>THE ITEM THAT KILLS THE MOST EXITS</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.8}}>Customer concentration. A single customer at 30% of revenue can eliminate the strategic buyer universe entirely and compress PE multiples by 1&ndash;2 turns. Start diversifying 24 months before your target exit window &mdash; not 6 months before. One year of demonstrated diversification changes the story; a plan to diversify after close does not.
             </div>
           </div>
         </div>
@@ -439,27 +439,27 @@ export default function ExitPlanning() {
         <div>
           <div style={{display:"flex",gap:8,marginBottom:16}}>
             {["ALL","SELL","HOLD"].map(f=>(
-              <button key={f} onClick={()=>setTimingFilter(f)} style={{background:f===timingFilter?(f==="SELL"?"#5a8a6a":f==="HOLD"?"#8a4a4a":"#3B82F6"):"transparent",border:`1px solid ${f===timingFilter?"transparent":"#1c2a4a"}`,color:f===timingFilter?"#0f1d3d":"#555",padding:"6px 16px",fontSize:9,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
+              <button key={f} onClick={()=>setTimingFilter(f)} style={{background:f===timingFilter?(f==="SELL"?"#22c55e":f==="HOLD"?"#dc2626":"#ffffff"):"transparent",border:`1px solid ${f===timingFilter?"transparent":"rgba(255,255,255,0.1)"}`,color:f===timingFilter?"#0f1d3d":"#555",padding:"6px 16px",fontSize:9,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
                 {f}
               </button>
             ))}
           </div>
 
           {TIMING.filter(t=>timingFilter==="ALL"||t.direction===timingFilter).map((t,i)=>(
-            <div key={i} className="ep-card" style={{marginBottom:8,padding:"14px 18px",borderLeft:`3px solid ${t.direction==="SELL"?"#5a8a6a":"#8a4a4a"}33`}}>
+            <div key={i} className="ep-card" style={{marginBottom:8,padding:"14px 18px",borderLeft:`3px solid ${t.direction==="SELL"?"#22c55e":"#dc2626"}33`}}>
               <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
-                <span className="ep-pill" style={{background:t.direction==="SELL"?"#5a8a6a22":"#8a4a4a22",color:t.direction==="SELL"?"#7aba8a":"#c87a7a",marginTop:2,flexShrink:0}}>{t.direction}</span>
+                <span className="ep-pill" style={{background:t.direction==="SELL"?"#5a8a6a22":"#8a4a4a22",color:t.direction==="SELL"?"#4ade80":"#c87a7a",marginTop:2,flexShrink:0}}>{t.direction}</span>
                 <div>
-                  <div style={{ fontSize:13,color:t.direction==="SELL"?"#5a8a6a":"#8a4a4a",letterSpacing:1,marginBottom:6}}>{t.signal.toUpperCase()}</div>
-                  <div style={{fontSize:11,color:"#666",lineHeight:1.7}}>{t.detail}</div>
+                  <div style={{ fontSize:13,color:t.direction==="SELL"?"#22c55e":"#dc2626",letterSpacing:1,marginBottom:6}}>{t.signal.toUpperCase()}</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.7}}>{t.detail}</div>
                 </div>
               </div>
             </div>
           ))}
 
-          <div className="ep-card" style={{marginTop:8,padding:"16px 18px",borderLeft:"3px solid #3B82F633"}}>
-            <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>THE TIMING MISTAKE PE FIRMS MAKE MOST</div>
-            <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
+          <div className="ep-card" style={{marginTop:8,padding:"16px 18px",borderLeft:"3px solid rgba(255,255,255,0.2)"}}>
+            <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:8}}>THE TIMING MISTAKE PE FIRMS MAKE MOST</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.8}}>
               Waiting for perfect conditions that never arrive simultaneously. Strong EBITDA growth + cheap credit + strong strategic M&A activity + clean management team &mdash; all four at once is rare. The real discipline is identifying when 3 of the 4 are aligned and accepting that the fourth won't improve enough to wait. Most value is lost to over-holding, not under-holding.
             </div>
           </div>
@@ -469,9 +469,9 @@ export default function ExitPlanning() {
       {/* ── PROCESS ── */}
       {tab==="process" && (
         <div>
-          <div style={{fontSize:10,color:"#555",letterSpacing:1,marginBottom:20}}>SELL-SIDE PROCESS &mdash; BANKER-RUN AUCTION &middot; TOTAL: 18&ndash;22 WEEKS</div>
+          <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",letterSpacing:1,marginBottom:20}}>SELL-SIDE PROCESS &mdash; BANKER-RUN AUCTION &middot; TOTAL: 18&ndash;22 WEEKS</div>
           <div style={{position:"relative"}}>
-            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"#1c2a4a"}} />
+            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"rgba(255,255,255,0.1)"}} />
             {PROCESS_STEPS.map((s,i)=>(
               <div key={i} style={{display:"flex",gap:20,marginBottom:16,position:"relative"}}>
                 <div style={{width:56,flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",zIndex:1}}>
@@ -481,22 +481,22 @@ export default function ExitPlanning() {
                 <div className="ep-card" style={{flex:1,overflow:"hidden",borderLeft:`3px solid ${s.color}33`}}>
                   <div onClick={()=>setExpandedStep(expandedStep===i?null:i)} style={{padding:"14px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer"}}>
                     <div style={{ fontSize:15,color:s.color,letterSpacing:3}}>{s.phase}</div>
-                    <span style={{color:"#333",fontSize:12}}>{expandedStep===i?"\u25B2":"\u25BC"}</span>
+                    <span style={{color:"rgba(255,255,255,0.2)",fontSize:12}}>{expandedStep===i?"\u25B2":"\u25BC"}</span>
                   </div>
                   {expandedStep===i && (
                     <div style={{padding:"0 18px 16px",borderTop:"1px solid #17305a"}}>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginTop:14}}>
                         <div>
-                          <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:8}}>SELLER ACTIONS</div>
+                          <div style={{fontSize:9,color:"rgba(255,255,255,0.4)",letterSpacing:2,marginBottom:8}}>SELLER ACTIONS</div>
                           {s.seller.map((a,j)=>(
-                            <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"#777",lineHeight:1.5}}>
+                            <div key={j} style={{display:"flex",gap:8,marginBottom:6,fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.5}}>
                               <span style={{color:s.color,flexShrink:0}}>&rarr;</span>{a}
                             </div>
                           ))}
                         </div>
-                        <div style={{background:"#0f1d3d",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
+                        <div style={{background:"transparent",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
                           <div style={{fontSize:9,color:s.color,letterSpacing:2,marginBottom:8}}>BUYER PERSPECTIVE</div>
-                          <div style={{fontSize:10,color:"#777",lineHeight:1.7}}>{s.buyerLens}</div>
+                          <div style={{fontSize:10,color:"rgba(255,255,255,0.5)",lineHeight:1.7}}>{s.buyerLens}</div>
                         </div>
                       </div>
                     </div>
@@ -507,8 +507,8 @@ export default function ExitPlanning() {
           </div>
 
           <div className="ep-card" style={{padding:"16px 18px",marginTop:4,borderLeft:"3px solid #8a4a4a33"}}>
-            <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:8}}>THE PHASE WHERE MOST DEALS REPRICE</div>
-            <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
+            <div style={{fontSize:9,color:"#dc2626",letterSpacing:2,marginBottom:8}}>THE PHASE WHERE MOST DEALS REPRICE</div>
+            <div style={{fontSize:11,color:"rgba(255,255,255,0.45)",lineHeight:1.8}}>
               Exclusivity. Once the buyer has exclusivity, the power dynamic shifts. Issues found in final DD become price chips &mdash; and the seller has limited leverage to re-open the process without significant time and cost. The counter is simple: do your own QoE before launching the process. Find the issues before the buyer does. Every surprise the buyer discovers in exclusivity costs more to resolve than it would have cost to fix pre-launch.
             </div>
           </div>
@@ -521,34 +521,34 @@ export default function ExitPlanning() {
           {!quizDone ? (
             <div>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:16}}>
-                <div style={{fontSize:10,color:"#555",letterSpacing:2}}>SCENARIO {quizIdx+1} OF {QUIZ.length}</div>
-                <div style={{fontSize:10,color:"#3B82F6",letterSpacing:2}}>{quizScore} CORRECT</div>
+                <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",letterSpacing:2}}>SCENARIO {quizIdx+1} OF {QUIZ.length}</div>
+                <div style={{fontSize:10,color:"#ffffff",letterSpacing:2}}>{quizScore} CORRECT</div>
               </div>
-              <div style={{height:2,background:"#17305a",borderRadius:1,marginBottom:20}}>
-                <div style={{height:"100%",width:`${quizIdx/QUIZ.length*100}%`,background:"#3B82F6",transition:"width .3s"}} />
+              <div style={{height:2,background:"rgba(255,255,255,0.08)",borderRadius:1,marginBottom:20}}>
+                <div style={{height:"100%",width:`${quizIdx/QUIZ.length*100}%`,background:"#ffffff",transition:"width .3s"}} />
               </div>
               <div className="ep-card" style={{padding:"22px 24px",marginBottom:12}}>
-                <div style={{fontSize:11,color:"#ccc",lineHeight:1.9,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
+                <div style={{fontSize:11,color:"rgba(255,255,255,0.8)",lineHeight:1.9,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
                 <div style={{display:"flex",flexDirection:"column",gap:8}}>
                   {QUIZ[quizIdx].opts.map((o,i)=>{
                     const isCorrect=i===QUIZ[quizIdx].correct;
                     const isSelected=quizSelected===i;
                     const bg=!quizRevealed?"#0f1d3d":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#0f1d3d";
-                    const border=!quizRevealed?"#1c2a4a":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1c2a4a";
-                    const color=!quizRevealed?"#888":isCorrect?"#7aba8a":isSelected?"#c87a7a":"#555";
+                    const border=!quizRevealed?"rgba(255,255,255,0.1)":isCorrect?"#22c55e":isSelected?"#dc2626":"rgba(255,255,255,0.1)";
+                    const color=!quizRevealed?"#888":isCorrect?"#4ade80":isSelected?"#c87a7a":"#555";
                     return (
                       <button key={i} onClick={()=>handleQuiz(i)} style={{background:bg,border:`1px solid ${border}`,borderRadius:4,padding:"12px 16px",textAlign:"left",fontSize:11,color,lineHeight:1.6,transition:"all .15s",cursor:"pointer",fontFamily:"inherit"}}>
-                        <span style={{color:isCorrect&&quizRevealed?"#5a8a6a":isSelected&&quizRevealed?"#8a4a4a":"#444",marginRight:10,fontSize:9,letterSpacing:1}}>{String.fromCharCode(65+i)}.</span>{o}
+                        <span style={{color:isCorrect&&quizRevealed?"#22c55e":isSelected&&quizRevealed?"#dc2626":"#444",marginRight:10,fontSize:9,letterSpacing:1}}>{String.fromCharCode(65+i)}.</span>{o}
                       </button>
                     );
                   })}
                 </div>
               </div>
               {quizRevealed&&(
-                <div className="ep-card" style={{padding:"16px 20px",borderLeft:"3px solid #3B82F633"}}>
-                  <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>EXIT INSIGHT</div>
-                  <div style={{fontSize:11,color:"#888",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} style={{marginTop:14,background:"#3B82F6",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
+                <div className="ep-card" style={{padding:"16px 20px",borderLeft:"3px solid rgba(255,255,255,0.2)"}}>
+                  <div style={{fontSize:9,color:"#ffffff",letterSpacing:2,marginBottom:8}}>EXIT INSIGHT</div>
+                  <div style={{fontSize:11,color:"rgba(255,255,255,0.6)",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
+                  <button onClick={nextQ} style={{marginTop:14,background:"#ffffff",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
                     {quizIdx<QUIZ.length-1?"NEXT \u2192":"RESULTS \u2192"}
                   </button>
                 </div>
@@ -556,19 +556,19 @@ export default function ExitPlanning() {
             </div>
           ):(
             <div className="ep-card" style={{padding:"32px",textAlign:"center"}}>
-              <div style={{ fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>EXIT ASSESSMENT</div>
-              <div style={{ fontSize:64,color:"#3B82F6"}}>{quizScore}/{QUIZ.length}</div>
-              <div style={{fontSize:13,color:"#888",marginTop:12,marginBottom:20}}>
+              <div style={{ fontSize:14,color:"rgba(255,255,255,0.4)",letterSpacing:4,marginBottom:12}}>EXIT ASSESSMENT</div>
+              <div style={{ fontSize:64,color:"#ffffff"}}>{quizScore}/{QUIZ.length}</div>
+              <div style={{fontSize:13,color:"rgba(255,255,255,0.6)",marginTop:12,marginBottom:20}}>
                 {quizScore===5?"Exit ready. You understand the full lifecycle.":quizScore>=3?"Solid \u2014 review the scenarios you missed before your next deal.":"Spend time on Routes and Timing before your next exit conversation."}
               </div>
-              <div style={{marginBottom:24,padding:"16px",background:"#0f1d3d",border:"1px solid #5a8a6a33",borderRadius:4}}>
-                <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:10}}>WAVE 3 COMPLETE</div>
-                <div style={{fontSize:10,color:"#555",lineHeight:2}}>
+              <div style={{marginBottom:24,padding:"16px",background:"transparent",border:"1px solid #5a8a6a33",borderRadius:4}}>
+                <div style={{fontSize:9,color:"#22c55e",letterSpacing:2,marginBottom:10}}>WAVE 3 COMPLETE</div>
+                <div style={{fontSize:10,color:"rgba(255,255,255,0.4)",lineHeight:2}}>
                   IC Memo &middot; DD Framework &middot; 100-Day Plan &middot; Cap Table Mechanics &middot; Exit Planning
                 </div>
-                <div style={{fontSize:10,color:"#333",marginTop:8}}>Full PE lifecycle: source &rarr; diligence &rarr; close &rarr; build &rarr; exit</div>
+                <div style={{fontSize:10,color:"rgba(255,255,255,0.2)",marginTop:8}}>Full PE lifecycle: source &rarr; diligence &rarr; close &rarr; build &rarr; exit</div>
               </div>
-              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>RETAKE</button>
+              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid rgba(255,255,255,0.1)",color:"rgba(255,255,255,0.4)",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>RETAKE</button>
             </div>
           )}
         </div>

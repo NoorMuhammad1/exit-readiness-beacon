@@ -219,11 +219,11 @@ export const InterestDistributionCalculator = () => {
           <CardContent className="space-y-3">
             <div className="flex justify-between">
               <span className="text-muted-foreground">Annual Interest:</span>
-              <span className="font-mono font-semibold">{formatCurrency(calculations.annualInterest)}</span>
+              <span className="font-semibold">{formatCurrency(calculations.annualInterest)}</span>
             </div>
             <div className="flex justify-between">
               <span className="text-muted-foreground">Per {paymentFrequency.slice(0, -2)} Payment:</span>
-              <span className="font-mono font-semibold">{formatCurrency(calculations.interestPerPeriod)}</span>
+              <span className="font-semibold">{formatCurrency(calculations.interestPerPeriod)}</span>
             </div>
             <Separator />
             <div className="text-xs text-muted-foreground">
@@ -245,7 +245,7 @@ export const InterestDistributionCalculator = () => {
                       <div className="font-medium text-sm">{dist.name}</div>
                       <div className="text-xs text-muted-foreground">{dist.percentage}% ownership</div>
                     </div>
-                    <div className="font-mono font-semibold">
+                    <div className="font-semibold">
                       {formatCurrency(dist.amount)}
                     </div>
                   </div>
@@ -284,9 +284,9 @@ export const InterestDistributionCalculator = () => {
                       <td className="py-2">{paymentFrequency === 'monthly' ? `Month ${period}` : 
                                            paymentFrequency === 'quarterly' ? `Q${period}` : 
                                            `Year ${period}`}</td>
-                      <td className="text-right font-mono">{formatCurrency(calculations.interestPerPeriod)}</td>
+                      <td className="text-right">{formatCurrency(calculations.interestPerPeriod)}</td>
                       {calculations.distributions.map(dist => (
-                        <td key={dist.id} className="text-right font-mono">
+                        <td key={dist.id} className="text-right">
                           {formatCurrency(dist.amount)}
                         </td>
                       ))}

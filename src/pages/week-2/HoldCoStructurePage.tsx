@@ -190,7 +190,7 @@ export default function HoldCoStructurePage() {
                   <div className="flex items-center gap-2 text-sm">
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">PE Buyer</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$500k</span>
+                    <span className="text-foreground">$500k</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">Your HoldCo</span>
                   </div>
@@ -201,7 +201,7 @@ export default function HoldCoStructurePage() {
                   <div className="flex items-center gap-2 text-sm">
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">OpCo</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$25k/mo</span>
+                    <span className="text-foreground">$25k/mo</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">PropCo (HoldCo)</span>
                   </div>
@@ -212,7 +212,7 @@ export default function HoldCoStructurePage() {
                   <div className="flex items-center gap-2 text-sm">
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">OpCo</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$10k/mo</span>
+                    <span className="text-foreground">$10k/mo</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">BrandCo (HoldCo)</span>
                   </div>

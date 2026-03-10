@@ -703,7 +703,7 @@ export function ProcessLetter() {
                         disabled={selected !== null}
                         className={`w-full text-left px-4 py-3 rounded-lg text-sm transition-all ${styles} ${selected !== null ? '' : 'cursor-pointer'}`}
                       >
-                        <span className="text-muted-foreground/40 mr-3 font-mono">{String.fromCharCode(65 + i)}.</span>
+                        <span className="text-muted-foreground/40 mr-3">{String.fromCharCode(65 + i)}.</span>
                         {opt}
                       </button>
                     );

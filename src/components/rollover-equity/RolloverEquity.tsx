@@ -530,7 +530,7 @@ export function RolloverEquity() {
                   'Anti-dilution protections — if the PE firm brings in more equity later (for acquisitions), make sure your ownership percentage is protected.',
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-2 py-1">
-                    <span className="text-purple-400/60 font-mono text-xs mt-0.5">{i + 1}.</span>
+                    <span className="text-purple-400/60 text-xs mt-0.5">{i + 1}.</span>
                     <p className="text-white/60 text-sm">{item}</p>
                   </div>
                 ))}
@@ -591,7 +591,7 @@ export function RolloverEquity() {
                         onChange={e => updateInput(field.key, e.target.value)}
                         className="flex-1"
                       />
-                      <span className="text-white font-mono text-xs w-14 text-right">
+                      <span className="text-white text-xs w-14 text-right">
                         {field.suffix === 'M' ? `$${inputs[field.key]}M` : `${inputs[field.key]}%`}
                       </span>
                     </div>
@@ -623,7 +623,7 @@ export function RolloverEquity() {
                         onChange={e => updateInput(field.key, e.target.value)}
                         className="flex-1"
                       />
-                      <span className="text-white font-mono text-xs w-14 text-right">
+                      <span className="text-white text-xs w-14 text-right">
                         {field.suffix === '%' ? `${inputs[field.key]}%` :
                          field.suffix === 'x' ? `${inputs[field.key]}x` :
                          `${inputs[field.key]} yr`}
@@ -641,7 +641,7 @@ export function RolloverEquity() {
                     onChange={e => updateInput('mepPoolPercent', e.target.value)}
                     className="flex-1"
                   />
-                  <span className="text-white font-mono text-xs w-14 text-right">{inputs.mepPoolPercent}%</span>
+                  <span className="text-white text-xs w-14 text-right">{inputs.mepPoolPercent}%</span>
                 </div>
               </div>
             </CardContent>
@@ -655,7 +655,7 @@ export function RolloverEquity() {
                 <CardTitle className="text-green-400 text-base">First Bite — Cash at Close</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-sm font-mono">
+                <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/80 py-1 border-b border-white/10">
                     <span>Deal Value</span><span>{fmt(inputs.dealValue)}</span>
                   </div>
@@ -675,7 +675,7 @@ export function RolloverEquity() {
                 <CardTitle className="text-purple-400 text-base">Second Bite — At PE Exit</CardTitle>
               </CardHeader>
               <CardContent>
-                <div className="space-y-2 text-sm font-mono">
+                <div className="space-y-2 text-sm">
                   <div className="flex justify-between text-white/80 py-1 border-b border-white/10">
                     <span>Exit EV</span><span>{fmt(exitEnterpriseValue)}</span>
                   </div>
@@ -799,7 +799,7 @@ export function RolloverEquity() {
                       <th className="text-center py-3 text-purple-400 text-xs uppercase">With Rollover</th>
                     </tr>
                   </thead>
-                  <tbody className="font-mono text-sm">
+                  <tbody className="text-sm">
                     <tr className="border-b border-white/5">
                       <td className="py-2 text-white/60">Cash at close</td>
                       <td className="py-2 text-center text-white/80">{fmt(inputs.dealValue)}</td>
@@ -916,7 +916,7 @@ export function RolloverEquity() {
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
                         <span className="text-white font-medium text-sm">{item.label}</span>
-                        <span className="text-white/60 font-mono text-xs">{item.value}</span>
+                        <span className="text-white/60 text-xs">{item.value}</span>
                       </div>
                       <p className="text-white/40 text-xs mt-0.5">{item.description}</p>
                     </div>

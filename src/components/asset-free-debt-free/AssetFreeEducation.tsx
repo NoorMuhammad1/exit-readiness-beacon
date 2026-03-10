@@ -290,7 +290,7 @@ const CashDebtExplanation: React.FC = () => {
       {showExample && (
         <Card className="p-6">
           <h4 className="font-semibold mb-4">Example: $10M Purchase Price</h4>
-          <div className="space-y-2 font-mono text-sm">
+          <div className="space-y-2 text-sm">
             <div className="flex justify-between text-muted-foreground">
               <span>Purchase Price:</span>
               <span>$10,000,000</span>

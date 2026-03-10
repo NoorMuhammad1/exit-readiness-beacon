@@ -31,7 +31,7 @@ const RAISE_TYPES: RaiseType[] = [
   {
     id: "co-invest",
     label: "PE CO-INVESTMENT",
-    color: "#3B82F6",
+    color: "#ffffff",
     headline: "Your existing PE sponsor writes another check to fund the acquisition.",
     when: "Existing sponsor has dry powder, likes the target, and wants to increase their position in the platform.",
     dilution: "MODERATE",
@@ -59,7 +59,7 @@ const RAISE_TYPES: RaiseType[] = [
   {
     id: "debt",
     label: "DEBT-FUNDED ACQUISITION",
-    color: "#5a8a6a",
+    color: "#22c55e",
     headline: "Borrow to acquire. No new equity \u2014 no dilution to existing owners.",
     when: "OldCo has low leverage, strong cash flow, and the acquisition target is accretive to EBITDA immediately. Lenders will support the combined leverage.",
     dilution: "NONE",
@@ -175,7 +175,7 @@ const DilutionBar = ({
         display: "flex",
         justifyContent: "space-between",
         fontSize: 9,
-        color: "#555",
+        color: "rgba(255,255,255,0.4)",
         marginBottom: 4,
       }}
     >
@@ -183,7 +183,7 @@ const DilutionBar = ({
       <span
         style={{
           color:
-            after < before ? "#8a4a4a" : after > before ? "#5a8a6a" : "#888",
+            after < before ? "#dc2626" : after > before ? "#22c55e" : "#888",
         }}
       >
         {fmtPct(before)} &rarr; <strong>{fmtPct(after)}</strong>
@@ -195,7 +195,7 @@ const DilutionBar = ({
         style={{
           flex: 1,
           height: 8,
-          background: "#17305a",
+          background: "rgba(255,255,255,0.08)",
           borderRadius: 2,
           overflow: "hidden",
         }}
@@ -213,7 +213,7 @@ const DilutionBar = ({
         style={{
           flex: 1,
           height: 8,
-          background: "#17305a",
+          background: "rgba(255,255,255,0.08)",
           borderRadius: 2,
           overflow: "hidden",
         }}
@@ -316,7 +316,7 @@ export default function PostCloseFundraising() {
   return (
     <div
       style={{
-        background: "#0f1d3d",
+        background: "transparent",
         minHeight: "100vh",
         color: "#e5e7eb",
         padding: "24px 20px",
@@ -327,13 +327,13 @@ export default function PostCloseFundraising() {
       <style>{`
 
         .pcf-tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit;}
-        .pcf-tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
+        .pcf-tb.on{color:#ffffff;border-bottom-color:#ffffff;}
         .pcf-tb:not(.on){color:#2a2838;}
         .pcf-tb:hover:not(.on){color:#555;}
-        .pcf-card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
+        .pcf-card{background:transparent;border:1px solid #1c2a4a;border-radius:5px;}
         .pcf-input{background:#17305a;border:1px solid #1c2a4a;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        .pcf-input:focus{border-color:#3B82F6;}
-        .pcf-node{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:4px;padding:10px 14px;text-align:center;}
+        .pcf-input:focus{border-color:#ffffff;}
+        .pcf-node{background:transparent;border:1px solid #1c2a4a;border-radius:4px;padding:10px 14px;text-align:center;}
       `}</style>
 
       {/* Header */}
@@ -350,7 +350,7 @@ export default function PostCloseFundraising() {
           <div
             style={{ fontSize: 36,
               letterSpacing: 6,
-              color: "#3B82F6",
+              color: "#ffffff",
               lineHeight: 1,
             }}
           >
@@ -359,7 +359,7 @@ export default function PostCloseFundraising() {
           <div
             style={{ fontSize: 36,
               letterSpacing: 6,
-              color: "#1c2a4a",
+              color: "rgba(255,255,255,0.1)",
               lineHeight: 1,
             }}
           >
@@ -389,7 +389,7 @@ export default function PostCloseFundraising() {
         <div
           style={{
             fontSize: 11,
-            color: "#333",
+            color: "rgba(255,255,255,0.2)",
             lineHeight: 1.7,
             maxWidth: 660,
           }}
@@ -429,7 +429,7 @@ export default function PostCloseFundraising() {
             <div
               style={{
                 fontSize: 9,
-                color: "#3B82F6",
+                color: "#ffffff",
                 letterSpacing: 2,
                 marginBottom: 20,
               }}
@@ -449,7 +449,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#555",
+                    color: "rgba(255,255,255,0.4)",
                     letterSpacing: 2,
                     marginBottom: 12,
                     textAlign: "center",
@@ -459,19 +459,19 @@ export default function PostCloseFundraising() {
                 </div>
                 <div
                   className="pcf-node"
-                  style={{ borderColor: "#3B82F644", marginBottom: 8 }}
+                  style={{ borderColor: "rgba(255,255,255,0.27)", marginBottom: 8 }}
                 >
-                  <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.4)", letterSpacing: 1 }}>
                     YOU
                   </div>
                   <div
                     style={{ fontSize: 18,
-                      color: "#3B82F6",
+                      color: "#ffffff",
                     }}
                   >
                     20%
                   </div>
-                  <div style={{ fontSize: 9, color: "#333" }}>of OldCo</div>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)" }}>of OldCo</div>
                 </div>
                 <div
                   style={{
@@ -482,7 +482,7 @@ export default function PostCloseFundraising() {
                   }}
                 >
                   <div className="pcf-node">
-                    <div style={{ fontSize: 8, color: "#555" }}>PE SPONSOR</div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)" }}>PE SPONSOR</div>
                     <div
                       style={{ fontSize: 16,
                         color: "#5a8a9a",
@@ -492,7 +492,7 @@ export default function PostCloseFundraising() {
                     </div>
                   </div>
                   <div className="pcf-node">
-                    <div style={{ fontSize: 8, color: "#555" }}>MANAGEMENT</div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)" }}>MANAGEMENT</div>
                     <div
                       style={{ fontSize: 16,
                         color: "#6a5a9a",
@@ -504,19 +504,19 @@ export default function PostCloseFundraising() {
                 </div>
                 <div
                   className="pcf-node"
-                  style={{ borderColor: "#1c2a4a" }}
+                  style={{ borderColor: "rgba(255,255,255,0.1)" }}
                 >
-                  <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.4)", letterSpacing: 1 }}>
                     OldCo
                   </div>
                   <div
                     style={{ fontSize: 16,
-                      color: "#888",
+                      color: "rgba(255,255,255,0.6)",
                     }}
                   >
                     $4M EBITDA
                   </div>
-                  <div style={{ fontSize: 9, color: "#333" }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)" }}>
                     $28M valuation
                   </div>
                 </div>
@@ -524,11 +524,11 @@ export default function PostCloseFundraising() {
 
               {/* Arrow */}
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 20, color: "#3B82F6" }}>&rarr;</div>
+                <div style={{ fontSize: 20, color: "#ffffff" }}>&rarr;</div>
                 <div
                   style={{
                     fontSize: 8,
-                    color: "#555",
+                    color: "rgba(255,255,255,0.4)",
                     letterSpacing: 1,
                     marginTop: 4,
                   }}
@@ -544,7 +544,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#555",
+                    color: "rgba(255,255,255,0.4)",
                     letterSpacing: 2,
                     marginBottom: 12,
                     textAlign: "center",
@@ -562,20 +562,20 @@ export default function PostCloseFundraising() {
                 >
                   <div
                     className="pcf-node"
-                    style={{ borderColor: "#3B82F633" }}
+                    style={{ borderColor: "rgba(255,255,255,0.2)" }}
                   >
-                    <div style={{ fontSize: 8, color: "#555" }}>YOU</div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)" }}>YOU</div>
                     <div
                       style={{ fontSize: 16,
-                        color: "#3B82F6",
+                        color: "#ffffff",
                       }}
                     >
                       15%
                     </div>
-                    <div style={{ fontSize: 8, color: "#8a4a4a" }}>diluted</div>
+                    <div style={{ fontSize: 8, color: "#dc2626" }}>diluted</div>
                   </div>
                   <div className="pcf-node">
-                    <div style={{ fontSize: 8, color: "#555" }}>SPONSOR</div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)" }}>SPONSOR</div>
                     <div
                       style={{ fontSize: 16,
                         color: "#5a8a9a",
@@ -583,38 +583,38 @@ export default function PostCloseFundraising() {
                     >
                       49%
                     </div>
-                    <div style={{ fontSize: 8, color: "#8a4a4a" }}>diluted</div>
+                    <div style={{ fontSize: 8, color: "#dc2626" }}>diluted</div>
                   </div>
                   <div
                     className="pcf-node"
                     style={{ borderColor: "#5a8a6a33" }}
                   >
-                    <div style={{ fontSize: 8, color: "#555" }}>NEW INV.</div>
+                    <div style={{ fontSize: 8, color: "rgba(255,255,255,0.4)" }}>NEW INV.</div>
                     <div
                       style={{ fontSize: 16,
-                        color: "#5a8a6a",
+                        color: "#22c55e",
                       }}
                     >
                       18%
                     </div>
-                    <div style={{ fontSize: 8, color: "#5a8a6a" }}>new</div>
+                    <div style={{ fontSize: 8, color: "#22c55e" }}>new</div>
                   </div>
                 </div>
                 <div
                   className="pcf-node"
                   style={{ borderColor: "#5a8a6a33", marginBottom: 8 }}
                 >
-                  <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.4)", letterSpacing: 1 }}>
                     OldCo (HoldCo)
                   </div>
                   <div
                     style={{ fontSize: 16,
-                      color: "#5a8a6a",
+                      color: "#22c55e",
                     }}
                   >
                     $5.5M EBITDA
                   </div>
-                  <div style={{ fontSize: 9, color: "#333" }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)" }}>
                     $34M post-money
                   </div>
                 </div>
@@ -622,7 +622,7 @@ export default function PostCloseFundraising() {
                   style={{
                     textAlign: "center",
                     fontSize: 16,
-                    color: "#333",
+                    color: "rgba(255,255,255,0.2)",
                     marginBottom: 8,
                   }}
                 >
@@ -633,18 +633,18 @@ export default function PostCloseFundraising() {
                   style={{ borderColor: "#8a6a3a33" }}
                 >
                   <div
-                    style={{ fontSize: 9, color: "#8a6a3a", letterSpacing: 1 }}
+                    style={{ fontSize: 9, color: "#d97706", letterSpacing: 1 }}
                   >
                     AcquiredCo
                   </div>
                   <div
                     style={{ fontSize: 16,
-                      color: "#8a6a3a",
+                      color: "#d97706",
                     }}
                   >
                     $1.5M EBITDA
                   </div>
-                  <div style={{ fontSize: 9, color: "#333" }}>
+                  <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)" }}>
                     acquired for $8.25M
                   </div>
                 </div>
@@ -664,12 +664,12 @@ export default function PostCloseFundraising() {
             {[
               {
                 title: "DILUTION IS A TRADE",
-                color: "#3B82F6",
+                color: "#ffffff",
                 body: "You give up % ownership of OldCo. In return you get capital that buys a business that makes OldCo more valuable. The question is never \u2018did I dilute?\u2019 \u2014 it\u2019s \u2018did the value I created exceed the % I gave up?\u2019",
               },
               {
                 title: "YOUR % SHRINKS, YOUR $ MAY GROW",
-                color: "#5a8a6a",
+                color: "#22c55e",
                 body: "20% of a $28M business = $5.6M. 15% of a $40M business = $6M. Dilution that creates value is not the same as dilution that destroys it. The math, not the percentage, is what matters.",
               },
               {
@@ -695,7 +695,7 @@ export default function PostCloseFundraising() {
                 >
                   {c.title}
                 </div>
-                <div style={{ fontSize: 11, color: "#666", lineHeight: 1.8 }}>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>
                   {c.body}
                 </div>
               </div>
@@ -707,13 +707,13 @@ export default function PostCloseFundraising() {
             className="pcf-card"
             style={{
               padding: "16px 20px",
-              borderLeft: "3px solid #3B82F633",
+              borderLeft: "3px solid rgba(255,255,255,0.2)",
             }}
           >
             <div
               style={{
                 fontSize: 9,
-                color: "#3B82F6",
+                color: "#ffffff",
                 letterSpacing: 2,
                 marginBottom: 8,
               }}
@@ -723,7 +723,7 @@ export default function PostCloseFundraising() {
             <div
               style={{
                 fontSize: 13,
-                color: "#ccc",
+                color: "rgba(255,255,255,0.8)",
                 lineHeight: 1.8,
                 fontStyle: "italic",
                 marginBottom: 12,
@@ -733,7 +733,7 @@ export default function PostCloseFundraising() {
               it be worth after this acquisition at my new diluted
               percentage?&rdquo;
             </div>
-            <div style={{ fontSize: 11, color: "#666", lineHeight: 1.8 }}>
+            <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>
               If the acquisition adds $1.5M EBITDA at a 7x exit multiple,
               that&rsquo;s $10.5M of new value in the business. At 15%
               post-dilution, your share of that new value is $1.575M. If you
@@ -762,7 +762,7 @@ export default function PostCloseFundraising() {
             >
               <div
                 style={{ fontSize: 14,
-                  color: "#3B82F6",
+                  color: "#ffffff",
                   letterSpacing: 3,
                   marginBottom: 14,
                 }}
@@ -799,7 +799,7 @@ export default function PostCloseFundraising() {
                   <div
                     style={{
                       fontSize: 9,
-                      color: "#555",
+                      color: "rgba(255,255,255,0.4)",
                       letterSpacing: 2,
                       marginBottom: 4,
                     }}
@@ -859,7 +859,7 @@ export default function PostCloseFundraising() {
                   <div
                     style={{
                       fontSize: 9,
-                      color: "#555",
+                      color: "rgba(255,255,255,0.4)",
                       letterSpacing: 2,
                       marginBottom: 4,
                     }}
@@ -879,7 +879,7 @@ export default function PostCloseFundraising() {
             <div className="pcf-card" style={{ padding: "18px 20px" }}>
               <div
                 style={{ fontSize: 14,
-                  color: "#5a8a6a",
+                  color: "#22c55e",
                   letterSpacing: 3,
                   marginBottom: 14,
                 }}
@@ -904,7 +904,7 @@ export default function PostCloseFundraising() {
                   <div
                     style={{
                       fontSize: 9,
-                      color: "#555",
+                      color: "rgba(255,255,255,0.4)",
                       letterSpacing: 2,
                       marginBottom: 4,
                     }}
@@ -931,7 +931,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 9,
-                  color: "#3B82F6",
+                  color: "#ffffff",
                   letterSpacing: 2,
                   marginBottom: 6,
                 }}
@@ -943,7 +943,7 @@ export default function PostCloseFundraising() {
                   display: "flex",
                   gap: 16,
                   fontSize: 9,
-                  color: "#444",
+                  color: "rgba(255,255,255,0.3)",
                   marginBottom: 16,
                 }}
               >
@@ -953,7 +953,7 @@ export default function PostCloseFundraising() {
                 label="YOU"
                 before={parseFloat(yourPct) || 0}
                 after={yourPostPct}
-                color="#3B82F6"
+                color="#ffffff"
               />
               <DilutionBar
                 label="PE SPONSOR"
@@ -971,7 +971,7 @@ export default function PostCloseFundraising() {
                 label="NEW INVESTOR"
                 before={0}
                 after={newInvestorPct}
-                color="#5a8a6a"
+                color="#22c55e"
               />
             </div>
 
@@ -988,13 +988,13 @@ export default function PostCloseFundraising() {
                 className="pcf-card"
                 style={{
                   padding: "16px 18px",
-                  borderLeft: "3px solid #3B82F6",
+                  borderLeft: "3px solid rgba(255,255,255,0.3)",
                 }}
               >
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#3B82F6",
+                    color: "#ffffff",
                     letterSpacing: 2,
                     marginBottom: 12,
                   }}
@@ -1007,19 +1007,19 @@ export default function PostCloseFundraising() {
                     val: fmt(
                       preMoney * ((parseFloat(yourPct) || 0) / 100)
                     ),
-                    color: "#888",
+                    color: "rgba(255,255,255,0.6)",
                   },
                   {
                     label: "Post-money (no participation)",
                     val: fmt(
                       postMoney * (yourShares / postMoney)
                     ),
-                    color: "#8a4a4a",
+                    color: "#dc2626",
                   },
                   {
                     label: "Post-money (with participation)",
                     val: fmt(yourPostShares),
-                    color: "#5a8a6a",
+                    color: "#22c55e",
                   },
                 ].map(({ label, val, color }) => (
                   <div
@@ -1031,7 +1031,7 @@ export default function PostCloseFundraising() {
                       fontSize: 11,
                     }}
                   >
-                    <span style={{ color: "#555" }}>{label}</span>
+                    <span style={{ color: "rgba(255,255,255,0.4)" }}>{label}</span>
                     <span
                       style={{
                         color,
@@ -1054,7 +1054,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#5a8a6a",
+                    color: "#22c55e",
                     letterSpacing: 2,
                     marginBottom: 12,
                   }}
@@ -1065,17 +1065,17 @@ export default function PostCloseFundraising() {
                   {
                     label: "Acquisition price",
                     val: fmt(acqPrice),
-                    color: "#888",
+                    color: "rgba(255,255,255,0.6)",
                   },
                   {
                     label: "Combined EBITDA",
                     val: fmt(combinedEBITDA),
-                    color: "#888",
+                    color: "rgba(255,255,255,0.6)",
                   },
                   {
                     label: "Combined exit value",
                     val: fmt(combinedVal),
-                    color: "#3B82F6",
+                    color: "#ffffff",
                   },
                 ].map(({ label, val, color }) => (
                   <div
@@ -1087,7 +1087,7 @@ export default function PostCloseFundraising() {
                       fontSize: 11,
                     }}
                   >
-                    <span style={{ color: "#555" }}>{label}</span>
+                    <span style={{ color: "rgba(255,255,255,0.4)" }}>{label}</span>
                     <span
                       style={{
                         color,
@@ -1109,7 +1109,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 9,
-                  color: "#5a8a6a",
+                  color: "#22c55e",
                   letterSpacing: 2,
                   marginBottom: 14,
                 }}
@@ -1128,7 +1128,7 @@ export default function PostCloseFundraising() {
                     label: "WITHOUT RAISE\n(no acquisition)",
                     val: fmt(noRaiseExitValue),
                     sub: `${fmtPct(parseFloat(yourPct) || 0)} of OldCo only`,
-                    color: "#888",
+                    color: "rgba(255,255,255,0.6)",
                   },
                   {
                     label: "WITH RAISE\nNO PARTICIPATION",
@@ -1136,19 +1136,19 @@ export default function PostCloseFundraising() {
                     sub: `${fmtPct(
                       (yourShares / postMoney) * 100
                     )} of combined`,
-                    color: "#8a4a4a",
+                    color: "#dc2626",
                   },
                   {
                     label: "WITH RAISE\nFULL PRO-RATA",
                     val: fmt(yourExitValue),
                     sub: `${fmtPct(yourPostPct)} of combined`,
-                    color: "#5a8a6a",
+                    color: "#22c55e",
                   },
                 ].map(({ label, val, sub, color }) => (
                   <div
                     key={label}
                     style={{
-                      background: "#0f1d3d",
+                      background: "transparent",
                       border: `1px solid ${color}33`,
                       borderRadius: 4,
                       padding: "14px 16px",
@@ -1158,7 +1158,7 @@ export default function PostCloseFundraising() {
                     <div
                       style={{
                         fontSize: 8,
-                        color: "#555",
+                        color: "rgba(255,255,255,0.4)",
                         letterSpacing: 1,
                         marginBottom: 8,
                         whiteSpace: "pre-line",
@@ -1173,7 +1173,7 @@ export default function PostCloseFundraising() {
                     >
                       {val}
                     </div>
-                    <div style={{ fontSize: 9, color: "#444", marginTop: 6 }}>
+                    <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)", marginTop: 6 }}>
                       {sub}
                     </div>
                   </div>
@@ -1184,11 +1184,11 @@ export default function PostCloseFundraising() {
                   style={{
                     marginTop: 12,
                     padding: "10px 14px",
-                    background: "#0f1d3d",
+                    background: "transparent",
                     border: "1px solid #5a8a6a33",
                     borderRadius: 4,
                     fontSize: 10,
-                    color: "#5a8a6a",
+                    color: "#22c55e",
                     textAlign: "center",
                   }}
                 >
@@ -1210,14 +1210,14 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 9,
-                  color: "#8a4a4a",
+                  color: "#dc2626",
                   letterSpacing: 2,
                   marginBottom: 8,
                 }}
               >
                 WHAT THE CALCULATOR DOESN&rsquo;T SHOW
               </div>
-              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.8 }}>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>
                 Personal liquidity risk. Pro-rata participation requires writing
                 a real check into an illiquid asset. If OldCo underperforms or
                 the acquisition fails to integrate, that capital is locked. Model
@@ -1250,7 +1250,7 @@ export default function PostCloseFundraising() {
                     marginBottom: 6,
                     borderRadius: 4,
                     cursor: "pointer",
-                    border: `1px solid ${active ? r.color + "55" : "#1c2a4a"}`,
+                    border: `1px solid ${active ? r.color + "55" : "rgba(255,255,255,0.1)"}`,
                     background: active ? r.color + "0e" : "#0f1d3d",
                     borderLeft: `3px solid ${active ? r.color : r.color + "33"}`,
                     transition: "all .15s",
@@ -1278,27 +1278,27 @@ export default function PostCloseFundraising() {
                         v: r.dilution,
                         c:
                           r.dilution === "NONE" || r.dilution.startsWith("NONE")
-                            ? "#5a8a6a"
+                            ? "#22c55e"
                             : r.dilution === "MODERATE"
-                            ? "#8a6a3a"
-                            : "#8a4a4a",
+                            ? "#d97706"
+                            : "#dc2626",
                       },
                       {
                         l: "SPEED",
                         v: r.speed,
                         c:
                           r.speed === "FAST"
-                            ? "#5a8a6a"
+                            ? "#22c55e"
                             : r.speed === "MEDIUM"
                             ? "#888"
-                            : "#8a4a4a",
+                            : "#dc2626",
                       },
                     ].map(({ l, v, c }) => (
                       <div key={l}>
                         <div
                           style={{
                             fontSize: 7,
-                            color: "#333",
+                            color: "rgba(255,255,255,0.2)",
                             letterSpacing: 1,
                           }}
                         >
@@ -1338,7 +1338,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 12,
-                  color: "#ccc",
+                  color: "rgba(255,255,255,0.8)",
                   lineHeight: 1.7,
                   marginBottom: 16,
                   fontStyle: "italic",
@@ -1361,36 +1361,36 @@ export default function PostCloseFundraising() {
                     c:
                       raise_type.dilution === "NONE" ||
                       raise_type.dilution.startsWith("NONE")
-                        ? "#5a8a6a"
+                        ? "#22c55e"
                         : raise_type.dilution === "MODERATE"
-                        ? "#8a6a3a"
-                        : "#8a4a4a",
+                        ? "#d97706"
+                        : "#dc2626",
                   },
                   {
                     l: "COMPLEXITY",
                     v: raise_type.complexity,
                     c:
                       raise_type.complexity === "LOW"
-                        ? "#5a8a6a"
+                        ? "#22c55e"
                         : raise_type.complexity === "MEDIUM"
                         ? "#888"
-                        : "#8a4a4a",
+                        : "#dc2626",
                   },
                   {
                     l: "SPEED",
                     v: raise_type.speed,
                     c:
                       raise_type.speed === "FAST"
-                        ? "#5a8a6a"
+                        ? "#22c55e"
                         : raise_type.speed === "MEDIUM"
                         ? "#888"
-                        : "#8a4a4a",
+                        : "#dc2626",
                   },
                 ].map(({ l, v, c }) => (
                   <div
                     key={l}
                     style={{
-                      background: "#0f1d3d",
+                      background: "transparent",
                       border: `1px solid ${c}33`,
                       borderRadius: 3,
                       padding: "8px 14px",
@@ -1400,7 +1400,7 @@ export default function PostCloseFundraising() {
                     <div
                       style={{
                         fontSize: 8,
-                        color: "#555",
+                        color: "rgba(255,255,255,0.4)",
                         letterSpacing: 2,
                       }}
                     >
@@ -1421,7 +1421,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#555",
+                    color: "rgba(255,255,255,0.4)",
                     letterSpacing: 2,
                     marginBottom: 6,
                   }}
@@ -1431,7 +1431,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 11,
-                    color: "#777",
+                    color: "rgba(255,255,255,0.5)",
                     lineHeight: 1.8,
                     marginBottom: 14,
                   }}
@@ -1441,14 +1441,14 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#555",
+                    color: "rgba(255,255,255,0.4)",
                     letterSpacing: 2,
                     marginBottom: 6,
                   }}
                 >
                   HOW IT WORKS
                 </div>
-                <div style={{ fontSize: 11, color: "#777", lineHeight: 1.8 }}>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>
                   {raise_type.detail}
                 </div>
               </div>
@@ -1479,7 +1479,7 @@ export default function PostCloseFundraising() {
                 >
                   IMPACT ON YOUR OWNERSHIP
                 </div>
-                <div style={{ fontSize: 11, color: "#777", lineHeight: 1.8 }}>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>
                   {raise_type.ownerImpact}
                 </div>
               </div>
@@ -1500,7 +1500,7 @@ export default function PostCloseFundraising() {
                 >
                   WORKED EXAMPLE
                 </div>
-                <div style={{ fontSize: 11, color: "#777", lineHeight: 1.8 }}>
+                <div style={{ fontSize: 11, color: "rgba(255,255,255,0.5)", lineHeight: 1.8 }}>
                   {raise_type.example}
                 </div>
               </div>
@@ -1523,7 +1523,7 @@ export default function PostCloseFundraising() {
               >
                 PRO TIP
               </div>
-              <div style={{ fontSize: 11, color: "#666", lineHeight: 1.8 }}>
+              <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", lineHeight: 1.8 }}>
                 {raise_type.proTip}
               </div>
             </div>
@@ -1544,12 +1544,12 @@ export default function PostCloseFundraising() {
                 }}
               >
                 <div
-                  style={{ fontSize: 10, color: "#555", letterSpacing: 2 }}
+                  style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2 }}
                 >
                   SCENARIO {quizIdx + 1} OF {QUIZ.length}
                 </div>
                 <div
-                  style={{ fontSize: 10, color: "#3B82F6", letterSpacing: 2 }}
+                  style={{ fontSize: 10, color: "#ffffff", letterSpacing: 2 }}
                 >
                   {quizScore} CORRECT
                 </div>
@@ -1557,7 +1557,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   height: 2,
-                  background: "#17305a",
+                  background: "rgba(255,255,255,0.08)",
                   borderRadius: 1,
                   marginBottom: 20,
                 }}
@@ -1566,7 +1566,7 @@ export default function PostCloseFundraising() {
                   style={{
                     height: "100%",
                     width: `${(quizIdx / QUIZ.length) * 100}%`,
-                    background: "#3B82F6",
+                    background: "#ffffff",
                     transition: "width .3s",
                   }}
                 />
@@ -1578,7 +1578,7 @@ export default function PostCloseFundraising() {
                 <div
                   style={{
                     fontSize: 11,
-                    color: "#ccc",
+                    color: "rgba(255,255,255,0.8)",
                     lineHeight: 1.9,
                     marginBottom: 20,
                   }}
@@ -1603,16 +1603,16 @@ export default function PostCloseFundraising() {
                       ? "#8a4a4a22"
                       : "#0f1d3d";
                     const border = !quizRevealed
-                      ? "#1c2a4a"
+                      ? "rgba(255,255,255,0.1)"
                       : isCorrect
-                      ? "#5a8a6a"
+                      ? "#22c55e"
                       : isSelected
-                      ? "#8a4a4a"
-                      : "#1c2a4a";
+                      ? "#dc2626"
+                      : "rgba(255,255,255,0.1)";
                     const color = !quizRevealed
                       ? "#888"
                       : isCorrect
-                      ? "#7aba8a"
+                      ? "#4ade80"
                       : isSelected
                       ? "#c87a7a"
                       : "#555";
@@ -1631,16 +1631,16 @@ export default function PostCloseFundraising() {
                           lineHeight: 1.6,
                           transition: "all .15s",
                           cursor: quizRevealed ? "default" : "pointer",
-                          fontFamily: "inherit",
+                          ,
                         }}
                       >
                         <span
                           style={{
                             color:
                               isCorrect && quizRevealed
-                                ? "#5a8a6a"
+                                ? "#22c55e"
                                 : isSelected && quizRevealed
-                                ? "#8a4a4a"
+                                ? "#dc2626"
                                 : "#444",
                             marginRight: 10,
                             fontSize: 9,
@@ -1659,13 +1659,13 @@ export default function PostCloseFundraising() {
                   className="pcf-card"
                   style={{
                     padding: "16px 20px",
-                    borderLeft: "3px solid #3B82F633",
+                    borderLeft: "3px solid rgba(255,255,255,0.2)",
                   }}
                 >
                   <div
                     style={{
                       fontSize: 9,
-                      color: "#3B82F6",
+                      color: "#ffffff",
                       letterSpacing: 2,
                       marginBottom: 8,
                     }}
@@ -1673,7 +1673,7 @@ export default function PostCloseFundraising() {
                     FUNDRAISING INSIGHT
                   </div>
                   <div
-                    style={{ fontSize: 11, color: "#888", lineHeight: 1.8 }}
+                    style={{ fontSize: 11, color: "rgba(255,255,255,0.6)", lineHeight: 1.8 }}
                   >
                     {QUIZ[quizIdx].explain}
                   </div>
@@ -1681,7 +1681,7 @@ export default function PostCloseFundraising() {
                     onClick={nextQ}
                     style={{
                       marginTop: 14,
-                      background: "#3B82F6",
+                      background: "#ffffff",
                       border: "none",
                       color: "#0f1d3d",
                       padding: "8px 22px",
@@ -1689,7 +1689,7 @@ export default function PostCloseFundraising() {
                       letterSpacing: 2,
                       borderRadius: 3,
                       cursor: "pointer",
-                      fontFamily: "inherit",
+                      ,
                     }}
                   >
                     {quizIdx < QUIZ.length - 1 ? "NEXT \u2192" : "RESULTS \u2192"}
@@ -1704,7 +1704,7 @@ export default function PostCloseFundraising() {
             >
               <div
                 style={{ fontSize: 14,
-                  color: "#555",
+                  color: "rgba(255,255,255,0.4)",
                   letterSpacing: 4,
                   marginBottom: 12,
                 }}
@@ -1713,7 +1713,7 @@ export default function PostCloseFundraising() {
               </div>
               <div
                 style={{ fontSize: 64,
-                  color: "#3B82F6",
+                  color: "#ffffff",
                 }}
               >
                 {quizScore}/{QUIZ.length}
@@ -1721,7 +1721,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 13,
-                  color: "#888",
+                  color: "rgba(255,255,255,0.6)",
                   marginTop: 12,
                   marginBottom: 24,
                 }}
@@ -1742,14 +1742,14 @@ export default function PostCloseFundraising() {
                 }}
                 style={{
                   background: "transparent",
-                  border: "1px solid #1c2a4a",
-                  color: "#555",
+                  border: "1px solid rgba(255,255,255,0.1)",
+                  color: "rgba(255,255,255,0.4)",
                   padding: "8px 22px",
                   fontSize: 10,
                   letterSpacing: 2,
                   borderRadius: 3,
                   cursor: "pointer",
-                  fontFamily: "inherit",
+                  ,
                 }}
               >
                 RETAKE

@@ -363,7 +363,7 @@ export const FinalReport: React.FC = () => {
               }
               className="text-left text-sm text-muted-foreground hover:text-primary transition-colors px-2 py-1 rounded hover:bg-zinc-800"
             >
-              <span className="font-mono text-primary/60 mr-2">{s.num}.</span>
+              <span className="text-primary/60 mr-2">{s.num}.</span>
               {s.title}
             </button>
           ))}

@@ -561,7 +561,7 @@ export function RepsWarranties() {
                     These survive <strong className="text-white">indefinitely</strong> or until the statute of limitations expires.
                     The buyer can come after you for years.
                   </p>
-                  <div className="text-red-400/60 text-xs font-mono">Survival: Indefinite / Statute of Limitations</div>
+                  <div className="text-red-400/60 text-xs">Survival: Indefinite / Statute of Limitations</div>
                 </div>
                 <div className="bg-white/20/5 rounded-lg p-4 border border-white/10">
                   <h4 className="text-blue-300 font-semibold text-sm mb-2">General Reps</h4>
@@ -570,7 +570,7 @@ export function RepsWarranties() {
                     <strong className="text-white"> 12-24 months</strong> post-close. Once the survival period
                     ends, the buyer can no longer make claims.
                   </p>
-                  <div className="text-white/40 text-xs font-mono">Survival: 12-24 months post-close</div>
+                  <div className="text-white/40 text-xs">Survival: 12-24 months post-close</div>
                 </div>
               </div>
             </CardContent>
@@ -829,7 +829,7 @@ export function RepsWarranties() {
               }`}>
                 <CardContent className="p-5">
                   <div className="flex items-start gap-3">
-                    <span className="text-white/30 font-mono text-sm mt-0.5">{i + 1}.</span>
+                    <span className="text-white/30 text-sm mt-0.5">{i + 1}.</span>
                     <div className="flex-1">
                       <p className="text-white text-sm font-medium mb-1">{q.question}</p>
                       <div className="text-white/40 text-xs mb-3">Category: {q.category}</div>
@@ -1033,7 +1033,7 @@ export function RepsWarranties() {
                       'Get a disclosure schedule started early — everything you disclose properly is excluded from your reps.',
                     ].map((item, i) => (
                       <div key={i} className="flex items-start gap-3 py-1">
-                        <span className="text-purple-400/60 font-mono text-xs mt-0.5">{i + 1}.</span>
+                        <span className="text-purple-400/60 text-xs mt-0.5">{i + 1}.</span>
                         <p className="text-white/60 text-sm">{item}</p>
                       </div>
                     ))}

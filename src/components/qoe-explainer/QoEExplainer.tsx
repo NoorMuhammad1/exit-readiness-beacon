@@ -480,7 +480,7 @@ export function QoEExplainer() {
               <CardTitle className="text-white">Example: How Adjusted EBITDA Changes the Deal</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
+              <div className="space-y-2 text-sm">
                 <div className="flex justify-between text-white/80 py-2 border-b border-white/10">
                   <span>Reported EBITDA</span><span className="text-white font-bold">$5,000,000</span>
                 </div>

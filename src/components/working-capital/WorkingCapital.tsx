@@ -239,7 +239,7 @@ export function WorkingCapital() {
                 Working capital is the money your business needs to operate day-to-day. It's the difference between
                 what you're owed (current assets) and what you owe (current liabilities).
               </p>
-              <div className="bg-white/[0.03] rounded-lg p-5 font-mono text-center">
+              <div className="bg-white/[0.03] rounded-lg p-5 text-center">
                 <div className="text-white/60 text-sm mb-2">The Formula</div>
                 <div className="text-xl text-white">
                   <span className="text-green-400">Current Assets</span>
@@ -356,7 +356,7 @@ export function WorkingCapital() {
               <CardTitle className="text-white">Real-World Example: How a $500K Adjustment Happens</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
+              <div className="space-y-2 text-sm">
                 <div className="flex justify-between text-white/80 py-2 border-b border-white/10">
                   <span>12-Month Average Working Capital (Peg)</span><span className="text-purple-300 font-bold">$2,000,000</span>
                 </div>
@@ -496,7 +496,7 @@ export function WorkingCapital() {
                     onChange={e => setCollarPercent(parseInt(e.target.value))}
                     className="flex-1"
                   />
-                  <span className="text-white font-mono text-sm w-12 text-right">+/- {collarPercent}%</span>
+                  <span className="text-white text-sm w-12 text-right">+/- {collarPercent}%</span>
                 </div>
               </CardContent>
             </Card>
@@ -686,7 +686,7 @@ export function WorkingCapital() {
                               style={{ width: `${barWidth}%` }}
                             />
                           </div>
-                          <span className={`text-xs font-mono w-20 text-right ${
+                          <span className={`text-xs w-20 text-right ${
                             isClosing ? 'text-white font-bold' : 'text-white/50'
                           }`}>
                             {fmt(wc)}

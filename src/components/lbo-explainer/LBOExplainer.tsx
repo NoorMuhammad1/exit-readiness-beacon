@@ -294,7 +294,7 @@ export function LBOExplainer() {
               <CardTitle className="text-white">A Simple Example — From Your Perspective</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
+              <div className="space-y-2 text-sm">
                 <div className="text-white/40 text-xs uppercase tracking-wider pb-2">Day 1: The Purchase</div>
                 <div className="flex justify-between text-white/80 py-2 border-b border-white/10">
                   <span>Your EBITDA</span><span>$5M</span>
@@ -414,7 +414,7 @@ export function LBOExplainer() {
                       onChange={e => updateInput(field.key, e.target.value)}
                       className="flex-1"
                     />
-                    <span className="text-white font-mono text-sm w-16 text-right">
+                    <span className="text-white text-sm w-16 text-right">
                       {field.key === 'ebitda' ? `$${inputs[field.key]}M` : `${inputs[field.key]}${field.suffix}`}
                     </span>
                   </div>
@@ -432,7 +432,7 @@ export function LBOExplainer() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <div className="text-white/40 text-xs uppercase tracking-wider mb-2">Sources (Where the money comes from)</div>
-                  <div className="space-y-2 text-sm font-mono">
+                  <div className="space-y-2 text-sm">
                     <div className="flex justify-between text-blue-300 py-2 border-b border-white/10">
                       <span>Bank Debt ({inputs.debtPercent}%)</span><span>{fmt(totalDebt)}</span>
                     </div>
@@ -446,7 +446,7 @@ export function LBOExplainer() {
                 </div>
                 <div>
                   <div className="text-white/40 text-xs uppercase tracking-wider mb-2">Uses (Where it goes)</div>
-                  <div className="space-y-2 text-sm font-mono">
+                  <div className="space-y-2 text-sm">
                     <div className="flex justify-between text-white/80 py-2 border-b border-white/10">
                       <span>Purchase Price (to you)</span><span>{fmt(enterpriseValue)}</span>
                     </div>
@@ -487,7 +487,7 @@ export function LBOExplainer() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm font-mono">
+                <table className="w-full text-sm">
                   <thead>
                     <tr className="text-white/40 text-xs border-b border-white/10">
                       <th className="text-left py-2">Year</th>
@@ -575,7 +575,7 @@ export function LBOExplainer() {
               <CardTitle className="text-white text-base">Exit Waterfall — Where the Money Goes</CardTitle>
             </CardHeader>
             <CardContent>
-              <div className="space-y-2 text-sm font-mono">
+              <div className="space-y-2 text-sm">
                 <div className="flex justify-between text-white/80 py-2 border-b border-white/10">
                   <span>Exit EBITDA ({fmtPct(inputs.growthRate)} growth × {inputs.holdPeriod} years)</span>
                   <span>{fmt(exitEbitda)}</span>
@@ -611,7 +611,7 @@ export function LBOExplainer() {
                   <div key={i}>
                     <div className="flex justify-between text-sm mb-1">
                       <span className="text-white/70">{item.label}</span>
-                      <span className="text-white font-mono">{fmt(item.value)} ({item.pct.toFixed(0)}%)</span>
+                      <span className="text-white">{fmt(item.value)} ({item.pct.toFixed(0)}%)</span>
                     </div>
                     <div className="h-3 bg-white/5 rounded-full overflow-hidden">
                       <div
@@ -694,7 +694,7 @@ export function LBOExplainer() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm font-mono">
+                <table className="w-full text-sm">
                   <thead>
                     <tr>
                       <th className="text-left py-2 text-white/40 text-xs">Entry ↓ / Exit →</th>
@@ -744,7 +744,7 @@ export function LBOExplainer() {
             </CardHeader>
             <CardContent>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm font-mono">
+                <table className="w-full text-sm">
                   <thead>
                     <tr>
                       <th className="text-left py-2 text-white/40 text-xs">Growth ↓ / Exit →</th>

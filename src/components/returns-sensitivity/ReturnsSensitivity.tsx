@@ -591,7 +591,7 @@ const SensitivityPage: React.FC<{
                     const { irr } = calcIrrMoic(ebitda, en, debtMult, holdYears, baseGrowth, ex);
                     const isBase = Math.abs(en - entryMult) < 0.01 && Math.abs(ex - baseExit) < 0.01;
                     return (
-                      <td key={ex} className={`p-2 text-center text-xs font-mono rounded ${irrColor(irr)} ${isBase ? 'ring-2 ring-primary' : ''}`}>
+                      <td key={ex} className={`p-2 text-center text-xs rounded ${irrColor(irr)} ${isBase ? 'ring-2 ring-primary' : ''}`}>
                         {irr.toFixed(0)}%
                       </td>
                     );
@@ -627,7 +627,7 @@ const SensitivityPage: React.FC<{
                     const { irr } = calcIrrMoic(ebitda, entryMult, debtMult, holdYears, gr, ex);
                     const isBase = Math.abs(gr - baseGrowth) < 0.01 && Math.abs(ex - baseExit) < 0.01;
                     return (
-                      <td key={ex} className={`p-2 text-center text-xs font-mono rounded ${irrColor(irr)} ${isBase ? 'ring-2 ring-primary' : ''}`}>
+                      <td key={ex} className={`p-2 text-center text-xs rounded ${irrColor(irr)} ${isBase ? 'ring-2 ring-primary' : ''}`}>
                         {irr.toFixed(0)}%
                       </td>
                     );

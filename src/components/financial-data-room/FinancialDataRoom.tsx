@@ -416,7 +416,7 @@ const FinancialDataRoom: React.FC = () => {
               ].map(section => (
                 <div key={section.num} className="bg-white/5 rounded p-3 border border-white/5">
                   <div className="flex items-start gap-2">
-                    <span className="text-white font-mono text-sm font-bold">{section.num}</span>
+                    <span className="text-white text-sm font-bold">{section.num}</span>
                     <div>
                       <p className="text-white text-sm font-medium">{section.title}</p>
                       <p className="text-gray-500 text-xs">{section.desc}</p>
@@ -941,7 +941,7 @@ const FinancialDataRoom: React.FC = () => {
                         <span className={`text-sm ${(item as any).isTotal ? 'text-green-400 font-bold' : (item as any).isBase ? 'text-white font-medium' : 'text-gray-300'}`}>
                           {item.label}
                         </span>
-                        <span className={`text-sm font-mono ${(item as any).isTotal ? 'text-green-400 font-bold' : 'text-white'}`}>
+                        <span className={`text-sm ${(item as any).isTotal ? 'text-green-400 font-bold' : 'text-white'}`}>
                           {fmt(item.value)}
                         </span>
                       </div>
@@ -1085,7 +1085,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section I: Executive Summary */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION I</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION I</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Executive Summary</h4>
                 {(() => {
                   const last = years[years.length - 1];
@@ -1114,7 +1114,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section II: Historical P&L */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION II</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION II</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Historical Profit & Loss</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1141,7 +1141,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section III: Balance Sheet */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION III</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION III</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Balance Sheet Summary</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1167,7 +1167,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section IV: Cash Flow Analysis */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION IV</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION IV</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Cash Flow Analysis</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1202,7 +1202,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section V: Operating Metrics */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION V</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION V</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Operating Metrics</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1226,7 +1226,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VI: EBITDA Adjustment Schedule */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VI</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION VI</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">EBITDA Adjustment Schedule</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1253,7 +1253,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VII: Key Financial Highlights */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VII</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION VII</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Key Financial Highlights</h4>
                 {(() => {
                   const highlights: string[] = [];
@@ -1298,7 +1298,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VIII: Items Requiring Explanation */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VIII</h3>
+                <h3 className="text-white text-sm font-bold mb-1">SECTION VIII</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Items Requiring Explanation</h4>
                 {redFlags.length > 0 ? (
                   <div className="space-y-3">

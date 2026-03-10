@@ -64,7 +64,7 @@ const TAX_STRATEGIES: TaxStrategy[] = [
     full: 'Qualified Small Business Stock',
     timing: 'YEARS BEFORE EXIT',
     savings: 'Up to $10M tax-free',
-    color: '#3B82F6',
+    color: '#ffffff',
     desc: 'C-Corp stock issued when gross assets were \u2264$50M. If held 5+ years, up to $10M of gain (or 10x basis) is federally tax-free. One of the most powerful founder tax tools in existence.',
     requirements: [
       'Must be a C-Corp at time of stock issuance',
@@ -173,7 +173,7 @@ const QSBS_CHECKLIST = [
 const BUCKET_DATA: Bucket[] = [
   { name: 'LIQUIDITY', pct: 10, color: '#5a8a6a', desc: 'Cash / T-bills / money market. 12\u201324 months of expenses. Do not invest this. Its job is to exist.', icon: '\ud83d\udca7' },
   { name: 'CORE WEALTH', pct: 50, color: '#4a6fa5', desc: 'Diversified index + bonds. Low-cost, tax-efficient. Vanguard / DFA. This is your retirement engine.', icon: '\ud83c\udfdb' },
-  { name: 'ALTERNATIVES', pct: 25, color: '#3B82F6', desc: 'Real estate, PE funds, hedge funds, private credit. Illiquid. Only commit what you won\u2019t need for 7\u201310 years.', icon: '\ud83d\udd00' },
+  { name: 'ALTERNATIVES', pct: 25, color: '#ffffff', desc: 'Real estate, PE funds, hedge funds, private credit. Illiquid. Only commit what you won\u2019t need for 7\u201310 years.', icon: '\ud83d\udd00' },
   { name: 'OPPORTUNITY', pct: 10, color: '#a05050', desc: 'Angel, boards, second company. Hard cap this bucket. Founders torch their wealth here without guardrails.', icon: '\u26a1' },
   { name: 'LEGACY / PHILANTHROPY', pct: 5, color: '#7a5a9a', desc: 'DAF, foundation, charitable trusts. Purpose-driven capital. Integrate with your estate plan.', icon: '\ud83c\udf31' },
 ];
@@ -182,7 +182,7 @@ const TIMELINE: TimelinePhase[] = [
   {
     phase: 'PRE-EXIT',
     window: '3\u20135 Years Before',
-    color: '#3B82F6',
+    color: '#ffffff',
     actions: [
       'Establish QSBS eligibility \u2014 confirm C-Corp structure and asset thresholds',
       'Begin state tax residency migration if applicable',

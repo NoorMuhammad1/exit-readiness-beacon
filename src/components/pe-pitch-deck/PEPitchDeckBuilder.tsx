@@ -27,7 +27,7 @@ const DECK_TYPES: Record<string, DeckType> = {
   fund: {
     label: "FUND → LP DECK",
     subtitle: "PE firm raising capital from Limited Partners",
-    color: "#3B82F6",
+    color: "#ffffff",
     audience: "Pension funds, endowments, family offices, fund of funds",
     primaryQ: "Why should I commit $25M to YOUR fund vs. 300 others?",
     slides: [
@@ -212,20 +212,20 @@ export function PEPitchDeckBuilder() {
   };
 
   return (
-    <div style={{ background: "#0f1d3d", minHeight: "100vh", color: "#ddd8cc", padding: "28px 20px", maxWidth: 960, margin: "0 auto" }}>
+    <div style={{ minHeight: "100vh", color: "rgba(255,255,255,0.85)", padding: "28px 20px" }}>
       <style>{`
 
         .pd-btn { cursor: pointer; font-family: inherit; }
         .pd-tb { background: transparent; border: none; padding: 8px 16px; font-size: 11px; letter-spacing: 2px; transition: all .2s; cursor: pointer; font-family: inherit; }
-        .pd-tb.on { border-bottom: 2px solid #3B82F6; color: #3B82F6; }
+        .pd-tb.on { border-bottom: 2px solid #ffffff; color: #ffffff; }
         .pd-tb:not(.on) { color: #333; border-bottom: 2px solid transparent; }
         .pd-tb:hover:not(.on) { color: #666; }
         .pd-card { background: #0c0d16; border: 1px solid #1a1a28; border-radius: 6px; padding: 18px; }
         .pd-slide-node { cursor: pointer; transition: all .15s; }
         .pd-slide-node:hover { filter: brightness(1.2); }
         .pd-textarea { background: #17305a; border: 1px solid #1c2a4a; color: #ccc; font-family: inherit; font-size: 11px; padding: 10px; border-radius: 4px; width: 100%; resize: vertical; outline: none; line-height: 1.6; box-sizing: border-box; }
-        .pd-textarea:focus { border-color: #3B82F6; }
-        .pd-range { accent-color: #3B82F6; width: 100%; }
+        .pd-textarea:focus { border-color: #ffffff; }
+        .pd-range { accent-color: #ffffff; width: 100%; }
         .pd-type-btn { padding: 14px 20px; border-radius: 5px; border: 2px solid; font-size: 11px; letter-spacing: 1px; transition: all .2s; background: transparent; cursor: pointer; font-family: inherit; }
         .pd-killer { padding: 5px 10px; margin: 3px 0; border-left: 2px solid #9a3a3a; background: #140a0a; font-size: 10px; color: #c07070; border-radius: 0 3px 3px 0; }
         .pd-must { padding: 5px 10px; margin: 3px 0; border-left: 2px solid #3a6a5a; background: #0a1410; font-size: 10px; color: #70c090; border-radius: 0 3px 3px 0; }
@@ -235,22 +235,22 @@ export function PEPitchDeckBuilder() {
       {/* Header */}
       <div style={{ marginBottom: 24 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 14, marginBottom: 4 }}>
-          <div style={{ fontSize: 36, letterSpacing: 5, color: "#3B82F6", lineHeight: 1 }}>PE PITCH DECK</div>
-          <div style={{ fontSize: 36, letterSpacing: 5, color: "#333", lineHeight: 1 }}>BUILDER</div>
+          <div style={{ fontSize: 36, letterSpacing: 5, color: "#ffffff", lineHeight: 1 }}>PE PITCH DECK</div>
+          <div style={{ fontSize: 36, letterSpacing: 5, color: "rgba(255,255,255,0.2)", lineHeight: 1 }}>BUILDER</div>
         </div>
-        <div style={{ fontSize: 10, color: "#333", letterSpacing: 3 }}>MODULE #22 · FUND→LP · COMPANY→PE · ANATOMY · GRADER · OBJECTION TRAINER</div>
+        <div style={{ fontSize: 10, color: "rgba(255,255,255,0.2)", letterSpacing: 3 }}>MODULE #22 · FUND→LP · COMPANY→PE · ANATOMY · GRADER · OBJECTION TRAINER</div>
       </div>
 
       {/* Deck Type Toggle — persistent */}
       <div style={{ display: "flex", gap: 12, marginBottom: 20 }}>
         {Object.entries(DECK_TYPES).map(([key, d]) => (
           <button key={key} className="pd-type-btn" onClick={() => { setDeckType(key); setActiveSlide(null); setBuilderSlide(0); }}
-            style={{ borderColor: deckType === key ? d.color : "#1c2a4a", color: deckType === key ? d.color : "#444", background: deckType === key ? d.color + "11" : "transparent" }}>
+            style={{ borderColor: deckType === key ? d.color : "rgba(255,255,255,0.1)", color: deckType === key ? d.color : "#444", background: deckType === key ? d.color + "11" : "transparent" }}>
             {d.label}
           </button>
         ))}
-        <div style={{ flex: 1, display: "flex", alignItems: "center", paddingLeft: 12, fontSize: 10, color: "#444", borderLeft: "1px solid #1a1a24" }}>
-          Audience: <span style={{ color: "#666", marginLeft: 8 }}>{deck.audience}</span>
+        <div style={{ flex: 1, display: "flex", alignItems: "center", paddingLeft: 12, fontSize: 10, color: "rgba(255,255,255,0.3)", borderLeft: "1px solid #1a1a24" }}>
+          Audience: <span style={{ color: "rgba(255,255,255,0.45)", marginLeft: 8 }}>{deck.audience}</span>
         </div>
       </div>
 
@@ -266,10 +266,10 @@ export function PEPitchDeckBuilder() {
         <div>
           <div style={{ marginBottom: 16, padding: "12px 16px", background: "#0c0d16", border: `1px solid ${deck.color}33`, borderRadius: 6, fontSize: 11, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div>
-              <span style={{ color: "#555" }}>PRIMARY LP QUESTION: </span>
+              <span style={{ color: "rgba(255,255,255,0.4)" }}>PRIMARY LP QUESTION: </span>
               <span style={{ color: deck.color, fontStyle: "italic" }}>"{deck.primaryQ}"</span>
             </div>
-            <div style={{ fontSize: 9, color: "#444" }}>{deck.slides.length} SLIDES</div>
+            <div style={{ fontSize: 9, color: "rgba(255,255,255,0.3)" }}>{deck.slides.length} SLIDES</div>
           </div>
 
           {/* Slide pills */}
@@ -285,7 +285,7 @@ export function PEPitchDeckBuilder() {
 
           {/* Weight bar */}
           <div className="pd-card" style={{ marginBottom: 16 }}>
-            <div style={{ fontSize: 10, color: "#555", letterSpacing: 2, marginBottom: 12 }}>LP ATTENTION WEIGHT BY SLIDE</div>
+            <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2, marginBottom: 12 }}>LP ATTENTION WEIGHT BY SLIDE</div>
             <div style={{ display: "flex", height: 24, borderRadius: 4, overflow: "hidden", gap: 2 }}>
               {deck.slides.map(s => (
                 <div key={s.id} title={`${s.name}: ${s.weight}%`}
@@ -297,7 +297,7 @@ export function PEPitchDeckBuilder() {
             </div>
             <div style={{ display: "flex", gap: 2, marginTop: 4 }}>
               {deck.slides.map(s => (
-                <div key={s.id} style={{ width: `${s.weight}%`, fontSize: 8, color: "#444", overflow: "hidden", whiteSpace: "nowrap", textAlign: "center" }}>{s.num}</div>
+                <div key={s.id} style={{ width: `${s.weight}%`, fontSize: 8, color: "rgba(255,255,255,0.3)", overflow: "hidden", whiteSpace: "nowrap", textAlign: "center" }}>{s.num}</div>
               ))}
             </div>
           </div>
@@ -310,15 +310,15 @@ export function PEPitchDeckBuilder() {
                   <div style={{ fontSize: 20, color: deck.color, letterSpacing: 3 }}>
                     SLIDE {activeSlide.num} — {activeSlide.name}
                   </div>
-                  <div style={{ fontSize: 10, color: "#555", marginTop: 4 }}>LP reads for: <span style={{ color: deck.color + "99" }}>{activeSlide.lp_reads}</span></div>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", marginTop: 4 }}>LP reads for: <span style={{ color: deck.color + "99" }}>{activeSlide.lp_reads}</span></div>
                 </div>
                 <div style={{ fontSize: 9, padding: "3px 10px", background: deck.color + "22", color: deck.color, borderRadius: 3, letterSpacing: 1 }}>
                   {activeSlide.weight}% OF LP ATTENTION
                 </div>
               </div>
 
-              <p style={{ fontSize: 12, color: "#999", lineHeight: 1.8, marginBottom: 20, borderBottom: "1px solid #1a1a24", paddingBottom: 16 }}>
-                <span style={{ color: "#666" }}>THE JOB OF THIS SLIDE: </span>{activeSlide.job}
+              <p style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.8, marginBottom: 20, borderBottom: "1px solid #1a1a24", paddingBottom: 16 }}>
+                <span style={{ color: "rgba(255,255,255,0.45)" }}>THE JOB OF THIS SLIDE: </span>{activeSlide.job}
               </p>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20, marginBottom: 20 }}>
@@ -335,7 +335,7 @@ export function PEPitchDeckBuilder() {
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
                 <div style={{ padding: "12px 14px", background: "#0a140a", border: "1px solid #1a3a1a", borderRadius: 4 }}>
                   <div style={{ fontSize: 9, color: "#3a6a5a", letterSpacing: 2, marginBottom: 6 }}>{"\u2713"} STRONG EXAMPLE</div>
-                  <div style={{ fontSize: 11, color: "#7aba7a", lineHeight: 1.7 }}>{activeSlide.example.good}</div>
+                  <div style={{ fontSize: 11, color: "#4ade80", lineHeight: 1.7 }}>{activeSlide.example.good}</div>
                 </div>
                 <div style={{ padding: "12px 14px", background: "#140a0a", border: "1px solid #3a1a1a", borderRadius: 4 }}>
                   <div style={{ fontSize: 9, color: "#9a3a3a", letterSpacing: 2, marginBottom: 6 }}>{"\u2717"} WEAK EXAMPLE</div>
@@ -354,7 +354,7 @@ export function PEPitchDeckBuilder() {
       {/* ── BUILDER TAB ── */}
       {tab === "builder" && (
         <div>
-          <div style={{ fontSize: 11, color: "#555", marginBottom: 20 }}>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginBottom: 20 }}>
             Build your deck slide by slide. Guided prompts pull from real LP expectations — not generic templates.
           </div>
 
@@ -365,7 +365,7 @@ export function PEPitchDeckBuilder() {
               return (
                 <div key={s.id} onClick={() => setBuilderSlide(i)} style={{
                   padding: "5px 12px", borderRadius: 4, border: "1px solid",
-                  borderColor: builderSlide === i ? deck.color : hasContent ? deck.color + "44" : "#1c2a4a",
+                  borderColor: builderSlide === i ? deck.color : hasContent ? deck.color + "44" : "rgba(255,255,255,0.1)",
                   background: builderSlide === i ? deck.color + "11" : "transparent",
                   color: builderSlide === i ? deck.color : hasContent ? deck.color + "88" : "#444",
                   fontSize: 10, cursor: "pointer", letterSpacing: 1
@@ -388,24 +388,24 @@ export function PEPitchDeckBuilder() {
                     </div>
                     <div style={{ fontSize: 9, color: deck.color + "66" }}>{s.weight}% LP WEIGHT · {s.lp_reads} read time</div>
                   </div>
-                  <div style={{ fontSize: 11, color: "#666", marginBottom: 16 }}>{s.job}</div>
+                  <div style={{ fontSize: 11, color: "rgba(255,255,255,0.45)", marginBottom: 16 }}>{s.job}</div>
 
                   <div style={{ marginBottom: 14 }}>
-                    <div style={{ fontSize: 10, color: "#555", letterSpacing: 2, marginBottom: 6 }}>SLIDE HEADLINE</div>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2, marginBottom: 6 }}>SLIDE HEADLINE</div>
                     <textarea className="pd-textarea" rows={1} placeholder={`One sentence that captures ${s.name.toLowerCase()}...`}
                       value={(builderData[`${builderSlide}_headline`] as string) || ""}
                       onChange={e => updateBuilder("headline", e.target.value)} />
                   </div>
 
                   <div style={{ marginBottom: 14 }}>
-                    <div style={{ fontSize: 10, color: "#555", letterSpacing: 2, marginBottom: 6 }}>SLIDE CONTENT</div>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2, marginBottom: 6 }}>SLIDE CONTENT</div>
                     <textarea className="pd-textarea" rows={5} placeholder={`Must include:\n${s.mustHave.map(m => `\u2022 ${m}`).join("\n")}`}
                       value={(builderData[`${builderSlide}_content`] as string) || ""}
                       onChange={e => updateBuilder("content", e.target.value)} />
                   </div>
 
                   <div style={{ marginBottom: 8 }}>
-                    <div style={{ fontSize: 10, color: "#555", letterSpacing: 2, marginBottom: 6 }}>KEY METRIC / PROOF POINT</div>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2, marginBottom: 6 }}>KEY METRIC / PROOF POINT</div>
                     <textarea className="pd-textarea" rows={2} placeholder="The single number that makes this slide undeniable..."
                       value={(builderData[`${builderSlide}_metric`] as string) || ""}
                       onChange={e => updateBuilder("metric", e.target.value)} />
@@ -413,14 +413,14 @@ export function PEPitchDeckBuilder() {
 
                   {/* Quick checklist */}
                   <div style={{ marginTop: 16, borderTop: "1px solid #1a1a24", paddingTop: 14 }}>
-                    <div style={{ fontSize: 10, color: "#555", letterSpacing: 2, marginBottom: 8 }}>SELF-CHECK</div>
+                    <div style={{ fontSize: 10, color: "rgba(255,255,255,0.4)", letterSpacing: 2, marginBottom: 8 }}>SELF-CHECK</div>
                     <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
                       {s.mustHave.map((m, i) => {
                         const key = `${builderSlide}_check_${i}`;
                         const checked = builderData[key];
                         return (
                           <div key={i} onClick={() => setBuilderData(prev => ({ ...prev, [key]: !prev[key] }))}
-                            style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px 10px", border: `1px solid ${checked ? deck.color + "88" : "#1c2a4a"}`, borderRadius: 20, cursor: "pointer", background: checked ? deck.color + "11" : "transparent" }}>
+                            style={{ display: "flex", alignItems: "center", gap: 6, padding: "4px 10px", border: `1px solid ${checked ? deck.color + "88" : "rgba(255,255,255,0.1)"}`, borderRadius: 20, cursor: "pointer", background: checked ? deck.color + "11" : "transparent" }}>
                             <div style={{ width: 10, height: 10, borderRadius: "50%", background: checked ? deck.color : "#333", border: `1px solid ${checked ? deck.color : "#444"}`, flexShrink: 0 }} />
                             <span style={{ fontSize: 9, color: checked ? deck.color + "cc" : "#555" }}>{m}</span>
                           </div>
@@ -433,11 +433,11 @@ export function PEPitchDeckBuilder() {
                 {/* Preview card */}
                 {(builderData[`${builderSlide}_headline`] || builderData[`${builderSlide}_content`]) && (
                   <div style={{ padding: "20px 24px", background: "#050508", border: `1px solid ${deck.color}22`, borderRadius: 6 }}>
-                    <div style={{ fontSize: 9, color: "#333", letterSpacing: 3, marginBottom: 12 }}>SLIDE PREVIEW</div>
+                    <div style={{ fontSize: 9, color: "rgba(255,255,255,0.2)", letterSpacing: 3, marginBottom: 12 }}>SLIDE PREVIEW</div>
                     <div style={{ fontSize: 22, color: deck.color, letterSpacing: 2, marginBottom: 8 }}>
                       {(builderData[`${builderSlide}_headline`] as string) || s.name}
                     </div>
-                    <div style={{ fontSize: 12, color: "#999", lineHeight: 1.8, whiteSpace: "pre-wrap" }}>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.7)", lineHeight: 1.8, whiteSpace: "pre-wrap" }}>
                       {builderData[`${builderSlide}_content`] as string}
                     </div>
                     {builderData[`${builderSlide}_metric`] && (
@@ -451,10 +451,10 @@ export function PEPitchDeckBuilder() {
                 {/* Nav buttons */}
                 <div style={{ display: "flex", justifyContent: "space-between", marginTop: 14 }}>
                   <button className="pd-btn" onClick={() => setBuilderSlide(i => Math.max(0, i - 1))} disabled={builderSlide === 0}
-                    style={{ background: "transparent", border: "1px solid #1c2a4a", color: "#555", padding: "8px 20px", fontSize: 11, letterSpacing: 2, borderRadius: 3, opacity: builderSlide === 0 ? 0.3 : 1 }}>
+                    style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.4)", padding: "8px 20px", fontSize: 11, letterSpacing: 2, borderRadius: 3, opacity: builderSlide === 0 ? 0.3 : 1 }}>
                     {"\u2190"} PREV
                   </button>
-                  <div style={{ fontSize: 10, color: "#444", display: "flex", alignItems: "center" }}>
+                  <div style={{ fontSize: 10, color: "rgba(255,255,255,0.3)", display: "flex", alignItems: "center" }}>
                     {builderSlide + 1} / {deck.slides.length}
                   </div>
                   <button className="pd-btn" onClick={() => setBuilderSlide(i => Math.min(deck.slides.length - 1, i + 1))} disabled={builderSlide === deck.slides.length - 1}
@@ -471,27 +471,27 @@ export function PEPitchDeckBuilder() {
       {/* ── LP OBJECTIONS TAB ── */}
       {tab === "lp objections" && (
         <div>
-          <div style={{ fontSize: 11, color: "#555", marginBottom: 20, lineHeight: 1.7 }}>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginBottom: 20, lineHeight: 1.7 }}>
             Every LP meeting ends with these questions. Click to reveal — then test yourself before you look.
           </div>
           {LP_OBJECTIONS.map((obj, i) => (
-            <div key={i} className="pd-card" style={{ marginBottom: 10, borderLeft: `3px solid ${activeObjIdx === i ? "#3B82F6" : "#3B82F633"}`, cursor: "pointer" }}
+            <div key={i} className="pd-card" style={{ marginBottom: 10, borderLeft: `3px solid ${activeObjIdx === i ? "#ffffff" : "rgba(255,255,255,0.2)"}`, cursor: "pointer" }}
               onClick={() => { setActiveObjIdx(activeObjIdx === i ? null : i); setShowAnswer(false); }}>
               <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <div style={{ fontSize: 18, color: "#3B82F644", flexShrink: 0 }}>LP</div>
-                <div style={{ fontSize: 12, color: "#ccc", lineHeight: 1.7, fontStyle: "italic" }}>"{obj.q}"</div>
+                <div style={{ fontSize: 18, color: "rgba(255,255,255,0.27)", flexShrink: 0 }}>LP</div>
+                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.8)", lineHeight: 1.7, fontStyle: "italic" }}>"{obj.q}"</div>
               </div>
 
               {activeObjIdx === i && (
                 <div style={{ marginTop: 16, paddingTop: 16, borderTop: "1px solid #1a1a24" }}>
                   {!showAnswer ? (
                     <button className="pd-btn" onClick={e => { e.stopPropagation(); setShowAnswer(true); }}
-                      style={{ background: "transparent", border: "1px solid #3B82F6", color: "#3B82F6", padding: "8px 20px", fontSize: 11, letterSpacing: 2, borderRadius: 3 }}>
+                      style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", padding: "8px 20px", fontSize: 11, letterSpacing: 2, borderRadius: 3 }}>
                       REVEAL ANSWER {"\u2192"}
                     </button>
                   ) : (
-                    <div style={{ padding: "14px 16px", background: "#0a0e0a", border: "1px solid #1a3a1a", borderRadius: 4, fontSize: 11, color: "#7aba8a", lineHeight: 1.9 }}>
-                      <span style={{ color: "#5a8a6a", letterSpacing: 1, fontSize: 9 }}>HOW TO HANDLE IT: </span><br />
+                    <div style={{ padding: "14px 16px", background: "rgba(255,255,255,0.03)", border: "1px solid #1a3a1a", borderRadius: 4, fontSize: 11, color: "#4ade80", lineHeight: 1.9 }}>
+                      <span style={{ color: "#22c55e", letterSpacing: 1, fontSize: 9 }}>HOW TO HANDLE IT: </span><br />
                       {obj.answer}
                     </div>
                   )}
@@ -505,7 +505,7 @@ export function PEPitchDeckBuilder() {
       {/* ── GRADER TAB ── */}
       {tab === "grader" && (
         <div>
-          <div style={{ fontSize: 11, color: "#555", marginBottom: 20, lineHeight: 1.7 }}>
+          <div style={{ fontSize: 11, color: "rgba(255,255,255,0.4)", marginBottom: 20, lineHeight: 1.7 }}>
             Score your deck against LP criteria. Rate each dimension honestly. This is how your deck gets torn apart in an IC meeting.
           </div>
 
@@ -514,13 +514,13 @@ export function PEPitchDeckBuilder() {
               {GRADING_CRITERIA.map(c => (
                 <div key={c.id} className="pd-card" style={{ marginBottom: 10 }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8 }}>
-                    <div style={{ fontSize: 12, color: "#ccc" }}>{c.label}</div>
-                    <div style={{ fontSize: 11, color: "#3B82F6" }}>{grades[c.id] || 0} / {c.max}</div>
+                    <div style={{ fontSize: 12, color: "rgba(255,255,255,0.8)" }}>{c.label}</div>
+                    <div style={{ fontSize: 11, color: "#ffffff" }}>{grades[c.id] || 0} / {c.max}</div>
                   </div>
                   <input type="range" className="pd-range" min={0} max={c.max} step={1}
                     value={grades[c.id] || 0}
                     onChange={e => setGrades(g => ({ ...g, [c.id]: +e.target.value }))} />
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "#333", marginTop: 3 }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: 9, color: "rgba(255,255,255,0.2)", marginTop: 3 }}>
                     <span>0 — Not present</span>
                     <span>{Math.floor(c.max / 2)} — Adequate</span>
                     <span>{c.max} — Institutional quality</span>
@@ -529,19 +529,19 @@ export function PEPitchDeckBuilder() {
               ))}
 
               <button className="pd-btn" onClick={() => setGradeSubmitted(true)}
-                style={{ background: "#3B82F6", border: "none", color: "#07080d", padding: "11px 32px", fontSize: 11, letterSpacing: 2, borderRadius: 3, marginTop: 8 }}>
+                style={{ background: "#ffffff", border: "none", color: "#07080d", padding: "11px 32px", fontSize: 11, letterSpacing: 2, borderRadius: 3, marginTop: 8 }}>
                 SCORE MY DECK {"\u2192"}
               </button>
             </div>
           ) : (
             <div>
               {/* Score display */}
-              <div className="pd-card" style={{ textAlign: "center", padding: "32px", marginBottom: 20, borderColor: "#3B82F633" }}>
-                <div style={{ fontSize: 64, color: totalScore >= 70 ? "#3B82F6" : totalScore >= 50 ? "#8a8a4a" : "#c06060", letterSpacing: 4 }}>
+              <div className="pd-card" style={{ textAlign: "center", padding: "32px", marginBottom: 20, borderColor: "rgba(255,255,255,0.2)" }}>
+                <div style={{ fontSize: 64, color: totalScore >= 70 ? "#ffffff" : totalScore >= 50 ? "#8a8a4a" : "#f87171", letterSpacing: 4 }}>
                   {totalScore}
                 </div>
-                <div style={{ fontSize: 20, color: "#444", letterSpacing: 3 }}>/ {maxScore}</div>
-                <div style={{ fontSize: 12, color: "#888", marginTop: 12 }}>
+                <div style={{ fontSize: 20, color: "rgba(255,255,255,0.3)", letterSpacing: 3 }}>/ {maxScore}</div>
+                <div style={{ fontSize: 12, color: "rgba(255,255,255,0.6)", marginTop: 12 }}>
                   {totalScore >= 80 ? "INSTITUTIONAL QUALITY — Ready for sophisticated LPs." :
                    totalScore >= 65 ? "STRONG FOUNDATION — Address the gaps before your first LP meeting." :
                    totalScore >= 50 ? "WORK REQUIRED — Several critical sections need material strengthening." :
@@ -556,12 +556,12 @@ export function PEPitchDeckBuilder() {
                 return (
                   <div key={c.id} style={{ marginBottom: 8, display: "grid", gridTemplateColumns: "1fr 80px", gap: 12, alignItems: "center" }}>
                     <div>
-                      <div style={{ fontSize: 10, color: "#777", marginBottom: 4 }}>{c.label}</div>
+                      <div style={{ fontSize: 10, color: "rgba(255,255,255,0.5)", marginBottom: 4 }}>{c.label}</div>
                       <div style={{ height: 6, background: "#14141e", borderRadius: 3 }}>
-                        <div style={{ height: "100%", width: `${pct}%`, background: pct >= 70 ? "#5a8a6a" : pct >= 40 ? "#8a8a3a" : "#8a3a3a", borderRadius: 3, transition: "width .5s" }} />
+                        <div style={{ height: "100%", width: `${pct}%`, background: pct >= 70 ? "#22c55e" : pct >= 40 ? "#8a8a3a" : "#8a3a3a", borderRadius: 3, transition: "width .5s" }} />
                       </div>
                     </div>
-                    <div style={{ textAlign: "right", fontSize: 12, color: pct >= 70 ? "#7aba7a" : pct >= 40 ? "#3B82F6" : "#ba6060" }}>
+                    <div style={{ textAlign: "right", fontSize: 12, color: pct >= 70 ? "#4ade80" : pct >= 40 ? "#ffffff" : "#ba6060" }}>
                       {score}/{c.max}
                     </div>
                   </div>
@@ -569,7 +569,7 @@ export function PEPitchDeckBuilder() {
               })}
 
               <button className="pd-btn" onClick={() => { setGradeSubmitted(false); setGrades({}); }}
-                style={{ background: "transparent", border: "1px solid #3B82F6", color: "#3B82F6", padding: "9px 24px", fontSize: 11, letterSpacing: 2, borderRadius: 3, marginTop: 16 }}>
+                style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.3)", color: "#ffffff", padding: "9px 24px", fontSize: 11, letterSpacing: 2, borderRadius: 3, marginTop: 16 }}>
                 RE-GRADE
               </button>
             </div>
@@ -582,11 +582,11 @@ export function PEPitchDeckBuilder() {
         <div style={{ fontSize: 9, color: "#2a2838", letterSpacing: 3, marginBottom: 10 }}>CURRICULUM ARC</div>
         <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
           {[
-            ["Synergy Engine", "built", "#5a8a6a"],
-            ["Process Letter Academy", "built", "#5a8a6a"],
-            ["Life After Exit", "built", "#5a8a6a"],
-            ["LBO Fundamentals", "built", "#5a8a6a"],
-            ["PE Pitch Deck Builder", "this", "#3B82F6"],
+            ["Synergy Engine", "built", "#22c55e"],
+            ["Process Letter Academy", "built", "#22c55e"],
+            ["Life After Exit", "built", "#22c55e"],
+            ["LBO Fundamentals", "built", "#22c55e"],
+            ["PE Pitch Deck Builder", "this", "#ffffff"],
             ["Deal Structure Lab", "next", "#3a3848"],
           ].map(([name, status, color]) => (
             <div key={name} style={{ padding: "4px 10px", border: `1px solid ${color}44`, borderRadius: 3, fontSize: 9, color: color, letterSpacing: 1 }}>

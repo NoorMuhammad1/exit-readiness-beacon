@@ -97,7 +97,7 @@ export default function EBITDACoursePage() {
                 </div>
 
                 <h4 className="text-lg font-semibold">The Simple Formula</h4>
-                <div className="bg-muted/20 backdrop-blur-sm p-4 rounded-lg font-mono text-center">
+                <div className="bg-muted/20 backdrop-blur-sm p-4 rounded-lg text-center">
                   <div className="text-xl font-bold">EBITDA = Revenue - Operating Expenses</div>
                   <div className="text-sm text-muted-foreground mt-2">
                     (Before interest, taxes, depreciation, and amortization)

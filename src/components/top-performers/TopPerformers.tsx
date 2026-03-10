@@ -152,7 +152,7 @@ function DisclosurePage() {
           If performers #11, #12, and #13 are within 10% of #10's production, LIST THEM ALL.
         </p>
         <div className="bg-card p-4 rounded-lg">
-          <p className="text-sm font-mono">
+          <p className="text-sm">
             Example: #10 produces $2M, #11 produces $1.85M<br/>
             Difference: Only $150K (7.5%)<br/>
             Risk: #11 could be #9 next month<br/>

@@ -242,7 +242,7 @@ const MultiplierPage: React.FC = () => {
               <div className="border-t pt-2 mt-2">
                 <div className="flex justify-between font-semibold text-lg">
                   <span>Total Additional Value:</span>
-                  <span className="font-mono text-primary">
+                  <span className="text-primary">
                     ${selectedTier === 0 ? '500K' : selectedTier === 1 ? '1.2M' : selectedTier === 2 ? '3.5M' : '7M'}
                   </span>
                 </div>
@@ -332,7 +332,7 @@ const EquityClawbackPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between font-semibold text-lg mt-2">
                   <span>Value at PE Exit (3 years):</span>
-                  <span className="font-mono text-primary">$24M</span>
+                  <span className="text-primary">$24M</span>
                 </div>
               </div>
             </div>
@@ -537,21 +537,21 @@ const CalculatorPage: React.FC = () => {
               <div className="space-y-2">
                 <div className="flex justify-between">
                   <span>Cash Earnout:</span>
-                  <span className="font-mono font-bold text-green-600">
+                  <span className="font-bold text-green-600">
                     ${results.cashEarnout.toLocaleString()}
                   </span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span>Equity Earned Back:</span>
-                  <span className="font-mono font-bold text-blue-600">
+                  <span className="font-bold text-blue-600">
                     {results.equityBack}%
                   </span>
                 </div>
                 
                 <div className="flex justify-between">
                   <span>New Ownership:</span>
-                  <span className="font-mono font-bold">
+                  <span className="font-bold">
                     {results.newOwnership}%
                   </span>
                 </div>
@@ -559,7 +559,7 @@ const CalculatorPage: React.FC = () => {
                 <div className="border-t pt-2">
                   <div className="flex justify-between">
                     <span>Equity Value at Exit:</span>
-                    <span className="font-mono font-bold">
+                    <span className="font-bold">
                       ${results.equityValue.toLocaleString()}
                     </span>
                   </div>
@@ -568,7 +568,7 @@ const CalculatorPage: React.FC = () => {
                 <div className="border-t pt-2">
                   <div className="flex justify-between text-lg font-semibold">
                     <span>Total Additional Value:</span>
-                    <span className="font-mono text-primary">
+                    <span className="text-primary">
                       ${results.totalValue.toLocaleString()}
                     </span>
                   </div>

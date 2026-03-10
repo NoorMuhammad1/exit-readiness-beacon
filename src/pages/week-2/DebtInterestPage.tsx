@@ -98,19 +98,19 @@ export default function DebtInterestPage() {
                   <div className="flex items-center gap-2 text-sm">
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">OpCo</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$100k quarterly interest</span>
+                    <span className="text-foreground">$100k quarterly interest</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
                     <span className="px-2 py-1 bg-card border border-border rounded text-foreground">HoldCo</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm ml-4">
                     <span className="px-2 py-1 bg-accent/20 border border-accent/40 rounded text-foreground">You (25%)</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$25k distribution</span>
+                    <span className="text-foreground">$25k distribution</span>
                   </div>
                   <div className="flex items-center gap-2 text-sm ml-4">
                     <span className="px-2 py-1 bg-accent/20 border border-accent/40 rounded text-foreground">PE (75%)</span>
                     <ArrowRight className="h-4 w-4 text-muted-foreground" />
-                    <span className="font-mono text-foreground">$75k distribution</span>
+                    <span className="text-foreground">$75k distribution</span>
                   </div>
                 </div>
               </div>

@@ -188,7 +188,7 @@ export const DealStructureLab = () => {
   const [qDone, setQDone] = useState(false);
 
   // ── Accent color system ──
-  const ac = chair === "seller" ? "#3B82F6" : "#5a8a9a"; // kept for slider accentColor only
+  const ac = chair === "seller" ? "#ffffff" : "#5a8a9a"; // kept for slider accentColor only
   const isSeller = chair === "seller";
   const acText = isSeller ? "text-white" : "text-teal-400";
   const acBorder = isSeller ? "border-white/15" : "border-teal-500/30";
@@ -506,9 +506,9 @@ export const DealStructureLab = () => {
             <div className="bg-white/5 border border-white/10 rounded-lg p-5">
               <div className={`text-xs tracking-wide mb-4 ${acText}`}>PERFORMANCE SCENARIOS</div>
               {([
-                { label: "MISS SCENARIO", val: miss, set: setMiss, col: "#c06060", earned: missEarn },
-                { label: "BASE SCENARIO", val: base, set: setBase, col: "#3B82F6", earned: baseEarn },
-                { label: "HIT SCENARIO", val: hit, set: setHit, col: "#5a8a6a", earned: hitEarn },
+                { label: "MISS SCENARIO", val: miss, set: setMiss, col: "#f87171", earned: missEarn },
+                { label: "BASE SCENARIO", val: base, set: setBase, col: "#ffffff", earned: baseEarn },
+                { label: "HIT SCENARIO", val: hit, set: setHit, col: "#22c55e", earned: hitEarn },
               ]).map(s => (
                 <div key={s.label} className="mb-4 p-3 bg-white/[0.03] rounded" style={{ border: `1px solid ${s.col}22` }}>
                   <div className="flex justify-between mb-2">
@@ -598,10 +598,10 @@ export const DealStructureLab = () => {
               <div className={`text-xs tracking-wide mb-4 ${acText}`}>ROLLOVER OUTCOME</div>
               <div className="grid gap-3">
                 {([
-                  { label: "ROLLOVER AMOUNT", val: fmt(rolloverAmt), color: "#888", note: "Equity you're leaving at the table" },
-                  { label: "CASH AT CLOSE", val: fmt(cashAtClose), color: "#3B82F6", note: "What you take home day one" },
-                  { label: "EXIT VALUE (your %)", val: fmt(rolloverExit), color: "#5a8a6a", note: `${rolloverPct}% of ${fmt(exitVal)}` },
-                  { label: "ROLLOVER NET (after tax)", val: fmt(rolloverNet), color: "#5a8a6a", note: "LTCG + NIIT on gain" },
+                  { label: "ROLLOVER AMOUNT", val: fmt(rolloverAmt), color: "rgba(255,255,255,0.6)", note: "Equity you're leaving at the table" },
+                  { label: "CASH AT CLOSE", val: fmt(cashAtClose), color: "#ffffff", note: "What you take home day one" },
+                  { label: "EXIT VALUE (your %)", val: fmt(rolloverExit), color: "#22c55e", note: `${rolloverPct}% of ${fmt(exitVal)}` },
+                  { label: "ROLLOVER NET (after tax)", val: fmt(rolloverNet), color: "#22c55e", note: "LTCG + NIIT on gain" },
                   { label: "TOTAL NET PROCEEDS", val: fmt(totalNet), color: ac, note: "Cash at close + rollover net" },
                 ]).map(row => (
                   <div key={row.label} className="flex justify-between items-center border-b border-white/10 pb-2.5">
@@ -687,9 +687,9 @@ export const DealStructureLab = () => {
               <div className={`text-xs tracking-wide mb-4 ${acText}`}>CASH FLOW TIMELINE</div>
               {([
                 { label: "CASH AT CLOSE", val: cashAtClosePPA, color: ac, when: "Day 0", note: "Purchase price minus escrow, adjusted for WC" },
-                { label: "WC ADJUSTMENT", val: wcAdj, color: wcAdj >= 0 ? "#5a8a6a" : "#c06060", when: "Day 60\u201390", note: wcAdj >= 0 ? "Actual WC exceeded peg \u2014 you receive more" : "Actual WC below peg \u2014 clawback from escrow" },
+                { label: "WC ADJUSTMENT", val: wcAdj, color: wcAdj >= 0 ? "#22c55e" : "#f87171", when: "Day 60\u201390", note: wcAdj >= 0 ? "Actual WC exceeded peg \u2014 you receive more" : "Actual WC below peg \u2014 clawback from escrow" },
                 { label: "ESCROW RELEASE", val: escrowRelease, color: "#5a8a9a", when: `Month ${escrowMonths}`, note: "Assuming no R&W claims filed" },
-                { label: "TOTAL PROCEEDS", val: ppaDeal + Math.max(0, wcAdj), color: "#3B82F6", when: "Final", note: "Assumes no R&W claims" },
+                { label: "TOTAL PROCEEDS", val: ppaDeal + Math.max(0, wcAdj), color: "#ffffff", when: "Final", note: "Assumes no R&W claims" },
               ]).map(s => (
                 <div key={s.label} className="flex justify-between items-center border-b border-white/10 pb-2.5 mb-2.5">
                   <div>
@@ -777,10 +777,10 @@ export const DealStructureLab = () => {
               <div className="grid gap-3">
                 {([
                   { label: "CASH AT CLOSE", val: fmt(sfCash), color: ac, note: "Buyer pays this at signing" },
-                  { label: "NOTE PRINCIPAL", val: fmt(sfNote), color: "#888", note: "Deferred \u2014 paid over term" },
+                  { label: "NOTE PRINCIPAL", val: fmt(sfNote), color: "rgba(255,255,255,0.6)", note: "Deferred \u2014 paid over term" },
                   { label: "MONTHLY PAYMENT", val: fmt(monthlyPayment), color: "#5a8a9a", note: "Principal + interest" },
-                  { label: "TOTAL INTEREST", val: fmt(totalInterest), color: "#5a8a6a", note: "Your return for financing the buyer" },
-                  { label: "TOTAL RECEIVED", val: fmt(totalReceived), color: "#3B82F6", note: "Over full term (no default)" },
+                  { label: "TOTAL INTEREST", val: fmt(totalInterest), color: "#22c55e", note: "Your return for financing the buyer" },
+                  { label: "TOTAL RECEIVED", val: fmt(totalReceived), color: "#ffffff", note: "Over full term (no default)" },
                 ]).map(row => (
                   <div key={row.label} className="flex justify-between items-center border-b border-white/10 pb-2.5">
                     <div>
@@ -886,12 +886,12 @@ export const DealStructureLab = () => {
         <div className="text-xs text-white/15 tracking-wide mb-2">CURRICULUM ARC</div>
         <div className="flex gap-2 flex-wrap">
           {([
-            ["Synergy Engine", "built", "#5a8a6a"],
-            ["Process Letter Academy", "built", "#5a8a6a"],
-            ["Life After Exit", "built", "#5a8a6a"],
-            ["PE Pitch Deck Builder", "built", "#5a8a6a"],
-            ["LBO Fundamentals", "built", "#5a8a6a"],
-            ["Deal Structure Lab", "this", "#3B82F6"],
+            ["Synergy Engine", "built", "#22c55e"],
+            ["Process Letter Academy", "built", "#22c55e"],
+            ["Life After Exit", "built", "#22c55e"],
+            ["PE Pitch Deck Builder", "built", "#22c55e"],
+            ["LBO Fundamentals", "built", "#22c55e"],
+            ["Deal Structure Lab", "this", "#ffffff"],
           ] as const).map(([name, status, color]) => (
             <div
               key={name}
