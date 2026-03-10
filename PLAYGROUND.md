@@ -182,7 +182,7 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/merger-model/SKILL.md
 
 ### Enhancement 20: The Process Letter (What Buyers Receive)
-**Status:** COMPLETE (Session 20, commit TBD)
+**Status:** COMPLETE (Session 20, commit e20911f)
 **Upgrades:** Week 2 Deal Readiness — educational module
 **What it does:** Shows business owners exactly what a sell-side process looks like from the buyer's perspective. Walks through: the initial process letter (what your banker sends to buyers), IOI instructions (what buyers must include in their first-round bid), final bid requirements (binding offer terms, financing certainty, timeline), and management meeting logistics. Educational — the business owner sees the actual documents and understands what's happening behind the scenes. Removes the mystery from the M&A process.
 **Source plugin:** investment-banking/skills/process-letter/SKILL.md
@@ -221,6 +221,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 20 — Mar 9, 2026
+- **Built The Process Letter** — Enhancement #20, "PE Deal Auction Academy"
+  - 4 tabs: The Deal Timeline / Auction Types / Red Flag Detector / Quiz
+  - Tab 1: 7-stage interactive timeline (Teaser → CIM → Process Letter → IOI → Management Presentations → Final Bid → Exclusivity & Close). Click any stage to expand with document contents, buyer action advice, and red flags. Connector line between nodes. Key insight card about banker engineering competitive tension.
+  - Tab 2: Broad/Limited/Targeted auction type comparison cards (buyer count, best-for EV range, confidentiality, price potential, timeline). Signal decoder: 6 Process Letter language signals mapped to auction type interpretation.
+  - Tab 3: Red Flag Detector — 14 flags organized by document type: CIM (5), Process Letter (5), Management Presentation (4). Each with severity rating (HIGH/MEDIUM) and tactical note. "Rule of Red Flags" insight card.
+  - Tab 4: Quiz — 5 scenario-based questions from the buyer's chair with deal-level explanations. Scoring: Deal Principal (5/5), Associate (3-4), Analyst (0-2). Retake + CSV export.
+  - Frank provided detailed brief with research sources + complete JSX prototype
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-2/process-letter`, NEW badge
+  - New files: `src/components/process-letter/ProcessLetter.tsx`, `src/pages/week-2/ProcessLetterPage.tsx`
+- Commit: `e20911f` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 6 of 9 complete** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF, #19 Merger Math, #20 Process Letter)
+- **Next:** Life After Exit (#18), Company One-Pager (#21), PE Pitch Deck Builder (#22)
 
 ### Session 19 — Mar 9, 2026
 - **Built Merger Math** — Enhancement #19, "Why Strategic Buyers Pay More"
