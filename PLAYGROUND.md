@@ -64,8 +64,9 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 **Deal Structure Lab: COMPLETE** — Frank's original concept, built Session 23
 **Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
 **Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
+**WAVE 3 START: IC Memo Builder** — Session 25
 
-**Total modules live: 44**
+**Total modules live: 45**
 
 ---
 
@@ -245,6 +246,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 25 — Mar 9, 2026
+- **Built IC Memo Builder** — Wave 3 module, "The Document That Gets a Deal Approved or Killed"
+  - 5 tabs: Anatomy / Returns / Red Flags / Builder / Quiz
+  - Tab 1 — Anatomy: 10 IC memo sections (Exec Summary, Company Overview, Investment Thesis, Market Analysis, Financial Analysis, Deal Structure, Value Creation Plan, Management Assessment, Risks & Mitigants, Returns Analysis). Each section has IC attention weight percentage, purpose statement, must-have checklist (green), instant killers (red), and "IC Reads This As" insight box. Attention weight bar visualization across top. Expandable cards.
+  - Tab 2 — Returns: Live 3-scenario model (bear/base/bull). 6 deal inputs (LTM EBITDA, entry multiple, debt %, exit multiple, hold period, EBITDA CAGR). Auto-calculated Enterprise Value, Debt at Entry, Equity Check, Debt/EBITDA. Three scenario cards with MOIC and IRR, color-coded by hurdle rate. IC verdict per scenario (Strong/Acceptable/Marginal/Fail). Full IRR sensitivity table (exit multiple x EBITDA CAGR) with color-coded cells.
+  - Tab 3 — Red Flags: 12 documented IC killers filterable by severity (KILL/HIGH/MEDIUM). 4 kill flags (hockey stick, missing QoE, sources != uses, no downside scenario), 5 high flags, 3 medium flags. Each with section tag, IC interpretation, and specific detail. IC Pattern summary card.
+  - Tab 4 — Builder: 5-step guided memo construction (Deal ID, Investment Thesis, Deal Structure, Value Creation Plan, Key Risks). Step progress bar. Two-column field layout. Full-width for thesis bullets, mitigants, and value creation initiatives. Live IC Executive Summary preview renders as you type — company name, sector, HQ, tagline, thesis bullets with arrows, risks with mitigants, IC recommendation dropdown (Invest/Pass/Further Diligence).
+  - Tab 5 — Quiz: 5 questions from the IC chair's seat (sensitivity modeling, thesis language, multiple expansion dependence, vague risk mitigants, bear case returns). Answer reveal with IC Insight explanation. Progress bar + score tracker. Results page with verdict and retake.
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/ic-memo`, NEW badge
+  - New files: `src/components/ic-memo/ICMemo.tsx`, `src/pages/week-4/ICMemoBuilderPage.tsx`
+- Commit: `923ae4d` — pushed to noor_frank_playground
+- **Total modules: 45** — Wave 3 started
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
 
 ### Session 24 — Mar 9, 2026
 - **Built Company One-Pager** — Enhancement #21, "One Page. Every Number Defensible."
