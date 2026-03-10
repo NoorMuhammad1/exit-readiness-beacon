@@ -188,9 +188,9 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/process-letter/SKILL.md
 
 ### Enhancement 21: Company One-Pager (Strip Profile)
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 24, commit e316a59)
 **Upgrades:** Week 4 Final Readiness — premium deliverable alongside Teaser and CIM
-**What it does:** Auto-generates a professional one-page company profile in the format investment bankers use for pitch books. Four-quadrant layout: Company Overview (HQ, founding, key stats), Business & Positioning (revenue drivers, competitive moat), Key Financials (revenue, EBITDA, margins table), and Recent Developments/Ownership. Information-dense, designed to be understood in 30 seconds. Uses data from Company Profile and other modules. A third deliverable alongside the Anonymous Teaser and Draft CIM.
+**What it does:** Split-panel PE one-pager builder with live preview. 3 tabs: Builder (5 section groups — Company Identity, Financials, Investment Profile, Business Overview, Management — with left-nav completion tracking, auto-calculated EBITDA margins/YoY growth/implied entry multiple), Preview (professional one-pager document with dark header, gold company name in Anton, six-metric strip, two-column body with business overview + investment highlights + exit thesis on left and financial snapshot table + capital structure + management on right, confidentiality footer, print/export), Rules (7 one-pager rules from the reader's chair + Wave 2 complete banner). Standalone builder — no auto-fill, no localStorage yet. Route: `/portal/week-4/company-one-pager`.
 **Source plugin:** investment-banking/skills/strip-profile/SKILL.md
 
 ### Enhancement 22: PE Pitch Deck Builder
@@ -221,6 +221,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 24 — Mar 9, 2026
+- **Built Company One-Pager** — Enhancement #21, "One Page. Every Number Defensible."
+  - Split-panel PE one-pager builder with live document preview
+  - 3 tabs: Builder / Preview / Rules
+  - Tab 1 — Builder: 5 section groups (Company Identity, Financials, Investment Profile, Business Overview, Management) with left-side section nav showing fill completion per group (e.g., "5/8 filled"). Two-column field layout within each section. Auto-calculates EBITDA margin (LY & CY), YoY revenue growth, and implied EV/EBITDA when financial fields are filled. Section nav buttons with NEXT/BACK + final button flips to Preview.
+  - Tab 2 — Preview: Renders a real PE one-pager document inside the dark UI. Dark header with company name in Anton gold + tagline + company metadata strip. Equity sought and entry multiple in top-right. Six-metric strip (LTM Revenue, LTM EBITDA, EBITDA Margin, YoY Growth, Recurring Rev %, Gross Margin). Two-column body: left has Business Overview + numbered Investment Highlights (1-4) + Exit Thesis in italics; right has Financial Snapshot table (Revenue/EBITDA/Margin across 3 years), Capital Structure & Ask (4 metric boxes), Use of Proceeds, and Management section. Confidentiality footer with contact info. Print/Export PDF button.
+  - Tab 3 — Rules: 7 one-pager rules from the PE reader's chair (one page non-negotiable, defensible numbers, lead with recurring revenue %, highlights are claims not adjectives, entry multiple on the page, exit thesis in one sentence, no formatting errors). Wave 2 Complete banner at bottom.
+  - Completion bar in header tracks % of fields filled across all sections
+  - Standalone builder — no Company Profile auto-fill, no localStorage (add later)
+  - Route: `/portal/week-4/company-one-pager`, NEW badge
+  - New files: `src/components/company-one-pager/CompanyOnePager.tsx`, `src/pages/week-4/CompanyOnePagerPage.tsx`
+- Commit: `e316a59` — pushed to noor_frank_playground
+- **WAVE 2 COMPLETE — all 10 enhancements (#13-#22) built** + Deal Structure Lab (new concept beyond Wave 2)
+- **Next:** Phase 4 thin module upgrades (Add Backs, Data Room, HoldCo, Top Performers, Strategy Doc Builder), Deal Structure Lab UI overhaul, Phase 5 platform features, settings polish, purple theme
 
 ### Session 23 — Mar 9, 2026
 - **Built Deal Structure Lab** — Frank's new module concept, "Five Calculators. Both Sides of the Table."
