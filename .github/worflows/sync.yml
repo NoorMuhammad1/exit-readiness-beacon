@@ -1,0 +1,29 @@
+name: Sync Fork with Upstream
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Runs every hour (adjust as needed)
+  workflow_dispatch:       # Allows manual trigger too
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
+      - name: Sync all branches from upstream
+        run: |
+          git remote add upstream https://github.com/ftdcad/exit-readiness-beacon.git
+          git fetch upstream
+          
+          # Sync each branch
+          for branch in main mini-mvp noor_frank_playground; do
+            git checkout $branch
+            git merge upstream/$branch
+            git push origin $branch
+          done
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
