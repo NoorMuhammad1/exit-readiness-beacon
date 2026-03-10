@@ -4,7 +4,7 @@ const WORKSTREAMS = [
   {
     id: "financial",
     label: "FINANCIAL DD",
-    color: "#c8a84b",
+    color: "#3B82F6",
     owner: "PE Deal Team + QoE Firm",
     timing: "Weeks 1\u20134",
     purpose: "Verify the EBITDA you\u2019re buying is real and recurring. Every number in the IC memo gets pressure-tested here.",
@@ -115,12 +115,12 @@ const WORKSTREAMS = [
 ];
 
 const TIMELINE = [
-  { phase: "LOI SIGNED", week: "Day 0", color: "#c8a84b", actions: ["Exclusivity period begins (typically 45\u201360 days)", "Data room access granted", "DD workstreams assigned"], buyerFocus: "Organize deal team. Assign workstream leads. Send initial document request list within 48 hours." },
+  { phase: "LOI SIGNED", week: "Day 0", color: "#3B82F6", actions: ["Exclusivity period begins (typically 45\u201360 days)", "Data room access granted", "DD workstreams assigned"], buyerFocus: "Organize deal team. Assign workstream leads. Send initial document request list within 48 hours." },
   { phase: "WEEK 1\u20132", week: "Early DD", color: "#6a5a9a", actions: ["Financial model stress-test begins", "Document request list sent", "QoE firm engaged", "Management intro meetings"], buyerFocus: "Get the data room populated. First pass on financial statements. Schedule management presentation." },
   { phase: "WEEK 3\u20134", week: "Core DD", color: "#5a8a9a", actions: ["Management presentations", "Customer interviews begin", "QoE fieldwork", "Legal document review begins", "Site visits"], buyerFocus: "The most intensive period. QoE findings start coming in. Customer calls may reshape the commercial thesis." },
   { phase: "WEEK 5\u20136", week: "Synthesis", color: "#5a8a6a", actions: ["QoE report delivered", "Legal issues list compiled", "Commercial DD synthesis", "Working capital peg negotiation", "Reps & warranties insurance bound"], buyerFocus: "Findings become price adjustments or deal-breakers. Issues list goes to seller. Working capital peg is negotiated \u2014 this is where money is made or lost." },
   { phase: "WEEK 7\u20138", week: "Documentation", color: "#8a6a3a", actions: ["Purchase agreement negotiation", "Management retention agreements", "Final IC memo", "Financing documentation", "Regulatory filings if required"], buyerFocus: "Legal negotiation runs parallel to final IC approval. No deal is signed before IC votes. Retention packages for key executives finalized." },
-  { phase: "CLOSE", week: "Day 45\u201390", color: "#c8a84b", actions: ["Purchase agreement executed", "Funds wired", "Ownership transferred", "100-day plan activated"], buyerFocus: "Day 1 communications to employees, customers, vendors. 100-day plan owner is named. Don\u2019t celebrate \u2014 the real work starts now." },
+  { phase: "CLOSE", week: "Day 45\u201390", color: "#3B82F6", actions: ["Purchase agreement executed", "Funds wired", "Ownership transferred", "100-day plan activated"], buyerFocus: "Day 1 communications to employees, customers, vendors. 100-day plan owner is named. Don\u2019t celebrate \u2014 the real work starts now." },
 ];
 
 const RED_FLAGS = [
@@ -212,15 +212,15 @@ export default function DDFramework() {
   };
 
   return (
-    <div style={{background:"#07080f",minHeight:"100vh",fontFamily:"'IBM Plex Mono','Courier New',monospace",color:"#d8d4cc",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
+    <div style={{background:"#0f1d3d",minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Anton&display=swap');
+
         button{cursor:pointer;font-family:inherit;}
         .tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;}
-        .tb.on{color:#c8a84b;border-bottom-color:#c8a84b;}
+        .tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
         .tb:not(.on){color:#2a2838;}
         .tb:hover:not(.on){color:#555;}
-        .card{background:#0a0b14;border:1px solid #181826;border-radius:5px;}
+        .card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
         .pill{display:inline-block;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:2px;font-weight:600;}
         .chk{width:16px;height:16px;border:1px solid #2a2838;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;}
         .chk.done{background:#5a8a6a;border-color:#5a8a6a;}
@@ -229,8 +229,8 @@ export default function DDFramework() {
       {/* Header */}
       <div style={{marginBottom:20}}>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:6}}>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#c8a84b",lineHeight:1}}>DUE DILIGENCE</div>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#1e1e2c",lineHeight:1}}>FRAMEWORK</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#3B82F6",lineHeight:1}}>DUE DILIGENCE</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#1c2a4a",lineHeight:1}}>FRAMEWORK</div>
           <div style={{fontSize:9,color:"#2a2838",letterSpacing:3,marginLeft:8}}>WAVE 3 &middot; BUY-SIDE DD</div>
         </div>
         <div style={{fontSize:11,color:"#333",lineHeight:1.7,maxWidth:640,marginBottom:14}}>
@@ -240,17 +240,17 @@ export default function DDFramework() {
         <div style={{display:"flex",alignItems:"center",gap:12}}>
           <div style={{flex:1,maxWidth:400}}>
             <div style={{height:3,background:"#1a1a26",borderRadius:2,overflow:"hidden"}}>
-              <div style={{height:"100%",width:`${prog.pct}%`,background:"linear-gradient(90deg,#c8a84b,#8a6a3a)",borderRadius:2,transition:"width .4s"}} />
+              <div style={{height:"100%",width:`${prog.pct}%`,background:"linear-gradient(90deg,#3B82F6,#8a6a3a)",borderRadius:2,transition:"width .4s"}} />
             </div>
           </div>
-          <div style={{fontSize:10,color:prog.pct>70?"#c8a84b":"#555",letterSpacing:1}}>
+          <div style={{fontSize:10,color:prog.pct>70?"#3B82F6":"#555",letterSpacing:1}}>
             {prog.done}/{prog.total} ITEMS COMPLETE
           </div>
         </div>
       </div>
 
       {/* Tabs */}
-      <div style={{borderBottom:"1px solid #12121e",marginBottom:20,display:"flex",flexWrap:"wrap"}}>
+      <div style={{borderBottom:"1px solid #17305a",marginBottom:20,display:"flex",flexWrap:"wrap"}}>
         {["workstreams","timeline","red flags","quiz"].map(t=>(
           <button key={t} className={`tb ${tab===t?"on":""}`} onClick={()=>setTab(t)}>{t.toUpperCase()}</button>
         ))}
@@ -265,13 +265,13 @@ export default function DDFramework() {
               const p = wsProgress(w.id);
               const active = activeWS === w.id;
               return (
-                <div key={w.id} onClick={()=>setActiveWS(w.id)} style={{padding:"10px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?w.color+"55":"#181826"}`,background:active?w.color+"0e":"#0a0b14",borderLeft:`3px solid ${active?w.color:w.color+"33"}`,transition:"all .15s"}}>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:11,color:active?w.color:"#444",letterSpacing:2}}>{w.label}</div>
+                <div key={w.id} onClick={()=>setActiveWS(w.id)} style={{padding:"10px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?w.color+"55":"#1c2a4a"}`,background:active?w.color+"0e":"#0f1d3d",borderLeft:`3px solid ${active?w.color:w.color+"33"}`,transition:"all .15s"}}>
+                  <div style={{ fontSize:11,color:active?w.color:"#444",letterSpacing:2}}>{w.label}</div>
                   <div style={{fontSize:9,color:"#333",marginTop:4,display:"flex",justifyContent:"space-between"}}>
                     <span>{w.timing}</span>
                     <span style={{color:p.pct===100?"#5a8a6a":p.pct>0?"#888":"#333"}}>{p.done}/{p.total}</span>
                   </div>
-                  <div style={{height:2,background:"#12121e",borderRadius:1,marginTop:5,overflow:"hidden"}}>
+                  <div style={{height:2,background:"#17305a",borderRadius:1,marginTop:5,overflow:"hidden"}}>
                     <div style={{height:"100%",width:`${p.pct}%`,background:w.color,borderRadius:1,transition:"width .3s"}} />
                   </div>
                 </div>
@@ -284,11 +284,11 @@ export default function DDFramework() {
             <div className="card" style={{padding:"18px 22px",marginBottom:12,borderLeft:`3px solid ${ws.color}`}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12}}>
                 <div>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:18,color:ws.color,letterSpacing:3}}>{ws.label}</div>
+                  <div style={{ fontSize:18,color:ws.color,letterSpacing:3}}>{ws.label}</div>
                   <div style={{fontSize:10,color:"#555",marginTop:4}}>{ws.owner} &middot; {ws.timing}</div>
                 </div>
               </div>
-              <div style={{fontSize:11,color:"#666",lineHeight:1.8,borderTop:"1px solid #12121e",paddingTop:12}}>{ws.purpose}</div>
+              <div style={{fontSize:11,color:"#666",lineHeight:1.8,borderTop:"1px solid #17305a",paddingTop:12}}>{ws.purpose}</div>
             </div>
 
             {ws.items.map((item, i) => {
@@ -296,7 +296,7 @@ export default function DDFramework() {
               const checked = !!checkedItems[key];
               const open = expanded === key;
               return (
-                <div key={i} className="card" style={{marginBottom:6,borderLeft:`3px solid ${item.critical?"#c8a84b22":"#1e1e2c"}`,opacity:checked?0.6:1,transition:"opacity .2s"}}>
+                <div key={i} className="card" style={{marginBottom:6,borderLeft:`3px solid ${item.critical?"#3B82F622":"#1c2a4a"}`,opacity:checked?0.6:1,transition:"opacity .2s"}}>
                   <div style={{padding:"12px 16px",display:"flex",gap:12,alignItems:"flex-start"}}>
                     <div className={`chk ${checked?"done":""}`} onClick={()=>toggleCheck(ws.id, i)}>
                       {checked && <span style={{color:"#fff",fontSize:10,lineHeight:1}}>&#10003;</span>}
@@ -305,11 +305,11 @@ export default function DDFramework() {
                       <div style={{display:"flex",justifyContent:"space-between",alignItems:"center"}}>
                         <div style={{fontSize:11,color:checked?"#444":"#ccc",textDecoration:checked?"line-through":"none",lineHeight:1.5}}>
                           {item.item}
-                          {item.critical && <span className="pill" style={{background:"#c8a84b22",color:"#c8a84b",marginLeft:8}}>CRITICAL</span>}
+                          {item.critical && <span className="pill" style={{background:"#3B82F622",color:"#3B82F6",marginLeft:8}}>CRITICAL</span>}
                         </div>
                         <span style={{color:"#333",fontSize:11,marginLeft:12}}>{open?"\u25B2":"\u25BC"}</span>
                       </div>
-                      {open && <div style={{fontSize:10,color:"#666",lineHeight:1.8,marginTop:8,paddingTop:8,borderTop:"1px solid #12121e"}}>{item.detail}</div>}
+                      {open && <div style={{fontSize:10,color:"#666",lineHeight:1.8,marginTop:8,paddingTop:8,borderTop:"1px solid #17305a"}}>{item.detail}</div>}
                     </div>
                   </div>
                 </div>
@@ -324,7 +324,7 @@ export default function DDFramework() {
         <div>
           <div style={{fontSize:10,color:"#555",marginBottom:20,letterSpacing:1}}>TYPICAL TIMELINE: LOI SIGNED &rarr; CLOSE &middot; 45&ndash;90 DAYS EXCLUSIVITY</div>
           <div style={{position:"relative"}}>
-            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"#1e1e2c"}} />
+            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"#1c2a4a"}} />
             {TIMELINE.map((t,i)=>(
               <div key={i} style={{display:"flex",gap:20,marginBottom:20,position:"relative"}}>
                 <div style={{width:56,flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",zIndex:1}}>
@@ -332,7 +332,7 @@ export default function DDFramework() {
                   <div style={{fontSize:8,color:t.color,letterSpacing:1,marginTop:4,textAlign:"center"}}>{t.week}</div>
                 </div>
                 <div className="card" style={{flex:1,padding:"16px 20px",borderLeft:`3px solid ${t.color}33`}}>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:t.color,letterSpacing:3,marginBottom:12}}>{t.phase}</div>
+                  <div style={{ fontSize:15,color:t.color,letterSpacing:3,marginBottom:12}}>{t.phase}</div>
                   <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16}}>
                     <div>
                       <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:8}}>WHAT&rsquo;S HAPPENING</div>
@@ -342,7 +342,7 @@ export default function DDFramework() {
                         </div>
                       ))}
                     </div>
-                    <div style={{background:"#07080f",border:`1px solid ${t.color}22`,borderRadius:4,padding:"12px 14px"}}>
+                    <div style={{background:"#0f1d3d",border:`1px solid ${t.color}22`,borderRadius:4,padding:"12px 14px"}}>
                       <div style={{fontSize:9,color:t.color,letterSpacing:2,marginBottom:8}}>BUYER FOCUS</div>
                       <div style={{fontSize:10,color:"#777",lineHeight:1.7}}>{t.buyerFocus}</div>
                     </div>
@@ -366,12 +366,12 @@ export default function DDFramework() {
         <div>
           <div style={{display:"flex",gap:8,marginBottom:16,flexWrap:"wrap"}}>
             {["ALL","KILL","HIGH","MEDIUM"].map(f=>(
-              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?(f==="KILL"?"#8a4a4a":f==="HIGH"?"#8a6a3a":f==="MEDIUM"?"#555":"#c8a84b"):"transparent",border:`1px solid ${rfFilter===f?"transparent":"#1e1e2c"}`,color:rfFilter===f?"#fff":"#555",padding:"6px 14px",fontSize:9,letterSpacing:2,borderRadius:3}}>
+              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?(f==="KILL"?"#8a4a4a":f==="HIGH"?"#8a6a3a":f==="MEDIUM"?"#555":"#3B82F6"):"transparent",border:`1px solid ${rfFilter===f?"transparent":"#1c2a4a"}`,color:rfFilter===f?"#fff":"#555",padding:"6px 14px",fontSize:9,letterSpacing:2,borderRadius:3}}>
                 {f}
               </button>
             ))}
             {["Financial","Commercial","Legal","Management","Operational","HR"].map(f=>(
-              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?"#1e1e2c":"transparent",border:"1px solid #1e1e2c",color:rfFilter===f?"#ccc":"#333",padding:"6px 14px",fontSize:9,letterSpacing:1,borderRadius:3}}>
+              <button key={f} onClick={()=>setRfFilter(f)} style={{background:rfFilter===f?"#1c2a4a":"transparent",border:"1px solid #1c2a4a",color:rfFilter===f?"#ccc":"#333",padding:"6px 14px",fontSize:9,letterSpacing:1,borderRadius:3}}>
                 {f.toUpperCase()}
               </button>
             ))}
@@ -387,7 +387,7 @@ export default function DDFramework() {
                 <span className="pill" style={{background:r.severity==="KILL"?"#8a4a4a33":r.severity==="HIGH"?"#8a6a3a33":"#55555533",color:r.severity==="KILL"?"#c87a7a":r.severity==="HIGH"?"#c8a87a":"#888"}}>{r.severity}</span>
                 <span style={{fontSize:9,color:"#444",letterSpacing:1}}>{r.ws.toUpperCase()}</span>
               </div>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:13,color:"#ccc",letterSpacing:1,marginBottom:8}}>{r.flag.toUpperCase()}</div>
+              <div style={{ fontSize:13,color:"#ccc",letterSpacing:1,marginBottom:8}}>{r.flag.toUpperCase()}</div>
               <div style={{fontSize:11,color:"#666",lineHeight:1.7}}>{r.detail}</div>
             </div>
           ))}
@@ -401,10 +401,10 @@ export default function DDFramework() {
             <div>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"center",marginBottom:16}}>
                 <div style={{fontSize:10,color:"#555",letterSpacing:2}}>SCENARIO {quizIdx+1} OF {QUIZ.length}</div>
-                <div style={{fontSize:10,color:"#c8a84b",letterSpacing:2}}>{quizScore} CORRECT</div>
+                <div style={{fontSize:10,color:"#3B82F6",letterSpacing:2}}>{quizScore} CORRECT</div>
               </div>
-              <div style={{height:2,background:"#12121e",borderRadius:1,marginBottom:20}}>
-                <div style={{height:"100%",width:`${(quizIdx/QUIZ.length)*100}%`,background:"#c8a84b",borderRadius:1,transition:"width .3s"}} />
+              <div style={{height:2,background:"#17305a",borderRadius:1,marginBottom:20}}>
+                <div style={{height:"100%",width:`${(quizIdx/QUIZ.length)*100}%`,background:"#3B82F6",borderRadius:1,transition:"width .3s"}} />
               </div>
               <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:10}}>DD SCENARIO &mdash; WHAT DO YOU DO?</div>
               <div className="card" style={{padding:"22px 24px",marginBottom:12}}>
@@ -413,8 +413,8 @@ export default function DDFramework() {
                   {QUIZ[quizIdx].opts.map((o,i)=>{
                     const isCorrect = i===QUIZ[quizIdx].correct;
                     const isSelected = quizSelected===i;
-                    const bg = !quizRevealed?"#07080f":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#07080f";
-                    const border = !quizRevealed?"#1e1e2c":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1e1e2c";
+                    const bg = !quizRevealed?"#0f1d3d":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#0f1d3d";
+                    const border = !quizRevealed?"#1c2a4a":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1c2a4a";
                     const color = !quizRevealed?"#888":isCorrect?"#7aba8a":isSelected?"#c87a7a":"#555";
                     return (
                       <button key={i} onClick={()=>handleQuiz(i)} style={{background:bg,border:`1px solid ${border}`,borderRadius:4,padding:"12px 16px",textAlign:"left",fontSize:11,color,lineHeight:1.6,transition:"all .15s"}}>
@@ -426,10 +426,10 @@ export default function DDFramework() {
                 </div>
               </div>
               {quizRevealed && (
-                <div className="card" style={{padding:"16px 20px",borderLeft:"3px solid #c8a84b33"}}>
-                  <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:8}}>DD INSIGHT</div>
+                <div className="card" style={{padding:"16px 20px",borderLeft:"3px solid #3B82F633"}}>
+                  <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>DD INSIGHT</div>
                   <div style={{fontSize:11,color:"#888",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} style={{marginTop:14,background:"#c8a84b",border:"none",color:"#07080f",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
+                  <button onClick={nextQ} style={{marginTop:14,background:"#3B82F6",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
                     {quizIdx<QUIZ.length-1?"NEXT SCENARIO \u2192":"SEE RESULTS \u2192"}
                   </button>
                 </div>
@@ -437,12 +437,12 @@ export default function DDFramework() {
             </div>
           ) : (
             <div className="card" style={{padding:"32px",textAlign:"center"}}>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>DD ASSESSMENT</div>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:64,color:"#c8a84b"}}>{quizScore}/{QUIZ.length}</div>
+              <div style={{ fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>DD ASSESSMENT</div>
+              <div style={{ fontSize:64,color:"#3B82F6"}}>{quizScore}/{QUIZ.length}</div>
               <div style={{fontSize:13,color:"#888",marginTop:12,marginBottom:24}}>
                 {quizScore===5?"Clean sweep. You\u2019re running the deal room.":quizScore>=3?"Solid instincts \u2014 you\u2019d survive a real DD process.":"A few gaps. The scenarios you missed are the ones that cost real money."}
               </div>
-              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1e1e2c",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
+              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
                 RETAKE
               </button>
             </div>

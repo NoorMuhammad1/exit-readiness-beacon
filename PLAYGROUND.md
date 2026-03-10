@@ -23,6 +23,7 @@ The `main` branch is NEVER touched. All work happens here on `noor_frank_playgro
 7. **Restart the dev server yourself** after changes. Don't tell Frank to do it. The command is `npm run dev` from the project root. Port is 8080.
 8. **Simple and functional over overengineered.**
 9. **Before ending any session:** Commit, push, and update the Session Log at the bottom of this file.
+10. **No hardcoded colors or fonts in components.** All new modules must use Tailwind CSS classes referencing the portal's CSS variable system. No hex values in `style={{}}` props. No inline `fontFamily` declarations. Use `bg-background`, `bg-card`, `bg-secondary`, `text-foreground`, `text-muted-foreground`, `text-accent`, `border-border`, `bg-white/5`, `text-white/80`, etc. The LBO Explainer (`src/components/lbo-explainer/LBOExplainer.tsx`) is the reference implementation. One theme change in `src/index.css` must update every page simultaneously.
 
 ---
 

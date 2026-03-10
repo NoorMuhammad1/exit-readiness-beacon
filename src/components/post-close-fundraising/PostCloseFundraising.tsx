@@ -31,7 +31,7 @@ const RAISE_TYPES: RaiseType[] = [
   {
     id: "co-invest",
     label: "PE CO-INVESTMENT",
-    color: "#c8a84b",
+    color: "#3B82F6",
     headline: "Your existing PE sponsor writes another check to fund the acquisition.",
     when: "Existing sponsor has dry powder, likes the target, and wants to increase their position in the platform.",
     dilution: "MODERATE",
@@ -195,7 +195,7 @@ const DilutionBar = ({
         style={{
           flex: 1,
           height: 8,
-          background: "#12121e",
+          background: "#17305a",
           borderRadius: 2,
           overflow: "hidden",
         }}
@@ -213,7 +213,7 @@ const DilutionBar = ({
         style={{
           flex: 1,
           height: 8,
-          background: "#12121e",
+          background: "#17305a",
           borderRadius: 2,
           overflow: "hidden",
         }}
@@ -316,25 +316,24 @@ export default function PostCloseFundraising() {
   return (
     <div
       style={{
-        background: "#07080f",
+        background: "#0f1d3d",
         minHeight: "100vh",
-        fontFamily: "'IBM Plex Mono','Courier New',monospace",
-        color: "#d8d4cc",
+        color: "#e5e7eb",
         padding: "24px 20px",
         maxWidth: 1200,
         margin: "0 auto",
       }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Anton&display=swap');
+
         .pcf-tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit;}
-        .pcf-tb.on{color:#c8a84b;border-bottom-color:#c8a84b;}
+        .pcf-tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
         .pcf-tb:not(.on){color:#2a2838;}
         .pcf-tb:hover:not(.on){color:#555;}
-        .pcf-card{background:#0a0b14;border:1px solid #181826;border-radius:5px;}
-        .pcf-input{background:#10111c;border:1px solid #1e1e2c;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        .pcf-input:focus{border-color:#c8a84b;}
-        .pcf-node{background:#0a0b14;border:1px solid #1e1e2c;border-radius:4px;padding:10px 14px;text-align:center;}
+        .pcf-card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
+        .pcf-input{background:#17305a;border:1px solid #1c2a4a;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
+        .pcf-input:focus{border-color:#3B82F6;}
+        .pcf-node{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:4px;padding:10px 14px;text-align:center;}
       `}</style>
 
       {/* Header */}
@@ -349,22 +348,18 @@ export default function PostCloseFundraising() {
           }}
         >
           <div
-            style={{
-              fontFamily: "'Anton',sans-serif",
-              fontSize: 36,
+            style={{ fontSize: 36,
               letterSpacing: 6,
-              color: "#c8a84b",
+              color: "#3B82F6",
               lineHeight: 1,
             }}
           >
             POST-CLOSE
           </div>
           <div
-            style={{
-              fontFamily: "'Anton',sans-serif",
-              fontSize: 36,
+            style={{ fontSize: 36,
               letterSpacing: 6,
-              color: "#1e1e2c",
+              color: "#1c2a4a",
               lineHeight: 1,
             }}
           >
@@ -409,7 +404,7 @@ export default function PostCloseFundraising() {
       {/* Tabs */}
       <div
         style={{
-          borderBottom: "1px solid #12121e",
+          borderBottom: "1px solid #17305a",
           marginBottom: 20,
           display: "flex",
           flexWrap: "wrap",
@@ -434,7 +429,7 @@ export default function PostCloseFundraising() {
             <div
               style={{
                 fontSize: 9,
-                color: "#c8a84b",
+                color: "#3B82F6",
                 letterSpacing: 2,
                 marginBottom: 20,
               }}
@@ -464,16 +459,14 @@ export default function PostCloseFundraising() {
                 </div>
                 <div
                   className="pcf-node"
-                  style={{ borderColor: "#c8a84b44", marginBottom: 8 }}
+                  style={{ borderColor: "#3B82F644", marginBottom: 8 }}
                 >
                   <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>
                     YOU
                   </div>
                   <div
-                    style={{
-                      fontFamily: "'Anton',sans-serif",
-                      fontSize: 18,
-                      color: "#c8a84b",
+                    style={{ fontSize: 18,
+                      color: "#3B82F6",
                     }}
                   >
                     20%
@@ -491,9 +484,7 @@ export default function PostCloseFundraising() {
                   <div className="pcf-node">
                     <div style={{ fontSize: 8, color: "#555" }}>PE SPONSOR</div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 16,
+                      style={{ fontSize: 16,
                         color: "#5a8a9a",
                       }}
                     >
@@ -503,9 +494,7 @@ export default function PostCloseFundraising() {
                   <div className="pcf-node">
                     <div style={{ fontSize: 8, color: "#555" }}>MANAGEMENT</div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 16,
+                      style={{ fontSize: 16,
                         color: "#6a5a9a",
                       }}
                     >
@@ -515,15 +504,13 @@ export default function PostCloseFundraising() {
                 </div>
                 <div
                   className="pcf-node"
-                  style={{ borderColor: "#1e1e2c" }}
+                  style={{ borderColor: "#1c2a4a" }}
                 >
                   <div style={{ fontSize: 9, color: "#555", letterSpacing: 1 }}>
                     OldCo
                   </div>
                   <div
-                    style={{
-                      fontFamily: "'Anton',sans-serif",
-                      fontSize: 16,
+                    style={{ fontSize: 16,
                       color: "#888",
                     }}
                   >
@@ -537,7 +524,7 @@ export default function PostCloseFundraising() {
 
               {/* Arrow */}
               <div style={{ textAlign: "center" }}>
-                <div style={{ fontSize: 20, color: "#c8a84b" }}>&rarr;</div>
+                <div style={{ fontSize: 20, color: "#3B82F6" }}>&rarr;</div>
                 <div
                   style={{
                     fontSize: 8,
@@ -575,14 +562,12 @@ export default function PostCloseFundraising() {
                 >
                   <div
                     className="pcf-node"
-                    style={{ borderColor: "#c8a84b33" }}
+                    style={{ borderColor: "#3B82F633" }}
                   >
                     <div style={{ fontSize: 8, color: "#555" }}>YOU</div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 16,
-                        color: "#c8a84b",
+                      style={{ fontSize: 16,
+                        color: "#3B82F6",
                       }}
                     >
                       15%
@@ -592,9 +577,7 @@ export default function PostCloseFundraising() {
                   <div className="pcf-node">
                     <div style={{ fontSize: 8, color: "#555" }}>SPONSOR</div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 16,
+                      style={{ fontSize: 16,
                         color: "#5a8a9a",
                       }}
                     >
@@ -608,9 +591,7 @@ export default function PostCloseFundraising() {
                   >
                     <div style={{ fontSize: 8, color: "#555" }}>NEW INV.</div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 16,
+                      style={{ fontSize: 16,
                         color: "#5a8a6a",
                       }}
                     >
@@ -627,9 +608,7 @@ export default function PostCloseFundraising() {
                     OldCo (HoldCo)
                   </div>
                   <div
-                    style={{
-                      fontFamily: "'Anton',sans-serif",
-                      fontSize: 16,
+                    style={{ fontSize: 16,
                       color: "#5a8a6a",
                     }}
                   >
@@ -659,9 +638,7 @@ export default function PostCloseFundraising() {
                     AcquiredCo
                   </div>
                   <div
-                    style={{
-                      fontFamily: "'Anton',sans-serif",
-                      fontSize: 16,
+                    style={{ fontSize: 16,
                       color: "#8a6a3a",
                     }}
                   >
@@ -687,7 +664,7 @@ export default function PostCloseFundraising() {
             {[
               {
                 title: "DILUTION IS A TRADE",
-                color: "#c8a84b",
+                color: "#3B82F6",
                 body: "You give up % ownership of OldCo. In return you get capital that buys a business that makes OldCo more valuable. The question is never \u2018did I dilute?\u2019 \u2014 it\u2019s \u2018did the value I created exceed the % I gave up?\u2019",
               },
               {
@@ -710,9 +687,7 @@ export default function PostCloseFundraising() {
                 }}
               >
                 <div
-                  style={{
-                    fontFamily: "'Anton',sans-serif",
-                    fontSize: 12,
+                  style={{ fontSize: 12,
                     color: c.color,
                     letterSpacing: 2,
                     marginBottom: 8,
@@ -732,13 +707,13 @@ export default function PostCloseFundraising() {
             className="pcf-card"
             style={{
               padding: "16px 20px",
-              borderLeft: "3px solid #c8a84b33",
+              borderLeft: "3px solid #3B82F633",
             }}
           >
             <div
               style={{
                 fontSize: 9,
-                color: "#c8a84b",
+                color: "#3B82F6",
                 letterSpacing: 2,
                 marginBottom: 8,
               }}
@@ -786,10 +761,8 @@ export default function PostCloseFundraising() {
               style={{ padding: "18px 20px", marginBottom: 12 }}
             >
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 14,
-                  color: "#c8a84b",
+                style={{ fontSize: 14,
+                  color: "#3B82F6",
                   letterSpacing: 3,
                   marginBottom: 14,
                 }}
@@ -848,9 +821,7 @@ export default function PostCloseFundraising() {
               style={{ padding: "18px 20px", marginBottom: 12 }}
             >
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 14,
+                style={{ fontSize: 14,
                   color: "#5a8a9a",
                   letterSpacing: 3,
                   marginBottom: 14,
@@ -907,9 +878,7 @@ export default function PostCloseFundraising() {
 
             <div className="pcf-card" style={{ padding: "18px 20px" }}>
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 14,
+                style={{ fontSize: 14,
                   color: "#5a8a6a",
                   letterSpacing: 3,
                   marginBottom: 14,
@@ -962,7 +931,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   fontSize: 9,
-                  color: "#c8a84b",
+                  color: "#3B82F6",
                   letterSpacing: 2,
                   marginBottom: 6,
                 }}
@@ -984,7 +953,7 @@ export default function PostCloseFundraising() {
                 label="YOU"
                 before={parseFloat(yourPct) || 0}
                 after={yourPostPct}
-                color="#c8a84b"
+                color="#3B82F6"
               />
               <DilutionBar
                 label="PE SPONSOR"
@@ -1019,13 +988,13 @@ export default function PostCloseFundraising() {
                 className="pcf-card"
                 style={{
                   padding: "16px 18px",
-                  borderLeft: "3px solid #c8a84b",
+                  borderLeft: "3px solid #3B82F6",
                 }}
               >
                 <div
                   style={{
                     fontSize: 9,
-                    color: "#c8a84b",
+                    color: "#3B82F6",
                     letterSpacing: 2,
                     marginBottom: 12,
                   }}
@@ -1066,7 +1035,6 @@ export default function PostCloseFundraising() {
                     <span
                       style={{
                         color,
-                        fontFamily: "'Anton',sans-serif",
                         fontSize: 14,
                       }}
                     >
@@ -1107,7 +1075,7 @@ export default function PostCloseFundraising() {
                   {
                     label: "Combined exit value",
                     val: fmt(combinedVal),
-                    color: "#c8a84b",
+                    color: "#3B82F6",
                   },
                 ].map(({ label, val, color }) => (
                   <div
@@ -1123,7 +1091,6 @@ export default function PostCloseFundraising() {
                     <span
                       style={{
                         color,
-                        fontFamily: "'Anton',sans-serif",
                         fontSize: 14,
                       }}
                     >
@@ -1181,7 +1148,7 @@ export default function PostCloseFundraising() {
                   <div
                     key={label}
                     style={{
-                      background: "#07080f",
+                      background: "#0f1d3d",
                       border: `1px solid ${color}33`,
                       borderRadius: 4,
                       padding: "14px 16px",
@@ -1200,9 +1167,7 @@ export default function PostCloseFundraising() {
                       {label}
                     </div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 22,
+                      style={{ fontSize: 22,
                         color,
                       }}
                     >
@@ -1219,7 +1184,7 @@ export default function PostCloseFundraising() {
                   style={{
                     marginTop: 12,
                     padding: "10px 14px",
-                    background: "#07080f",
+                    background: "#0f1d3d",
                     border: "1px solid #5a8a6a33",
                     borderRadius: 4,
                     fontSize: 10,
@@ -1285,16 +1250,14 @@ export default function PostCloseFundraising() {
                     marginBottom: 6,
                     borderRadius: 4,
                     cursor: "pointer",
-                    border: `1px solid ${active ? r.color + "55" : "#181826"}`,
-                    background: active ? r.color + "0e" : "#0a0b14",
+                    border: `1px solid ${active ? r.color + "55" : "#1c2a4a"}`,
+                    background: active ? r.color + "0e" : "#0f1d3d",
                     borderLeft: `3px solid ${active ? r.color : r.color + "33"}`,
                     transition: "all .15s",
                   }}
                 >
                   <div
-                    style={{
-                      fontFamily: "'Anton',sans-serif",
-                      fontSize: 11,
+                    style={{ fontSize: 11,
                       color: active ? r.color : "#444",
                       letterSpacing: 2,
                     }}
@@ -1364,9 +1327,7 @@ export default function PostCloseFundraising() {
               }}
             >
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 20,
+                style={{ fontSize: 20,
                   color: raise_type.color,
                   letterSpacing: 3,
                   marginBottom: 8,
@@ -1429,7 +1390,7 @@ export default function PostCloseFundraising() {
                   <div
                     key={l}
                     style={{
-                      background: "#07080f",
+                      background: "#0f1d3d",
                       border: `1px solid ${c}33`,
                       borderRadius: 3,
                       padding: "8px 14px",
@@ -1446,9 +1407,7 @@ export default function PostCloseFundraising() {
                       {l}
                     </div>
                     <div
-                      style={{
-                        fontFamily: "'Anton',sans-serif",
-                        fontSize: 14,
+                      style={{ fontSize: 14,
                         color: c,
                         marginTop: 2,
                       }}
@@ -1458,7 +1417,7 @@ export default function PostCloseFundraising() {
                   </div>
                 ))}
               </div>
-              <div style={{ borderTop: "1px solid #12121e", paddingTop: 14 }}>
+              <div style={{ borderTop: "1px solid #17305a", paddingTop: 14 }}>
                 <div
                   style={{
                     fontSize: 9,
@@ -1590,7 +1549,7 @@ export default function PostCloseFundraising() {
                   SCENARIO {quizIdx + 1} OF {QUIZ.length}
                 </div>
                 <div
-                  style={{ fontSize: 10, color: "#c8a84b", letterSpacing: 2 }}
+                  style={{ fontSize: 10, color: "#3B82F6", letterSpacing: 2 }}
                 >
                   {quizScore} CORRECT
                 </div>
@@ -1598,7 +1557,7 @@ export default function PostCloseFundraising() {
               <div
                 style={{
                   height: 2,
-                  background: "#12121e",
+                  background: "#17305a",
                   borderRadius: 1,
                   marginBottom: 20,
                 }}
@@ -1607,7 +1566,7 @@ export default function PostCloseFundraising() {
                   style={{
                     height: "100%",
                     width: `${(quizIdx / QUIZ.length) * 100}%`,
-                    background: "#c8a84b",
+                    background: "#3B82F6",
                     transition: "width .3s",
                   }}
                 />
@@ -1637,19 +1596,19 @@ export default function PostCloseFundraising() {
                     const isCorrect = i === QUIZ[quizIdx].correct;
                     const isSelected = quizSelected === i;
                     const bg = !quizRevealed
-                      ? "#07080f"
+                      ? "#0f1d3d"
                       : isCorrect
                       ? "#5a8a6a22"
                       : isSelected
                       ? "#8a4a4a22"
-                      : "#07080f";
+                      : "#0f1d3d";
                     const border = !quizRevealed
-                      ? "#1e1e2c"
+                      ? "#1c2a4a"
                       : isCorrect
                       ? "#5a8a6a"
                       : isSelected
                       ? "#8a4a4a"
-                      : "#1e1e2c";
+                      : "#1c2a4a";
                     const color = !quizRevealed
                       ? "#888"
                       : isCorrect
@@ -1700,13 +1659,13 @@ export default function PostCloseFundraising() {
                   className="pcf-card"
                   style={{
                     padding: "16px 20px",
-                    borderLeft: "3px solid #c8a84b33",
+                    borderLeft: "3px solid #3B82F633",
                   }}
                 >
                   <div
                     style={{
                       fontSize: 9,
-                      color: "#c8a84b",
+                      color: "#3B82F6",
                       letterSpacing: 2,
                       marginBottom: 8,
                     }}
@@ -1722,9 +1681,9 @@ export default function PostCloseFundraising() {
                     onClick={nextQ}
                     style={{
                       marginTop: 14,
-                      background: "#c8a84b",
+                      background: "#3B82F6",
                       border: "none",
-                      color: "#07080f",
+                      color: "#0f1d3d",
                       padding: "8px 22px",
                       fontSize: 10,
                       letterSpacing: 2,
@@ -1744,9 +1703,7 @@ export default function PostCloseFundraising() {
               style={{ padding: "32px", textAlign: "center" }}
             >
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 14,
+                style={{ fontSize: 14,
                   color: "#555",
                   letterSpacing: 4,
                   marginBottom: 12,
@@ -1755,10 +1712,8 @@ export default function PostCloseFundraising() {
                 FUNDRAISING ASSESSMENT
               </div>
               <div
-                style={{
-                  fontFamily: "'Anton',sans-serif",
-                  fontSize: 64,
-                  color: "#c8a84b",
+                style={{ fontSize: 64,
+                  color: "#3B82F6",
                 }}
               >
                 {quizScore}/{QUIZ.length}
@@ -1787,7 +1742,7 @@ export default function PostCloseFundraising() {
                 }}
                 style={{
                   background: "transparent",
-                  border: "1px solid #1e1e2c",
+                  border: "1px solid #1c2a4a",
                   color: "#555",
                   padding: "8px 22px",
                   fontSize: 10,

@@ -19,7 +19,7 @@ const STRUCTURES = ["C-Corp", "S-Corp", "LLC", "Partnership", "Other"];
 const FIELD_GROUPS = [
   {
     label: "COMPANY IDENTITY",
-    color: "#c8a84b",
+    color: "#3B82F6",
     fields: [
       { key: "name", label: "Company Name", placeholder: "Apex HVAC Services" },
       { key: "tagline", label: "Tagline / Descriptor", placeholder: "Residential & Commercial HVAC Platform" },
@@ -125,29 +125,28 @@ export default function CompanyOnePager() {
     <div style={{
       background: "#080910",
       minHeight: "100vh",
-      fontFamily: "'IBM Plex Mono','Courier New',monospace",
       color: "#ddd8cc",
       padding: "24px 20px",
       maxWidth: 1200,
       margin: "0 auto"
     }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Anton&family=Playfair+Display:wght@400;700&display=swap');
+
         button { cursor: pointer; font-family: inherit; }
         .tb { background: transparent; border: none; padding: 8px 16px; font-size: 10px; letter-spacing: 2px; transition: all .2s; }
-        .tb.on { color: #c8a84b; border-bottom: 2px solid #c8a84b; }
+        .tb.on { color: #3B82F6; border-bottom: 2px solid #3B82F6; }
         .tb:not(.on) { color: #2a2838; border-bottom: 2px solid transparent; }
         .tb:hover:not(.on) { color: #666; }
         input, textarea, select {
-          background: #10111c; border: 1px solid #1e1e2c; color: #ccc;
+          background: #17305a; border: 1px solid #1c2a4a; color: #ccc;
           font-family: inherit; font-size: 11px; padding: 7px 10px;
           border-radius: 3px; width: 100%; box-sizing: border-box; outline: none;
           transition: border-color .15s;
         }
-        input:focus, textarea:focus, select:focus { border-color: #c8a84b; }
+        input:focus, textarea:focus, select:focus { border-color: #3B82F6; }
         textarea { resize: vertical; line-height: 1.6; }
         select { appearance: none; }
-        .card { background: #0b0c16; border: 1px solid #181826; border-radius: 5px; }
+        .card { background: #0b0c16; border: 1px solid #1c2a4a; border-radius: 5px; }
 
         /* One-pager print styles */
         .onepager {
@@ -165,15 +164,15 @@ export default function CompanyOnePager() {
           background: #0f1018;
           color: #fff;
           padding: 24px 28px 20px;
-          border-bottom: 3px solid #c8a84b;
+          border-bottom: 3px solid #3B82F6;
         }
         .op-section { padding: 16px 28px; border-bottom: 1px solid #eee; }
-        .op-label { font-family: 'IBM Plex Mono', monospace; font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
-        .op-value { font-family: 'IBM Plex Mono', monospace; font-size: 13px; color: #111; font-weight: 500; }
-        .op-highlight { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; font-family: 'IBM Plex Mono', monospace; font-size: 10px; color: #333; line-height: 1.5; }
+        .op-label { font-size: 8px; letter-spacing: 2px; text-transform: uppercase; color: #999; margin-bottom: 4px; }
+        .op-value { font-size: 13px; color: #111; font-weight: 500; }
+        .op-highlight { display: flex; gap: 8px; align-items: flex-start; margin-bottom: 6px; font-size: 10px; color: #333; line-height: 1.5; }
         .op-metric-box { background: #f8f7f4; border: 1px solid #e8e4dc; border-radius: 3px; padding: 10px 14px; }
         .completion-bar { height: 3px; background: #1a1a26; border-radius: 2px; overflow: hidden; }
-        .completion-fill { height: 100%; background: linear-gradient(90deg, #c8a84b, #8a6a3a); border-radius: 2px; transition: width .4s ease; }
+        .completion-fill { height: 100%; background: linear-gradient(90deg, #3B82F6, #8a6a3a); border-radius: 2px; transition: width .4s ease; }
         @media print {
           body { background: white; }
           .no-print { display: none !important; }
@@ -184,8 +183,8 @@ export default function CompanyOnePager() {
       {/* Header */}
       <div className="no-print" style={{ marginBottom: 20 }}>
         <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 4 }}>
-          <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 34, letterSpacing: 5, color: "#c8a84b", lineHeight: 1 }}>COMPANY</div>
-          <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 34, letterSpacing: 5, color: "#222", lineHeight: 1 }}>ONE-PAGER</div>
+          <div style={{ fontSize: 34, letterSpacing: 5, color: "#3B82F6", lineHeight: 1 }}>COMPANY</div>
+          <div style={{ fontSize: 34, letterSpacing: 5, color: "#222", lineHeight: 1 }}>ONE-PAGER</div>
           <div style={{ fontSize: 9, color: "#2a2838", letterSpacing: 3, marginLeft: 8 }}>MODULE #21 \u00b7 WAVE 2 COMPLETE</div>
         </div>
 
@@ -196,11 +195,11 @@ export default function CompanyOnePager() {
               <div className="completion-fill" style={{ width: `${completionPct}%` }} />
             </div>
           </div>
-          <div style={{ fontSize: 10, color: completionPct > 70 ? "#c8a84b" : "#555", letterSpacing: 1, whiteSpace: "nowrap" }}>
+          <div style={{ fontSize: 10, color: completionPct > 70 ? "#3B82F6" : "#555", letterSpacing: 1, whiteSpace: "nowrap" }}>
             {completionPct}% COMPLETE
           </div>
           <button onClick={() => window.print()} style={{
-            background: "#c8a84b", border: "none", color: "#07080f",
+            background: "#3B82F6", border: "none", color: "#0f1d3d",
             padding: "6px 16px", fontSize: 9, letterSpacing: 2, borderRadius: 3
           }}>
             PRINT / EXPORT
@@ -209,7 +208,7 @@ export default function CompanyOnePager() {
       </div>
 
       {/* Tabs */}
-      <div className="no-print" style={{ borderBottom: "1px solid #12121e", marginBottom: 20, display: "flex" }}>
+      <div className="no-print" style={{ borderBottom: "1px solid #17305a", marginBottom: 20, display: "flex" }}>
         {["builder", "preview", "rules"].map(t => (
           <button key={t} className={`tb ${tab === t ? "on" : ""}`} onClick={() => setTab(t)}>{t.toUpperCase()}</button>
         ))}
@@ -223,12 +222,12 @@ export default function CompanyOnePager() {
             {FIELD_GROUPS.map((g, i) => (
               <div key={g.label} onClick={() => setActiveGroup(i)} style={{
                 padding: "10px 14px", marginBottom: 6, borderRadius: 4, cursor: "pointer",
-                border: `1px solid ${activeGroup === i ? g.color + "66" : "#181826"}`,
+                border: `1px solid ${activeGroup === i ? g.color + "66" : "#1c2a4a"}`,
                 background: activeGroup === i ? g.color + "0e" : "#0b0c16",
                 borderLeft: `3px solid ${activeGroup === i ? g.color : g.color + "33"}`,
                 transition: "all .15s"
               }}>
-                <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 12, color: activeGroup === i ? g.color : "#444", letterSpacing: 2 }}>{g.label}</div>
+                <div style={{ fontSize: 12, color: activeGroup === i ? g.color : "#444", letterSpacing: 2 }}>{g.label}</div>
                 <div style={{ fontSize: 9, color: "#333", marginTop: 3 }}>
                   {g.fields.filter(f => data[f.key]?.length > 0).length}/{g.fields.length} filled
                 </div>
@@ -238,7 +237,7 @@ export default function CompanyOnePager() {
 
           {/* Fields */}
           <div className="card" style={{ padding: "20px 24px" }}>
-            <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 18, color: FIELD_GROUPS[activeGroup].color, letterSpacing: 3, marginBottom: 20 }}>
+            <div style={{ fontSize: 18, color: FIELD_GROUPS[activeGroup].color, letterSpacing: 3, marginBottom: 20 }}>
               {FIELD_GROUPS[activeGroup].label}
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
@@ -274,11 +273,11 @@ export default function CompanyOnePager() {
             {/* Nav */}
             <div style={{ display: "flex", justifyContent: "space-between", marginTop: 20 }}>
               <button onClick={() => setActiveGroup(g => Math.max(0, g - 1))} disabled={activeGroup === 0}
-                style={{ background: "transparent", border: "1px solid #1e1e2c", color: "#555", padding: "7px 18px", fontSize: 10, letterSpacing: 2, borderRadius: 3, opacity: activeGroup === 0 ? 0.3 : 1 }}>
+                style={{ background: "transparent", border: "1px solid #1c2a4a", color: "#555", padding: "7px 18px", fontSize: 10, letterSpacing: 2, borderRadius: 3, opacity: activeGroup === 0 ? 0.3 : 1 }}>
                 \u2190 BACK
               </button>
               <button onClick={() => { setActiveGroup(g => Math.min(FIELD_GROUPS.length - 1, g + 1)); if (activeGroup === FIELD_GROUPS.length - 2) setTab("preview"); }}
-                style={{ background: activeGroup === FIELD_GROUPS.length - 1 ? "#c8a84b" : "transparent", border: `1px solid ${activeGroup === FIELD_GROUPS.length - 1 ? "#c8a84b" : "#1e1e2c"}`, color: activeGroup === FIELD_GROUPS.length - 1 ? "#080910" : "#555", padding: "7px 18px", fontSize: 10, letterSpacing: 2, borderRadius: 3 }}>
+                style={{ background: activeGroup === FIELD_GROUPS.length - 1 ? "#3B82F6" : "transparent", border: `1px solid ${activeGroup === FIELD_GROUPS.length - 1 ? "#3B82F6" : "#1c2a4a"}`, color: activeGroup === FIELD_GROUPS.length - 1 ? "#080910" : "#555", padding: "7px 18px", fontSize: 10, letterSpacing: 2, borderRadius: 3 }}>
                 {activeGroup === FIELD_GROUPS.length - 1 ? "PREVIEW ONE-PAGER \u2192" : "NEXT \u2192"}
               </button>
             </div>
@@ -297,7 +296,7 @@ export default function CompanyOnePager() {
                 ? "Looking good \u2014 a few more fields will sharpen the output"
                 : "\u2713 Strong completion \u2014 ready to present"}
             </div>
-            <button onClick={() => window.print()} style={{ background: "#c8a84b", border: "none", color: "#080910", padding: "7px 20px", fontSize: 10, letterSpacing: 2, borderRadius: 3 }}>
+            <button onClick={() => window.print()} style={{ background: "#3B82F6", border: "none", color: "#080910", padding: "7px 20px", fontSize: 10, letterSpacing: 2, borderRadius: 3 }}>
               PRINT / EXPORT PDF
             </button>
           </div>
@@ -307,10 +306,10 @@ export default function CompanyOnePager() {
             <div className="op-header">
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start" }}>
                 <div>
-                  <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 32, letterSpacing: 4, color: "#c8a84b", lineHeight: 1 }}>
+                  <div style={{ fontSize: 32, letterSpacing: 4, color: "#3B82F6", lineHeight: 1 }}>
                     {data.name || "COMPANY NAME"}
                   </div>
-                  <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, color: "#aaa", marginTop: 6, letterSpacing: 1 }}>
+                  <div style={{ fontSize: 11, color: "#aaa", marginTop: 6, letterSpacing: 1 }}>
                     {data.tagline || "Business descriptor goes here"}
                   </div>
                   <div style={{ display: "flex", gap: 16, marginTop: 10, flexWrap: "wrap" }}>
@@ -321,7 +320,7 @@ export default function CompanyOnePager() {
                       data.founded && `Est. ${data.founded}`,
                       data.employees && `${data.employees} employees`
                     ].filter(Boolean).map((item, i) => (
-                      <div key={i} style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 9, color: "#888", letterSpacing: 1 }}>
+                      <div key={i} style={{ fontSize: 9, color: "#888", letterSpacing: 1 }}>
                         {item}
                       </div>
                     ))}
@@ -331,13 +330,13 @@ export default function CompanyOnePager() {
                   {data.ask && (
                     <div>
                       <div className="op-label" style={{ color: "#888" }}>EQUITY SOUGHT</div>
-                      <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 26, color: "#c8a84b", letterSpacing: 2 }}>{fmt(data.ask)}</div>
+                      <div style={{ fontSize: 26, color: "#3B82F6", letterSpacing: 2 }}>{fmt(data.ask)}</div>
                     </div>
                   )}
                   {(data.entry_multiple || impliedValuation) && (
                     <div style={{ marginTop: 6 }}>
                       <div className="op-label" style={{ color: "#888" }}>ENTRY MULTIPLE</div>
-                      <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 14, color: "#aaa" }}>
+                      <div style={{ fontSize: 14, color: "#aaa" }}>
                         {data.entry_multiple || impliedValuation}x EBITDA
                       </div>
                     </div>
@@ -359,7 +358,7 @@ export default function CompanyOnePager() {
                 ].map(([label, val]) => (
                   <div key={label} style={{ textAlign: "center" }}>
                     <div className="op-label">{label}</div>
-                    <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 18, color: "#111", letterSpacing: 1 }}>{val}</div>
+                    <div style={{ fontSize: 18, color: "#111", letterSpacing: 1 }}>{val}</div>
                   </div>
                 ))}
               </div>
@@ -371,8 +370,8 @@ export default function CompanyOnePager() {
               <div style={{ borderRight: "1px solid #eee" }}>
                 {/* Business overview */}
                 <div className="op-section">
-                  <div className="op-label" style={{ color: "#c8a84b", marginBottom: 8 }}>BUSINESS OVERVIEW</div>
-                  <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 10, color: "#444", lineHeight: 1.8 }}>
+                  <div className="op-label" style={{ color: "#3B82F6", marginBottom: 8 }}>BUSINESS OVERVIEW</div>
+                  <div style={{ fontSize: 10, color: "#444", lineHeight: 1.8 }}>
                     {data.overview || "Business description will appear here once entered in the builder."}
                   </div>
                 </div>
@@ -380,10 +379,10 @@ export default function CompanyOnePager() {
                 {/* Investment highlights */}
                 {highlights.length > 0 && (
                   <div className="op-section">
-                    <div className="op-label" style={{ color: "#c8a84b", marginBottom: 10 }}>INVESTMENT HIGHLIGHTS</div>
+                    <div className="op-label" style={{ color: "#3B82F6", marginBottom: 10 }}>INVESTMENT HIGHLIGHTS</div>
                     {highlights.map((h, i) => (
                       <div key={i} className="op-highlight">
-                        <div style={{ width: 16, height: 16, borderRadius: "50%", background: "#c8a84b", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, color: "#080910", fontFamily: "'Anton',sans-serif", flexShrink: 0, marginTop: 1 }}>
+                        <div style={{ width: 16, height: 16, borderRadius: "50%", background: "#3B82F6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 8, color: "#080910", flexShrink: 0, marginTop: 1 }}>
                           {i + 1}
                         </div>
                         <div>{h}</div>
@@ -395,8 +394,8 @@ export default function CompanyOnePager() {
                 {/* Exit thesis */}
                 {data.exit_thesis && (
                   <div className="op-section">
-                    <div className="op-label" style={{ color: "#c8a84b", marginBottom: 6 }}>EXIT THESIS</div>
-                    <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 10, color: "#444", lineHeight: 1.7, fontStyle: "italic" }}>
+                    <div className="op-label" style={{ color: "#3B82F6", marginBottom: 6 }}>EXIT THESIS</div>
+                    <div style={{ fontSize: 10, color: "#444", lineHeight: 1.7, fontStyle: "italic" }}>
                       "{data.exit_thesis}"
                     </div>
                   </div>
@@ -408,7 +407,7 @@ export default function CompanyOnePager() {
                 {/* Financial snapshot */}
                 <div className="op-section">
                   <div className="op-label" style={{ color: "#5a8a6a", marginBottom: 10 }}>FINANCIAL SNAPSHOT</div>
-                  <table style={{ width: "100%", fontFamily: "'IBM Plex Mono',monospace", fontSize: 10, borderCollapse: "collapse" }}>
+                  <table style={{ width: "100%", fontSize: 10, borderCollapse: "collapse" }}>
                     <thead>
                       <tr style={{ borderBottom: "1px solid #e8e4dc" }}>
                         {["", "2 Yrs Ago", "LY Actual", "CY Est"].map(h => (
@@ -458,7 +457,7 @@ export default function CompanyOnePager() {
                     ))}
                   </div>
                   {data.use_of_proceeds && (
-                    <div style={{ marginTop: 10, fontFamily: "'IBM Plex Mono',monospace", fontSize: 9, color: "#666" }}>
+                    <div style={{ marginTop: 10, fontSize: 9, color: "#666" }}>
                       <span style={{ color: "#999", letterSpacing: 1 }}>USE OF PROCEEDS: </span>{data.use_of_proceeds}
                     </div>
                   )}
@@ -474,10 +473,10 @@ export default function CompanyOnePager() {
                   ].filter(([name]) => name).map(([name, role, bg], i) => (
                     <div key={i} style={{ marginBottom: 8, paddingBottom: 8, borderBottom: i < 2 ? "1px solid #f0ede8" : "none" }}>
                       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline" }}>
-                        <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 11, color: "#111", fontWeight: 600 }}>{name}</div>
+                        <div style={{ fontSize: 11, color: "#111", fontWeight: 600 }}>{name}</div>
                         <div className="op-label">{role}</div>
                       </div>
-                      {bg && <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 9, color: "#777", marginTop: 2 }}>{bg}</div>}
+                      {bg && <div style={{ fontSize: 9, color: "#777", marginTop: 2 }}>{bg}</div>}
                     </div>
                   ))}
                 </div>
@@ -486,11 +485,11 @@ export default function CompanyOnePager() {
 
             {/* Footer */}
             <div style={{ background: "#0f1018", padding: "12px 28px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-              <div style={{ fontFamily: "'IBM Plex Mono',monospace", fontSize: 9, color: "#666" }}>
+              <div style={{ fontSize: 9, color: "#666" }}>
                 CONFIDENTIAL \u2014 FOR QUALIFIED INVESTORS ONLY \u00b7 NOT AN OFFER TO SELL SECURITIES
               </div>
               {(data.contact_name || data.contact_email || data.website) && (
-                <div style={{ textAlign: "right", fontFamily: "'IBM Plex Mono',monospace", fontSize: 9, color: "#888" }}>
+                <div style={{ textAlign: "right", fontSize: 9, color: "#888" }}>
                   {data.contact_name && <div>{data.contact_name}</div>}
                   {data.contact_email && <div>{data.contact_email}</div>}
                   {data.website && <div>{data.website}</div>}
@@ -508,11 +507,11 @@ export default function CompanyOnePager() {
             PE readers see hundreds of one-pagers. These are the rules that separate the ones that get a call from the ones that get filed.
           </div>
           {RULES.map((r, i) => (
-            <div key={i} className="card" style={{ marginBottom: 10, padding: "16px 20px", borderLeft: "3px solid #c8a84b33" }}>
+            <div key={i} className="card" style={{ marginBottom: 10, padding: "16px 20px", borderLeft: "3px solid #3B82F633" }}>
               <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-                <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 22, color: "#c8a84b44", flexShrink: 0, lineHeight: 1, marginTop: 2 }}>{i + 1}</div>
+                <div style={{ fontSize: 22, color: "#3B82F644", flexShrink: 0, lineHeight: 1, marginTop: 2 }}>{i + 1}</div>
                 <div>
-                  <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 14, color: "#c8a84b", letterSpacing: 2, marginBottom: 6 }}>{r.rule.toUpperCase()}</div>
+                  <div style={{ fontSize: 14, color: "#3B82F6", letterSpacing: 2, marginBottom: 6 }}>{r.rule.toUpperCase()}</div>
                   <div style={{ fontSize: 11, color: "#888", lineHeight: 1.7 }}>{r.detail}</div>
                 </div>
               </div>
@@ -521,7 +520,7 @@ export default function CompanyOnePager() {
 
           {/* Curriculum complete banner */}
           <div style={{ marginTop: 24, padding: "20px 24px", background: "#0a0c0a", border: "1px solid #5a8a6a44", borderRadius: 6, textAlign: "center" }}>
-            <div style={{ fontFamily: "'Anton',sans-serif", fontSize: 18, color: "#5a8a6a", letterSpacing: 4, marginBottom: 8 }}>WAVE 2 COMPLETE</div>
+            <div style={{ fontSize: 18, color: "#5a8a6a", letterSpacing: 4, marginBottom: 8 }}>WAVE 2 COMPLETE</div>
             <div style={{ fontSize: 10, color: "#555", lineHeight: 1.9 }}>
               Synergy Engine \u00b7 Process Letter Academy \u00b7 Life After Exit<br />
               PE Pitch Deck Builder \u00b7 Deal Structure Lab \u00b7 Company One-Pager

@@ -15,7 +15,6 @@ const fmtX = (n: string | number, d=2) => isNaN(parseFloat(String(n))) ? "\u2014
 const CONCEPTS = [
   {
     term: "Pre-Money Valuation",
-    color: "#c8a84b",
     definition: "What the company is worth BEFORE new investment comes in. If a PE firm says 'we're investing at a $20M pre-money valuation,' the company is worth $20M before they write a check.",
     formula: "Pre-Money = Post-Money \u2212 New Investment",
     example: "Company valued at $20M pre-money. PE invests $5M. Post-money = $25M. PE owns 20% ($5M / $25M).",
@@ -24,7 +23,6 @@ const CONCEPTS = [
   },
   {
     term: "Authorized vs. Issued Shares",
-    color: "#5a8a9a",
     definition: "Authorized shares are the maximum the company can legally issue (set in charter). Issued shares are what's actually outstanding. The gap between them is unissued shares \u2014 reserved for future equity grants.",
     formula: "Fully Diluted Shares = Issued + Options + Warrants + Convertible Notes (converted)",
     example: "Company authorizes 10M shares. Issues 7M to founders. Reserves 1.5M for option pool. 1.5M remain unissued.",
@@ -33,7 +31,6 @@ const CONCEPTS = [
   },
   {
     term: "Option Pool",
-    color: "#6a5a9a",
     definition: "Shares reserved for employee equity compensation \u2014 typically 10\u201320% of fully diluted shares in venture-backed companies, smaller in PE-backed businesses. Created from authorized but unissued shares.",
     formula: "Option Pool % = Reserved Shares / Fully Diluted Shares",
     example: "10M fully diluted shares. 1.2M reserved for options. Option pool = 12%. If all options vest and are exercised, existing shareholders dilute proportionally.",
@@ -42,7 +39,6 @@ const CONCEPTS = [
   },
   {
     term: "Liquidation Preference",
-    color: "#8a4a4a",
     definition: "The right to get paid before common shareholders in a liquidation or exit. PE preferred shares typically have 1x non-participating liquidation preference \u2014 meaning PE gets their investment back first, then everyone shares pro-rata.",
     formula: "Preference Stack: Senior Secured Debt \u2192 Preferred Equity (LP) \u2192 Common Equity",
     example: "PE invests $10M with 1x non-participating preference. Exit at $8M: PE gets $8M, founders get $0. Exit at $25M: PE gets $10M first, then all share pro-rata on remaining $15M.",
@@ -51,7 +47,6 @@ const CONCEPTS = [
   },
   {
     term: "Anti-Dilution",
-    color: "#8a6a3a",
     definition: "Protection for investors if the company raises money at a lower valuation (a 'down round'). Adjusts the investor's conversion price downward so they receive more shares, maintaining their economic position.",
     formula: "Broad-based weighted average (most common) vs. Full ratchet (most investor-friendly)",
     example: "Series A investor bought at $2/share. Down round at $1/share triggers anti-dilution. Weighted average formula recalculates their conversion price \u2014 say to $1.60/share. They now convert into more shares.",
@@ -60,7 +55,6 @@ const CONCEPTS = [
   },
   {
     term: "Waterfall Distribution",
-    color: "#5a8a6a",
     definition: "The order in which exit proceeds flow to different equity holders. Determines who gets paid, how much, and in what sequence. Every cap table has a waterfall \u2014 knowing yours determines whether a given exit is good or bad for you.",
     formula: "Debt Repayment \u2192 Preferred Liquidation Preferences \u2192 Common Pro-Rata \u2192 Management Carve-outs",
     example: "$30M exit: $15M debt repaid first. $3M preferred LP returned. Remaining $12M split: PE 60% common ($7.2M) + Management 40% common ($4.8M) per pro-rata ownership.",
@@ -69,7 +63,6 @@ const CONCEPTS = [
   },
   {
     term: "Management Equity Plan (MIP)",
-    color: "#c8a84b",
     definition: "The equity incentive structure for management in a PE-backed company. Typically 5\u201315% of fully diluted equity, subject to vesting, with hurdle rates tied to investor returns.",
     formula: "MIP Value = (Exit Equity \u2212 Hurdle) \u00d7 MIP%",
     example: "Management owns 10% via MIP. PE needs 2x MOIC before MIP pays out. Exit at 2.5x: management earns their 10% on value above the 2x hurdle. Below 2x: MIP is worth zero.",
@@ -78,7 +71,6 @@ const CONCEPTS = [
   },
   {
     term: "Fully Diluted Capitalization",
-    color: "#5a8a9a",
     definition: "Total share count assuming all options, warrants, convertible instruments, and unvested equity have been issued and converted. The denominator for all ownership percentage calculations in a real deal.",
     formula: "FD Shares = Common + Preferred (converted) + Options (vested + unvested) + Warrants + Convertible Notes",
     example: "10M common shares + 2M preferred converted + 1.5M options outstanding = 13.5M fully diluted. An investor owning 2M shares owns 14.8% FD, not 20% of common.",
@@ -210,33 +202,32 @@ export default function CapTable() {
   };
 
   return (
-    <div style={{background:"#07080f",minHeight:"100vh",fontFamily:"'IBM Plex Mono','Courier New',monospace",color:"#d8d4cc",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
+    <div className="bg-background min-h-screen text-white/80 max-w-[1200px] mx-auto" style={{padding:"24px 20px"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Anton&display=swap');
-        button{cursor:pointer;font-family:inherit;}
+        button{cursor:pointer;}
         .tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;}
-        .tb.on{color:#c8a84b;border-bottom-color:#c8a84b;}
-        .tb:not(.on){color:#2a2838;}
-        .tb:hover:not(.on){color:#555;}
-        .card{background:#0a0b14;border:1px solid #181826;border-radius:5px;}
-        input{background:#10111c;border:1px solid #1e1e2c;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        input:focus{border-color:#c8a84b;}
+        .tb.on{color:rgb(96,165,250);border-bottom-color:rgb(96,165,250);}
+        .tb:not(.on){color:rgba(255,255,255,0.15);}
+        .tb:hover:not(.on){color:rgba(255,255,255,0.4);}
+        .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:5px;}
+        input{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#ccc;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
+        input:focus{border-color:rgb(96,165,250);}
         .bar-row{display:flex;height:24px;border-radius:3px;overflow:hidden;gap:1px;margin-bottom:8px;}
         .bar-seg{display:flex;align-items:center;justify-content:center;font-size:8px;letter-spacing:1px;transition:width .4s;}
       `}</style>
 
       <div style={{marginBottom:20}}>
-        <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:6}}>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#c8a84b",lineHeight:1}}>CAP TABLE</div>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#1e1e2c",lineHeight:1}}>MECHANICS</div>
-          <div style={{fontSize:9,color:"#2a2838",letterSpacing:3,marginLeft:8}}>WAVE 3 &middot; EQUITY STRUCTURE</div>
+        <div className="flex items-baseline gap-3 mb-1.5">
+          <div className="text-4xl tracking-[6px] text-blue-400 leading-none">CAP TABLE</div>
+          <div className="text-4xl tracking-[6px] text-white/10 leading-none">MECHANICS</div>
+          <div className="text-[9px] text-white/15 tracking-[3px] ml-2">WAVE 3 &middot; EQUITY STRUCTURE</div>
         </div>
-        <div style={{fontSize:11,color:"#333",lineHeight:1.7,maxWidth:640}}>
+        <div className="text-[11px] text-white/20 leading-[1.7] max-w-[640px]">
           The cap table is the legal record of who owns what. Every deal, every equity grant, every exit &mdash; it all flows through here. Understanding it isn't optional for operators with skin in the game.
         </div>
       </div>
 
-      <div style={{borderBottom:"1px solid #12121e",marginBottom:20,display:"flex",flexWrap:"wrap"}}>
+      <div className="border-b border-white/5 mb-5 flex flex-wrap">
         {(["concepts","dilution","waterfall","quiz"] as TabType[]).map(t=>(
           <button key={t} className={`tb ${tab===t?"on":""}`} onClick={()=>setTab(t)}>{t.toUpperCase()}</button>
         ))}
@@ -244,39 +235,39 @@ export default function CapTable() {
 
       {tab==="concepts" && (
         <div>
-          <div style={{fontSize:10,color:"#555",marginBottom:16,letterSpacing:1}}>8 TERMS EVERY OPERATOR WITH EQUITY MUST KNOW COLD</div>
+          <div className="text-[10px] text-white/40 mb-4 tracking-[1px]">8 TERMS EVERY OPERATOR WITH EQUITY MUST KNOW COLD</div>
           {CONCEPTS.map((c, i) => (
-            <div key={i} className="card" style={{marginBottom:8,borderLeft:`3px solid ${c.color}33`,overflow:"hidden"}}>
-              <div onClick={()=>setExpanded(expanded===i?null:i)} style={{padding:"14px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer"}}>
-                <div style={{display:"flex",alignItems:"center",gap:16}}>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:13,color:"#222",minWidth:24}}>{String(i+1).padStart(2,"0")}</div>
+            <div key={i} className="card" style={{marginBottom:8,borderLeft:"3px solid rgba(96,165,250,0.2)",overflow:"hidden"}}>
+              <div onClick={()=>setExpanded(expanded===i?null:i)} className="cursor-pointer" style={{padding:"14px 18px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
+                <div className="flex items-center gap-4">
+                  <div className="text-[13px] text-white/10 min-w-[24px]">{String(i+1).padStart(2,"0")}</div>
                   <div>
-                    <div style={{fontFamily:"'Anton',sans-serif",fontSize:14,color:c.color,letterSpacing:2}}>{c.term.toUpperCase()}</div>
-                    <div style={{fontSize:10,color:"#444",marginTop:2,maxWidth:560}}>{c.definition.substring(0,90)}...</div>
+                    <div className="text-[14px] text-blue-400 tracking-[2px]">{c.term.toUpperCase()}</div>
+                    <div className="text-[10px] text-white/30 mt-0.5 max-w-[560px]">{c.definition.substring(0,90)}...</div>
                   </div>
                 </div>
-                <span style={{color:"#333",fontSize:12,marginLeft:12,flexShrink:0}}>{expanded===i?"\u25B2":"\u25BC"}</span>
+                <span className="text-white/20 text-xs ml-3 shrink-0">{expanded===i?"\u25B2":"\u25BC"}</span>
               </div>
               {expanded===i && (
-                <div style={{padding:"0 18px 18px",borderTop:"1px solid #12121e"}}>
-                  <div style={{fontSize:11,color:"#888",lineHeight:1.9,marginTop:14}}>{c.definition}</div>
-                  <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12,marginTop:16}}>
-                    <div style={{background:"#07080f",border:`1px solid ${c.color}22`,borderRadius:4,padding:"12px 14px"}}>
-                      <div style={{fontSize:9,color:c.color,letterSpacing:2,marginBottom:6}}>FORMULA</div>
-                      <div style={{fontSize:10,color:"#888",lineHeight:1.7,fontFamily:"monospace"}}>{c.formula}</div>
+                <div className="border-t border-white/5" style={{padding:"0 18px 18px"}}>
+                  <div className="text-[11px] text-white/60 leading-[1.9] mt-3.5">{c.definition}</div>
+                  <div className="grid grid-cols-3 gap-3 mt-4">
+                    <div className="bg-white/5 border border-blue-400/15 rounded p-3">
+                      <div className="text-[9px] text-blue-400 tracking-[2px] mb-1.5">FORMULA</div>
+                      <div className="text-[10px] text-white/60 leading-[1.7] font-mono">{c.formula}</div>
                     </div>
-                    <div style={{background:"#07080f",border:"1px solid #1e1e2c",borderRadius:4,padding:"12px 14px"}}>
-                      <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:6}}>EXAMPLE</div>
-                      <div style={{fontSize:10,color:"#888",lineHeight:1.7}}>{c.example}</div>
+                    <div className="bg-white/5 border border-white/10 rounded p-3">
+                      <div className="text-[9px] text-emerald-400 tracking-[2px] mb-1.5">EXAMPLE</div>
+                      <div className="text-[10px] text-white/60 leading-[1.7]">{c.example}</div>
                     </div>
-                    <div style={{background:"#07080f",border:"1px solid #8a4a4a33",borderRadius:4,padding:"12px 14px"}}>
-                      <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:6}}>COMMON MISTAKE</div>
-                      <div style={{fontSize:10,color:"#888",lineHeight:1.7}}>{c.common_mistake}</div>
+                    <div className="bg-white/5 border border-red-400/20 rounded p-3">
+                      <div className="text-[9px] text-red-400 tracking-[2px] mb-1.5">COMMON MISTAKE</div>
+                      <div className="text-[10px] text-white/60 leading-[1.7]">{c.common_mistake}</div>
                     </div>
                   </div>
-                  <div style={{marginTop:12,padding:"10px 14px",background:"#07080f",border:`1px solid ${c.color}22`,borderRadius:4}}>
-                    <div style={{fontSize:9,color:c.color,letterSpacing:2,marginBottom:4}}>WHY IT MATTERS IN PE</div>
-                    <div style={{fontSize:10,color:"#666",lineHeight:1.7}}>{c.relevance}</div>
+                  <div className="mt-3 bg-white/5 border border-blue-400/15 rounded p-3">
+                    <div className="text-[9px] text-blue-400 tracking-[2px] mb-1">WHY IT MATTERS IN PE</div>
+                    <div className="text-[10px] text-white/60 leading-[1.7]">{c.relevance}</div>
                   </div>
                 </div>
               )}
@@ -286,29 +277,29 @@ export default function CapTable() {
       )}
 
       {tab==="dilution" && (
-        <div style={{display:"grid",gridTemplateColumns:"300px 1fr",gap:16}}>
+        <div className="grid gap-4" style={{gridTemplateColumns:"300px 1fr"}}>
           <div>
             <div className="card" style={{padding:"18px 20px"}}>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:"#c8a84b",letterSpacing:3,marginBottom:16}}>PRE-INVESTMENT</div>
+              <div className="text-[15px] text-blue-400 tracking-[3px] mb-4">PRE-INVESTMENT</div>
               {[
                 {label:"Founder Ownership %",val:founders,set:setFounders,ph:"70"},
                 {label:"Employee Common %",val:employees,set:setEmployees,ph:"10"},
                 {label:"Option Pool %",val:optionPool,set:setOptionPool,ph:"10"},
               ].map(({label,val,set,ph})=>(
                 <div key={label} style={{marginBottom:12}}>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{label}</div>
+                  <div className="text-[9px] text-white/40 tracking-[2px] mb-1">{label}</div>
                   <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
                 </div>
               ))}
-              <div style={{fontSize:9,color:"#444",marginTop:4,marginBottom:16}}>Remaining {Math.max(0,100-(parseFloat(founders)||0)-(parseFloat(employees)||0)-(parseFloat(optionPool)||0)).toFixed(1)}% other/unallocated</div>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:"#5a8a9a",letterSpacing:3,marginBottom:16,paddingTop:16,borderTop:"1px solid #12121e"}}>PE INVESTMENT</div>
+              <div className="text-[9px] text-white/30 mt-1 mb-4">Remaining {Math.max(0,100-(parseFloat(founders)||0)-(parseFloat(employees)||0)-(parseFloat(optionPool)||0)).toFixed(1)}% other/unallocated</div>
+              <div className="text-[15px] text-cyan-400 tracking-[3px] mb-4 pt-4 border-t border-white/5">PE INVESTMENT</div>
               {[
                 {label:"PE Investment ($)",val:peInvest,set:setPeInvest,ph:"8000000"},
                 {label:"Pre-Money Valuation ($)",val:preMoney,set:setPreMoney,ph:"40000000"},
                 {label:"Management MIP %",val:mgmtMip,set:setMgmtMip,ph:"12"},
               ].map(({label,val,set,ph})=>(
                 <div key={label} style={{marginBottom:12}}>
-                  <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{label}</div>
+                  <div className="text-[9px] text-white/40 tracking-[2px] mb-1">{label}</div>
                   <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
                 </div>
               ))}
@@ -317,43 +308,43 @@ export default function CapTable() {
 
           <div>
             <div className="card" style={{padding:"18px 20px",marginBottom:12}}>
-              <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:14}}>DEAL SUMMARY</div>
-              <div style={{display:"grid",gridTemplateColumns:"repeat(4,1fr)",gap:12,marginBottom:20}}>
+              <div className="text-[9px] text-blue-400 tracking-[2px] mb-3.5">DEAL SUMMARY</div>
+              <div className="grid grid-cols-4 gap-3 mb-5">
                 {[
                   {label:"PRE-MONEY",val:fmt(preMoney)},
                   {label:"INVESTMENT",val:fmt(peInvest)},
                   {label:"POST-MONEY",val:fmt(postMoney)},
                   {label:"PE OWNERSHIP",val:fmtPct(pePct)},
                 ].map(({label,val})=>(
-                  <div key={label} style={{background:"#07080f",border:"1px solid #1e1e2c",borderRadius:4,padding:"12px 14px",textAlign:"center"}}>
-                    <div style={{fontSize:8,color:"#555",letterSpacing:2,marginBottom:6}}>{label}</div>
-                    <div style={{fontFamily:"'Anton',sans-serif",fontSize:20,color:"#c8a84b"}}>{val}</div>
+                  <div key={label} className="bg-white/5 border border-white/10 rounded text-center" style={{padding:"12px 14px"}}>
+                    <div className="text-[8px] text-white/40 tracking-[2px] mb-1.5">{label}</div>
+                    <div className="text-xl text-blue-400">{val}</div>
                   </div>
                 ))}
               </div>
 
-              <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:10}}>OWNERSHIP &mdash; BEFORE vs. AFTER INVESTMENT</div>
-              <div style={{fontSize:9,color:"#444",letterSpacing:1,marginBottom:4}}>BEFORE</div>
+              <div className="text-[9px] text-white/40 tracking-[2px] mb-2.5">OWNERSHIP &mdash; BEFORE vs. AFTER INVESTMENT</div>
+              <div className="text-[9px] text-white/30 tracking-[1px] mb-1">BEFORE</div>
               <div className="bar-row">
                 {[
-                  {pct:parseFloat(founders)||0,color:"#c8a84b",label:"Founders"},
-                  {pct:parseFloat(employees)||0,color:"#5a8a9a",label:"Employees"},
-                  {pct:parseFloat(optionPool)||0,color:"#6a5a9a",label:"Options"},
-                  {pct:Math.max(0,100-(parseFloat(founders)||0)-(parseFloat(employees)||0)-(parseFloat(optionPool)||0)),color:"#2a2838",label:"Other"},
+                  {pct:parseFloat(founders)||0,color:"rgb(96,165,250)",label:"Founders"},
+                  {pct:parseFloat(employees)||0,color:"rgb(34,211,238)",label:"Employees"},
+                  {pct:parseFloat(optionPool)||0,color:"rgb(167,139,250)",label:"Options"},
+                  {pct:Math.max(0,100-(parseFloat(founders)||0)-(parseFloat(employees)||0)-(parseFloat(optionPool)||0)),color:"rgba(255,255,255,0.15)",label:"Other"},
                 ].filter(s=>s.pct>0).map(s=>(
                   <div key={s.label} className="bar-seg" style={{width:`${s.pct}%`,background:s.color+"55",color:s.color,minWidth:s.pct>5?"30px":"0"}} title={`${s.label}: ${s.pct.toFixed(1)}%`}>
                     {s.pct>8?`${s.pct.toFixed(0)}%`:""}
                   </div>
                 ))}
               </div>
-              <div style={{fontSize:9,color:"#444",letterSpacing:1,marginBottom:4,marginTop:8}}>AFTER (FULLY DILUTED)</div>
+              <div className="text-[9px] text-white/30 tracking-[1px] mb-1 mt-2">AFTER (FULLY DILUTED)</div>
               <div className="bar-row">
                 {[
-                  {pct:foundersDiluted,color:"#c8a84b",label:"Founders"},
-                  {pct:employeesDiluted,color:"#5a8a9a",label:"Employees"},
-                  {pct:optionsDiluted,color:"#6a5a9a",label:"Options"},
-                  {pct:pePct,color:"#5a8a6a",label:"PE Sponsor"},
-                  {pct:mipPctNum,color:"#8a6a3a",label:"MIP"},
+                  {pct:foundersDiluted,color:"rgb(96,165,250)",label:"Founders"},
+                  {pct:employeesDiluted,color:"rgb(34,211,238)",label:"Employees"},
+                  {pct:optionsDiluted,color:"rgb(167,139,250)",label:"Options"},
+                  {pct:pePct,color:"rgb(52,211,153)",label:"PE Sponsor"},
+                  {pct:mipPctNum,color:"rgb(251,191,36)",label:"MIP"},
                 ].filter(s=>s.pct>0).map(s=>(
                   <div key={s.label} className="bar-seg" style={{width:`${s.pct}%`,background:s.color+"55",color:s.color,minWidth:s.pct>5?"30px":"0"}} title={`${s.label}: ${s.pct.toFixed(1)}%`}>
                     {s.pct>6?`${s.pct.toFixed(0)}%`:""}
@@ -361,27 +352,27 @@ export default function CapTable() {
                 ))}
               </div>
 
-              <table style={{width:"100%",fontFamily:"'IBM Plex Mono',monospace",fontSize:10,borderCollapse:"collapse",marginTop:16}}>
+              <table className="w-full text-[10px] mt-4" style={{borderCollapse:"collapse"}}>
                 <thead>
-                  <tr style={{borderBottom:"1px solid #1e1e2c"}}>
+                  <tr className="border-b border-white/10">
                     {["SHAREHOLDER","PRE %","POST % (FD)","DILUTION"].map(h=>(
-                      <td key={h} style={{padding:"6px 8px",color:"#555",fontSize:8,letterSpacing:1}}>{h}</td>
+                      <td key={h} className="text-white/40 text-[8px] tracking-[1px]" style={{padding:"6px 8px"}}>{h}</td>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    {name:"Founders",pre:parseFloat(founders)||0,post:foundersDiluted,color:"#c8a84b"},
-                    {name:"Employees",pre:parseFloat(employees)||0,post:employeesDiluted,color:"#5a8a9a"},
-                    {name:"Option Pool",pre:parseFloat(optionPool)||0,post:optionsDiluted,color:"#6a5a9a"},
-                    {name:"PE Sponsor (new)",pre:0,post:pePct,color:"#5a8a6a"},
-                    {name:"Mgmt MIP (new)",pre:0,post:mipPctNum,color:"#8a6a3a"},
+                    {name:"Founders",pre:parseFloat(founders)||0,post:foundersDiluted,color:"text-blue-400"},
+                    {name:"Employees",pre:parseFloat(employees)||0,post:employeesDiluted,color:"text-cyan-400"},
+                    {name:"Option Pool",pre:parseFloat(optionPool)||0,post:optionsDiluted,color:"text-violet-400"},
+                    {name:"PE Sponsor (new)",pre:0,post:pePct,color:"text-emerald-400"},
+                    {name:"Mgmt MIP (new)",pre:0,post:mipPctNum,color:"text-amber-400"},
                   ].map((r,i)=>(
-                    <tr key={i} style={{borderBottom:"1px solid #12121e"}}>
-                      <td style={{padding:"8px 8px",color:r.color}}>{r.name}</td>
-                      <td style={{padding:"8px 8px",color:"#888"}}>{fmtPct(r.pre)}</td>
-                      <td style={{padding:"8px 8px",color:r.color,fontWeight:600}}>{fmtPct(r.post)}</td>
-                      <td style={{padding:"8px 8px",color:r.post<r.pre?"#8a4a4a":"#5a8a6a"}}>
+                    <tr key={i} className="border-b border-white/5">
+                      <td className={r.color} style={{padding:"8px 8px"}}>{r.name}</td>
+                      <td className="text-white/60" style={{padding:"8px 8px"}}>{fmtPct(r.pre)}</td>
+                      <td className={`${r.color} font-semibold`} style={{padding:"8px 8px"}}>{fmtPct(r.post)}</td>
+                      <td className={r.post<r.pre?"text-red-400":"text-emerald-400"} style={{padding:"8px 8px"}}>
                         {r.pre>0?`${(r.post-r.pre).toFixed(1)}pp`:"\u2014"}
                       </td>
                     </tr>
@@ -389,9 +380,9 @@ export default function CapTable() {
                 </tbody>
               </table>
             </div>
-            <div className="card" style={{padding:"14px 18px",borderLeft:"3px solid #8a4a4a33"}}>
-              <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:8}}>THE DILUTION THAT SURPRISES OPERATORS</div>
-              <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
+            <div className="card" style={{padding:"14px 18px",borderLeft:"3px solid rgba(239,68,68,0.2)"}}>
+              <div className="text-[9px] text-red-400 tracking-[2px] mb-2">THE DILUTION THAT SURPRISES OPERATORS</div>
+              <div className="text-[11px] text-white/60 leading-[1.8]">
                 Option pools are almost always created BEFORE the investment closes. That means existing shareholders (founders, employees) bear 100% of the option pool dilution &mdash; before PE even invests. This is intentional: PE investors negotiate for the option pool to be in the pre-money cap table, not post-money.
               </div>
             </div>
@@ -400,19 +391,19 @@ export default function CapTable() {
       )}
 
       {tab==="waterfall" && (
-        <div style={{display:"grid",gridTemplateColumns:"300px 1fr",gap:16}}>
-          <div className="card" style={{padding:"18px 20px",alignSelf:"start"}}>
-            <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:"#5a8a6a",letterSpacing:3,marginBottom:16}}>EXIT SCENARIO</div>
+        <div className="grid gap-4" style={{gridTemplateColumns:"300px 1fr"}}>
+          <div className="card self-start" style={{padding:"18px 20px"}}>
+            <div className="text-[15px] text-emerald-400 tracking-[3px] mb-4">EXIT SCENARIO</div>
             {[
               {label:"Exit Enterprise Value ($)",val:exitEV,set:setExitEV,ph:"35000000"},
               {label:"Total Debt at Exit ($)",val:debtAmt,set:setDebtAmt,ph:"15000000"},
             ].map(({label,val,set,ph})=>(
               <div key={label} style={{marginBottom:12}}>
-                <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{label}</div>
+                <div className="text-[9px] text-white/40 tracking-[2px] mb-1">{label}</div>
                 <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
               </div>
             ))}
-            <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:"#c8a84b",letterSpacing:3,marginBottom:16,paddingTop:16,borderTop:"1px solid #12121e"}}>CAPITAL STRUCTURE</div>
+            <div className="text-[15px] text-blue-400 tracking-[3px] mb-4 pt-4 border-t border-white/5">CAPITAL STRUCTURE</div>
             {[
               {label:"PE Investment ($)",val:peInvested,set:setPeInvested,ph:"10000000"},
               {label:"LP Preference Multiple (x)",val:lpMultiple,set:setLpMultiple,ph:"1"},
@@ -422,7 +413,7 @@ export default function CapTable() {
               {label:"Mgmt MIP %",val:mipPct,set:setMipPct,ph:"15"},
             ].map(({label,val,set,ph})=>(
               <div key={label} style={{marginBottom:12}}>
-                <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:5}}>{label}</div>
+                <div className="text-[9px] text-white/40 tracking-[2px] mb-1">{label}</div>
                 <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
               </div>
             ))}
@@ -430,54 +421,54 @@ export default function CapTable() {
 
           <div>
             <div className="card" style={{padding:"18px 20px",marginBottom:12}}>
-              <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:16}}>DISTRIBUTION WATERFALL</div>
+              <div className="text-[9px] text-emerald-400 tracking-[2px] mb-4">DISTRIBUTION WATERFALL</div>
               {[
-                {label:"01  EXIT ENTERPRISE VALUE",val:ev,color:"#5a8a9a",indent:0,desc:"Total proceeds from sale \u2014 what the buyer pays.",border:false},
-                {label:"02  LESS: DEBT REPAYMENT",val:-debt,color:"#8a4a4a",indent:1,desc:"Senior secured debt paid first. No exceptions.",border:false},
-                {label:"= EQUITY VALUE",val:afterDebt,color:"#888",indent:1,border:true,desc:"What's available for equity holders."},
-                {label:"03  LESS: LIQUIDATION PREFERENCE",val:-lp,color:"#8a4a4a",indent:1,desc:`PE gets ${fmtX(lpMultiple)}x their investment (${fmt(invested)}) back first.`,border:false},
-                {label:"= REMAINING EQUITY",val:afterLP,color:"#888",indent:1,border:true,desc:"Available for common shareholders + MIP."},
-                {label:"04  LESS: MIP (above hurdle)",val:-mipValue,color:"#8a6a3a",indent:1,desc:`MIP earns ${fmtPct(mipPct)} on exit value above ${fmtX(moicHurdle)} hurdle (${fmt(hurdle)}).`,border:false},
-                {label:"= COMMON POOL",val:commonPool,color:"#888",indent:1,border:true,desc:"Distributed pro-rata by common ownership %."},
-                {label:"PE COMMON ("+fmtPct(peCommon)+")",val:peCommonProceeds,color:"#5a8a6a",indent:2,desc:"PE's share of common equity proceeds.",border:false},
-                {label:"MGMT COMMON ("+fmtPct(mgmtCommon)+")",val:mgmtCommonProceeds,color:"#c8a84b",indent:2,desc:"Management's share of common equity.",border:false},
+                {label:"01  EXIT ENTERPRISE VALUE",val:ev,colorClass:"text-cyan-400",indent:0,desc:"Total proceeds from sale \u2014 what the buyer pays.",border:false},
+                {label:"02  LESS: DEBT REPAYMENT",val:-debt,colorClass:"text-red-400",indent:1,desc:"Senior secured debt paid first. No exceptions.",border:false},
+                {label:"= EQUITY VALUE",val:afterDebt,colorClass:"text-white/60",indent:1,border:true,desc:"What's available for equity holders."},
+                {label:"03  LESS: LIQUIDATION PREFERENCE",val:-lp,colorClass:"text-red-400",indent:1,desc:`PE gets ${fmtX(lpMultiple)}x their investment (${fmt(invested)}) back first.`,border:false},
+                {label:"= REMAINING EQUITY",val:afterLP,colorClass:"text-white/60",indent:1,border:true,desc:"Available for common shareholders + MIP."},
+                {label:"04  LESS: MIP (above hurdle)",val:-mipValue,colorClass:"text-amber-400",indent:1,desc:`MIP earns ${fmtPct(mipPct)} on exit value above ${fmtX(moicHurdle)} hurdle (${fmt(hurdle)}).`,border:false},
+                {label:"= COMMON POOL",val:commonPool,colorClass:"text-white/60",indent:1,border:true,desc:"Distributed pro-rata by common ownership %."},
+                {label:"PE COMMON ("+fmtPct(peCommon)+")",val:peCommonProceeds,colorClass:"text-emerald-400",indent:2,desc:"PE's share of common equity proceeds.",border:false},
+                {label:"MGMT COMMON ("+fmtPct(mgmtCommon)+")",val:mgmtCommonProceeds,colorClass:"text-blue-400",indent:2,desc:"Management's share of common equity.",border:false},
               ].map((r,i)=>(
-                <div key={i} style={{display:"flex",alignItems:"center",gap:12,marginBottom:r.border?12:6,paddingBottom:r.border?10:0,borderBottom:r.border?"1px solid #1e1e2c":"none",paddingLeft:r.indent*20}}>
-                  <div style={{flex:1}}>
-                    <div style={{fontSize:10,color:r.color,letterSpacing:r.indent===0?2:0.5,fontWeight:r.indent===1&&r.border?600:400}}>{r.label}</div>
-                    <div style={{fontSize:9,color:"#333",marginTop:2,lineHeight:1.5}}>{r.desc}</div>
+                <div key={i} className="flex items-center gap-3" style={{marginBottom:r.border?12:6,paddingBottom:r.border?10:0,borderBottom:r.border?"1px solid rgba(255,255,255,0.1)":"none",paddingLeft:r.indent*20}}>
+                  <div className="flex-1">
+                    <div className={`text-[10px] ${r.colorClass}`} style={{letterSpacing:r.indent===0?"2px":"0.5px",fontWeight:r.indent===1&&r.border?600:400}}>{r.label}</div>
+                    <div className="text-[9px] text-white/20 mt-0.5 leading-[1.5]">{r.desc}</div>
                   </div>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:16,color:r.val<0?"#8a4a4a":r.color,textAlign:"right",minWidth:100}}>
+                  <div className={`text-base text-right min-w-[100px] ${r.val<0?"text-red-400":r.colorClass}`}>
                     {r.val<0?`(${fmt(Math.abs(r.val))})`:fmt(r.val)}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div style={{display:"grid",gridTemplateColumns:"1fr 1fr 1fr",gap:12}}>
-              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid #5a8a6a"}}>
-                <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:8}}>PE SPONSOR</div>
-                <div style={{fontFamily:"'Anton',sans-serif",fontSize:26,color:"#5a8a6a"}}>{fmt(peTotal)}</div>
-                <div style={{fontSize:10,color:"#555",marginTop:6}}>LP: {fmt(lp)} + Common: {fmt(peCommonProceeds)}</div>
-                <div style={{fontSize:10,color:"#c8a84b",marginTop:4}}>MOIC: {peMOIC}x</div>
+            <div className="grid grid-cols-3 gap-3">
+              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid rgb(52,211,153)"}}>
+                <div className="text-[9px] text-emerald-400 tracking-[2px] mb-2">PE SPONSOR</div>
+                <div className="text-[26px] text-emerald-400">{fmt(peTotal)}</div>
+                <div className="text-[10px] text-white/40 mt-1.5">LP: {fmt(lp)} + Common: {fmt(peCommonProceeds)}</div>
+                <div className="text-[10px] text-blue-400 mt-1">MOIC: {peMOIC}x</div>
               </div>
-              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid #c8a84b"}}>
-                <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:8}}>MANAGEMENT TOTAL</div>
-                <div style={{fontFamily:"'Anton',sans-serif",fontSize:26,color:"#c8a84b"}}>{fmt(mgmtTotal)}</div>
-                <div style={{fontSize:10,color:"#555",marginTop:6}}>Common: {fmt(mgmtCommonProceeds)} + MIP: {fmt(mipValue)}</div>
-                <div style={{fontSize:10,color:mipValue>0?"#5a8a6a":"#8a4a4a",marginTop:4}}>MIP {mipValue>0?"paid out":"below hurdle \u2014 $0"}</div>
+              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid rgb(96,165,250)"}}>
+                <div className="text-[9px] text-blue-400 tracking-[2px] mb-2">MANAGEMENT TOTAL</div>
+                <div className="text-[26px] text-blue-400">{fmt(mgmtTotal)}</div>
+                <div className="text-[10px] text-white/40 mt-1.5">Common: {fmt(mgmtCommonProceeds)} + MIP: {fmt(mipValue)}</div>
+                <div className={`text-[10px] mt-1 ${mipValue>0?"text-emerald-400":"text-red-400"}`}>MIP {mipValue>0?"paid out":"below hurdle \u2014 $0"}</div>
               </div>
-              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid #555"}}>
-                <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:8}}>EQUITY POOL USED</div>
-                <div style={{fontFamily:"'Anton',sans-serif",fontSize:26,color:"#888"}}>{fmt(afterDebt)}</div>
-                <div style={{fontSize:10,color:"#555",marginTop:6}}>of {fmt(ev)} EV</div>
-                <div style={{fontSize:10,color:debt/ev>0.6?"#8a4a4a":"#888",marginTop:4}}>Debt: {fmtPct(debt/ev*100)} of EV</div>
+              <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid rgba(255,255,255,0.4)"}}>
+                <div className="text-[9px] text-white/40 tracking-[2px] mb-2">EQUITY POOL USED</div>
+                <div className="text-[26px] text-white/60">{fmt(afterDebt)}</div>
+                <div className="text-[10px] text-white/40 mt-1.5">of {fmt(ev)} EV</div>
+                <div className={`text-[10px] mt-1 ${debt/ev>0.6?"text-red-400":"text-white/60"}`}>Debt: {fmtPct(debt/ev*100)} of EV</div>
               </div>
             </div>
 
-            <div className="card" style={{padding:"14px 18px",marginTop:12,borderLeft:"3px solid #8a4a4a33"}}>
-              <div style={{fontSize:9,color:"#8a4a4a",letterSpacing:2,marginBottom:8}}>THE EXIT MATH OPERATORS GET WRONG</div>
-              <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
+            <div className="card mt-3" style={{padding:"14px 18px",borderLeft:"3px solid rgba(239,68,68,0.2)"}}>
+              <div className="text-[9px] text-red-400 tracking-[2px] mb-2">THE EXIT MATH OPERATORS GET WRONG</div>
+              <div className="text-[11px] text-white/60 leading-[1.8]">
                 Debt is the invisible tax on PE returns. In a 55% LTV deal, over half the exit EV goes to debt repayment before equity holders see a dollar. Always model your proceeds starting with the debt balance at exit &mdash; not the headline EV.
               </div>
             </div>
@@ -486,50 +477,66 @@ export default function CapTable() {
       )}
 
       {tab==="quiz" && (
-        <div style={{maxWidth:720}}>
+        <div className="max-w-[720px]">
           {!quizDone ? (
             <div>
-              <div style={{display:"flex",justifyContent:"space-between",marginBottom:16}}>
-                <div style={{fontSize:10,color:"#555",letterSpacing:2}}>QUESTION {quizIdx+1} OF {QUIZ.length}</div>
-                <div style={{fontSize:10,color:"#c8a84b",letterSpacing:2}}>{quizScore} CORRECT</div>
+              <div className="flex justify-between mb-4">
+                <div className="text-[10px] text-white/40 tracking-[2px]">QUESTION {quizIdx+1} OF {QUIZ.length}</div>
+                <div className="text-[10px] text-blue-400 tracking-[2px]">{quizScore} CORRECT</div>
               </div>
-              <div style={{height:2,background:"#12121e",borderRadius:1,marginBottom:20}}>
-                <div style={{height:"100%",width:`${quizIdx/QUIZ.length*100}%`,background:"#c8a84b",transition:"width .3s"}} />
+              <div className="h-0.5 bg-white/5 rounded-sm mb-5">
+                <div className="h-full bg-blue-400 transition-all duration-300" style={{width:`${quizIdx/QUIZ.length*100}%`}} />
               </div>
-              <div className="card" style={{padding:"22px 24px",marginBottom:12}}>
-                <div style={{fontSize:11,color:"#ccc",lineHeight:1.9,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
-                <div style={{display:"flex",flexDirection:"column",gap:8}}>
+              <div className="card mb-3" style={{padding:"22px 24px"}}>
+                <div className="text-[11px] text-white/80 leading-[1.9] mb-5">{QUIZ[quizIdx].q}</div>
+                <div className="flex flex-col gap-2">
                   {QUIZ[quizIdx].opts.map((o,i)=>{
                     const isCorrect=i===QUIZ[quizIdx].correct,isSelected=quizSelected===i;
-                    const bg=!quizRevealed?"#07080f":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#07080f";
-                    const border=!quizRevealed?"#1e1e2c":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1e1e2c";
-                    const color=!quizRevealed?"#888":isCorrect?"#7aba8a":isSelected?"#c87a7a":"#555";
+                    let bgClass = "bg-white/5";
+                    let borderClass = "border-white/10";
+                    let textClass = "text-white/60";
+                    if (quizRevealed) {
+                      if (isCorrect) {
+                        bgClass = "bg-emerald-500/10";
+                        borderClass = "border-emerald-400";
+                        textClass = "text-emerald-300";
+                      } else if (isSelected) {
+                        bgClass = "bg-red-500/10";
+                        borderClass = "border-red-400";
+                        textClass = "text-red-300";
+                      } else {
+                        textClass = "text-white/40";
+                      }
+                    }
+                    let labelClass = "text-white/30";
+                    if (quizRevealed && isCorrect) labelClass = "text-emerald-400";
+                    if (quizRevealed && isSelected && !isCorrect) labelClass = "text-red-400";
                     return (
-                      <button key={i} onClick={()=>handleQuiz(i)} style={{background:bg,border:`1px solid ${border}`,borderRadius:4,padding:"12px 16px",textAlign:"left",fontSize:11,color,lineHeight:1.6,transition:"all .15s"}}>
-                        <span style={{color:isCorrect&&quizRevealed?"#5a8a6a":isSelected&&quizRevealed?"#8a4a4a":"#444",marginRight:10,fontSize:9,letterSpacing:1}}>{String.fromCharCode(65+i)}.</span>{o}
+                      <button key={i} onClick={()=>handleQuiz(i)} className={`${bgClass} border ${borderClass} rounded text-left text-[11px] ${textClass} leading-[1.6] transition-all duration-150`} style={{padding:"12px 16px"}}>
+                        <span className={`${labelClass} mr-2.5 text-[9px] tracking-[1px]`}>{String.fromCharCode(65+i)}.</span>{o}
                       </button>
                     );
                   })}
                 </div>
               </div>
               {quizRevealed&&(
-                <div className="card" style={{padding:"16px 20px",borderLeft:"3px solid #c8a84b33"}}>
-                  <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:8}}>CAP TABLE INSIGHT</div>
-                  <div style={{fontSize:11,color:"#888",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} style={{marginTop:14,background:"#c8a84b",border:"none",color:"#07080f",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>
+                <div className="card" style={{padding:"16px 20px",borderLeft:"3px solid rgba(96,165,250,0.2)"}}>
+                  <div className="text-[9px] text-blue-400 tracking-[2px] mb-2">CAP TABLE INSIGHT</div>
+                  <div className="text-[11px] text-white/60 leading-[1.8]">{QUIZ[quizIdx].explain}</div>
+                  <button onClick={nextQ} className="mt-3.5 bg-blue-500 border-none text-white px-6 py-2 text-[10px] tracking-[2px] rounded">
                     {quizIdx<QUIZ.length-1?"NEXT \u2192":"RESULTS \u2192"}
                   </button>
                 </div>
               )}
             </div>
           ):(
-            <div className="card" style={{padding:"32px",textAlign:"center"}}>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>CAP TABLE ASSESSMENT</div>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:64,color:"#c8a84b"}}>{quizScore}/{QUIZ.length}</div>
-              <div style={{fontSize:13,color:"#888",marginTop:12,marginBottom:24}}>
+            <div className="card text-center" style={{padding:"32px"}}>
+              <div className="text-sm text-white/40 tracking-[4px] mb-3">CAP TABLE ASSESSMENT</div>
+              <div className="text-[64px] text-blue-400">{quizScore}/{QUIZ.length}</div>
+              <div className="text-[13px] text-white/60 mt-3 mb-6">
                 {quizScore===5?"Clean. You understand your equity.":quizScore>=3?"Solid foundation \u2014 review the questions you missed before you sign anything.":"Spend time on the waterfall and dilution tabs before your next deal."}
               </div>
-              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1e1e2c",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3}}>RETAKE</button>
+              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} className="bg-transparent border border-white/10 text-white/40 px-6 py-2 text-[10px] tracking-[2px] rounded">RETAKE</button>
             </div>
           )}
         </div>

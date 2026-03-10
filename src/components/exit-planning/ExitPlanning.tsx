@@ -17,7 +17,7 @@ const EXIT_ROUTES = [
   {
     id: "strategic",
     label: "STRATEGIC SALE",
-    color: "#c8a84b",
+    color: "#3B82F6",
     freq: "45%",
     headline: "Sell to a competitor, customer, or adjacent player who pays a premium for what you have.",
     when: "When the business has strategic assets a buyer can\u2019t easily replicate \u2014 market position, customer relationships, IP, geographic density, or talent.",
@@ -83,7 +83,7 @@ const EXIT_ROUTES = [
 
 // ── READINESS CHECKLIST ────────────────────────────────────────────────
 const READINESS_ITEMS = [
-  { category: "FINANCIALS", color: "#c8a84b", items: [
+  { category: "FINANCIALS", color: "#3B82F6", items: [
     { item: "3 years of clean, audited (or reviewed) financials", critical: true },
     { item: "LTM P&L with no one-time items unexplained", critical: true },
     { item: "QoE-defensible EBITDA add-back schedule prepared", critical: true },
@@ -141,12 +141,12 @@ const TIMING = [
 
 // ── EXIT PROCESS ───────────────────────────────────────────────────────
 const PROCESS_STEPS = [
-  { phase: "PREPARATION", weeks: "Months \u20136 to \u20133", color: "#c8a84b", seller: ["Finalize exit readiness checklist", "Engage investment banker", "Prepare CIM and management presentation", "Clean up data room", "Identify and prioritize buyer list"], buyerLens: "Buyers are not involved yet \u2014 but the quality of the CIM determines who engages seriously and at what valuation." },
+  { phase: "PREPARATION", weeks: "Months \u20136 to \u20133", color: "#3B82F6", seller: ["Finalize exit readiness checklist", "Engage investment banker", "Prepare CIM and management presentation", "Clean up data room", "Identify and prioritize buyer list"], buyerLens: "Buyers are not involved yet \u2014 but the quality of the CIM determines who engages seriously and at what valuation." },
   { phase: "LAUNCH", weeks: "Month 0", color: "#5a8a9a", seller: ["Banker sends teaser to target buyer list", "NDAs executed with interested parties", "CIM distributed to qualified buyers", "Management presentation scheduling begins"], buyerLens: "Buyers evaluate the teaser in 48 hours. Most pass based on sector, size, or initial price signal. The ones who request the CIM are your real pool." },
   { phase: "FIRST ROUND", weeks: "Weeks 3\u20136", color: "#6a5a9a", seller: ["Management presentations to 6\u201312 buyers", "Preliminary Q&A on CIM", "First-round bids submitted (non-binding)", "Banker advises on bid quality and terms"], buyerLens: "Buyers submit preliminary IOIs \u2014 Indication of Interest letters with valuation range and proposed structure. These are non-binding and designed to get to second round." },
   { phase: "SECOND ROUND", weeks: "Weeks 7\u201312", color: "#5a8a6a", seller: ["Shortlist to 3\u20135 buyers", "Full data room access granted", "Management deep-dives with finalist buyers", "Draft purchase agreement distributed"], buyerLens: "Real DD begins. QoE firms engaged. Customer calls. Site visits. Buyers price the deal based on what they find \u2014 final bids are binding and include markup on the purchase agreement." },
   { phase: "EXCLUSIVITY", weeks: "Weeks 13\u201318", color: "#8a6a3a", seller: ["Winner selected, exclusivity granted (45\u201360 days)", "Final DD and confirmatory diligence", "Purchase agreement negotiation", "Financing documentation"], buyerLens: "Buyer has leverage \u2014 seller has limited ability to re-trade. Issues found in final DD become price chips or walk threats. W&I insurance bound. Management retention agreements finalized." },
-  { phase: "CLOSE", weeks: "Week 18\u201322", color: "#c8a84b", seller: ["Purchase agreement executed", "Funds wired", "Management transition plan activated", "Seller communications to employees and customers"], buyerLens: "Wire day. Proceeds distributed per the waterfall. Management rollover equity transferred. New ownership day 1." },
+  { phase: "CLOSE", weeks: "Week 18\u201322", color: "#3B82F6", seller: ["Purchase agreement executed", "Funds wired", "Management transition plan activated", "Seller communications to employees and customers"], buyerLens: "Wire day. Proceeds distributed per the waterfall. Management rollover equity transferred. New ownership day 1." },
 ];
 
 // ── QUIZ ───────────────────────────────────────────────────────────────
@@ -233,17 +233,17 @@ export default function ExitPlanning() {
   };
 
   return (
-    <div style={{background:"#07080f",minHeight:"100vh",fontFamily:"'IBM Plex Mono','Courier New',monospace",color:"#d8d4cc",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
+    <div style={{background:"#0f1d3d",minHeight:"100vh",color:"#e5e7eb",padding:"24px 20px",maxWidth:1200,margin:"0 auto"}}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;600&family=Anton&display=swap');
+
         .ep-btn{cursor:pointer;font-family:inherit;}
         .ep-tb{background:transparent;border:none;padding:9px 18px;font-size:10px;letter-spacing:2px;transition:all .2s;border-bottom:2px solid transparent;cursor:pointer;font-family:inherit;}
-        .ep-tb.on{color:#c8a84b;border-bottom-color:#c8a84b;}
+        .ep-tb.on{color:#3B82F6;border-bottom-color:#3B82F6;}
         .ep-tb:not(.on){color:#2a2838;}
         .ep-tb:hover:not(.on){color:#555;}
-        .ep-card{background:#0a0b14;border:1px solid #181826;border-radius:5px;}
-        .ep-input{background:#10111c;border:1px solid #1e1e2c;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
-        .ep-input:focus{border-color:#c8a84b;}
+        .ep-card{background:#0f1d3d;border:1px solid #1c2a4a;border-radius:5px;}
+        .ep-input{background:#17305a;border:1px solid #1c2a4a;color:#ccc;font-family:inherit;font-size:11px;padding:7px 10px;border-radius:3px;width:100%;box-sizing:border-box;outline:none;transition:border-color .15s;}
+        .ep-input:focus{border-color:#3B82F6;}
         .ep-chk{width:16px;height:16px;border:1px solid #2a2838;border-radius:2px;flex-shrink:0;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:all .15s;}
         .ep-chk.done{background:#5a8a6a;border-color:#5a8a6a;}
         .ep-pill{display:inline-block;padding:2px 8px;border-radius:2px;font-size:8px;letter-spacing:2px;font-weight:600;}
@@ -252,8 +252,8 @@ export default function ExitPlanning() {
       {/* Header */}
       <div style={{marginBottom:20}}>
         <div style={{display:"flex",alignItems:"baseline",gap:12,marginBottom:6,flexWrap:"wrap"}}>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#c8a84b",lineHeight:1}}>EXIT</div>
-          <div style={{fontFamily:"'Anton',sans-serif",fontSize:36,letterSpacing:6,color:"#1e1e2c",lineHeight:1}}>PLANNING</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#3B82F6",lineHeight:1}}>EXIT</div>
+          <div style={{ fontSize:36,letterSpacing:6,color:"#1c2a4a",lineHeight:1}}>PLANNING</div>
           <div style={{fontSize:9,color:"#2a2838",letterSpacing:3,marginLeft:8}}>WAVE 3 &middot; THE FULL LIFECYCLE CLOSE</div>
         </div>
         <div style={{fontSize:11,color:"#333",lineHeight:1.7,maxWidth:640}}>
@@ -262,7 +262,7 @@ export default function ExitPlanning() {
       </div>
 
       {/* Tabs */}
-      <div style={{borderBottom:"1px solid #12121e",marginBottom:20,display:"flex",flexWrap:"wrap"}}>
+      <div style={{borderBottom:"1px solid #17305a",marginBottom:20,display:"flex",flexWrap:"wrap"}}>
         {["routes","readiness","timing","process","quiz"].map(t=>(
           <button key={t} className={`ep-tb ${tab===t?"on":""}`} onClick={()=>setTab(t)}>{t.toUpperCase()}</button>
         ))}
@@ -276,8 +276,8 @@ export default function ExitPlanning() {
             {EXIT_ROUTES.map(r => {
               const active = activeRoute === r.id;
               return (
-                <div key={r.id} onClick={()=>setActiveRoute(r.id)} style={{padding:"12px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?r.color+"55":"#181826"}`,background:active?r.color+"0e":"#0a0b14",borderLeft:`3px solid ${active?r.color:r.color+"33"}`,transition:"all .15s"}}>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:11,color:active?r.color:"#444",letterSpacing:2}}>{r.label}</div>
+                <div key={r.id} onClick={()=>setActiveRoute(r.id)} style={{padding:"12px 14px",marginBottom:6,borderRadius:4,cursor:"pointer",border:`1px solid ${active?r.color+"55":"#1c2a4a"}`,background:active?r.color+"0e":"#0f1d3d",borderLeft:`3px solid ${active?r.color:r.color+"33"}`,transition:"all .15s"}}>
+                  <div style={{ fontSize:11,color:active?r.color:"#444",letterSpacing:2}}>{r.label}</div>
                   <div style={{display:"flex",justifyContent:"space-between",marginTop:4}}>
                     <div style={{fontSize:9,color:"#333"}}>~{r.freq} of exits</div>
                   </div>
@@ -286,8 +286,8 @@ export default function ExitPlanning() {
             })}
 
             {/* Returns calc */}
-            <div style={{marginTop:16,padding:"14px",background:"#0a0b14",border:"1px solid #181826",borderRadius:4}}>
-              <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:12}}>QUICK RETURNS CALC</div>
+            <div style={{marginTop:16,padding:"14px",background:"#0f1d3d",border:"1px solid #1c2a4a",borderRadius:4}}>
+              <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:12}}>QUICK RETURNS CALC</div>
               {[
                 {label:"Entry EBITDA",val:entryEBITDA,set:setEntryEBITDA,ph:"4000000"},
                 {label:"Entry Multiple",val:entryMult,set:setEntryMult,ph:"6.5"},
@@ -301,16 +301,16 @@ export default function ExitPlanning() {
                   <input className="ep-input" value={val} onChange={e=>set(e.target.value)} placeholder={ph} style={{fontSize:10,padding:"5px 8px"}} />
                 </div>
               ))}
-              <div style={{marginTop:12,borderTop:"1px solid #12121e",paddingTop:12,display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
+              <div style={{marginTop:12,borderTop:"1px solid #17305a",paddingTop:12,display:"grid",gridTemplateColumns:"1fr 1fr",gap:8}}>
                 {[
-                  {l:"EV AT EXIT",v:fmt(exitEV),c:"#c8a84b"},
+                  {l:"EV AT EXIT",v:fmt(exitEV),c:"#3B82F6"},
                   {l:"EQUITY IN",v:fmt(equityIn),c:"#888"},
                   {l:"MOIC",v:fmtX(moic),c:moic>=2.5?"#5a8a6a":moic>=1.5?"#888":"#8a4a4a"},
                   {l:"IRR",v:`${irr}%`,c:parseFloat(String(irr))>=20?"#5a8a6a":parseFloat(String(irr))>=12?"#888":"#8a4a4a"},
                 ].map(({l,v,c})=>(
                   <div key={l} style={{textAlign:"center"}}>
                     <div style={{fontSize:8,color:"#444",letterSpacing:1}}>{l}</div>
-                    <div style={{fontFamily:"'Anton',sans-serif",fontSize:16,color:c}}>{v}</div>
+                    <div style={{ fontSize:16,color:c}}>{v}</div>
                   </div>
                 ))}
               </div>
@@ -322,15 +322,15 @@ export default function ExitPlanning() {
             <div className="ep-card" style={{padding:"20px 24px",marginBottom:12,borderLeft:`3px solid ${route.color}`}}>
               <div style={{display:"flex",justifyContent:"space-between",alignItems:"flex-start",marginBottom:12,flexWrap:"wrap",gap:12}}>
                 <div>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:22,color:route.color,letterSpacing:3}}>{route.label}</div>
+                  <div style={{ fontSize:22,color:route.color,letterSpacing:3}}>{route.label}</div>
                   <div style={{fontSize:11,color:"#888",marginTop:6,lineHeight:1.7,maxWidth:500}}>{route.headline}</div>
                 </div>
                 <div style={{textAlign:"right"}}>
                   <div style={{fontSize:9,color:"#555",letterSpacing:2}}>FREQUENCY</div>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:28,color:route.color}}>{route.freq}</div>
+                  <div style={{ fontSize:28,color:route.color}}>{route.freq}</div>
                 </div>
               </div>
-              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,borderTop:"1px solid #12121e",paddingTop:14}}>
+              <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:12,borderTop:"1px solid #17305a",paddingTop:14}}>
                 <div>
                   <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:6}}>WHEN IT MAKES SENSE</div>
                   <div style={{fontSize:11,color:"#777",lineHeight:1.7}}>{route.when}</div>
@@ -383,10 +383,10 @@ export default function ExitPlanning() {
           <div style={{display:"flex",alignItems:"center",gap:16,marginBottom:20,flexWrap:"wrap"}}>
             <div style={{flex:1,maxWidth:500}}>
               <div style={{height:6,background:"#1a1a26",borderRadius:3,overflow:"hidden"}}>
-                <div style={{height:"100%",width:`${readinessPct}%`,background:`linear-gradient(90deg,${readinessPct>70?"#5a8a6a":readinessPct>40?"#8a6a3a":"#8a4a4a"},#c8a84b)`,borderRadius:3,transition:"width .4s"}} />
+                <div style={{height:"100%",width:`${readinessPct}%`,background:`linear-gradient(90deg,${readinessPct>70?"#5a8a6a":readinessPct>40?"#8a6a3a":"#8a4a4a"},#3B82F6)`,borderRadius:3,transition:"width .4s"}} />
               </div>
             </div>
-            <div style={{fontSize:12,color:readinessPct>70?"#5a8a6a":readinessPct>40?"#c8a84b":"#8a4a4a",letterSpacing:1,fontFamily:"'Anton',sans-serif"}}>
+            <div style={{fontSize:12,color:readinessPct>70?"#5a8a6a":readinessPct>40?"#3B82F6":"#8a4a4a",letterSpacing:1}}>
               {readinessPct}% EXIT READY
             </div>
             <div style={{fontSize:10,color:"#333"}}>{doneItems}/{totalItems} items</div>
@@ -397,10 +397,10 @@ export default function ExitPlanning() {
             return (
               <div key={cat.category} className="ep-card" style={{marginBottom:12,borderLeft:`3px solid ${cat.color}33`}}>
                 <div style={{padding:"14px 18px 10px",display:"flex",justifyContent:"space-between",alignItems:"center"}}>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:14,color:cat.color,letterSpacing:3}}>{cat.category}</div>
+                  <div style={{ fontSize:14,color:cat.color,letterSpacing:3}}>{cat.category}</div>
                   <div style={{display:"flex",alignItems:"center",gap:12}}>
                     <div style={{fontSize:10,color:catDone===cat.items.length?"#5a8a6a":"#444"}}>{catDone}/{cat.items.length}</div>
-                    <div style={{width:80,height:3,background:"#12121e",borderRadius:2,overflow:"hidden"}}>
+                    <div style={{width:80,height:3,background:"#17305a",borderRadius:2,overflow:"hidden"}}>
                       <div style={{height:"100%",width:`${catDone/cat.items.length*100}%`,background:cat.color,borderRadius:2,transition:"width .3s"}} />
                     </div>
                   </div>
@@ -439,7 +439,7 @@ export default function ExitPlanning() {
         <div>
           <div style={{display:"flex",gap:8,marginBottom:16}}>
             {["ALL","SELL","HOLD"].map(f=>(
-              <button key={f} onClick={()=>setTimingFilter(f)} style={{background:f===timingFilter?(f==="SELL"?"#5a8a6a":f==="HOLD"?"#8a4a4a":"#c8a84b"):"transparent",border:`1px solid ${f===timingFilter?"transparent":"#1e1e2c"}`,color:f===timingFilter?"#07080f":"#555",padding:"6px 16px",fontSize:9,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
+              <button key={f} onClick={()=>setTimingFilter(f)} style={{background:f===timingFilter?(f==="SELL"?"#5a8a6a":f==="HOLD"?"#8a4a4a":"#3B82F6"):"transparent",border:`1px solid ${f===timingFilter?"transparent":"#1c2a4a"}`,color:f===timingFilter?"#0f1d3d":"#555",padding:"6px 16px",fontSize:9,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
                 {f}
               </button>
             ))}
@@ -450,15 +450,15 @@ export default function ExitPlanning() {
               <div style={{display:"flex",gap:12,alignItems:"flex-start"}}>
                 <span className="ep-pill" style={{background:t.direction==="SELL"?"#5a8a6a22":"#8a4a4a22",color:t.direction==="SELL"?"#7aba8a":"#c87a7a",marginTop:2,flexShrink:0}}>{t.direction}</span>
                 <div>
-                  <div style={{fontFamily:"'Anton',sans-serif",fontSize:13,color:t.direction==="SELL"?"#5a8a6a":"#8a4a4a",letterSpacing:1,marginBottom:6}}>{t.signal.toUpperCase()}</div>
+                  <div style={{ fontSize:13,color:t.direction==="SELL"?"#5a8a6a":"#8a4a4a",letterSpacing:1,marginBottom:6}}>{t.signal.toUpperCase()}</div>
                   <div style={{fontSize:11,color:"#666",lineHeight:1.7}}>{t.detail}</div>
                 </div>
               </div>
             </div>
           ))}
 
-          <div className="ep-card" style={{marginTop:8,padding:"16px 18px",borderLeft:"3px solid #c8a84b33"}}>
-            <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:8}}>THE TIMING MISTAKE PE FIRMS MAKE MOST</div>
+          <div className="ep-card" style={{marginTop:8,padding:"16px 18px",borderLeft:"3px solid #3B82F633"}}>
+            <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>THE TIMING MISTAKE PE FIRMS MAKE MOST</div>
             <div style={{fontSize:11,color:"#666",lineHeight:1.8}}>
               Waiting for perfect conditions that never arrive simultaneously. Strong EBITDA growth + cheap credit + strong strategic M&A activity + clean management team &mdash; all four at once is rare. The real discipline is identifying when 3 of the 4 are aligned and accepting that the fourth won't improve enough to wait. Most value is lost to over-holding, not under-holding.
             </div>
@@ -471,7 +471,7 @@ export default function ExitPlanning() {
         <div>
           <div style={{fontSize:10,color:"#555",letterSpacing:1,marginBottom:20}}>SELL-SIDE PROCESS &mdash; BANKER-RUN AUCTION &middot; TOTAL: 18&ndash;22 WEEKS</div>
           <div style={{position:"relative"}}>
-            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"#1e1e2c"}} />
+            <div style={{position:"absolute",left:28,top:0,bottom:0,width:1,background:"#1c2a4a"}} />
             {PROCESS_STEPS.map((s,i)=>(
               <div key={i} style={{display:"flex",gap:20,marginBottom:16,position:"relative"}}>
                 <div style={{width:56,flexShrink:0,display:"flex",flexDirection:"column",alignItems:"center",zIndex:1}}>
@@ -480,11 +480,11 @@ export default function ExitPlanning() {
                 </div>
                 <div className="ep-card" style={{flex:1,overflow:"hidden",borderLeft:`3px solid ${s.color}33`}}>
                   <div onClick={()=>setExpandedStep(expandedStep===i?null:i)} style={{padding:"14px 18px",display:"flex",justifyContent:"space-between",alignItems:"center",cursor:"pointer"}}>
-                    <div style={{fontFamily:"'Anton',sans-serif",fontSize:15,color:s.color,letterSpacing:3}}>{s.phase}</div>
+                    <div style={{ fontSize:15,color:s.color,letterSpacing:3}}>{s.phase}</div>
                     <span style={{color:"#333",fontSize:12}}>{expandedStep===i?"\u25B2":"\u25BC"}</span>
                   </div>
                   {expandedStep===i && (
-                    <div style={{padding:"0 18px 16px",borderTop:"1px solid #12121e"}}>
+                    <div style={{padding:"0 18px 16px",borderTop:"1px solid #17305a"}}>
                       <div style={{display:"grid",gridTemplateColumns:"1fr 1fr",gap:16,marginTop:14}}>
                         <div>
                           <div style={{fontSize:9,color:"#555",letterSpacing:2,marginBottom:8}}>SELLER ACTIONS</div>
@@ -494,7 +494,7 @@ export default function ExitPlanning() {
                             </div>
                           ))}
                         </div>
-                        <div style={{background:"#07080f",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
+                        <div style={{background:"#0f1d3d",border:`1px solid ${s.color}22`,borderRadius:4,padding:"12px 14px"}}>
                           <div style={{fontSize:9,color:s.color,letterSpacing:2,marginBottom:8}}>BUYER PERSPECTIVE</div>
                           <div style={{fontSize:10,color:"#777",lineHeight:1.7}}>{s.buyerLens}</div>
                         </div>
@@ -522,10 +522,10 @@ export default function ExitPlanning() {
             <div>
               <div style={{display:"flex",justifyContent:"space-between",marginBottom:16}}>
                 <div style={{fontSize:10,color:"#555",letterSpacing:2}}>SCENARIO {quizIdx+1} OF {QUIZ.length}</div>
-                <div style={{fontSize:10,color:"#c8a84b",letterSpacing:2}}>{quizScore} CORRECT</div>
+                <div style={{fontSize:10,color:"#3B82F6",letterSpacing:2}}>{quizScore} CORRECT</div>
               </div>
-              <div style={{height:2,background:"#12121e",borderRadius:1,marginBottom:20}}>
-                <div style={{height:"100%",width:`${quizIdx/QUIZ.length*100}%`,background:"#c8a84b",transition:"width .3s"}} />
+              <div style={{height:2,background:"#17305a",borderRadius:1,marginBottom:20}}>
+                <div style={{height:"100%",width:`${quizIdx/QUIZ.length*100}%`,background:"#3B82F6",transition:"width .3s"}} />
               </div>
               <div className="ep-card" style={{padding:"22px 24px",marginBottom:12}}>
                 <div style={{fontSize:11,color:"#ccc",lineHeight:1.9,marginBottom:20}}>{QUIZ[quizIdx].q}</div>
@@ -533,8 +533,8 @@ export default function ExitPlanning() {
                   {QUIZ[quizIdx].opts.map((o,i)=>{
                     const isCorrect=i===QUIZ[quizIdx].correct;
                     const isSelected=quizSelected===i;
-                    const bg=!quizRevealed?"#07080f":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#07080f";
-                    const border=!quizRevealed?"#1e1e2c":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1e1e2c";
+                    const bg=!quizRevealed?"#0f1d3d":isCorrect?"#5a8a6a22":isSelected?"#8a4a4a22":"#0f1d3d";
+                    const border=!quizRevealed?"#1c2a4a":isCorrect?"#5a8a6a":isSelected?"#8a4a4a":"#1c2a4a";
                     const color=!quizRevealed?"#888":isCorrect?"#7aba8a":isSelected?"#c87a7a":"#555";
                     return (
                       <button key={i} onClick={()=>handleQuiz(i)} style={{background:bg,border:`1px solid ${border}`,borderRadius:4,padding:"12px 16px",textAlign:"left",fontSize:11,color,lineHeight:1.6,transition:"all .15s",cursor:"pointer",fontFamily:"inherit"}}>
@@ -545,10 +545,10 @@ export default function ExitPlanning() {
                 </div>
               </div>
               {quizRevealed&&(
-                <div className="ep-card" style={{padding:"16px 20px",borderLeft:"3px solid #c8a84b33"}}>
-                  <div style={{fontSize:9,color:"#c8a84b",letterSpacing:2,marginBottom:8}}>EXIT INSIGHT</div>
+                <div className="ep-card" style={{padding:"16px 20px",borderLeft:"3px solid #3B82F633"}}>
+                  <div style={{fontSize:9,color:"#3B82F6",letterSpacing:2,marginBottom:8}}>EXIT INSIGHT</div>
                   <div style={{fontSize:11,color:"#888",lineHeight:1.8}}>{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} style={{marginTop:14,background:"#c8a84b",border:"none",color:"#07080f",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
+                  <button onClick={nextQ} style={{marginTop:14,background:"#3B82F6",border:"none",color:"#0f1d3d",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>
                     {quizIdx<QUIZ.length-1?"NEXT \u2192":"RESULTS \u2192"}
                   </button>
                 </div>
@@ -556,19 +556,19 @@ export default function ExitPlanning() {
             </div>
           ):(
             <div className="ep-card" style={{padding:"32px",textAlign:"center"}}>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>EXIT ASSESSMENT</div>
-              <div style={{fontFamily:"'Anton',sans-serif",fontSize:64,color:"#c8a84b"}}>{quizScore}/{QUIZ.length}</div>
+              <div style={{ fontSize:14,color:"#555",letterSpacing:4,marginBottom:12}}>EXIT ASSESSMENT</div>
+              <div style={{ fontSize:64,color:"#3B82F6"}}>{quizScore}/{QUIZ.length}</div>
               <div style={{fontSize:13,color:"#888",marginTop:12,marginBottom:20}}>
                 {quizScore===5?"Exit ready. You understand the full lifecycle.":quizScore>=3?"Solid \u2014 review the scenarios you missed before your next deal.":"Spend time on Routes and Timing before your next exit conversation."}
               </div>
-              <div style={{marginBottom:24,padding:"16px",background:"#07080f",border:"1px solid #5a8a6a33",borderRadius:4}}>
+              <div style={{marginBottom:24,padding:"16px",background:"#0f1d3d",border:"1px solid #5a8a6a33",borderRadius:4}}>
                 <div style={{fontSize:9,color:"#5a8a6a",letterSpacing:2,marginBottom:10}}>WAVE 3 COMPLETE</div>
                 <div style={{fontSize:10,color:"#555",lineHeight:2}}>
                   IC Memo &middot; DD Framework &middot; 100-Day Plan &middot; Cap Table Mechanics &middot; Exit Planning
                 </div>
                 <div style={{fontSize:10,color:"#333",marginTop:8}}>Full PE lifecycle: source &rarr; diligence &rarr; close &rarr; build &rarr; exit</div>
               </div>
-              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1e1e2c",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>RETAKE</button>
+              <button onClick={()=>{setQuizDone(false);setQuizIdx(0);setQuizScore(0);setQuizSelected(null);setQuizRevealed(false);}} style={{background:"transparent",border:"1px solid #1c2a4a",color:"#555",padding:"8px 22px",fontSize:10,letterSpacing:2,borderRadius:3,cursor:"pointer",fontFamily:"inherit"}}>RETAKE</button>
             </div>
           )}
         </div>
