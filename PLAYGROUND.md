@@ -64,9 +64,9 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 **Deal Structure Lab: COMPLETE** — Frank's original concept, built Session 23
 **Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
 **Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
-**WAVE 3: IC Memo Builder** — Session 25, **DD Framework + 100-Day Plan** — Session 26, **Cap Table Mechanics** — Session 27
+**WAVE 3: COMPLETE** — IC Memo Builder (Session 25), DD Framework + 100-Day Plan (Session 26), Cap Table Mechanics (Session 27), Exit Planning (Session 28)
 
-**Total modules live: 48**
+**Total modules live: 49**
 
 ---
 
@@ -246,6 +246,22 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 28 — Mar 10, 2026
+- **Built Exit Planning** — Wave 3 capstone, "The Full Lifecycle Close"
+  - 5 tabs: Routes / Readiness / Timing / Process / Quiz
+  - Tab 1 — Routes: 5 exit paths (Strategic Sale 45%, Sponsor-to-Sponsor 35%, Recapitalization 12%, IPO 5%, MBO 3%) with left nav showing frequency. Each route has headline, when it makes sense, multiple dynamics, pros/cons, readiness requirements, and PE sponsor IC interpretation. Quick Returns Calculator embedded in nav sidebar — entry/exit EBITDA and multiples, live MOIC and IRR with color-coded results.
+  - Tab 2 — Readiness: 30-item exit readiness checklist across 5 categories (Financials, Commercial, Legal & Structure, Management & Ops, Narrative). Live readiness score with gradient progress bar (red → gold → green). Critical items flagged with category-colored pills. Per-category progress bars. Customer concentration warning card at bottom.
+  - Tab 3 — Timing: 10 timing signals filterable by SELL / HOLD / ALL. Each signal has detailed rationale. Over-holding warning card at bottom — "most value is lost to over-holding, not under-holding."
+  - Tab 4 — Process: 6-phase sell-side auction timeline (Preparation through Close, 18–22 weeks). Vertical timeline with expandable phase cards showing seller actions and buyer perspective side by side. Exclusivity repricing warning at bottom.
+  - Tab 5 — Quiz: 5 scenario questions from inside real exit situations (strategic approach mid-hold, QoE dispute, recap vs full sale, broad vs targeted auction, earnout negotiation). Wave 3 Complete banner on quiz results showing full PE lifecycle: source → diligence → close → build → exit.
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/exit-planning`, NEW badge
+  - New files: `src/components/exit-planning/ExitPlanning.tsx`, `src/pages/week-4/ExitPlanningPage.tsx`
+- Commit: `04980ca` — pushed to noor_frank_playground
+- **WAVE 3 COMPLETE — all 5 modules built** (IC Memo, DD Framework, 100-Day Plan, Cap Table Mechanics, Exit Planning)
+- **Total modules: 49**
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
 
 ### Session 27 — Mar 9, 2026
 - **Built Cap Table Mechanics** — Wave 3 module, "The Legal Record of Who Owns What"
