@@ -182,7 +182,7 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/merger-model/SKILL.md
 
 ### Enhancement 20: The Process Letter (What Buyers Receive)
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 20, commit TBD)
 **Upgrades:** Week 2 Deal Readiness — educational module
 **What it does:** Shows business owners exactly what a sell-side process looks like from the buyer's perspective. Walks through: the initial process letter (what your banker sends to buyers), IOI instructions (what buyers must include in their first-round bid), final bid requirements (binding offer terms, financing certainty, timeline), and management meeting logistics. Educational — the business owner sees the actual documents and understands what's happening behind the scenes. Removes the mystery from the M&A process.
 **Source plugin:** investment-banking/skills/process-letter/SKILL.md
