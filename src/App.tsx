@@ -106,6 +106,7 @@ const ICMemoBuilderPage = lazy(() => import('./pages/week-4/ICMemoBuilderPage'))
 const DDFrameworkPage = lazy(() => import('./pages/week-4/DDFrameworkPage'));
 const HundredDayPlanPage = lazy(() => import('./pages/week-4/HundredDayPlanPage'));
 const CapTablePage = lazy(() => import('./pages/week-4/CapTablePage'));
+const PostCloseFundraisingPage = lazy(() => import('./pages/week-4/PostCloseFundraisingPage'));
 const ExitPlanningPage = lazy(() => import('./pages/week-4/ExitPlanningPage'));
 
 // Create a client
@@ -232,6 +233,7 @@ function App() {
               <Route path="/portal/week-4/dd-framework" element={<ClientPortalLayout><DDFrameworkPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/hundred-day-plan" element={<ClientPortalLayout><HundredDayPlanPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/cap-table" element={<ClientPortalLayout><CapTablePage /></ClientPortalLayout>} />
+              <Route path="/portal/week-4/post-close-fundraising" element={<ClientPortalLayout><PostCloseFundraisingPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/exit-planning" element={<ClientPortalLayout><ExitPlanningPage /></ClientPortalLayout>} />
 
               {/* Catch-all 404 route */}
