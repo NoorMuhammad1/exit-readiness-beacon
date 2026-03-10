@@ -115,3 +115,22 @@
 - Every module gets reviewed — no sacred cows
 - Merging doesn't mean deleting content — it means better organizing it
 - Frank makes all final decisions on what merges and what stays separate
+
+**Status:** DEFERRED — consolidation audit will happen after new module builds are complete.
+
+---
+
+## NEXT BUILD — Fundraise & Add-On Acquisition Module
+
+**Concept:** After the initial PE deal closes and you're operating as a platform company, the PE sponsor will raise capital to acquire additional companies (add-ons) underneath yours. This module explains:
+
+- **How add-on fundraising works** — PE sponsor raises capital from LPs or uses existing fund commitments to finance acquisitions under your platform
+- **Owner participation** — existing owners (you, the seller who rolled over) are often invited to co-invest in add-on acquisitions, sometimes expected to
+- **Ownership dilution mechanics** — how new capital coming in for add-ons dilutes your existing ownership stake in the platform, similar to cap table dilution but in the context of platform growth
+- **The trade-off** — your ownership percentage goes down, but the total enterprise value goes up, so the dollar value of your stake can increase even as the percentage shrinks
+- **When it makes sense to participate** — putting more money in vs. letting your existing equity ride
+- **Real math** — if you own 15% of a $30M platform and the sponsor raises $20M for an add-on, what happens to your 15%?
+
+**Relates to existing modules:** Cap Table Mechanics (dilution math), Rollover Equity (your second bite), 100-Day Plan (post-close operations), Merger Math (add-on math from buyer side)
+
+**Frank's instruction:** Build this as a new module. Frank will provide a JSX prototype or say BINGO to build from this spec.
