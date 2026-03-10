@@ -64,9 +64,9 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 **Deal Structure Lab: COMPLETE** — Frank's original concept, built Session 23
 **Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
 **Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
-**WAVE 3: IC Memo Builder** — Session 25, **DD Framework + 100-Day Plan** — Session 26
+**WAVE 3: IC Memo Builder** — Session 25, **DD Framework + 100-Day Plan** — Session 26, **Cap Table Mechanics** — Session 27
 
-**Total modules live: 47**
+**Total modules live: 48**
 
 ---
 
@@ -246,6 +246,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 27 — Mar 9, 2026
+- **Built Cap Table Mechanics** — Wave 3 module, "The Legal Record of Who Owns What"
+  - 4 tabs: Concepts / Dilution / Waterfall / Quiz
+  - Tab 1 — Concepts: 8 terms every operator with equity must know cold (Pre-Money Valuation, Authorized vs. Issued Shares, Option Pool, Liquidation Preference, Anti-Dilution, Waterfall Distribution, Management Equity Plan, Fully Diluted Capitalization). Each expands with definition, formula, worked example, common mistake, and PE-specific relevance.
+  - Tab 2 — Dilution: Live before/after ownership calculator. Left panel: pre-investment ownership split (founders/employees/option pool) + PE investment terms (investment amount, pre-money valuation, MIP %). Right panel: deal summary cards (pre-money, investment, post-money, PE ownership %), animated before/after ownership bars with color per shareholder class, dilution table showing pre %, post % (FD), and percentage-point change. Insight card on option pool timing (created pre-investment, founders bear dilution).
+  - Tab 3 — Waterfall: Full exit distribution calculator. Left panel: exit EV, debt, PE investment, LP preference multiple, MOIC hurdle, common equity splits, MIP %. Right panel: step-by-step waterfall (EV → less debt → equity value → less LP → remaining → less MIP above hurdle → common pool → PE common + mgmt common), each step with description. Summary cards: PE sponsor total + MOIC, management total (common + MIP), equity pool used with debt-to-EV ratio. Insight card on debt as invisible tax.
+  - Tab 4 — Quiz: 5 math-forward questions (pre/post-money ownership %, LP preference + management proceeds, MIP hurdle payout, fully diluted share count, MIP crossover analysis). All math verified correct. Scoring: 5/5 = "Clean. You understand your equity." 3-4 = solid foundation. 0-2 = spend time on waterfall and dilution tabs.
+  - Frank caught and fixed 3 math errors in prototype before build: Q3 answer ($0.8M→$0.4M), Q4 percentage (17.6%→17.9%), Q5 crossover (4.25x→5.25x)
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/cap-table`, NEW badge
+  - New files: `src/components/cap-table/CapTable.tsx`, `src/pages/week-4/CapTablePage.tsx`
+- Commit: `d7185ec` — pushed to noor_frank_playground
+- **Total modules: 48** — Wave 3 rolling (4 modules: IC Memo, DD Framework, 100-Day Plan, Cap Table)
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
 
 ### Session 26 — Mar 9, 2026
 - **Built DD Framework** — Wave 3 module, "Is This Business Worth What We're Paying?"
