@@ -65,8 +65,9 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 **Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
 **Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
 **WAVE 3: COMPLETE** — IC Memo Builder (Session 25), DD Framework + 100-Day Plan (Session 26), Cap Table Mechanics (Session 27), Exit Planning (Session 28)
+**Post-Close Fundraising: COMPLETE** — Session 29
 
-**Total modules live: 49**
+**Total modules live: 50**
 
 ---
 
@@ -246,6 +247,21 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 29 — Mar 10, 2026
+- **Built Post-Close Fundraising** — "I Just Closed" bucket, dilution math for platform add-on acquisitions
+  - 4 tabs: How It Works / Dilution / Raise Types / Quiz
+  - Tab 1 — How It Works: Visual before/after ownership structure diagram (OldCo → raise + acquire → HoldCo + AcquiredCo). Three core truths: dilution is a trade, your % shrinks but $ may grow, pro-rata is your protection. The key question every operator must answer before agreeing to a raise.
+  - Tab 2 — Dilution Calculator: Three input panels (Current Structure, Raise & Acquisition, Exit Assumptions). Live ownership shift bars showing before vs. after for You, PE Sponsor, Management, New Investor with pp change. Your Equity Value card (before, post-money no participation, post-money with participation). Acquisition Math card (price, combined EBITDA, combined exit value). Three-way exit comparison: without raise, with raise no participation, with raise full pro-rata. Participation gain callout. Liquidity risk warning card.
+  - Tab 3 — Raise Types: Four paths with left nav showing dilution level and speed per type. PE Co-Investment (moderate dilution, fast, low complexity), New PE Partner (high dilution, slow, high complexity), Debt-Funded Acquisition (no dilution, medium speed, leverage risk), Owner Participation (no dilution if full pro-rata, fast). Each expands with when to use it, how it works, ownership impact, worked example, and pro tip. Pro-rata rights negotiation is the thread through all four.
+  - Tab 4 — Quiz: 5 math-forward scenarios (dilution % after equity raise, leverage covenant stress test for debt funding, pro-rata rights negotiation value, dilution-vs-value-creation tradeoff modeling, rollover equity compounding through a raise). Scoring + retake.
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/post-close-fundraising`, NEW badge
+  - Sits after Cap Table Mechanics, before Exit Planning in sidebar
+  - New files: `src/components/post-close-fundraising/PostCloseFundraising.tsx`, `src/pages/week-4/PostCloseFundraisingPage.tsx`
+- Commit: `1658016` — pushed to noor_frank_playground
+- **Module #50 live. Total modules: 50.**
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
 
 ### Session 28 — Mar 10, 2026
 - **Built Exit Planning** — Wave 3 capstone, "The Full Lifecycle Close"
