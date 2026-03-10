@@ -222,6 +222,25 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 23 — Mar 9, 2026
+- **Built Deal Structure Lab** — Frank's new module concept, "Five Calculators. Both Sides of the Table."
+  - 6 tabs: Structure / Earnout / Rollover / Escrow & PPA / Seller Finance / Quiz
+  - **Chair toggle** — seller (gold #c8a84b) vs buyer (teal #5a8a9a) flips all guidance text, accent colors, negotiation checklists, and contextual explanations across every tab. Functional UX, not decoration.
+  - Tab 1 — Structure: Stock vs asset sale side-by-side with real after-tax math. Entity type toggle (S-Corp/LLC vs C-Corp) changes entire tax treatment. C-Corp shows double taxation explicitly. 338(h)(10) election toggle with explainer. Structure delta line tells seller what price premium to demand or buyer what to offer.
+  - Tab 2 — Earnout: Base price + earnout max sliders. Threshold/target/stretch tier model. Three performance scenarios (miss/base/hit) with dynamic earnout earned calculation. Seller protection checklist and buyer structuring rules swap with chair toggle.
+  - Tab 3 — Rollover: Company value, rollover %, exit multiple, hold period sliders. Cash at close, exit value at your %, rollover net after LTCG+NIIT, total net proceeds, MOIC, implied IRR. Negotiation tips swap with chair.
+  - Tab 4 — Escrow & PPA: Purchase price, WC peg vs actual, R&W escrow %, release period. Cash flow timeline (day 0, day 60-90 WC true-up, escrow release month, total). Four expandable escrow type reference cards (R&W, WC, Earnout Reserve, Tax Indemnification).
+  - Tab 5 — Seller Finance: Deal size, note % of deal, interest rate, term sliders. Amortizing note calculator with monthly payment, total interest, total received. Protection requirements swap with chair (seller: UCC-1, personal guarantee, subordination; buyer: prepay rights, subordination to senior).
+  - Tab 6 — Quiz: 5 deal-mechanic questions at the negotiating table level (C-Corp double tax, earnout accounting risk, rollover math, 338(h)(10) mechanics, seller note default risk). Scoring: Deal Counsel / Senior Associate / Analyst.
+  - Research sources: Harney Capital, Carta, Evolved Tax, AAFCPAs, Wall Street Prep
+  - Tailwind conversion from Frank's JSX prototype — inline styles out, Tailwind + style props for dynamic accent colors
+  - Standalone calculator — no Company Profile auto-fill, no localStorage (add later when active deal data layer exists)
+  - Route: `/portal/week-2/deal-structure-lab`, NEW badge
+  - New files: `src/components/deal-structure-lab/DealStructureLab.tsx`, `src/pages/week-2/DealStructureLabPage.tsx`
+- Commit: `3d1d6e2` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 9 of 9 COMPLETE** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF, #19 Merger Math, #20 Process Letter, #18 Life After Exit, #22 PE Pitch Deck Builder) + Deal Structure Lab (new concept beyond Wave 2)
+- **Next:** Company One-Pager (#21) — last Wave 2 enhancement, then Phase 4 thin module upgrades, UI overhaul
+
 ### Session 22 — Mar 9, 2026
 - **Built PE Pitch Deck Builder** — Enhancement #22, "Build Decks That Survive the IC Meeting"
   - Two complete deck architectures with persistent deck type toggle:
