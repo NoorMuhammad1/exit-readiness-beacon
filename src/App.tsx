@@ -105,6 +105,7 @@ const CompanyOnePagerPage = lazy(() => import('./pages/week-4/CompanyOnePagerPag
 const ICMemoBuilderPage = lazy(() => import('./pages/week-4/ICMemoBuilderPage'));
 const DDFrameworkPage = lazy(() => import('./pages/week-4/DDFrameworkPage'));
 const HundredDayPlanPage = lazy(() => import('./pages/week-4/HundredDayPlanPage'));
+const CapTablePage = lazy(() => import('./pages/week-4/CapTablePage'));
 
 // Create a client
 const queryClient = new QueryClient({
@@ -229,6 +230,7 @@ function App() {
               <Route path="/portal/week-4/ic-memo" element={<ClientPortalLayout><ICMemoBuilderPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/dd-framework" element={<ClientPortalLayout><DDFrameworkPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/hundred-day-plan" element={<ClientPortalLayout><HundredDayPlanPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-4/cap-table" element={<ClientPortalLayout><CapTablePage /></ClientPortalLayout>} />
 
               {/* Catch-all 404 route */}
               <Route path="*" element={<NotFound />} />
