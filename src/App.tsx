@@ -71,6 +71,7 @@ const PostClosingRealityPage = lazy(() => import('./pages/week-2/PostClosingReal
 const MergerMathPage = lazy(() => import('./pages/week-2/MergerMathPage'));
 const ProcessLetterPage = lazy(() => import('./pages/week-2/ProcessLetterPage'));
 const LifeAfterExitPage = lazy(() => import('./pages/week-2/LifeAfterExitPage'));
+const DealStructureLabPage = lazy(() => import('./pages/week-2/DealStructureLabPage'));
 
 // Week 3 pages
 const EbitdaCalculatorPage = lazy(() => import('./pages/EBITDACalculatorPage'));
@@ -188,6 +189,7 @@ function App() {
               <Route path="/portal/week-2/merger-math" element={<ClientPortalLayout><MergerMathPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/process-letter" element={<ClientPortalLayout><ProcessLetterPage /></ClientPortalLayout>} />
               <Route path="/portal/week-2/life-after-exit" element={<ClientPortalLayout><LifeAfterExitPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-2/deal-structure-lab" element={<ClientPortalLayout><DealStructureLabPage /></ClientPortalLayout>} />
 
               {/* Week 3 Routes */}
               <Route path="/portal/week-3/ebitda-calculator" element={<ClientPortalLayout><EbitdaCalculatorPage /></ClientPortalLayout>} />
