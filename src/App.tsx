@@ -101,6 +101,7 @@ const AnonymousTeaserPage = lazy(() => import('./pages/week-4/AnonymousTeaserPag
 const CIMGeneratorPage = lazy(() => import('./pages/week-4/CIMGeneratorPage'));
 const FinancialDataRoomPage = lazy(() => import('./pages/week-4/FinancialDataRoomPage'));
 const PEPitchDeckBuilderPage = lazy(() => import('./pages/week-4/PEPitchDeckBuilderPage'));
+const CompanyOnePagerPage = lazy(() => import('./pages/week-4/CompanyOnePagerPage'));
 
 // Create a client
 const queryClient = new QueryClient({
@@ -221,6 +222,7 @@ function App() {
               <Route path="/portal/week-4/cim-generator" element={<ClientPortalLayout><CIMGeneratorPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/financial-data-room" element={<ClientPortalLayout><FinancialDataRoomPage /></ClientPortalLayout>} />
               <Route path="/portal/week-4/pe-pitch-deck" element={<ClientPortalLayout><PEPitchDeckBuilderPage /></ClientPortalLayout>} />
+              <Route path="/portal/week-4/company-one-pager" element={<ClientPortalLayout><CompanyOnePagerPage /></ClientPortalLayout>} />
               
               {/* Catch-all 404 route */}
               <Route path="*" element={<NotFound />} />

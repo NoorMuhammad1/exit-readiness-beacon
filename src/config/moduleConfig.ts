@@ -77,7 +77,8 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Anonymous Teaser', path: '/portal/week-4/anonymous-teaser', weekNumber: 4, order: 8, enhancement: 'ENHANCED' },
   { name: 'Draft CIM Generator', path: '/portal/week-4/cim-generator', weekNumber: 4, order: 9, enhancement: 'ENHANCED' },
   { name: 'Financial Data Room Prep', path: '/portal/week-4/financial-data-room', weekNumber: 4, order: 10, enhancement: 'NEW' },
-  { name: 'PE Pitch Deck Builder', path: '/portal/week-4/pe-pitch-deck', weekNumber: 4, order: 11, enhancement: 'NEW' }
+  { name: 'PE Pitch Deck Builder', path: '/portal/week-4/pe-pitch-deck', weekNumber: 4, order: 11, enhancement: 'NEW' },
+  { name: 'Company One-Pager', path: '/portal/week-4/company-one-pager', weekNumber: 4, order: 12, enhancement: 'NEW' }
 ];
 
 // Helper function to get modules by week
