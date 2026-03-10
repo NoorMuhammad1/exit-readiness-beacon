@@ -194,9 +194,9 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/strip-profile/SKILL.md
 
 ### Enhancement 22: PE Pitch Deck Builder
-**Status:** NOT STARTED
+**Status:** COMPLETE (Session 22, commit 5eaad8d)
 **Upgrades:** Week 4 Final Readiness — premium deliverable
-**What it does:** Auto-generates a management presentation / pitch deck from data entered throughout the program. Slides: Company Overview, Business Model & Revenue Drivers, Market Opportunity (TAM/SAM/SOM from Competitive Analysis), Financial Summary (revenue, EBITDA, margins, growth), Growth Strategy & Value Creation Levers, Management Team, Investment Highlights, and Transaction Overview. Uses professional slide layouts with charts, tables, and clean formatting. The business owner completes PE Ready and walks out with a full deal package: Anonymous Teaser + CIM + Company One-Pager + Pitch Deck. That's what a $50K investment banker produces — your users get a starter version for free.
+**What it does:** Teaches how to build decks that survive the IC meeting. Two complete deck architectures: Fund→LP (7 slides targeting pension funds, endowments, family offices) and Company→PE (7 slides targeting PE deal teams, investment committees). 4 tabs: Anatomy (slide-by-slide breakdown with LP attention weight bar, must-haves, instant killers, strong vs. weak examples, read time per slide), Builder (guided slide construction with headline, content, key metric fields, self-check checklist, live preview), LP Objections (7 real questions with reveal-on-demand answers for meeting prep), Grader (7-dimension scoring rubric — numbers backing claims, thesis differentiation, track record transparency, team depth, LP-fair terms, narrative flow, design discipline — generates score out of 100 with verdict). Deck type toggle switches entire content layer. Curriculum arc shows module in context of built modules. Educational module — no data inputs, no localStorage, no Company Profile auto-fill. Route: `/portal/week-4/pe-pitch-deck`.
 **Source plugin:** investment-banking/skills/pitch-deck-population/SKILL.md
 
 ---
@@ -221,6 +221,24 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 22 — Mar 9, 2026
+- **Built PE Pitch Deck Builder** — Enhancement #22, "Build Decks That Survive the IC Meeting"
+  - Two complete deck architectures with persistent deck type toggle:
+    - **Fund → LP Deck** (7 slides): Cover/Executive Summary, Investment Thesis, Team, Track Record, Investment Strategy, Portfolio Construction, Fund Terms. Audience: pension funds, endowments, family offices. Primary question: "Why should I commit $25M to YOUR fund vs. 300 others?"
+    - **Company → PE Deck** (7 slides): Cover/Executive Summary, Market Opportunity, Business Model, Financial Performance, Management Team, Growth Strategy, The Ask/Exit. Audience: PE deal teams, investment committees. Primary question: "Can I buy this at 5x, grow it to $20M EBITDA, and sell it at 9x?"
+  - Tab 1 — Anatomy: LP attention weight bar (Track Record = 30% for fund, Financial Performance = 25% for company), clickable slide pills, expandable slide detail with job description, must-haves (green), instant killers (red), strong vs. weak examples side by side, LP read time per slide, attention percentage badge
+  - Tab 2 — Builder: Guided slide-by-slide construction with headline, content, and key metric/proof point text areas. Self-check pills for each must-have item (click to mark done). Live slide preview renders as you type with headline, content, and metric callout. Slide navigator with completion tracking (checkmark on completed slides). Prev/Next navigation with slide counter.
+  - Tab 3 — LP Objections: 7 real LP questions ("Your track record is only 2 deals — how do I know this isn't luck?", "70% of your returns came from one deal — is this a fund or a lottery ticket?", "Why should I pay 2 and 20 when passives return 10%?", etc.). Click to expand, then reveal-on-demand answer. Built for pre-meeting training.
+  - Tab 4 — Grader: 7-dimension scoring rubric with range sliders (numbers backing claims /20, thesis differentiation /20, track record transparency /20, team operators /15, LP-fair terms /10, narrative flow /10, design discipline /5). Submit generates score out of 100, verdict (Institutional Quality → Early Draft — Do Not Send), color-coded progress bar breakdown per dimension. Re-grade to reset.
+  - Curriculum arc updated: Synergy Engine (built), Process Letter Academy (built), Life After Exit (built), LBO Fundamentals (built), PE Pitch Deck Builder (this), Deal Structure Lab (next)
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Research sources: Ink Narrates (PE Pitch Deck Guide), Carta (LP Investor Pitch Deck), Viktori (11-Slide PE Fund Template)
+  - Route: `/portal/week-4/pe-pitch-deck`, NEW badge
+  - New files: `src/components/pe-pitch-deck/PEPitchDeckBuilder.tsx`, `src/pages/week-4/PEPitchDeckBuilderPage.tsx`
+- Commit: `5eaad8d` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 8 of 9 complete** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF, #19 Merger Math, #20 Process Letter, #18 Life After Exit, #22 PE Pitch Deck Builder)
+- **Next:** Company One-Pager (#21) — last Wave 2 module, then Phase 4 thin module upgrades
 
 ### Session 21 — Mar 9, 2026
 - **Built Life After Exit** — Enhancement #18, "You Got the Check. Now What?"
