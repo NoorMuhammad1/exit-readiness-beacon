@@ -170,9 +170,9 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 **Source plugin:** investment-banking/skills/datapack-builder/SKILL.md
 
 ### Enhancement 18: Life After Exit (Post-Sale Financial Planning)
-**Status:** NOT STARTED
-**Upgrades:** New module — Week 4 or standalone post-program section
-**What it does:** What happens after you sell? Covers: tax implications of the sale (capital gains, installment sales, earnout taxation), wealth preservation strategies, retirement projections based on sale proceeds, estate planning basics, and the psychological transition from operator to investor. Scenario modeling: "If you sell for $X after tax, here's what your retirement looks like at different spending levels." Addresses the question nobody talks about: "I just got a check for $15M. Now what?"
+**Status:** COMPLETE (Session 21, commit d093a21)
+**Upgrades:** New module — Week 2 Deal Readiness
+**What it does:** "You got the check. Now what?" 5 tabs: Tax Strategies (exit tax modeler with QSBS eligibility checklist — all 5 requirements must be confirmed before exclusion activates, DAF slider, state rate slider, 6 expandable strategy cards with requirements and watch-outs), Wealth Buckets (5-bucket framework with live sizer fed from tax calc), Timeline (5 phases from pre-exit through year 10 with expandable action items), Mistakes (7 real failure modes with cost ranges and fixes), Quiz (5 scenario questions + CSV export). Educational module — no data inputs, no localStorage, no Company Profile auto-fill. Route: `/portal/week-2/life-after-exit`.
 **Source plugin:** wealth-management/skills/financial-plan/SKILL.md
 
 ### Enhancement 19: Merger Math (Why Strategic Buyers Pay More)
@@ -221,6 +221,22 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 21 — Mar 9, 2026
+- **Built Life After Exit** — Enhancement #18, "You Got the Check. Now What?"
+  - 5 tabs: Tax Strategies / Wealth Buckets / Timeline / Mistakes / Quiz
+  - Tab 1: Exit Tax Modeler with exit proceeds slider ($1M-$50M), state tax rate slider (0%-13.3% with FL/NY/CA labels), QSBS eligibility checklist (5 requirements — C-Corp, $50M assets, 5-year hold, post-2010 issuance, active business — all must be checked before exclusion activates), DAF contribution slider (0-30% of gain). Real-time results: total gain, total tax, net proceeds, effective rate. QSBS savings callout when qualified. 6 expandable tax strategy cards (QSBS, State Tax Migration, DAF, Installment Sale, GRAT, OZ Fund) each with requirements list and watch-out warning.
+  - Tab 2: Wealth Buckets — 5-bucket framework (Liquidity 10%, Core Wealth 50%, Alternatives 25%, Opportunity 10%, Legacy 5%) with progress bars and descriptions. Bucket Sizer pulls net proceeds from Tax tab for live dollar amounts. "One Rule" callout about hard-capping the Opportunity Bucket.
+  - Tab 3: Timeline — 5 expandable phases (Pre-Exit 3-5yr, Deal Year 12-18mo, Close+90 Days, Year 1-2, Year 3-10) with numbered action items per phase. Click to expand.
+  - Tab 4: Mistakes — 7 real failure modes (negotiating valuation not after-tax, missing DAF window, state residency half-measures, 90-day paralysis/impulse, no Opportunity cap, estate plan not updated, skipping rollover equity) with cost ranges and concrete fixes.
+  - Tab 5: Quiz — 5 scenario questions (DAF timing, state residency, QSBS disqualification, deployment discipline, estate tax sunset). Scoring: Wealth Advisor (5/5), Principal (3-4), Founder (0-2). Retake + CSV export with full report including tax modeler snapshot, strategies, bucket allocations, and mistakes.
+  - Frank's QSBS checklist enhancement (not just a toggle) makes the education explicit and prevents false confidence
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-2/life-after-exit`, NEW badge
+  - New files: `src/components/life-after-exit/LifeAfterExit.tsx`, `src/pages/week-2/LifeAfterExitPage.tsx`
+- Commit: `d093a21` — pushed to noor_frank_playground
+- **Phase 3 Wave 2: 7 of 9 complete** (#15 LBO, #17 Financial Data Room, #14 Comps, #16 DCF, #19 Merger Math, #20 Process Letter, #18 Life After Exit)
+- **Next:** Company One-Pager (#21), PE Pitch Deck Builder (#22)
 
 ### Session 20 — Mar 9, 2026
 - **Built The Process Letter** — Enhancement #20, "PE Deal Auction Academy"
