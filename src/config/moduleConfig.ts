@@ -80,7 +80,8 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'PE Pitch Deck Builder', path: '/portal/week-4/pe-pitch-deck', weekNumber: 4, order: 11, enhancement: 'NEW' },
   { name: 'Company One-Pager', path: '/portal/week-4/company-one-pager', weekNumber: 4, order: 12, enhancement: 'NEW' },
   { name: 'IC Memo Builder', path: '/portal/week-4/ic-memo', weekNumber: 4, order: 13, enhancement: 'NEW' },
-  { name: 'DD Framework', path: '/portal/week-4/dd-framework', weekNumber: 4, order: 14, enhancement: 'NEW' }
+  { name: 'DD Framework', path: '/portal/week-4/dd-framework', weekNumber: 4, order: 14, enhancement: 'NEW' },
+  { name: '100-Day Plan', path: '/portal/week-4/hundred-day-plan', weekNumber: 4, order: 15, enhancement: 'NEW' }
 ];
 
 // Helper function to get modules by week
