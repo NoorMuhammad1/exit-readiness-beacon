@@ -115,7 +115,7 @@ const NotYourBusinessPage: React.FC = () => {
   
   return (
     <div className="space-y-6">
-      <Card className="bg-blue-500/10 border-blue-500/30 p-6">
+      <Card className="bg-white/5 border-white/15 p-6">
         <p className="text-lg">
           <strong>It's like when your daughter gets married.</strong> You still have a voice 
           in her life, you still care deeply, but she's got her own family now. She makes 
@@ -305,7 +305,7 @@ const ConsolidationPage: React.FC = () => {
           </div>
         )}
         
-        <Alert className="border-blue-500/30 bg-blue-500/10">
+        <Alert className="border-white/15 bg-white/5">
           <AlertDescription>
             <strong>The Upside:</strong> These consolidations do save 10-20% on costs, 
             which improves EBITDA, which increases your equity value. It's not personal, 

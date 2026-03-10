@@ -355,7 +355,7 @@ export default function DataRoomPage() {
   const getScoreColor = (score: string) => {
     switch (score) {
       case 'A': return 'text-green-500';
-      case 'B': return 'text-blue-500';
+      case 'B': return 'text-white';
       case 'C': return 'text-yellow-500';
       case 'D': return 'text-orange-500';
       case 'F': return 'text-red-500';
@@ -475,10 +475,10 @@ export default function DataRoomPage() {
 
         {/* Sample Data Section */}
         {sampleDataLoaded && (
-          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6 mb-8 backdrop-blur-sm">
+          <div className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10 rounded-xl p-6 mb-8 backdrop-blur-sm">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <Database className="w-6 h-6 text-blue-500" />
+                <Database className="w-6 h-6 text-white" />
                 <div>
                   <h3 className="text-lg font-semibold text-foreground">Sample Data Active</h3>
                   <p className="text-foreground/70 text-sm">
@@ -599,12 +599,12 @@ export default function DataRoomPage() {
                             )}
                             <button
                               onClick={() => toggleFolderCompletion(folder.category, folder.subcategory, folder.isCompleted)}
-                              className="flex items-center gap-2 px-3 py-1.5 border-2 border-blue-400 rounded-lg hover:border-blue-500 hover:bg-blue-50/10 transition-colors bg-background/50"
+                              className="flex items-center gap-2 px-3 py-1.5 border-2 border-white/30 rounded-lg hover:border-white/30 hover:bg-blue-50/10 transition-colors bg-background/50"
                             >
                               <div className={`w-4 h-4 border-2 rounded flex items-center justify-center ${
                                 folder.isCompleted 
                                   ? 'bg-green-500 border-green-500' 
-                                  : 'border-blue-400 bg-background'
+                                  : 'border-white/30 bg-background'
                               }`}>
                                 {folder.isCompleted && <Check className="w-3 h-3 text-white" />}
                               </div>

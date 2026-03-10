@@ -63,9 +63,9 @@ const processStages: ProcessStage[] = [
     name: 'Preparation',
     timeline: '6-12 months before launch',
     icon: <Target className="w-6 h-6" />,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/20',
+    color: 'text-white',
+    bgColor: 'bg-white/5',
+    borderColor: 'border-white/10',
     whatHappens: 'You get your house in order before anyone knows you\'re selling. Financial clean-up, sell-side QoE, management team assessment, value creation story development. This is the work that separates $40M exits from $55M exits.',
     sellerRole: 'Clean up financials, document add-backs, prepare management team, run sell-side Quality of Earnings, fix any known issues.',
     bankerRole: 'Evaluates your business, identifies value drivers and risks, develops the positioning strategy, creates the marketing timeline.',
@@ -461,7 +461,7 @@ export const TheAuction: React.FC = () => {
               <p className="text-sm text-muted-foreground mt-1">Higher price from competitive process vs. single buyer</p>
             </div>
             <div className="bg-muted/30 rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold text-blue-400">60-70%</p>
+              <p className="text-3xl font-bold text-white">60-70%</p>
               <p className="text-sm text-muted-foreground mt-1">Of deals without a banker get re-traded during diligence</p>
             </div>
             <div className="bg-muted/30 rounded-lg p-4 text-center">
@@ -476,7 +476,7 @@ export const TheAuction: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <BarChart3 className="w-6 h-6 text-blue-400" />
+            <BarChart3 className="w-6 h-6 text-white" />
             More Bidders = More Money
           </CardTitle>
         </CardHeader>
@@ -604,7 +604,7 @@ export const TheAuction: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <Target className="w-6 h-6 text-blue-400" />
+            <Target className="w-6 h-6 text-white" />
             The 8 Stages of a Competitive Sale Process
           </CardTitle>
         </CardHeader>
@@ -660,7 +660,7 @@ export const TheAuction: React.FC = () => {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-muted/30 rounded-lg p-4">
-                      <p className="text-sm font-medium text-blue-400 mb-2 flex items-center gap-2">
+                      <p className="text-sm font-medium text-white mb-2 flex items-center gap-2">
                         <Users className="w-4 h-4" /> Your Role
                       </p>
                       <p className="text-sm text-muted-foreground">{stage.sellerRole}</p>
@@ -726,7 +726,7 @@ export const TheAuction: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <Shield className="w-6 h-6 text-blue-400" />
+            <Shield className="w-6 h-6 text-white" />
             Are You Ready to Run a Competitive Process?
           </CardTitle>
         </CardHeader>
@@ -743,7 +743,7 @@ export const TheAuction: React.FC = () => {
             </div>
             <div className="w-full h-2 bg-muted/50 rounded-full overflow-hidden">
               <div
-                className="h-full bg-blue-500 rounded-full transition-all duration-300"
+                className="h-full bg-white/20 rounded-full transition-all duration-300"
                 style={{ width: `${(answeredCount / totalQuestions) * 100}%` }}
               />
             </div>

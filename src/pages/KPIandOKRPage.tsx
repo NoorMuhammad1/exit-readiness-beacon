@@ -534,7 +534,7 @@ export default function KPIandOKRPage() {
   const getStatusColor = (status: KPIMetric['status']) => {
     switch (status) {
       case 'Achieved': return 'text-green-400';
-      case 'On Track': return 'text-blue-400';
+      case 'On Track': return 'text-white';
       case 'At Risk': return 'text-yellow-400';
       case 'Behind': return 'text-red-400';
       default: return 'text-gray-400';
@@ -611,7 +611,7 @@ ${i + 1}. ${kr.keyResult}
             onClick={() => setShowSetup(!showSetup)}
           >
             <div className="flex items-center gap-3">
-              <Edit3 className="w-5 h-5 text-blue-400" />
+              <Edit3 className="w-5 h-5 text-white" />
               <div>
                 <h2 className="text-lg font-semibold text-white">
                   {metrics.length === 0 ? "Let's define your first value drivers" : "Edit Metrics"}
@@ -631,7 +631,7 @@ ${i + 1}. ${kr.keyResult}
             <div className="px-6 pb-6 border-t border-white/10">
               {/* Total EBITDA Impact */}
               {getTotalEBITDAImpact() > 0 && (
-                <div className="mt-4 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                <div className="mt-4 p-4 bg-white/5 border border-white/15 rounded-lg">
                   <p className="text-sm text-blue-300">
                     <BarChart3 className="w-4 h-4 inline mr-1" />
                     Total EBITDA Impact: <span className="font-bold">${getTotalEBITDAImpact().toLocaleString()}</span>
@@ -647,7 +647,7 @@ ${i + 1}. ${kr.keyResult}
                     variant={activeTab === 'KPI' ? 'default' : 'outline'}
                     className={`h-12 ${
                       activeTab === 'KPI' 
-                        ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-600' 
+                        ? 'bg-white/20 text-white border-white/30 hover:bg-white/20' 
                         : 'bg-white/10 text-white/70 border-white/20 hover:bg-white/20'
                     }`}
                   >
@@ -658,7 +658,7 @@ ${i + 1}. ${kr.keyResult}
                     variant={activeTab === 'OKR' ? 'default' : 'outline'}
                     className={`h-12 ${
                       activeTab === 'OKR' 
-                        ? 'bg-blue-500 text-white border-blue-500 hover:bg-blue-600' 
+                        ? 'bg-white/20 text-white border-white/30 hover:bg-white/20' 
                         : 'bg-white/10 text-white/70 border-white/20 hover:bg-white/20'
                     }`}
                   >
@@ -698,7 +698,7 @@ ${i + 1}. ${kr.keyResult}
                       ))}
                     </div>
                   </div>
-                  <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                  <div className="p-4 bg-white/5 border border-white/15 rounded-lg">
                     <h3 className="text-white font-semibold mb-1">Financial Health KPIs</h3>
                     <p className="text-white/50 text-xs mb-3">From PE portfolio monitoring frameworks — the metrics PE firms track after acquisition</p>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -713,7 +713,7 @@ ${i + 1}. ${kr.keyResult}
                         >
                           <p className="text-white text-sm font-medium">{template.metricName}</p>
                           <p className="text-white/60 text-xs">Target: {template.targetValue.toLocaleString()} {template.unitOfMeasure}</p>
-                          <p className="text-blue-400 text-xs mt-1">{template.category} • {template.valuationImpact} Impact</p>
+                          <p className="text-white text-xs mt-1">{template.category} • {template.valuationImpact} Impact</p>
                         </button>
                       ))}
                     </div>
@@ -725,14 +725,14 @@ ${i + 1}. ${kr.keyResult}
               <div className="grid grid-cols-2 gap-4 mb-6 max-w-md">
                 <Button 
                   onClick={() => addMetric('KPI')}
-                  className="bg-blue-500 hover:bg-blue-600 text-white h-12"
+                  className="bg-white/20 hover:bg-white/20 text-white h-12"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add KPI
                 </Button>
                 <Button 
                   onClick={() => addMetric('OKR')}
-                  className="bg-blue-500 hover:bg-blue-600 text-white h-12"
+                  className="bg-white/20 hover:bg-white/20 text-white h-12"
                 >
                   <Plus className="w-4 h-4 mr-2" />
                   Add OKR
@@ -825,7 +825,7 @@ ${i + 1}. ${kr.keyResult}
                     setIsEditing(false);
                   }}
                   disabled={saving}
-                  className="bg-blue-500 hover:bg-blue-600 text-white"
+                  className="bg-white/20 hover:bg-white/20 text-white"
                 >
                   {saving ? 'Saving...' : 'Save Metrics'}
                 </Button>
@@ -1035,7 +1035,7 @@ ${i + 1}. ${kr.keyResult}
             </p>
             <Button 
               onClick={() => setShowSetup(true)}
-              className="bg-blue-500 hover:bg-blue-600 text-white"
+              className="bg-white/20 hover:bg-white/20 text-white"
             >
               <Plus className="w-4 h-4 mr-2" />
               Get Started

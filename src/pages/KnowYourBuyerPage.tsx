@@ -264,7 +264,7 @@ export default function KnowYourBuyerPage() {
             {quizQuestions.map(q => {
               const accentMap: Record<string, { border: string; label: string; selected: string }> = {
                 revenue: { border: "border-green-500/20", label: "text-green-400", selected: "bg-green-500/20 border-green-500/50" },
-                ebitda: { border: "border-blue-500/20", label: "text-blue-400", selected: "bg-blue-500/20 border-blue-500/50" },
+                ebitda: { border: "border-white/10", label: "text-white", selected: "bg-white/10 border-white/20" },
                 growth: { border: "border-purple-500/20", label: "text-purple-400", selected: "bg-purple-500/20 border-purple-500/50" },
                 timeline: { border: "border-amber-500/20", label: "text-amber-400", selected: "bg-amber-500/20 border-amber-500/50" },
               };
@@ -304,7 +304,7 @@ export default function KnowYourBuyerPage() {
               const fitColors: Record<string, { border: string; scoreTxt: string; bg: string }> = {
                 HIGH: { border: "border-green-500/30", scoreTxt: "text-green-400", bg: "bg-green-500/5" },
                 MEDIUM: { border: "border-amber-500/30", scoreTxt: "text-amber-400", bg: "bg-amber-500/5" },
-                LOW: { border: "border-white/10", scoreTxt: "text-blue-400", bg: "bg-white/5" },
+                LOW: { border: "border-white/10", scoreTxt: "text-white", bg: "bg-white/5" },
               };
               const fit = fitColors[buyer.yourFit] || fitColors.LOW;
               return (
@@ -313,7 +313,7 @@ export default function KnowYourBuyerPage() {
                   onClick={() => setSelectedBuyer(buyer.id)}
                   className={`border rounded-xl p-6 cursor-pointer transition ${
                     selectedBuyer === buyer.id
-                      ? "border-blue-500/50 bg-blue-500/10"
+                      ? "border-white/20 bg-white/5"
                       : isTopMatch
                       ? `${fit.bg} border-green-500/50`
                       : `${fit.bg} ${fit.border} hover:bg-white/10`
@@ -365,8 +365,8 @@ export default function KnowYourBuyerPage() {
                       </ul>
                     </div>
                   </div>
-                  <div className="mt-8 p-6 bg-blue-500/10 border border-blue-500/20 rounded-lg">
-                    <h3 className="text-lg font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                  <div className="mt-8 p-6 bg-white/5 border border-white/10 rounded-lg">
+                    <h3 className="text-lg font-semibold text-white mb-2 flex items-center gap-2">
                       <Target className="w-5 h-5" /> Your Preparation Focus
                     </h3>
                     <p className="text-white/90">{buyer.prepFocus}</p>
@@ -390,26 +390,26 @@ export default function KnowYourBuyerPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Strategic Buyers */}
-            <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-6">
+            <div className="bg-white/20/5 border border-white/10 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
-                <Building2 className="w-6 h-6 text-blue-400" />
+                <Building2 className="w-6 h-6 text-white" />
                 <h3 className="text-lg font-semibold text-white">Strategic Buyers</h3>
               </div>
               <p className="text-white/60 text-sm mb-4">Companies that buy you because you make their existing business stronger.</p>
               <div className="space-y-3">
-                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-white/5 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Direct Competitors</p>
                   <p className="text-white/50 text-xs">Want your market share, customers, or geographic reach</p>
                 </div>
-                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-white/5 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Adjacent Players</p>
                   <p className="text-white/50 text-xs">In a related space — your product fills a gap in their offering</p>
                 </div>
-                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-white/5 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Vertical Integrators</p>
                   <p className="text-white/50 text-xs">Want to own more of the supply chain — your company is upstream or downstream</p>
                 </div>
-                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-white/5 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Platform Builders</p>
                   <p className="text-white/50 text-xs">Assembling a group of companies under one roof — you fit the puzzle</p>
                 </div>
@@ -458,9 +458,9 @@ export default function KnowYourBuyerPage() {
                 <p className="text-yellow-400 text-sm font-medium mb-2">10-15 Solid Prospects</p>
                 <p className="text-white/60 text-xs">Good fit but may need more convincing. Creates competitive tension in the process.</p>
               </div>
-              <div className="bg-blue-500/10 border border-blue-500/30 rounded-lg p-4">
-                <p className="text-blue-400 font-bold text-lg mb-1">Tier 3</p>
-                <p className="text-blue-400 text-sm font-medium mb-2">10-20 Long Shots</p>
+              <div className="bg-white/5 border border-white/15 rounded-lg p-4">
+                <p className="text-white font-bold text-lg mb-1">Tier 3</p>
+                <p className="text-white text-sm font-medium mb-2">10-20 Long Shots</p>
                 <p className="text-white/60 text-xs">Opportunistic — might surprise you. Sometimes the dark horse wins the auction.</p>
               </div>
             </div>

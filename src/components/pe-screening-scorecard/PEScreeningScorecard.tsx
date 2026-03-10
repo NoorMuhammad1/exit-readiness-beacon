@@ -428,7 +428,7 @@ const CompanyProfilePage: React.FC<{
         </div>
       </div>
 
-      <Alert className="border-blue-500/30 bg-blue-500/5">
+      <Alert className="border-white/15 bg-white/20/5">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription className="text-sm">
           <span className="font-semibold">Tip:</span> Use your adjusted EBITDA (with legitimate add-backs) rather than reported EBITDA.

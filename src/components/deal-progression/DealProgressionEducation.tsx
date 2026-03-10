@@ -92,7 +92,7 @@ const OverviewPage: React.FC = () => (
     <h2 className="text-3xl font-bold">Your Deal's 5 Critical Stages</h2>
     
     <div className="space-y-4">
-      <Card className="p-4 border-l-4 border-blue-500">
+      <Card className="p-4 border-l-4 border-white/30">
         <div className="flex items-center justify-between">
           <div>
             <h3 className="font-semibold">1. NDA (Non-Disclosure Agreement)</h3>

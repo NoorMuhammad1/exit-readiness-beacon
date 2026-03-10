@@ -588,7 +588,7 @@ function DiagnosticResults({ answers, questions, onMarkComplete, isCompleted }: 
         verdict.color === 'red' ? 'bg-red-950/50 border-red-500' :
         verdict.color === 'orange' ? 'bg-orange-950/50 border-orange-500' :
         verdict.color === 'yellow' ? 'bg-yellow-950/50 border-yellow-600' :
-        verdict.color === 'blue' ? 'bg-blue-950/50 border-blue-600' :
+        verdict.color === 'blue' ? 'bg-blue-950/50 border-white/30' :
         'bg-emerald-950/50 border-emerald-500'
       }`}>
         <div className="text-center space-y-4">
@@ -597,7 +597,7 @@ function DiagnosticResults({ answers, questions, onMarkComplete, isCompleted }: 
             verdict.color === 'red' ? 'text-red-400' :
             verdict.color === 'orange' ? 'text-orange-400' :
             verdict.color === 'yellow' ? 'text-yellow-400' :
-            verdict.color === 'blue' ? 'text-blue-400' :
+            verdict.color === 'blue' ? 'text-white' :
             'text-emerald-400'
           }`}>
             {verdict.title}

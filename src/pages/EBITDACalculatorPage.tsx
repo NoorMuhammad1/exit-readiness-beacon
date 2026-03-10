@@ -254,7 +254,7 @@ export default function EBITDACalculatorPage() {
           type="text"
           value={label}
           onChange={(e) => setLabel(e.target.value)}
-          className="text-xl font-semibold bg-transparent border-b border-white/20 text-white focus:border-blue-400 outline-none"
+          className="text-xl font-semibold bg-transparent border-b border-white/20 text-white focus:border-white/30 outline-none"
         />
         <div className="flex gap-2">
           <button
@@ -392,7 +392,7 @@ export default function EBITDACalculatorPage() {
       </div>
 
       {/* Valuation */}
-      <div className="p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg mb-6">
+      <div className="p-4 bg-white/5 border border-white/15 rounded-lg mb-6">
         {calculatorId === 'B' && setMultiplier ? (
           <div className="space-y-3">
             <div className="flex justify-between items-center">
@@ -418,7 +418,7 @@ export default function EBITDACalculatorPage() {
             <div className="border-t border-white/20 pt-3">
               <div className="flex justify-between items-center">
                 <span className="text-white/70">Estimated Valuation ({(multiplier || 0).toFixed(1)}x)</span>
-                <span className="text-xl font-bold text-blue-400">
+                <span className="text-xl font-bold text-white">
                   ${(((results.adjustedEBITDA || 0) * (multiplier || 0)) / 1000000).toFixed(2)}M
                 </span>
               </div>
@@ -427,7 +427,7 @@ export default function EBITDACalculatorPage() {
         ) : (
           <div className="flex justify-between items-center">
             <span className="text-white/70">Estimated Valuation ({(multiplier || 0).toFixed(1)}x)</span>
-            <span className="text-xl font-bold text-blue-400">
+            <span className="text-xl font-bold text-white">
               ${(((results.adjustedEBITDA || 0) * (multiplier || 0)) / 1000000).toFixed(2)}M
             </span>
           </div>
@@ -438,7 +438,7 @@ export default function EBITDACalculatorPage() {
       <button
         onClick={onSave}
         disabled={saving}
-        className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition disabled:opacity-50 flex items-center justify-center gap-2"
+        className="w-full bg-white/20 text-white py-2 px-4 rounded-lg hover:bg-white/20 transition disabled:opacity-50 flex items-center justify-center gap-2"
       >
         {saving ? (
           <>

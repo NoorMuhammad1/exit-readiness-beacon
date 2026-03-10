@@ -69,7 +69,7 @@ const IntroPage: React.FC = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <Card className="p-5 bg-card border-border">
-        <Layers className="w-8 h-8 text-blue-500 mb-3" />
+        <Layers className="w-8 h-8 text-white mb-3" />
         <h3 className="font-semibold text-lg mb-2">TAM / SAM / SOM</h3>
         <p className="text-sm text-muted-foreground">
           How big is your total market, how much can you realistically serve, and how much do you actually capture today?
@@ -138,8 +138,8 @@ const MarketSizingPage: React.FC<{
       <div className="space-y-4">
         <Card className="p-5 bg-card border-border">
           <div className="flex items-start gap-3 mb-3">
-            <div className="w-10 h-10 rounded-full bg-blue-500/20 flex items-center justify-center shrink-0">
-              <span className="text-blue-400 font-bold text-sm">TAM</span>
+            <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-sm">TAM</span>
             </div>
             <div className="flex-1">
               <h3 className="font-semibold">Total Addressable Market</h3>
@@ -237,7 +237,7 @@ const MarketSizingPage: React.FC<{
                 <span>TAM: ${tam.toLocaleString()}M</span>
                 <span className="text-muted-foreground">100%</span>
               </div>
-              <div className="h-6 bg-blue-500/20 rounded-full w-full" />
+              <div className="h-6 bg-white/10 rounded-full w-full" />
             </div>
             <div>
               <div className="flex justify-between text-sm mb-1">
@@ -633,12 +633,12 @@ const ReportPage: React.FC<{
       {/* Market Sizing Summary */}
       <Card className="p-5 bg-card border-border">
         <div className="flex items-center gap-2 mb-4">
-          <Layers className="w-5 h-5 text-blue-500" />
+          <Layers className="w-5 h-5 text-white" />
           <h3 className="font-semibold text-lg">Market Sizing</h3>
         </div>
         <div className="grid grid-cols-3 gap-4 text-center mb-4">
           <div>
-            <p className="text-2xl font-bold text-blue-400">${tam.toLocaleString()}M</p>
+            <p className="text-2xl font-bold text-white">${tam.toLocaleString()}M</p>
             <p className="text-xs text-muted-foreground">TAM</p>
           </div>
           <div>

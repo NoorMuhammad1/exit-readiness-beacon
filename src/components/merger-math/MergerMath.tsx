@@ -380,9 +380,9 @@ function TabLearn() {
             <div className="mt-3 text-xs text-emerald-400 font-medium">60-80% realization rate</div>
           </div>
 
-          <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-5">
+          <div className="bg-white/20/5 border border-white/10 rounded-lg p-5">
             <div className="text-2xl mb-2">&#9889;</div>
-            <h3 className="text-lg font-semibold text-blue-400 mb-2">Revenue Synergies</h3>
+            <h3 className="text-lg font-semibold text-white mb-2">Revenue Synergies</h3>
             <p className="text-sm text-muted-foreground mb-3">
               New revenue the combined company can generate that neither could alone.
             </p>
@@ -392,7 +392,7 @@ function TabLearn() {
               <li>&#10003; Bundle services for a stronger offering</li>
               <li>&#10003; Pricing power from combined market share</li>
             </ul>
-            <div className="mt-3 text-xs text-blue-400 font-medium">30-50% realization rate (takes 2-3 years)</div>
+            <div className="mt-3 text-xs text-white font-medium">30-50% realization rate (takes 2-3 years)</div>
           </div>
 
           <div className="bg-purple-500/5 border border-purple-500/20 rounded-lg p-5">
@@ -594,7 +594,7 @@ function TabModel({
         </div>
 
         {/* Revenue Synergies */}
-        <h3 className="text-lg font-semibold text-blue-400 mb-3">Revenue Synergies</h3>
+        <h3 className="text-lg font-semibold text-white mb-3">Revenue Synergies</h3>
         <div className="space-y-3 mb-6">
           {inputs.synergies.filter(s => s.type === 'revenue').map(s => (
             <SynergyRow key={s.id} synergy={s} updateSynergy={updateSynergy} />
@@ -737,9 +737,9 @@ function SynergyRow({
   synergy: SynergyItem;
   updateSynergy: (id: string, field: keyof SynergyItem, value: string | number) => void;
 }) {
-  const borderColor = synergy.type === 'cost' ? 'border-emerald-500/20' : 'border-blue-500/20';
+  const borderColor = synergy.type === 'cost' ? 'border-emerald-500/20' : 'border-white/10';
   const bgColor = synergy.annualValue > 0
-    ? (synergy.type === 'cost' ? 'bg-emerald-500/5' : 'bg-blue-500/5')
+    ? (synergy.type === 'cost' ? 'bg-emerald-500/5' : 'bg-white/20/5')
     : 'bg-background/30';
 
   return (
@@ -906,7 +906,7 @@ function TabNumbers({
                   <tr key={s.id} className="border-b border-border/20">
                     <td className="py-2 text-foreground">{s.category}</td>
                     <td className="py-2 text-center">
-                      <span className={`px-2 py-0.5 rounded text-xs font-medium ${s.type === 'cost' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-blue-500/20 text-blue-400'}`}>
+                      <span className={`px-2 py-0.5 rounded text-xs font-medium ${s.type === 'cost' ? 'bg-emerald-500/20 text-emerald-400' : 'bg-white/10 text-white'}`}>
                         {s.type === 'cost' ? 'Cost' : 'Revenue'}
                       </span>
                     </td>
@@ -1202,7 +1202,7 @@ function TabReport({
     text = `The combination of synergies${hasRollup ? ' and multiple expansion' : ''} creates a compelling case for strategic buyers. Your company is worth significantly more as part of a platform than on its own.`;
   } else if (totalPremium >= 15 || rollupGain >= 20) {
     label = 'Meaningful Upside';
-    color = 'text-blue-400';
+    color = 'text-white';
     text = `There's real value creation potential here. Make sure your investment banker quantifies these synergies and highlights the roll-up thesis to attract premium bids.`;
   } else if (totalPremium >= 5 || rollupGain >= 10) {
     label = 'Modest Synergy Potential';
@@ -1307,7 +1307,7 @@ function TabReport({
                 </p>
               </div>
             )}
-            <div className="bg-background/50 rounded-lg p-4 border-l-4 border-blue-500">
+            <div className="bg-background/50 rounded-lg p-4 border-l-4 border-white/30">
               <p className="text-sm font-semibold text-foreground mb-1">Don't Show All Your Cards</p>
               <p className="text-sm text-muted-foreground">
                 Present high-confidence synergies to justify a premium, but hold back revenue synergies. When the buyer discovers them during diligence, it reinforces why they should pay more.
@@ -1368,7 +1368,7 @@ function TabReport({
           )}
           {hasSynergies && sc.revK >= sc.costK && (
             <p>
-              <span className="text-blue-400 font-semibold">Revenue synergy potential.</span>{' '}
+              <span className="text-white font-semibold">Revenue synergy potential.</span>{' '}
               More revenue synergies ({fmtK(sc.revK)}/yr) than cost ({fmtK(sc.costK)}/yr). Buyers will discount these heavily unless you show specific customer overlap or pilots.
             </p>
           )}

@@ -268,7 +268,7 @@ const IntroPage: React.FC = () => (
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Card className="p-5 bg-card border-border">
-        <FileText className="w-8 h-8 text-blue-500 mb-3" />
+        <FileText className="w-8 h-8 text-white mb-3" />
         <h3 className="font-semibold text-lg mb-2">What's Inside a CIM</h3>
         <ul className="space-y-1 text-sm text-muted-foreground">
           <li>I. Executive Summary</li>

@@ -133,7 +133,7 @@ const CompanyProfilePage = () => {
       <Card>
         <CardHeader>
           <CardTitle className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-blue-400" />
+            <Building2 className="h-5 w-5 text-white" />
             Company Information
           </CardTitle>
           <CardDescription>Basic info about your business</CardDescription>
@@ -177,7 +177,7 @@ const CompanyProfilePage = () => {
                   onClick={() => update('businessModel', opt.value)}
                   className={`p-3 rounded-lg border text-sm font-medium transition-all ${
                     form.businessModel === opt.value
-                      ? 'border-blue-500 bg-blue-500/20 text-blue-400'
+                      ? 'border-white/30 bg-white/10 text-white'
                       : 'border-border hover:border-muted-foreground/50'
                   }`}
                 >
@@ -251,7 +251,7 @@ const CompanyProfilePage = () => {
                   onClick={() => update('transactionType', opt.value)}
                   className={`p-3 rounded-lg border text-sm font-medium transition-all ${
                     form.transactionType === opt.value
-                      ? 'border-blue-500 bg-blue-500/20 text-blue-400'
+                      ? 'border-white/30 bg-white/10 text-white'
                       : 'border-border hover:border-muted-foreground/50'
                   }`}
                 >
@@ -269,7 +269,7 @@ const CompanyProfilePage = () => {
                   onClick={() => update('exitTimeline', opt.value)}
                   className={`p-3 rounded-lg border text-sm font-medium transition-all ${
                     form.exitTimeline === opt.value
-                      ? 'border-blue-500 bg-blue-500/20 text-blue-400'
+                      ? 'border-white/30 bg-white/10 text-white'
                       : 'border-border hover:border-muted-foreground/50'
                   }`}
                 >
@@ -282,9 +282,9 @@ const CompanyProfilePage = () => {
       </Card>
 
       {/* What uses this data */}
-      <Card className="border-blue-500/30">
+      <Card className="border-white/15">
         <CardContent className="py-4">
-          <h4 className="text-sm font-semibold mb-2 text-blue-400">Where your data flows</h4>
+          <h4 className="text-sm font-semibold mb-2 text-white">Where your data flows</h4>
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 text-xs text-muted-foreground">
             <div>Anonymous Teaser</div>
             <div>Draft CIM Generator</div>

@@ -152,7 +152,7 @@ const IntroPage: React.FC = () => (
         </ul>
       </Card>
       <Card className="p-5 bg-card border-border">
-        <FileText className="w-8 h-8 text-blue-500 mb-3" />
+        <FileText className="w-8 h-8 text-white mb-3" />
         <h3 className="font-semibold text-lg mb-2">What's Included</h3>
         <ul className="space-y-1 text-sm text-muted-foreground">
           <li>&#x2022; Deal code name</li>

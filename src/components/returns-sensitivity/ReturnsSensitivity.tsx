@@ -135,7 +135,7 @@ const IntroPage: React.FC = () => (
       </Card>
 
       <Card className="p-5 bg-card border-border">
-        <TrendingUp className="w-8 h-8 text-blue-500 mb-3" />
+        <TrendingUp className="w-8 h-8 text-white mb-3" />
         <h3 className="font-semibold text-lg mb-2">IRR — Internal Rate of Return</h3>
         <p className="text-sm text-muted-foreground mb-3">
           What annualized percentage return does the investment generate?
@@ -160,7 +160,7 @@ const IntroPage: React.FC = () => (
           </div>
         </div>
         <div className="flex items-start gap-2">
-          <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 mt-0.5 shrink-0">2</Badge>
+          <Badge className="bg-white/10 text-white border-white/15 mt-0.5 shrink-0">2</Badge>
           <div>
             <strong>Multiple Expansion</strong> — Selling the company at a higher multiple than they paid. Happens through scale, quality, or market timing.
           </div>
@@ -291,7 +291,7 @@ const DealSetupPage: React.FC<{
         </Card>
       )}
 
-      <Alert className="border-blue-500/30 bg-blue-500/5">
+      <Alert className="border-white/15 bg-white/20/5">
         <AlertTriangle className="h-4 w-4" />
         <AlertDescription className="text-sm">
           <span className="font-semibold">Tip:</span> If you completed the EBITDA Calculator module,
@@ -346,9 +346,9 @@ const GrowthPage: React.FC<{
       </p>
 
       {/* Base Case */}
-      <Card className="p-5 bg-card border-blue-500/30">
+      <Card className="p-5 bg-card border-white/15">
         <div className="flex items-center gap-2 mb-3">
-          <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">Base Case</Badge>
+          <Badge className="bg-white/10 text-white border-white/15">Base Case</Badge>
           <span className="text-sm text-muted-foreground">Most likely scenario</span>
         </div>
         <div className="grid grid-cols-2 gap-4">
@@ -501,7 +501,7 @@ const SensitivityPage: React.FC<{
       <div className="grid grid-cols-3 gap-3">
         {[
           { label: 'Bull', result: bullResult, color: 'border-emerald-500/30', badge: 'bg-emerald-500/20 text-emerald-400' },
-          { label: 'Base', result: baseResult, color: 'border-blue-500/30', badge: 'bg-blue-500/20 text-blue-400' },
+          { label: 'Base', result: baseResult, color: 'border-white/15', badge: 'bg-white/10 text-white' },
           { label: 'Bear', result: bearResult, color: 'border-red-500/30', badge: 'bg-red-500/20 text-red-400' },
         ].map(({ label, result, color, badge }) => (
           <Card key={label} className={`p-4 bg-card ${color}`}>
@@ -545,12 +545,12 @@ const SensitivityPage: React.FC<{
           <div>
             <div className="flex justify-between text-sm mb-1">
               <span className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded bg-blue-500" /> Multiple Expansion
+                <div className="w-3 h-3 rounded bg-white/20" /> Multiple Expansion
               </span>
               <span>{baseResult.multipleContrib.toFixed(0)}%</span>
             </div>
             <div className="h-4 bg-muted rounded-full overflow-hidden">
-              <div className="h-full bg-blue-500 rounded-full" style={{ width: `${Math.max(0, Math.min(100, baseResult.multipleContrib))}%` }} />
+              <div className="h-full bg-white/20 rounded-full" style={{ width: `${Math.max(0, Math.min(100, baseResult.multipleContrib))}%` }} />
             </div>
           </div>
           <div>

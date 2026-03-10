@@ -257,7 +257,7 @@ ${strategy.vision5Year || '[Not provided]'}
           <button
             onClick={() => setActiveTab('foundation')}
             className={`px-6 py-3 rounded-lg transition whitespace-nowrap ${
-              activeTab === 'foundation' ? 'bg-blue-500 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
+              activeTab === 'foundation' ? 'bg-white/20 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
             }`}
           >
             Foundation
@@ -265,7 +265,7 @@ ${strategy.vision5Year || '[Not provided]'}
           <button
             onClick={() => setActiveTab('swot')}
             className={`px-6 py-3 rounded-lg transition whitespace-nowrap ${
-              activeTab === 'swot' ? 'bg-blue-500 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
+              activeTab === 'swot' ? 'bg-white/20 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
             }`}
           >
             SWOT Analysis
@@ -273,7 +273,7 @@ ${strategy.vision5Year || '[Not provided]'}
           <button
             onClick={() => setActiveTab('roadmap')}
             className={`px-6 py-3 rounded-lg transition whitespace-nowrap ${
-              activeTab === 'roadmap' ? 'bg-blue-500 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
+              activeTab === 'roadmap' ? 'bg-white/20 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
             }`}
           >
             Strategic Roadmap
@@ -281,7 +281,7 @@ ${strategy.vision5Year || '[Not provided]'}
           <button
             onClick={() => setActiveTab('financials')}
             className={`px-6 py-3 rounded-lg transition whitespace-nowrap ${
-              activeTab === 'financials' ? 'bg-blue-500 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
+              activeTab === 'financials' ? 'bg-white/20 text-white' : 'bg-white/10 text-white/70 hover:bg-white/20'
             }`}
           >
             Financial Projections
@@ -336,7 +336,7 @@ ${strategy.vision5Year || '[Not provided]'}
                 {strategy.coreValues.length < 5 && (
                   <button
                     onClick={() => setStrategy({ ...strategy, coreValues: [...strategy.coreValues, ''] })}
-                    className="text-blue-400 hover:text-blue-300 text-sm"
+                    className="text-white hover:text-white/70 text-sm"
                   >
                     + Add another value
                   </button>
@@ -418,7 +418,7 @@ ${strategy.vision5Year || '[Not provided]'}
             {/* Opportunities */}
             <div className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
               <div className="flex items-center gap-2 mb-4">
-                <TrendingUp className="w-5 h-5 text-blue-400" />
+                <TrendingUp className="w-5 h-5 text-white" />
                 <h2 className="text-xl font-semibold text-white">Opportunities</h2>
               </div>
               <p className="text-sm text-white/60 mb-3">External factors to capitalize on</p>
@@ -440,7 +440,7 @@ ${strategy.vision5Year || '[Not provided]'}
                 {strategy.opportunities.length < 5 && (
                   <button
                     onClick={() => setStrategy({ ...strategy, opportunities: [...strategy.opportunities, ''] })}
-                    className="text-blue-400 hover:text-blue-300 text-sm"
+                    className="text-white hover:text-white/70 text-sm"
                   >
                     + Add opportunity
                   </button>
@@ -644,7 +644,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       }]
                     });
                   }}
-                  className="text-blue-400 hover:text-blue-300 text-sm"
+                  className="text-white hover:text-white/70 text-sm"
                 >
                   + Add 12-month goal
                 </button>
@@ -709,7 +709,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       }]
                     });
                   }}
-                  className="text-blue-400 hover:text-blue-300 text-sm"
+                  className="text-white hover:text-white/70 text-sm"
                 >
                   + Add 24-month goal
                 </button>
@@ -786,7 +786,7 @@ ${strategy.vision5Year || '[Not provided]'}
                   return (
                     <div key={year} className="text-center">
                       <p className="text-xs text-white/50">Margin</p>
-                      <p className="text-sm text-blue-400">{margin}%</p>
+                      <p className="text-sm text-white">{margin}%</p>
                     </div>
                   );
                 })}
@@ -800,7 +800,7 @@ ${strategy.vision5Year || '[Not provided]'}
           <button
             onClick={saveStrategy}
             disabled={saving}
-            className="flex-1 bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-600 transition disabled:opacity-50 flex items-center justify-center gap-2"
+            className="flex-1 bg-white/20 text-white py-3 px-6 rounded-lg hover:bg-white/20 transition disabled:opacity-50 flex items-center justify-center gap-2"
           >
             <Save className="w-5 h-5" />
             {saving ? "Saving..." : "Save Strategy Document"}

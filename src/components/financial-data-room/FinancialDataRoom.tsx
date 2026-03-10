@@ -340,7 +340,7 @@ const FinancialDataRoom: React.FC = () => {
       value={value || ''}
       onChange={(e) => onChange(Number(e.target.value) || 0)}
       placeholder={placeholder || '0'}
-      className="w-full bg-white/5 border border-white/10 rounded px-2 py-1.5 text-sm text-white text-right focus:outline-none focus:border-blue-500/50 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+      className="w-full bg-white/5 border border-white/10 rounded px-2 py-1.5 text-sm text-white text-right focus:outline-none focus:border-white/20 [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
     />
   );
 
@@ -355,7 +355,7 @@ const FinancialDataRoom: React.FC = () => {
             key={tab}
             onClick={() => setActiveTab(i)}
             className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-              activeTab === i ? 'bg-blue-600 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'
+              activeTab === i ? 'bg-white/20 text-white' : 'text-gray-400 hover:text-white hover:bg-white/5'
             }`}
           >
             {tab}
@@ -416,7 +416,7 @@ const FinancialDataRoom: React.FC = () => {
               ].map(section => (
                 <div key={section.num} className="bg-white/5 rounded p-3 border border-white/5">
                   <div className="flex items-start gap-2">
-                    <span className="text-blue-400 font-mono text-sm font-bold">{section.num}</span>
+                    <span className="text-white font-mono text-sm font-bold">{section.num}</span>
                     <div>
                       <p className="text-white text-sm font-medium">{section.title}</p>
                       <p className="text-gray-500 text-xs">{section.desc}</p>
@@ -428,8 +428,8 @@ const FinancialDataRoom: React.FC = () => {
           </div>
 
           {/* What This Tool Does */}
-          <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-5">
-            <h3 className="text-blue-400 font-semibold mb-3">What This Tool Does</h3>
+          <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+            <h3 className="text-white font-semibold mb-3">What This Tool Does</h3>
             <div className="grid grid-cols-3 gap-4">
               <div className="text-center">
                 <p className="text-2xl font-bold text-white">1</p>
@@ -459,7 +459,7 @@ const FinancialDataRoom: React.FC = () => {
 
           <button
             onClick={() => setActiveTab(1)}
-            className="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors"
+            className="w-full bg-white/20 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors"
           >
             Start Entering Your Financials →
           </button>
@@ -482,7 +482,7 @@ const FinancialDataRoom: React.FC = () => {
                     key={n}
                     onClick={() => handleYearCountChange(n)}
                     className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                      yearCount === n ? 'bg-blue-600 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'
+                      yearCount === n ? 'bg-white/20 text-white' : 'bg-white/5 text-gray-400 hover:bg-white/10'
                     }`}
                   >
                     {n} Years
@@ -564,13 +564,13 @@ const FinancialDataRoom: React.FC = () => {
                         </tr>
                       ))}
                       {/* EBITDA (calculated) */}
-                      <tr className="border-b border-white/10 bg-blue-500/10">
-                        <td className="text-blue-400 py-2 pr-4 font-bold">EBITDA</td>
+                      <tr className="border-b border-white/10 bg-white/5">
+                        <td className="text-white py-2 pr-4 font-bold">EBITDA</td>
                         {years.map(y => (
-                          <td key={y.year} className="text-right text-blue-400 py-2 px-2 font-bold">{fmt(ebitda(y))}</td>
+                          <td key={y.year} className="text-right text-white py-2 px-2 font-bold">{fmt(ebitda(y))}</td>
                         ))}
                       </tr>
-                      <tr className="border-b border-white/5 bg-blue-500/5">
+                      <tr className="border-b border-white/5 bg-white/20/5">
                         <td className="text-gray-500 py-1 pr-4 text-xs">EBITDA Margin</td>
                         {years.map(y => (
                           <td key={y.year} className="text-right text-gray-500 py-1 px-2 text-xs">{pct(ebitdaMargin(y))}</td>
@@ -609,7 +609,7 @@ const FinancialDataRoom: React.FC = () => {
               className="w-full flex items-center justify-between p-4 hover:bg-white/5 transition-colors"
             >
               <div className="flex items-center gap-3">
-                <span className="text-blue-400 text-lg">📋</span>
+                <span className="text-white text-lg">📋</span>
                 <div className="text-left">
                   <h3 className="text-white font-semibold">Balance Sheet</h3>
                   <p className="text-gray-500 text-sm">Assets, liabilities, equity, working capital</p>
@@ -665,10 +665,10 @@ const FinancialDataRoom: React.FC = () => {
                           ))}
                         </tr>
                       ))}
-                      <tr className="border-b border-white/10 bg-blue-500/10">
-                        <td className="text-blue-400 py-2 pr-4 font-bold">Total Assets</td>
+                      <tr className="border-b border-white/10 bg-white/5">
+                        <td className="text-white py-2 pr-4 font-bold">Total Assets</td>
                         {years.map(y => (
-                          <td key={y.year} className="text-right text-blue-400 py-2 px-2 font-bold">{fmt(totalAssets(y))}</td>
+                          <td key={y.year} className="text-right text-white py-2 px-2 font-bold">{fmt(totalAssets(y))}</td>
                         ))}
                       </tr>
 
@@ -873,7 +873,7 @@ const FinancialDataRoom: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab(2)}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors"
+              className="flex-1 bg-white/20 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors"
             >
               Run PE Analysis →
             </button>
@@ -888,7 +888,7 @@ const FinancialDataRoom: React.FC = () => {
             <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
               <p className="text-gray-400 text-lg mb-2">No financial data entered yet</p>
               <p className="text-gray-500 text-sm mb-4">Go to the "Your Financials" tab and enter at least one year of data to see the analysis.</p>
-              <button onClick={() => setActiveTab(1)} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+              <button onClick={() => setActiveTab(1)} className="bg-white/20 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
                 Enter Financials →
               </button>
             </div>
@@ -904,7 +904,7 @@ const FinancialDataRoom: React.FC = () => {
                     const revenueGrowth = prev && prev.revenue > 0 ? ((last.revenue - prev.revenue) / prev.revenue) * 100 : null;
                     const metrics = [
                       { label: 'Revenue', value: fmt(last.revenue), sub: revenueGrowth !== null ? `${revenueGrowth > 0 ? '+' : ''}${pct(revenueGrowth)} YoY` : '—', color: 'text-white' },
-                      { label: 'EBITDA', value: fmt(ebitda(last)), sub: `${pct(ebitdaMargin(last))} margin`, color: 'text-blue-400' },
+                      { label: 'EBITDA', value: fmt(ebitda(last)), sub: `${pct(ebitdaMargin(last))} margin`, color: 'text-white' },
                       { label: 'Adjusted EBITDA', value: fmt(adjustedEbitda(last, adjustments)), sub: `${pct(last.revenue ? (adjustedEbitda(last, adjustments) / last.revenue) * 100 : 0)} margin`, color: 'text-green-400' },
                       { label: 'Working Capital', value: fmt(workingCapital(last)), sub: 'Ex-cash', color: 'text-purple-400' },
                     ];
@@ -972,19 +972,19 @@ const FinancialDataRoom: React.FC = () => {
                       <div key={flag.id} className={`rounded-lg p-4 border ${
                         flag.severity === 'high' ? 'bg-red-500/10 border-red-500/20' :
                         flag.severity === 'medium' ? 'bg-yellow-500/10 border-yellow-500/20' :
-                        'bg-blue-500/10 border-blue-500/20'
+                        'bg-white/5 border-white/10'
                       }`}>
                         <div className="flex items-start justify-between mb-2">
                           <div>
                             <span className={`text-xs font-medium uppercase tracking-wider ${
-                              flag.severity === 'high' ? 'text-red-400' : flag.severity === 'medium' ? 'text-yellow-400' : 'text-blue-400'
+                              flag.severity === 'high' ? 'text-red-400' : flag.severity === 'medium' ? 'text-yellow-400' : 'text-white'
                             }`}>{flag.category}</span>
                             <p className="text-white text-sm font-medium mt-1">{flag.finding}</p>
                           </div>
                           <span className={`px-2 py-0.5 rounded text-xs font-medium ${
                             flag.severity === 'high' ? 'bg-red-500/20 text-red-400' :
                             flag.severity === 'medium' ? 'bg-yellow-500/20 text-yellow-400' :
-                            'bg-blue-500/20 text-blue-400'
+                            'bg-white/10 text-white'
                           }`}>{flag.severity}</span>
                         </div>
                         <div className="mt-2 space-y-2">
@@ -1044,7 +1044,7 @@ const FinancialDataRoom: React.FC = () => {
                 <button onClick={() => setActiveTab(1)} className="px-6 py-3 bg-white/5 hover:bg-white/10 text-gray-300 rounded-lg transition-colors">
                   ← Edit Financials
                 </button>
-                <button onClick={() => setActiveTab(3)} className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors">
+                <button onClick={() => setActiveTab(3)} className="flex-1 bg-white/20 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-colors">
                   View Your Financial Package →
                 </button>
               </div>
@@ -1060,7 +1060,7 @@ const FinancialDataRoom: React.FC = () => {
             <div className="bg-white/5 border border-white/10 rounded-lg p-8 text-center">
               <p className="text-gray-400 text-lg mb-2">No financial data entered yet</p>
               <p className="text-gray-500 text-sm mb-4">Enter your financials first to generate the PE financial package.</p>
-              <button onClick={() => setActiveTab(1)} className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
+              <button onClick={() => setActiveTab(1)} className="bg-white/20 hover:bg-blue-700 text-white px-6 py-2 rounded-lg transition-colors">
                 Enter Financials →
               </button>
             </div>
@@ -1085,7 +1085,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section I: Executive Summary */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION I</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION I</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Executive Summary</h4>
                 {(() => {
                   const last = years[years.length - 1];
@@ -1114,7 +1114,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section II: Historical P&L */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION II</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION II</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Historical Profit & Loss</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1132,7 +1132,7 @@ const FinancialDataRoom: React.FC = () => {
                       <tr className="border-b border-white/5"><td className="text-gray-300 py-1.5 pr-4">Operating Expenses</td>{years.map(y => <td key={y.year} className="text-right text-white py-1.5 px-3">({fmt(y.operatingExpenses)})</td>)}</tr>
                       <tr className="border-b border-white/5"><td className="text-gray-300 py-1.5 pr-4">Owner Compensation</td>{years.map(y => <td key={y.year} className="text-right text-white py-1.5 px-3">({fmt(y.ownerComp)})</td>)}</tr>
                       <tr className="border-b border-white/5"><td className="text-gray-300 py-1.5 pr-4">D&A</td>{years.map(y => <td key={y.year} className="text-right text-white py-1.5 px-3">{fmt(y.depreciation + y.amortization)}</td>)}</tr>
-                      <tr className="border-b border-white/10 bg-blue-500/10"><td className="text-blue-400 py-1.5 pr-4 font-bold">EBITDA</td>{years.map(y => <td key={y.year} className="text-right text-blue-400 py-1.5 px-3 font-bold">{fmt(ebitda(y))}</td>)}</tr>
+                      <tr className="border-b border-white/10 bg-white/5"><td className="text-white py-1.5 pr-4 font-bold">EBITDA</td>{years.map(y => <td key={y.year} className="text-right text-white py-1.5 px-3 font-bold">{fmt(ebitda(y))}</td>)}</tr>
                       <tr><td className="text-gray-500 py-1 pr-4 text-xs">EBITDA Margin</td>{years.map(y => <td key={y.year} className="text-right text-gray-500 py-1 px-3 text-xs">{pct(ebitdaMargin(y))}</td>)}</tr>
                     </tbody>
                   </table>
@@ -1141,7 +1141,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section III: Balance Sheet */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION III</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION III</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Balance Sheet Summary</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1167,7 +1167,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section IV: Cash Flow Analysis */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION IV</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION IV</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Cash Flow Analysis</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1202,7 +1202,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section V: Operating Metrics */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION V</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION V</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Operating Metrics</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1226,7 +1226,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VI: EBITDA Adjustment Schedule */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION VI</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VI</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">EBITDA Adjustment Schedule</h4>
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -1253,7 +1253,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VII: Key Financial Highlights */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION VII</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VII</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Key Financial Highlights</h4>
                 {(() => {
                   const highlights: string[] = [];
@@ -1298,7 +1298,7 @@ const FinancialDataRoom: React.FC = () => {
 
               {/* Section VIII: Items Requiring Explanation */}
               <div className="bg-white/5 border border-white/10 rounded-lg p-5">
-                <h3 className="text-blue-400 font-mono text-sm font-bold mb-1">SECTION VIII</h3>
+                <h3 className="text-white font-mono text-sm font-bold mb-1">SECTION VIII</h3>
                 <h4 className="text-white font-semibold text-lg mb-4">Items Requiring Explanation</h4>
                 {redFlags.length > 0 ? (
                   <div className="space-y-3">
@@ -1310,7 +1310,7 @@ const FinancialDataRoom: React.FC = () => {
                         <span className={`mt-0.5 px-2 py-0.5 rounded text-xs font-medium ${
                           flag.severity === 'high' ? 'bg-red-500/20 text-red-400' :
                           flag.severity === 'medium' ? 'bg-yellow-500/20 text-yellow-400' :
-                          'bg-blue-500/20 text-blue-400'
+                          'bg-white/10 text-white'
                         }`}>{i + 1}</span>
                         <div>
                           <p className="text-white text-sm font-medium">{flag.finding}</p>
@@ -1328,7 +1328,7 @@ const FinancialDataRoom: React.FC = () => {
               </div>
 
               {/* Download */}
-              <div className="bg-blue-500/10 border border-blue-500/20 rounded-lg p-5">
+              <div className="bg-white/5 border border-white/10 rounded-lg p-5">
                 <div className="flex items-center justify-between">
                   <div>
                     <h3 className="text-white font-semibold">Ready to Share</h3>

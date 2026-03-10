@@ -7,7 +7,7 @@ const FinancialDataRoomPage: React.FC = () => {
       <div>
         <div className="flex items-center gap-3 mb-2">
           <h1 className="text-3xl font-bold text-white">Financial Data Room Prep</h1>
-          <span className="px-2 py-0.5 text-xs font-semibold rounded bg-blue-500/20 text-blue-400 border border-blue-500/30">
+          <span className="px-2 py-0.5 text-xs font-semibold rounded bg-white/10 text-white border border-white/15">
             NEW
           </span>
         </div>

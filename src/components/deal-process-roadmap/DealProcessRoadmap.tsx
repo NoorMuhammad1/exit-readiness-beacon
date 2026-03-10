@@ -35,9 +35,9 @@ const dealStages: DealStage[] = [
     shortName: 'Prepare',
     icon: <Target className="w-5 h-5" />,
     duration: '2-6 months',
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/30',
+    color: 'text-white',
+    bgColor: 'bg-white/5',
+    borderColor: 'border-white/15',
     description: 'Before you ever talk to a buyer, you get your house in order. This is where PE Ready lives — the work you\'re doing right now.',
     whatHappens: [
       'Hire an investment banker or M&A advisor',
@@ -422,7 +422,7 @@ const StageDetail: React.FC<{ stage: DealStage }> = ({ stage }) => (
         title="Key Documents"
         icon={<FileText className="w-4 h-4" />}
         items={stage.keyDocuments}
-        color="text-blue-400"
+        color="text-white"
       />
     </div>
 
@@ -495,10 +495,10 @@ export const DealProcessRoadmap: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Overview Card */}
-      <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/20">
+      <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-white/10">
         <CardHeader>
           <CardTitle className="text-lg text-white flex items-center gap-2">
-            <Building2 className="w-5 h-5 text-blue-400" />
+            <Building2 className="w-5 h-5 text-white" />
             Your Deal Process — Start to Finish
           </CardTitle>
           <CardDescription className="text-gray-400">

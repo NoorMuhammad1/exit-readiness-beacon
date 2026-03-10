@@ -42,7 +42,7 @@ const workstreamIcons: Record<Workstream, React.ReactNode> = {
 
 const statusIcons: Record<ItemStatus, React.ReactNode> = {
   'not-started': <Clock className="h-4 w-4 text-gray-400" />,
-  'requested': <Clock className="h-4 w-4 text-blue-500" />,
+  'requested': <Clock className="h-4 w-4 text-white" />,
   'received': <CheckCircle2 className="h-4 w-4 text-purple-500" />,
   'in-review': <Clock className="h-4 w-4 text-yellow-600" />,
   'complete': <CheckCircle2 className="h-4 w-4 text-green-600" />,
@@ -236,7 +236,7 @@ export const DueDiligenceChecklist: React.FC = () => {
           {getAllSectors().map(sector => (
             <Card
               key={sector}
-              className="cursor-pointer hover:border-blue-500 hover:shadow-lg transition-all duration-200 group"
+              className="cursor-pointer hover:border-white/30 hover:shadow-lg transition-all duration-200 group"
               onClick={() => selectSector(sector)}
             >
               <CardContent className="pt-6 text-center">

@@ -237,7 +237,7 @@ export const PEReadinessGauge = ({ score, assessment, company, addBacks = [] }: 
             )}
             {!assessment && (
               <div className="flex items-start gap-2">
-                <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5 flex-shrink-0" />
+                <div className="w-2 h-2 bg-white/20 rounded-full mt-1.5 flex-shrink-0" />
                 <span>Begin by entering basic financial information</span>
               </div>
             )}

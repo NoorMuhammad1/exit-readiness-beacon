@@ -281,8 +281,8 @@ export const FinalReport: React.FC = () => {
       risk: 'Standard integration execution risk',
       detail: 'All PE transactions carry inherent execution risk during the first 100 days post-close.',
       mitigant: 'Detailed 100-day plan and strong management continuity mitigate this risk.',
-      color: 'text-blue-400',
-      bg: 'bg-blue-950/20 border-blue-900/50',
+      color: 'text-white',
+      bg: 'bg-white/5 border-blue-900/50',
     });
 
   // ─── Returns estimate ───────────────────────────────────────
@@ -343,8 +343,8 @@ export const FinalReport: React.FC = () => {
             {new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
           </p>
         </div>
-        <Alert className="bg-blue-950/20 border-blue-500/30 max-w-lg mx-auto">
-          <Info className="h-4 w-4 text-blue-400" />
+        <Alert className="bg-white/5 border-white/15 max-w-lg mx-auto">
+          <Info className="h-4 w-4 text-white" />
           <AlertDescription className="text-blue-300 text-sm">
             <strong>Educational Document.</strong> This mock IC memo shows how PE firms evaluate your
             company using data from your PE Ready assessment.
@@ -406,7 +406,7 @@ export const FinalReport: React.FC = () => {
         {/* Key metrics */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
           {[
-            { label: 'Revenue', value: fmt(data.currentRevenue), icon: <TrendingUp className="w-4 h-4 text-blue-400" /> },
+            { label: 'Revenue', value: fmt(data.currentRevenue), icon: <TrendingUp className="w-4 h-4 text-white" /> },
             { label: 'Adj. EBITDA', value: fmt(data.adjustedEBITDA), icon: <DollarSign className="w-4 h-4 text-emerald-400" /> },
             { label: 'Enterprise Value', value: fmt(data.enterpriseValue), icon: <Building2 className="w-4 h-4 text-purple-400" /> },
             { label: 'Critical Issues', value: `${data.dealKillers.fatal + data.dealKillers.critical}`, icon: <AlertTriangle className="w-4 h-4 text-red-400" /> },
@@ -471,8 +471,8 @@ export const FinalReport: React.FC = () => {
                 <p className="text-2xl font-bold text-yellow-400">{data.atRiskExecutives}</p>
                 <p className="text-xs text-muted-foreground">At Risk</p>
               </div>
-              <div className="bg-blue-950/20 border border-blue-900/50 rounded-lg p-3 text-center">
-                <p className="text-2xl font-bold text-blue-400">{data.keyHires.length}</p>
+              <div className="bg-white/5 border border-blue-900/50 rounded-lg p-3 text-center">
+                <p className="text-2xl font-bold text-white">{data.keyHires.length}</p>
                 <p className="text-xs text-muted-foreground">Hires Needed</p>
               </div>
             </div>
@@ -788,7 +788,7 @@ export const FinalReport: React.FC = () => {
                         ? 'bg-orange-500/20 text-orange-400 border-orange-500/30'
                         : risk.severity === 'MEDIUM'
                         ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-                        : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                        : 'bg-white/10 text-white border-white/15'
                     }`}
                   >
                     {risk.severity}

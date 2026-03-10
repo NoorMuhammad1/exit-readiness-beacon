@@ -303,7 +303,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
       {clauses.map(clause => {
         const sevColor = clause.severity === 'high' ? 'bg-red-500/20 text-red-400 border-red-500/30' :
                          clause.severity === 'medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' :
-                         'bg-blue-500/20 text-blue-400 border-blue-500/30';
+                         'bg-white/10 text-white border-white/15';
         return (
           <Card key={clause.id} className="bg-card border-border overflow-hidden">
             <button
@@ -371,7 +371,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <Shield className="w-6 h-6 text-blue-400" />
+            <Shield className="w-6 h-6 text-white" />
             Check Your Purchase Agreement
           </CardTitle>
         </CardHeader>
@@ -385,7 +385,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
             <span className="font-medium">{answeredCount} of {checkQuestions.length}</span>
           </div>
           <div className="w-full h-2 bg-muted/50 rounded-full overflow-hidden">
-            <div className="h-full bg-blue-500 rounded-full transition-all" style={{ width: `${(answeredCount / checkQuestions.length) * 100}%` }} />
+            <div className="h-full bg-white/20 rounded-full transition-all" style={{ width: `${(answeredCount / checkQuestions.length) * 100}%` }} />
           </div>
         </CardContent>
       </Card>

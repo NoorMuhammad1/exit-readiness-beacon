@@ -363,7 +363,7 @@ export function QoEExplainer() {
             </Card>
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-5">
-                <Clock className="w-8 h-8 text-blue-400 mb-3" />
+                <Clock className="w-8 h-8 text-white mb-3" />
                 <h3 className="text-white font-semibold mb-2">How Long It Takes</h3>
                 <p className="text-white/60 text-sm">6-12 weeks from start to final report. Expect weekly calls, hundreds of document requests, and follow-up questions.</p>
               </CardContent>
@@ -599,7 +599,7 @@ export function QoEExplainer() {
                             <Badge className={`text-xs ${
                               q.yesImpact === 'high' ? 'bg-red-500/20 text-red-400 border-red-500/30'
                               : q.yesImpact === 'medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-                              : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                              : 'bg-white/10 text-white border-white/15'
                             }`}>
                               {q.yesImpact} impact
                             </Badge>
@@ -748,14 +748,14 @@ export function QoEExplainer() {
                         className={`p-4 rounded-lg border ${
                           q.yesImpact === 'high' ? 'bg-red-500/5 border-red-500/20' :
                           q.yesImpact === 'medium' ? 'bg-yellow-500/5 border-yellow-500/20' :
-                          'bg-blue-500/5 border-blue-500/20'
+                          'bg-white/20/5 border-white/10'
                         }`}
                       >
                         <div className="flex items-center gap-2 mb-2">
                           <Badge className={`text-xs ${
                             q.yesImpact === 'high' ? 'bg-red-500/20 text-red-400 border-red-500/30'
                             : q.yesImpact === 'medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
-                            : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                            : 'bg-white/10 text-white border-white/15'
                           }`}>
                             {q.yesImpact.toUpperCase()}
                           </Badge>

@@ -344,9 +344,9 @@ export function RolloverEquity() {
 
           {/* MEP Details */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card className="bg-blue-500/5 border-blue-500/20">
+            <Card className="bg-white/20/5 border-white/10">
               <CardHeader className="pb-3">
-                <CardTitle className="text-blue-400 text-base flex items-center gap-2">
+                <CardTitle className="text-white text-base flex items-center gap-2">
                   <PieChart className="w-5 h-5" />
                   The Equity Pool
                 </CardTitle>
@@ -773,7 +773,7 @@ export function RolloverEquity() {
                 </div>
                 <div className="text-center">
                   <div className="text-white/40 text-xs mb-1">Your Ownership</div>
-                  <div className="text-blue-400 text-lg font-bold">{pct(sellerEquityPercent)}</div>
+                  <div className="text-white text-lg font-bold">{pct(sellerEquityPercent)}</div>
                   <div className="text-white/30 text-xs">of post-close equity</div>
                 </div>
                 <div className="text-center">
@@ -831,14 +831,14 @@ export function RolloverEquity() {
           {/* Assessment */}
           <Card className={`border ${
             rolloverMOIC >= 2.5 ? 'bg-green-500/10 border-green-500/30' :
-            rolloverMOIC >= 1.5 ? 'bg-blue-500/10 border-blue-500/30' :
+            rolloverMOIC >= 1.5 ? 'bg-white/5 border-white/15' :
             rolloverMOIC >= 1 ? 'bg-yellow-500/10 border-yellow-500/30' :
             'bg-red-500/10 border-red-500/30'
           }`}>
             <CardContent className="p-6">
               <h3 className={`font-bold mb-2 ${
                 rolloverMOIC >= 2.5 ? 'text-green-400' :
-                rolloverMOIC >= 1.5 ? 'text-blue-400' :
+                rolloverMOIC >= 1.5 ? 'text-white' :
                 rolloverMOIC >= 1 ? 'text-yellow-400' :
                 'text-red-400'
               }`}>

@@ -397,7 +397,7 @@ export function RepsWarranties() {
   const getOverallRisk = () => {
     if (highRiskCount >= 3) return { level: 'High Exposure', color: 'text-red-400', bg: 'bg-red-500/10 border-red-500/30' };
     if (highRiskCount >= 1 || mediumRiskCount >= 3) return { level: 'Moderate Exposure', color: 'text-yellow-400', bg: 'bg-yellow-500/10 border-yellow-500/30' };
-    if (mediumRiskCount >= 1) return { level: 'Low Exposure', color: 'text-blue-400', bg: 'bg-blue-500/10 border-blue-500/30' };
+    if (mediumRiskCount >= 1) return { level: 'Low Exposure', color: 'text-white', bg: 'bg-white/5 border-white/15' };
     return { level: 'Clean', color: 'text-green-400', bg: 'bg-green-500/10 border-green-500/30' };
   };
 
@@ -488,9 +488,9 @@ export function RepsWarranties() {
 
           {/* Reps vs Warranties */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Card className="bg-blue-500/5 border-blue-500/20">
+            <Card className="bg-white/20/5 border-white/10">
               <CardHeader className="pb-3">
-                <CardTitle className="text-blue-400 text-lg flex items-center gap-2">
+                <CardTitle className="text-white text-lg flex items-center gap-2">
                   <CheckCircle2 className="w-5 h-5" />
                   Representations
                 </CardTitle>
@@ -563,14 +563,14 @@ export function RepsWarranties() {
                   </p>
                   <div className="text-red-400/60 text-xs font-mono">Survival: Indefinite / Statute of Limitations</div>
                 </div>
-                <div className="bg-blue-500/5 rounded-lg p-4 border border-blue-500/20">
+                <div className="bg-white/20/5 rounded-lg p-4 border border-white/10">
                   <h4 className="text-blue-300 font-semibold text-sm mb-2">General Reps</h4>
                   <p className="text-white/60 text-xs leading-relaxed mb-2">
                     Everything else — contracts, employees, IP, assets, environmental. These expire after
                     <strong className="text-white"> 12-24 months</strong> post-close. Once the survival period
                     ends, the buyer can no longer make claims.
                   </p>
-                  <div className="text-blue-400/60 text-xs font-mono">Survival: 12-24 months post-close</div>
+                  <div className="text-white/40 text-xs font-mono">Survival: 12-24 months post-close</div>
                 </div>
               </div>
             </CardContent>
@@ -678,9 +678,9 @@ export function RepsWarranties() {
                 <div className="text-white/40 text-xs">Fundamental (survive indefinitely)</div>
               </CardContent>
             </Card>
-            <Card className="bg-blue-500/5 border-blue-500/20">
+            <Card className="bg-white/20/5 border-white/10">
               <CardContent className="p-3 text-center">
-                <div className="text-2xl font-bold text-blue-400">
+                <div className="text-2xl font-bold text-white">
                   {repCategories.filter(c => c.type === 'general').length}
                 </div>
                 <div className="text-white/40 text-xs">General (12-24 month survival)</div>
@@ -701,7 +701,7 @@ export function RepsWarranties() {
             const isExpanded = expandedCategory === category.id;
             const colorMap: Record<string, string> = {
               green: 'border-green-500/20 bg-green-500/5',
-              blue: 'border-blue-500/20 bg-blue-500/5',
+              blue: 'border-white/10 bg-white/20/5',
               purple: 'border-purple-500/20 bg-purple-500/5',
               yellow: 'border-yellow-500/20 bg-yellow-500/5',
               cyan: 'border-cyan-500/20 bg-cyan-500/5',
@@ -709,7 +709,7 @@ export function RepsWarranties() {
             };
             const textColorMap: Record<string, string> = {
               green: 'text-green-400',
-              blue: 'text-blue-400',
+              blue: 'text-white',
               purple: 'text-purple-400',
               yellow: 'text-yellow-400',
               cyan: 'text-cyan-400',
@@ -731,7 +731,7 @@ export function RepsWarranties() {
                           <Badge className={`text-xs ${
                             category.type === 'fundamental'
                               ? 'bg-red-500/20 text-red-400 border-red-500/30'
-                              : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                              : 'bg-white/10 text-white border-white/15'
                           }`}>
                             {category.type === 'fundamental' ? 'Fundamental' : 'General'}
                           </Badge>
@@ -964,14 +964,14 @@ export function RepsWarranties() {
                       <div key={i} className={`rounded-lg p-4 border ${
                         item.risk === 'high' ? 'bg-red-500/5 border-red-500/20' :
                         item.risk === 'medium' ? 'bg-yellow-500/5 border-yellow-500/20' :
-                        'bg-blue-500/5 border-blue-500/20'
+                        'bg-white/20/5 border-white/10'
                       }`}>
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-white text-sm font-medium">{item.question}</span>
                           <Badge className={`text-xs ${
                             item.risk === 'high' ? 'bg-red-500/20 text-red-400 border-red-500/30' :
                             item.risk === 'medium' ? 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' :
-                            'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                            'bg-white/10 text-white border-white/15'
                           }`}>
                             {item.risk}
                           </Badge>

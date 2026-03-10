@@ -592,7 +592,7 @@ export function ProcessLetter() {
               {AUCTION_SIGNALS.map(([signal, meaning], i) => (
                 <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-4 border-b border-border/20 py-3">
                   <div className="text-sm text-muted-foreground italic">"{signal}"</div>
-                  <div className="text-sm text-blue-400/80">
+                  <div className="text-sm text-white/60">
                     <span className="text-muted-foreground/40 mr-2">→</span>{meaning}
                   </div>
                 </div>

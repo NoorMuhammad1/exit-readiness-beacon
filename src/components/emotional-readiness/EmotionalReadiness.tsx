@@ -118,7 +118,7 @@ const assessmentQuestions: AssessmentQuestion[] = [
 ];
 
 const categories = [
-  { name: 'Post-Exit Vision', icon: <Home className="w-5 h-5" />, color: 'text-blue-400', description: 'Do you know what comes next?' },
+  { name: 'Post-Exit Vision', icon: <Home className="w-5 h-5" />, color: 'text-white', description: 'Do you know what comes next?' },
   { name: 'Family & Relationships', icon: <Users className="w-5 h-5" />, color: 'text-pink-400', description: 'Is your inner circle aligned?' },
   { name: 'Identity & Letting Go', icon: <Brain className="w-5 h-5" />, color: 'text-purple-400', description: 'Can you separate yourself from the business?' },
   { name: 'Emotional Stamina', icon: <Battery className="w-5 h-5" />, color: 'text-orange-400', description: 'Can you handle the grind?' },
@@ -258,7 +258,7 @@ const emotionalTimeline = [
     stage: 'Marketing & IOIs',
     duration: '2-3 months',
     emotion: 'Validation & Ego',
-    emoji: 'text-blue-400',
+    emoji: 'text-white',
     description: 'Buyers are interested. You\'re getting indications of interest with big numbers attached. It feels like the market is validating everything you\'ve built.',
     tip: 'Don\'t fall in love with the highest bid. Terms matter as much as price.'
   },

@@ -37,7 +37,7 @@ interface CompletionState {
 const categoryColors: Record<string, { badge: string; label: string }> = {
   financial: { badge: 'bg-green-500/20 text-green-400 border-green-500/30', label: 'Financial' },
   legal: { badge: 'bg-purple-500/20 text-purple-400 border-purple-500/30', label: 'Legal' },
-  team: { badge: 'bg-blue-500/20 text-blue-400 border-blue-500/30', label: 'Team' },
+  team: { badge: 'bg-white/10 text-white border-white/15', label: 'Team' },
   operations: { badge: 'bg-amber-500/20 text-amber-400 border-amber-500/30', label: 'Operations' },
   advisory: { badge: 'bg-cyan-500/20 text-cyan-400 border-cyan-500/30', label: 'Advisory' },
 };
@@ -49,9 +49,9 @@ const milestones: Milestone[] = [
     monthsOut: 24,
     label: '24 Months Out',
     phase: 'Foundation',
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/20',
+    color: 'text-white',
+    bgColor: 'bg-white/5',
+    borderColor: 'border-white/10',
     icon: <Target className="w-6 h-6" />,
     description: 'Start building the foundation. Nobody should know you\'re planning to sell. Everything you do here looks like smart business management — because it is.',
     items: [
@@ -260,7 +260,7 @@ export const Countdown24: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <Calendar className="w-6 h-6 text-blue-400" />
+            <Calendar className="w-6 h-6 text-white" />
             The 24-Month Preparation Calendar
           </CardTitle>
         </CardHeader>
@@ -275,7 +275,7 @@ export const Countdown24: React.FC = () => {
               <p className="text-sm text-muted-foreground mt-1">Higher price from proper preparation</p>
             </div>
             <div className="bg-muted/30 rounded-lg p-4 text-center">
-              <p className="text-3xl font-bold text-blue-400">80%</p>
+              <p className="text-3xl font-bold text-white">80%</p>
               <p className="text-sm text-muted-foreground mt-1">Of re-trades prevented by sell-side QoE</p>
             </div>
             <div className="bg-muted/30 rounded-lg p-4 text-center">
@@ -384,7 +384,7 @@ export const Countdown24: React.FC = () => {
           {monthsRemaining !== null && (
             <div className={`rounded-lg p-6 text-center border ${
               monthsRemaining >= 18 ? 'bg-green-500/10 border-green-500/20' :
-              monthsRemaining >= 12 ? 'bg-blue-500/10 border-blue-500/20' :
+              monthsRemaining >= 12 ? 'bg-white/5 border-white/10' :
               monthsRemaining >= 6 ? 'bg-yellow-500/10 border-yellow-500/20' :
               'bg-red-500/10 border-red-500/20'
             }`}>
@@ -442,7 +442,7 @@ export const Countdown24: React.FC = () => {
               const msTotal = ms.items.length;
               const pct = Math.round((msCompleted / msTotal) * 100);
               const isPast = ms.monthsOut > (monthsRemaining || 0);
-              const barColor = pct === 100 ? 'bg-green-500' : isPast ? 'bg-red-500' : 'bg-blue-500';
+              const barColor = pct === 100 ? 'bg-green-500' : isPast ? 'bg-red-500' : 'bg-white/20';
               return (
                 <div key={ms.monthsOut}>
                   <div className="flex items-center justify-between text-sm mb-1">
@@ -520,8 +520,8 @@ export const Countdown24: React.FC = () => {
       verdictBg = 'bg-yellow-500/10 border-yellow-500/20';
     } else {
       verdict = 'Early Stage — Keep Building';
-      verdictColor = 'text-blue-400';
-      verdictBg = 'bg-blue-500/10 border-blue-500/20';
+      verdictColor = 'text-white';
+      verdictBg = 'bg-white/5 border-white/10';
     }
 
     return (

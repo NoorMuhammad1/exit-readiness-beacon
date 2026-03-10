@@ -460,7 +460,7 @@ export const PEEyes: React.FC = () => {
         <CardContent className="space-y-4">
           {[
             {
-              num: 1, title: 'Monthly Revenue Trends', icon: <BarChart3 className="w-5 h-5 text-blue-400" />,
+              num: 1, title: 'Monthly Revenue Trends', icon: <BarChart3 className="w-5 h-5 text-white" />,
               desc: 'Not annual — monthly. They want to see if revenue is growing, flat, or declining in recent months. A $10M business that did $1.2M in January and $700K in June looks very different than one that did $833K every month.'
             },
             {
@@ -531,7 +531,7 @@ export const PEEyes: React.FC = () => {
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
-            <BarChart3 className="w-6 h-6 text-blue-400" />
+            <BarChart3 className="w-6 h-6 text-white" />
             Enter Your Monthly P&L
           </CardTitle>
         </CardHeader>
@@ -574,14 +574,14 @@ export const PEEyes: React.FC = () => {
                   const isGP = item.key === 'grossProfit';
 
                   return (
-                    <tr key={item.key} className={`border-t border-border ${isGP ? 'bg-blue-500/5 font-semibold' : ''}`}>
-                      <td className={`p-2 sticky left-0 border-r border-border ${isGP ? 'bg-blue-500/5' : 'bg-card'} ${item.isRevenue ? 'text-green-400' : ''}`}>
+                    <tr key={item.key} className={`border-t border-border ${isGP ? 'bg-white/20/5 font-semibold' : ''}`}>
+                      <td className={`p-2 sticky left-0 border-r border-border ${isGP ? 'bg-white/20/5' : 'bg-card'} ${item.isRevenue ? 'text-green-400' : ''}`}>
                         {item.label}
                       </td>
                       {MONTHS.map((m, mi) => (
                         <td key={m} className="p-1 text-center">
                           {isCalc ? (
-                            <span className={`text-sm ${monthlyData[mi].revenue - monthlyData[mi].cogs < 0 ? 'text-red-400' : 'text-blue-400'}`}>
+                            <span className={`text-sm ${monthlyData[mi].revenue - monthlyData[mi].cogs < 0 ? 'text-red-400' : 'text-white'}`}>
                               {monthlyData[mi].revenue - monthlyData[mi].cogs > 0 ? `$${((monthlyData[mi].revenue - monthlyData[mi].cogs) / 1000).toFixed(0)}K` : monthlyData[mi].revenue > 0 ? `-$${(Math.abs(monthlyData[mi].revenue - monthlyData[mi].cogs) / 1000).toFixed(0)}K` : '-'}
                             </span>
                           ) : (
@@ -595,7 +595,7 @@ export const PEEyes: React.FC = () => {
                           )}
                         </td>
                       ))}
-                      <td className={`p-2 text-center font-semibold border-l border-border ${isGP ? 'bg-blue-500/10' : 'bg-muted/50'}`}>
+                      <td className={`p-2 text-center font-semibold border-l border-border ${isGP ? 'bg-white/5' : 'bg-muted/50'}`}>
                         {total > 0 ? `$${(total / 1000).toFixed(0)}K` : total < 0 ? `-$${(Math.abs(total) / 1000).toFixed(0)}K` : '-'}
                       </td>
                     </tr>
@@ -777,7 +777,7 @@ export const PEEyes: React.FC = () => {
                 </Badge>
               )}
               {infoFlags.length > 0 && (
-                <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30">
+                <Badge className="bg-white/10 text-white border-white/15">
                   {infoFlags.length} Info
                 </Badge>
               )}
@@ -855,7 +855,7 @@ export const PEEyes: React.FC = () => {
         {infoFlags.length > 0 && (
           <Card className="bg-card border-border">
             <CardHeader>
-              <CardTitle className="flex items-center gap-2 text-blue-400">
+              <CardTitle className="flex items-center gap-2 text-white">
                 <Lightbulb className="w-5 h-5" />
                 Items to Watch ({infoFlags.length})
               </CardTitle>
@@ -1006,11 +1006,11 @@ export const PEEyes: React.FC = () => {
               <div key={flag.id} className={`flex items-start gap-3 p-3 rounded-lg border ${
                 flag.severity === 'critical' ? 'bg-red-500/5 border-red-500/20' :
                 flag.severity === 'warning' ? 'bg-yellow-500/5 border-yellow-500/20' :
-                'bg-blue-500/5 border-blue-500/20'
+                'bg-white/20/5 border-white/10'
               }`}>
                 {flag.severity === 'critical' ? <XCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" /> :
                  flag.severity === 'warning' ? <AlertTriangle className="w-5 h-5 text-yellow-400 shrink-0 mt-0.5" /> :
-                 <Lightbulb className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />}
+                 <Lightbulb className="w-5 h-5 text-white shrink-0 mt-0.5" />}
                 <div>
                   <p className="font-medium text-foreground text-sm">{flag.title}</p>
                   <p className="text-xs text-muted-foreground mt-0.5">{flag.dollarImpact}</p>
@@ -1030,7 +1030,7 @@ export const PEEyes: React.FC = () => {
         <Card className="bg-card border-border">
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
-              <Shield className="w-5 h-5 text-blue-400" />
+              <Shield className="w-5 h-5 text-white" />
               Before You Go to Market
             </CardTitle>
           </CardHeader>
@@ -1044,7 +1044,7 @@ export const PEEyes: React.FC = () => {
               'Document every add-back with receipts, explanations, and proof of non-recurrence.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-blue-400 font-bold text-sm mt-0.5">{i + 1}.</span>
+                <span className="text-white font-bold text-sm mt-0.5">{i + 1}.</span>
                 <p className="text-sm text-muted-foreground">{item}</p>
               </div>
             ))}
@@ -1101,7 +1101,7 @@ const RedFlagCard: React.FC<{ flag: RedFlag }> = ({ flag }) => {
   const severityStyles = {
     critical: { badge: 'bg-red-500/20 text-red-400 border-red-500/30', border: 'border-red-500/20' },
     warning: { badge: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30', border: 'border-yellow-500/20' },
-    info: { badge: 'bg-blue-500/20 text-blue-400 border-blue-500/30', border: 'border-blue-500/20' },
+    info: { badge: 'bg-white/10 text-white border-white/15', border: 'border-white/10' },
   };
 
   const styles = severityStyles[flag.severity];

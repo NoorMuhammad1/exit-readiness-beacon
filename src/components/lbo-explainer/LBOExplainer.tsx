@@ -262,9 +262,9 @@ export function LBOExplainer() {
                     This is why PE firms push hard on "value creation plans" and operational improvements.
                   </div>
                 </div>
-                <div className="bg-blue-500/5 border border-blue-500/20 rounded-lg p-5">
-                  <BarChart3 className="w-8 h-8 text-blue-400 mb-3" />
-                  <h3 className="text-blue-400 font-bold mb-2">2. Expand the Multiple</h3>
+                <div className="bg-white/20/5 border border-white/10 rounded-lg p-5">
+                  <BarChart3 className="w-8 h-8 text-white mb-3" />
+                  <h3 className="text-white font-bold mb-2">2. Expand the Multiple</h3>
                   <p className="text-white/60 text-sm">
                     Buy at 6x EBITDA, sell at 8x. This can happen through: growing into a larger size bracket,
                     improving the business mix, building recurring revenue, or simply riding market conditions.
@@ -464,7 +464,7 @@ export function LBOExplainer() {
               <div className="mt-4">
                 <div className="flex h-8 rounded-lg overflow-hidden">
                   <div
-                    className="bg-blue-500/60 flex items-center justify-center text-xs text-white font-medium"
+                    className="bg-white/20/60 flex items-center justify-center text-xs text-white font-medium"
                     style={{ width: `${inputs.debtPercent}%` }}
                   >
                     Debt {fmt(totalDebt)}
@@ -605,7 +605,7 @@ export function LBOExplainer() {
               <div className="space-y-3">
                 {[
                   { label: 'EBITDA Growth', value: ebitdaGrowthValue, color: 'bg-green-500', pct: totalValueCreated > 0 ? (ebitdaGrowthValue / totalValueCreated * 100) : 0 },
-                  { label: 'Multiple Expansion', value: multipleExpansionValue, color: 'bg-blue-500', pct: totalValueCreated > 0 ? (multipleExpansionValue / totalValueCreated * 100) : 0 },
+                  { label: 'Multiple Expansion', value: multipleExpansionValue, color: 'bg-white/20', pct: totalValueCreated > 0 ? (multipleExpansionValue / totalValueCreated * 100) : 0 },
                   { label: 'Debt Paydown', value: debtPaydownValue, color: 'bg-purple-500', pct: totalValueCreated > 0 ? (debtPaydownValue / totalValueCreated * 100) : 0 },
                 ].map((item, i) => (
                   <div key={i}>

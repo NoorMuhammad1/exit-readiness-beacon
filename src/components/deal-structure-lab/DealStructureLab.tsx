@@ -190,11 +190,11 @@ export const DealStructureLab = () => {
   // ── Accent color system ──
   const ac = chair === "seller" ? "#3B82F6" : "#5a8a9a"; // kept for slider accentColor only
   const isSeller = chair === "seller";
-  const acText = isSeller ? "text-blue-400" : "text-teal-400";
-  const acBorder = isSeller ? "border-blue-500/30" : "border-teal-500/30";
-  const acBorderSolid = isSeller ? "border-l-blue-500" : "border-l-teal-500";
-  const acBg = isSeller ? "bg-blue-500" : "bg-teal-500";
-  const acBgSubtle = isSeller ? "bg-blue-500/10" : "bg-teal-500/10";
+  const acText = isSeller ? "text-white" : "text-teal-400";
+  const acBorder = isSeller ? "border-white/15" : "border-teal-500/30";
+  const acBorderSolid = isSeller ? "border-l-white/30" : "border-l-teal-500";
+  const acBg = isSeller ? "bg-white/20" : "bg-teal-500";
+  const acBgSubtle = isSeller ? "bg-white/5" : "bg-teal-500/10";
 
   // ── Structure Calcs ──
   const gain = dealSize - taxBasis;
@@ -276,7 +276,7 @@ export const DealStructureLab = () => {
       {/* Header */}
       <div className="mb-5">
         <div className="flex items-baseline gap-3 mb-1">
-          <div className={`text-4xl tracking-wide leading-none ${acText}`}>Deal Structure Lab</div>
+          <div className="text-4xl tracking-wide leading-none text-white">Deal Structure Lab</div>
         </div>
         <div className="text-xs text-white/40 mt-1">Five calculators. Both sides of the table. The math that decides what you actually take home.</div>
       </div>
@@ -287,7 +287,7 @@ export const DealStructureLab = () => {
         <button
           onClick={() => setChair("seller")}
           className={`px-5 py-2 rounded text-xs tracking-wide transition-all border ${
-            isSeller ? "border-blue-500/50 text-blue-400 bg-blue-500/10" : "border-white/10 text-white/30"
+            isSeller ? "border-white/30 text-white bg-white/10" : "border-white/10 text-white/30"
           }`}
         >
           SELLER — maximize net proceeds
@@ -295,7 +295,7 @@ export const DealStructureLab = () => {
         <button
           onClick={() => setChair("buyer")}
           className={`px-5 py-2 rounded text-xs tracking-wide transition-all border ${
-            !isSeller ? "border-teal-500/50 text-teal-400 bg-teal-500/10" : "border-white/10 text-white/30"
+            !isSeller ? "border-white/30 text-white bg-white/10" : "border-white/10 text-white/30"
           }`}
         >
           BUYER — minimize tax leakage & risk
@@ -309,7 +309,7 @@ export const DealStructureLab = () => {
             key={t}
             onClick={() => setTab(t)}
             className={`bg-transparent border-none px-3.5 py-2.5 text-xs tracking-wide transition-all border-b-2 ${
-              tab === t ? `${acText} ${isSeller ? "border-b-blue-500" : "border-b-teal-500"}` : "text-white/20 border-b-transparent"
+              tab === t ? "text-white border-b-white" : "text-white/20 border-b-transparent"
             }`}
           >
             {t.toUpperCase()}

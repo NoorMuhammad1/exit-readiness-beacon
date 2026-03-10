@@ -443,11 +443,11 @@ export const RevenueQuality: React.FC = () => {
       <div className="space-y-3">
         {items.map((item, idx) => {
           const width = Math.max((Math.abs(item.value) / maxVal) * 100, 2);
-          const barColor = item.type === 'base' ? 'bg-blue-500' :
+          const barColor = item.type === 'base' ? 'bg-white/20' :
             item.type === 'add' ? 'bg-emerald-500' :
-            item.type === 'subtract' ? 'bg-red-500' : 'bg-blue-600';
+            item.type === 'subtract' ? 'bg-red-500' : 'bg-white/20';
           const textColor = item.type === 'add' ? 'text-emerald-400' :
-            item.type === 'subtract' ? 'text-red-400' : 'text-blue-400';
+            item.type === 'subtract' ? 'text-red-400' : 'text-white';
 
           return (
             <div key={idx} className="flex items-center gap-3">
@@ -500,7 +500,7 @@ export const RevenueQuality: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <BarChart3 className="h-5 w-5 text-blue-400" />
+                <BarChart3 className="h-5 w-5 text-white" />
                 Business Model
               </CardTitle>
               <CardDescription>What type of revenue model does your business have?</CardDescription>
@@ -513,7 +513,7 @@ export const RevenueQuality: React.FC = () => {
                     onClick={() => update('businessModel', model)}
                     className={`p-3 rounded-lg border text-sm font-medium transition-all ${
                       state.businessModel === model
-                        ? 'border-blue-500 bg-blue-500/20 text-blue-400'
+                        ? 'border-white/30 bg-white/10 text-white'
                         : 'border-border hover:border-muted-foreground/50'
                     }`}
                   >
@@ -592,7 +592,7 @@ export const RevenueQuality: React.FC = () => {
                     </div>
                     <div className="text-center p-2 rounded bg-muted/30">
                       <p className="text-xs text-muted-foreground">Expansion Rate</p>
-                      <p className="text-lg font-bold text-blue-400">{calc.expansionRate.toFixed(1)}%</p>
+                      <p className="text-lg font-bold text-white">{calc.expansionRate.toFixed(1)}%</p>
                     </div>
                     <div className="text-center p-2 rounded bg-muted/30">
                       <p className="text-xs text-muted-foreground">Dollar Churn Rate</p>
@@ -611,7 +611,7 @@ export const RevenueQuality: React.FC = () => {
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-blue-400" />
+                <Users className="h-5 w-5 text-white" />
                 Customer Economics
               </CardTitle>
               <CardDescription>How many customers do you have and what does it cost to acquire them?</CardDescription>
@@ -702,7 +702,7 @@ export const RevenueQuality: React.FC = () => {
               {/* Key SaaS Metrics */}
               <div>
                 <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-                  <Target className="h-5 w-5 text-blue-400" />
+                  <Target className="h-5 w-5 text-white" />
                   Key SaaS Metrics vs. Benchmarks
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -921,9 +921,9 @@ export const RevenueQuality: React.FC = () => {
               )}
 
               {/* PE Perspective */}
-              <Card className="border border-blue-500/30">
+              <Card className="border border-white/15">
                 <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-blue-400">
+                  <CardTitle className="flex items-center gap-2 text-white">
                     <Eye className="h-5 w-5" />
                     What PE Firms Will Think
                   </CardTitle>

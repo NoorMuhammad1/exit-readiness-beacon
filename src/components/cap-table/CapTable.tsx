@@ -218,7 +218,7 @@ export default function CapTable() {
 
       <div style={{marginBottom:20}}>
         <div className="flex items-baseline gap-3 mb-1.5">
-          <div className="text-4xl tracking-[6px] text-blue-400 leading-none">CAP TABLE</div>
+          <div className="text-4xl tracking-[6px] text-white leading-none">CAP TABLE</div>
           <div className="text-4xl tracking-[6px] text-white/10 leading-none">MECHANICS</div>
           <div className="text-[9px] text-white/15 tracking-[3px] ml-2">WAVE 3 &middot; EQUITY STRUCTURE</div>
         </div>
@@ -242,7 +242,7 @@ export default function CapTable() {
                 <div className="flex items-center gap-4">
                   <div className="text-[13px] text-white/10 min-w-[24px]">{String(i+1).padStart(2,"0")}</div>
                   <div>
-                    <div className="text-[14px] text-blue-400 tracking-[2px]">{c.term.toUpperCase()}</div>
+                    <div className="text-[14px] text-white tracking-[2px]">{c.term.toUpperCase()}</div>
                     <div className="text-[10px] text-white/30 mt-0.5 max-w-[560px]">{c.definition.substring(0,90)}...</div>
                   </div>
                 </div>
@@ -252,8 +252,8 @@ export default function CapTable() {
                 <div className="border-t border-white/5" style={{padding:"0 18px 18px"}}>
                   <div className="text-[11px] text-white/60 leading-[1.9] mt-3.5">{c.definition}</div>
                   <div className="grid grid-cols-3 gap-3 mt-4">
-                    <div className="bg-white/5 border border-blue-400/15 rounded p-3">
-                      <div className="text-[9px] text-blue-400 tracking-[2px] mb-1.5">FORMULA</div>
+                    <div className="bg-white/5 border border-white/30/15 rounded p-3">
+                      <div className="text-[9px] text-white tracking-[2px] mb-1.5">FORMULA</div>
                       <div className="text-[10px] text-white/60 leading-[1.7] font-mono">{c.formula}</div>
                     </div>
                     <div className="bg-white/5 border border-white/10 rounded p-3">
@@ -265,8 +265,8 @@ export default function CapTable() {
                       <div className="text-[10px] text-white/60 leading-[1.7]">{c.common_mistake}</div>
                     </div>
                   </div>
-                  <div className="mt-3 bg-white/5 border border-blue-400/15 rounded p-3">
-                    <div className="text-[9px] text-blue-400 tracking-[2px] mb-1">WHY IT MATTERS IN PE</div>
+                  <div className="mt-3 bg-white/5 border border-white/30/15 rounded p-3">
+                    <div className="text-[9px] text-white tracking-[2px] mb-1">WHY IT MATTERS IN PE</div>
                     <div className="text-[10px] text-white/60 leading-[1.7]">{c.relevance}</div>
                   </div>
                 </div>
@@ -280,7 +280,7 @@ export default function CapTable() {
         <div className="grid gap-4" style={{gridTemplateColumns:"300px 1fr"}}>
           <div>
             <div className="card" style={{padding:"18px 20px"}}>
-              <div className="text-[15px] text-blue-400 tracking-[3px] mb-4">PRE-INVESTMENT</div>
+              <div className="text-[15px] text-white tracking-[3px] mb-4">PRE-INVESTMENT</div>
               {[
                 {label:"Founder Ownership %",val:founders,set:setFounders,ph:"70"},
                 {label:"Employee Common %",val:employees,set:setEmployees,ph:"10"},
@@ -308,7 +308,7 @@ export default function CapTable() {
 
           <div>
             <div className="card" style={{padding:"18px 20px",marginBottom:12}}>
-              <div className="text-[9px] text-blue-400 tracking-[2px] mb-3.5">DEAL SUMMARY</div>
+              <div className="text-[9px] text-white tracking-[2px] mb-3.5">DEAL SUMMARY</div>
               <div className="grid grid-cols-4 gap-3 mb-5">
                 {[
                   {label:"PRE-MONEY",val:fmt(preMoney)},
@@ -318,7 +318,7 @@ export default function CapTable() {
                 ].map(({label,val})=>(
                   <div key={label} className="bg-white/5 border border-white/10 rounded text-center" style={{padding:"12px 14px"}}>
                     <div className="text-[8px] text-white/40 tracking-[2px] mb-1.5">{label}</div>
-                    <div className="text-xl text-blue-400">{val}</div>
+                    <div className="text-xl text-white">{val}</div>
                   </div>
                 ))}
               </div>
@@ -362,7 +362,7 @@ export default function CapTable() {
                 </thead>
                 <tbody>
                   {[
-                    {name:"Founders",pre:parseFloat(founders)||0,post:foundersDiluted,color:"text-blue-400"},
+                    {name:"Founders",pre:parseFloat(founders)||0,post:foundersDiluted,color:"text-white"},
                     {name:"Employees",pre:parseFloat(employees)||0,post:employeesDiluted,color:"text-cyan-400"},
                     {name:"Option Pool",pre:parseFloat(optionPool)||0,post:optionsDiluted,color:"text-violet-400"},
                     {name:"PE Sponsor (new)",pre:0,post:pePct,color:"text-emerald-400"},
@@ -403,7 +403,7 @@ export default function CapTable() {
                 <input type="text" value={val} onChange={e=>set(e.target.value)} placeholder={ph} />
               </div>
             ))}
-            <div className="text-[15px] text-blue-400 tracking-[3px] mb-4 pt-4 border-t border-white/5">CAPITAL STRUCTURE</div>
+            <div className="text-[15px] text-white tracking-[3px] mb-4 pt-4 border-t border-white/5">CAPITAL STRUCTURE</div>
             {[
               {label:"PE Investment ($)",val:peInvested,set:setPeInvested,ph:"10000000"},
               {label:"LP Preference Multiple (x)",val:lpMultiple,set:setLpMultiple,ph:"1"},
@@ -431,7 +431,7 @@ export default function CapTable() {
                 {label:"04  LESS: MIP (above hurdle)",val:-mipValue,colorClass:"text-amber-400",indent:1,desc:`MIP earns ${fmtPct(mipPct)} on exit value above ${fmtX(moicHurdle)} hurdle (${fmt(hurdle)}).`,border:false},
                 {label:"= COMMON POOL",val:commonPool,colorClass:"text-white/60",indent:1,border:true,desc:"Distributed pro-rata by common ownership %."},
                 {label:"PE COMMON ("+fmtPct(peCommon)+")",val:peCommonProceeds,colorClass:"text-emerald-400",indent:2,desc:"PE's share of common equity proceeds.",border:false},
-                {label:"MGMT COMMON ("+fmtPct(mgmtCommon)+")",val:mgmtCommonProceeds,colorClass:"text-blue-400",indent:2,desc:"Management's share of common equity.",border:false},
+                {label:"MGMT COMMON ("+fmtPct(mgmtCommon)+")",val:mgmtCommonProceeds,colorClass:"text-white",indent:2,desc:"Management's share of common equity.",border:false},
               ].map((r,i)=>(
                 <div key={i} className="flex items-center gap-3" style={{marginBottom:r.border?12:6,paddingBottom:r.border?10:0,borderBottom:r.border?"1px solid rgba(255,255,255,0.1)":"none",paddingLeft:r.indent*20}}>
                   <div className="flex-1">
@@ -450,11 +450,11 @@ export default function CapTable() {
                 <div className="text-[9px] text-emerald-400 tracking-[2px] mb-2">PE SPONSOR</div>
                 <div className="text-[26px] text-emerald-400">{fmt(peTotal)}</div>
                 <div className="text-[10px] text-white/40 mt-1.5">LP: {fmt(lp)} + Common: {fmt(peCommonProceeds)}</div>
-                <div className="text-[10px] text-blue-400 mt-1">MOIC: {peMOIC}x</div>
+                <div className="text-[10px] text-white mt-1">MOIC: {peMOIC}x</div>
               </div>
               <div className="card" style={{padding:"16px 18px",borderLeft:"3px solid rgb(96,165,250)"}}>
-                <div className="text-[9px] text-blue-400 tracking-[2px] mb-2">MANAGEMENT TOTAL</div>
-                <div className="text-[26px] text-blue-400">{fmt(mgmtTotal)}</div>
+                <div className="text-[9px] text-white tracking-[2px] mb-2">MANAGEMENT TOTAL</div>
+                <div className="text-[26px] text-white">{fmt(mgmtTotal)}</div>
                 <div className="text-[10px] text-white/40 mt-1.5">Common: {fmt(mgmtCommonProceeds)} + MIP: {fmt(mipValue)}</div>
                 <div className={`text-[10px] mt-1 ${mipValue>0?"text-emerald-400":"text-red-400"}`}>MIP {mipValue>0?"paid out":"below hurdle \u2014 $0"}</div>
               </div>
@@ -482,7 +482,7 @@ export default function CapTable() {
             <div>
               <div className="flex justify-between mb-4">
                 <div className="text-[10px] text-white/40 tracking-[2px]">QUESTION {quizIdx+1} OF {QUIZ.length}</div>
-                <div className="text-[10px] text-blue-400 tracking-[2px]">{quizScore} CORRECT</div>
+                <div className="text-[10px] text-white tracking-[2px]">{quizScore} CORRECT</div>
               </div>
               <div className="h-0.5 bg-white/5 rounded-sm mb-5">
                 <div className="h-full bg-blue-400 transition-all duration-300" style={{width:`${quizIdx/QUIZ.length*100}%`}} />
@@ -521,9 +521,9 @@ export default function CapTable() {
               </div>
               {quizRevealed&&(
                 <div className="card" style={{padding:"16px 20px",borderLeft:"3px solid rgba(96,165,250,0.2)"}}>
-                  <div className="text-[9px] text-blue-400 tracking-[2px] mb-2">CAP TABLE INSIGHT</div>
+                  <div className="text-[9px] text-white tracking-[2px] mb-2">CAP TABLE INSIGHT</div>
                   <div className="text-[11px] text-white/60 leading-[1.8]">{QUIZ[quizIdx].explain}</div>
-                  <button onClick={nextQ} className="mt-3.5 bg-blue-500 border-none text-white px-6 py-2 text-[10px] tracking-[2px] rounded">
+                  <button onClick={nextQ} className="mt-3.5 bg-white/20 border-none text-white px-6 py-2 text-[10px] tracking-[2px] rounded">
                     {quizIdx<QUIZ.length-1?"NEXT \u2192":"RESULTS \u2192"}
                   </button>
                 </div>
@@ -532,7 +532,7 @@ export default function CapTable() {
           ):(
             <div className="card text-center" style={{padding:"32px"}}>
               <div className="text-sm text-white/40 tracking-[4px] mb-3">CAP TABLE ASSESSMENT</div>
-              <div className="text-[64px] text-blue-400">{quizScore}/{QUIZ.length}</div>
+              <div className="text-[64px] text-white">{quizScore}/{QUIZ.length}</div>
               <div className="text-[13px] text-white/60 mt-3 mb-6">
                 {quizScore===5?"Clean. You understand your equity.":quizScore>=3?"Solid foundation \u2014 review the questions you missed before you sign anything.":"Spend time on the waterfall and dilution tabs before your next deal."}
               </div>

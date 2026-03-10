@@ -499,14 +499,14 @@ function CriticalTerms() {
   return (
     <Card className="p-8 bg-zinc-900 border-zinc-800 space-y-6">
       <div className="text-center space-y-2">
-        <Target className="w-12 h-12 mx-auto text-blue-500" />
+        <Target className="w-12 h-12 mx-auto text-white" />
         <h2 className="text-2xl font-bold text-white">Critical Terms Decoder</h2>
         <p className="text-zinc-400">What to look for, red flags, and negotiation ammunition</p>
       </div>
 
       {terms.map((item, idx) => (
         <Card key={idx} className="p-6 bg-zinc-800 border-zinc-700">
-          <h3 className="text-xl font-bold text-blue-400 mb-4">{item.term}</h3>
+          <h3 className="text-xl font-bold text-white mb-4">{item.term}</h3>
           
           <div className="space-y-4">
             <div>
@@ -528,7 +528,7 @@ function CriticalTerms() {
             </div>
 
             <div className="bg-blue-950/30 p-3 rounded border border-blue-900/50">
-              <h4 className="text-sm font-semibold text-blue-400 mb-1">💪 How to Negotiate:</h4>
+              <h4 className="text-sm font-semibold text-white mb-1">💪 How to Negotiate:</h4>
               <p className="text-zinc-300 text-sm">{item.negotiate}</p>
             </div>
           </div>

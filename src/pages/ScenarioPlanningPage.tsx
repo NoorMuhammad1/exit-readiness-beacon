@@ -40,7 +40,7 @@ const scenarios: Scenario[] = [
     riskLevel: 'Medium',
     capitalRequired: 250000,
     projectedMultiple: 5.2,
-    color: 'bg-blue-500'
+    color: 'bg-white/20'
   },
   {
     id: 'market-maker',
@@ -194,14 +194,14 @@ export function ScenarioPlanningPage() {
                            [&::-webkit-slider-thumb]:w-5
                            [&::-webkit-slider-thumb]:h-5
                            [&::-webkit-slider-thumb]:rounded-full
-                           [&::-webkit-slider-thumb]:bg-blue-500
+                           [&::-webkit-slider-thumb]:bg-white/20
                            [&::-webkit-slider-thumb]:ring-2
                            [&::-webkit-slider-thumb]:ring-white
                            [&::-webkit-slider-thumb]:cursor-pointer
                            [&::-moz-range-thumb]:w-5
                            [&::-moz-range-thumb]:h-5
                            [&::-moz-range-thumb]:rounded-full
-                           [&::-moz-range-thumb]:bg-blue-500
+                           [&::-moz-range-thumb]:bg-white/20
                            [&::-moz-range-thumb]:border-2
                            [&::-moz-range-thumb]:border-white
                            [&::-moz-range-thumb]:cursor-pointer"
@@ -241,14 +241,14 @@ export function ScenarioPlanningPage() {
                            [&::-webkit-slider-thumb]:w-5
                            [&::-webkit-slider-thumb]:h-5
                            [&::-webkit-slider-thumb]:rounded-full
-                           [&::-webkit-slider-thumb]:bg-blue-500
+                           [&::-webkit-slider-thumb]:bg-white/20
                            [&::-webkit-slider-thumb]:ring-2
                            [&::-webkit-slider-thumb]:ring-white
                            [&::-webkit-slider-thumb]:cursor-pointer
                            [&::-moz-range-thumb]:w-5
                            [&::-moz-range-thumb]:h-5
                            [&::-moz-range-thumb]:rounded-full
-                           [&::-moz-range-thumb]:bg-blue-500
+                           [&::-moz-range-thumb]:bg-white/20
                            [&::-moz-range-thumb]:border-2
                            [&::-moz-range-thumb]:border-white
                            [&::-moz-range-thumb]:cursor-pointer"
@@ -288,14 +288,14 @@ export function ScenarioPlanningPage() {
                            [&::-webkit-slider-thumb]:w-5
                            [&::-webkit-slider-thumb]:h-5
                            [&::-webkit-slider-thumb]:rounded-full
-                           [&::-webkit-slider-thumb]:bg-blue-500
+                           [&::-webkit-slider-thumb]:bg-white/20
                            [&::-webkit-slider-thumb]:ring-2
                            [&::-webkit-slider-thumb]:ring-white
                            [&::-webkit-slider-thumb]:cursor-pointer
                            [&::-moz-range-thumb]:w-5
                            [&::-moz-range-thumb]:h-5
                            [&::-moz-range-thumb]:rounded-full
-                           [&::-moz-range-thumb]:bg-blue-500
+                           [&::-moz-range-thumb]:bg-white/20
                            [&::-moz-range-thumb]:border-2
                            [&::-moz-range-thumb]:border-white
                            [&::-moz-range-thumb]:cursor-pointer"

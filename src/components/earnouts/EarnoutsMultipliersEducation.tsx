@@ -478,7 +478,7 @@ const CalculatorPage: React.FC = () => {
   return (
     <div className="space-y-6">
       <h2 className="text-3xl font-bold text-foreground flex items-center">
-        <Calculator className="w-10 h-10 mr-3 text-blue-500" />
+        <Calculator className="w-10 h-10 mr-3 text-white" />
         Calculate Your Earnout Potential
       </h2>
       

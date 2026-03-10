@@ -155,7 +155,7 @@ function getPercentileLabel(pct: number): string {
 function getPercentileColor(pct: number, lowerIsBetter = false): string {
   const effective = lowerIsBetter ? 100 - pct : pct;
   if (effective >= 75) return 'text-emerald-400';
-  if (effective >= 50) return 'text-blue-400';
+  if (effective >= 50) return 'text-white';
   if (effective >= 25) return 'text-yellow-400';
   return 'text-red-400';
 }
@@ -163,7 +163,7 @@ function getPercentileColor(pct: number, lowerIsBetter = false): string {
 function getBarColor(pct: number, lowerIsBetter = false): string {
   const effective = lowerIsBetter ? 100 - pct : pct;
   if (effective >= 75) return 'bg-emerald-500';
-  if (effective >= 50) return 'bg-blue-500';
+  if (effective >= 50) return 'bg-white/20';
   if (effective >= 25) return 'bg-yellow-500';
   return 'bg-red-500';
 }
@@ -364,7 +364,7 @@ export function ComparableAnalysis() {
           value={metrics[field] || ''}
           onChange={e => updateNum(field, e.target.value)}
           placeholder={placeholder}
-          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:border-blue-500 focus:outline-none"
+          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:border-white/30 focus:outline-none"
         />
         <span className="text-gray-500 text-sm whitespace-nowrap">{suffix}</span>
       </div>
@@ -422,7 +422,7 @@ export function ComparableAnalysis() {
   const renderTab0 = () => (
     <div className="space-y-6">
       {/* Hero */}
-      <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6">
+      <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-white/10 rounded-xl p-6">
         <h2 className="text-2xl font-bold text-white mb-3">How Do You Stack Up?</h2>
         <p className="text-gray-300 leading-relaxed">
           Every PE firm runs a comparable company analysis ("comps") before making an offer. They look at companies similar to yours — same industry, similar size — and compare key metrics to determine if you're a premium asset or a discount deal.
@@ -440,7 +440,7 @@ export function ComparableAnalysis() {
             { title: 'Efficiency', desc: 'Revenue per employee, overhead structure — are you lean or bloated compared to peers?' },
           ].map(item => (
             <div key={item.title} className="bg-white/5 rounded-lg p-4">
-              <div className="text-sm font-semibold text-blue-400 mb-1">{item.title}</div>
+              <div className="text-sm font-semibold text-white mb-1">{item.title}</div>
               <div className="text-sm text-gray-400">{item.desc}</div>
             </div>
           ))}
@@ -485,7 +485,7 @@ export function ComparableAnalysis() {
       <div className="text-center">
         <button
           onClick={() => setTab(1)}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
+          className="px-6 py-3 bg-white/20 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors"
         >
           Enter Your Numbers →
         </button>
@@ -506,7 +506,7 @@ export function ComparableAnalysis() {
               onClick={() => update('industry', ind)}
               className={`p-3 rounded-lg border text-sm font-medium transition-colors ${
                 metrics.industry === ind
-                  ? 'bg-blue-600/20 border-blue-500 text-blue-400'
+                  ? 'bg-white/10 border-white/30 text-white'
                   : 'bg-white/5 border-white/10 text-gray-400 hover:border-white/30'
               }`}
             >
@@ -544,8 +544,8 @@ export function ComparableAnalysis() {
 
       {/* Auto-calculated */}
       {metrics.revenue > 0 && metrics.employeeCount > 0 && (
-        <div className="bg-blue-500/10 border border-blue-500/20 rounded-xl p-4">
-          <div className="text-sm text-blue-400 font-semibold mb-1">Auto-Calculated</div>
+        <div className="bg-white/5 border border-white/10 rounded-xl p-4">
+          <div className="text-sm text-white font-semibold mb-1">Auto-Calculated</div>
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
               <span className="text-gray-400">Revenue / Employee:</span>{' '}
@@ -568,7 +568,7 @@ export function ComparableAnalysis() {
         <button
           onClick={() => setTab(2)}
           disabled={!metrics.industry || !hasData}
-          className="px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-700 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors"
+          className="px-6 py-3 bg-white/20 hover:bg-blue-700 disabled:bg-gray-700 disabled:text-gray-500 text-white rounded-lg font-semibold transition-colors"
         >
           See How You Stack Up →
         </button>
@@ -581,7 +581,7 @@ export function ComparableAnalysis() {
       return (
         <div className="text-center py-12">
           <p className="text-gray-400">Please select an industry and enter your financial data first.</p>
-          <button onClick={() => setTab(1)} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">
+          <button onClick={() => setTab(1)} className="mt-4 px-4 py-2 bg-white/20 text-white rounded-lg">
             Enter Your Numbers
           </button>
         </div>
@@ -623,7 +623,7 @@ export function ComparableAnalysis() {
             <div className="grid grid-cols-4 gap-4 mb-4">
               <div className="bg-white/5 rounded-lg p-3 text-center">
                 <div className="text-xs text-gray-500 mb-1">Implied Multiple</div>
-                <div className="text-xl font-bold text-blue-400">{fmt(valuation.multiple)}x</div>
+                <div className="text-xl font-bold text-white">{fmt(valuation.multiple)}x</div>
               </div>
               <div className="bg-white/5 rounded-lg p-3 text-center">
                 <div className="text-xs text-gray-500 mb-1">Low</div>
@@ -635,7 +635,7 @@ export function ComparableAnalysis() {
               </div>
               <div className="bg-white/5 rounded-lg p-3 text-center">
                 <div className="text-xs text-gray-500 mb-1">High</div>
-                <div className="text-xl font-bold text-blue-400">{fmtDollar(valuation.high)}</div>
+                <div className="text-xl font-bold text-white">{fmtDollar(valuation.high)}</div>
               </div>
             </div>
             {/* Context */}
@@ -653,7 +653,7 @@ export function ComparableAnalysis() {
                 <div className="absolute top-0 bottom-0 left-[50%] w-px bg-white/20" />
                 <div className="absolute top-0 bottom-0 left-[75%] w-px bg-white/10" />
                 <div
-                  className="absolute top-0 bottom-0 w-2 rounded-full bg-blue-500"
+                  className="absolute top-0 bottom-0 w-2 rounded-full bg-white/20"
                   style={{ left: `${Math.max(2, Math.min(98, ((valuation.multiple - valuation.evBench.min) / (valuation.evBench.max - valuation.evBench.min)) * 100))}%`, transform: 'translateX(-50%)' }}
                 />
               </div>
@@ -691,7 +691,7 @@ export function ComparableAnalysis() {
           <button onClick={() => setTab(1)} className="px-4 py-2 bg-white/5 border border-white/10 text-gray-400 rounded-lg hover:bg-white/10 transition-colors">
             ← Edit Numbers
           </button>
-          <button onClick={() => setTab(3)} className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
+          <button onClick={() => setTab(3)} className="px-6 py-3 bg-white/20 hover:bg-blue-700 text-white rounded-lg font-semibold transition-colors">
             View Full Report →
           </button>
         </div>
@@ -704,7 +704,7 @@ export function ComparableAnalysis() {
       return (
         <div className="text-center py-12">
           <p className="text-gray-400">Complete the analysis first to generate your report.</p>
-          <button onClick={() => setTab(1)} className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg">Enter Your Numbers</button>
+          <button onClick={() => setTab(1)} className="mt-4 px-4 py-2 bg-white/20 text-white rounded-lg">Enter Your Numbers</button>
         </div>
       );
     }
@@ -725,7 +725,7 @@ export function ComparableAnalysis() {
           <div className="flex items-center gap-4 mb-3">
             <span className={`text-2xl font-bold ${
               assessment.color === 'emerald' ? 'text-emerald-400' :
-              assessment.color === 'blue' ? 'text-blue-400' :
+              assessment.color === 'blue' ? 'text-white' :
               assessment.color === 'yellow' ? 'text-yellow-400' :
               assessment.color === 'orange' ? 'text-orange-400' : 'text-red-400'
             }`}>
@@ -815,7 +815,7 @@ export function ComparableAnalysis() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-4">
               <div className="text-center">
                 <div className="text-xs text-gray-500">Implied Multiple</div>
-                <div className="text-xl font-bold text-blue-400">{fmt(valuation.multiple)}x EBITDA</div>
+                <div className="text-xl font-bold text-white">{fmt(valuation.multiple)}x EBITDA</div>
               </div>
               <div className="text-center">
                 <div className="text-xs text-gray-500">Low Estimate</div>
@@ -827,7 +827,7 @@ export function ComparableAnalysis() {
               </div>
               <div className="text-center">
                 <div className="text-xs text-gray-500">High Estimate</div>
-                <div className="text-xl font-bold text-blue-400">{fmtDollar(valuation.high)}</div>
+                <div className="text-xl font-bold text-white">{fmtDollar(valuation.high)}</div>
               </div>
             </div>
             <p className="text-xs text-gray-500 italic">
@@ -851,7 +851,7 @@ export function ComparableAnalysis() {
               </p>
             )}
             <p>
-              <span className="text-blue-400 font-semibold">Bottom line:</span>{' '}
+              <span className="text-white font-semibold">Bottom line:</span>{' '}
               {assessment.avgPct >= 60
                 ? 'Your metrics support a competitive process with multiple interested buyers. Focus on maintaining momentum in your strong areas while addressing any gaps.'
                 : assessment.avgPct >= 40
@@ -896,7 +896,7 @@ export function ComparableAnalysis() {
             onClick={() => setTab(i)}
             className={`flex-1 py-2 px-3 rounded-md text-sm font-medium transition-colors ${
               tab === i
-                ? 'bg-blue-600 text-white'
+                ? 'bg-white/20 text-white'
                 : 'text-gray-400 hover:text-white hover:bg-white/5'
             }`}
           >

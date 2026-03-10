@@ -1005,7 +1005,7 @@ export function InteractiveGlossary() {
   // Color cycle for borders
   const getBorderColor = (index: number) => {
     const colors = [
-      'border-l-4 border-blue-500',
+      'border-l-4 border-white/30',
       'border-l-4 border-yellow-500', 
       'border-l-4 border-orange-500',
       'border-l-4 border-green-500',

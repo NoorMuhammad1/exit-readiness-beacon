@@ -50,9 +50,9 @@ const dealStages: DealStage[] = [
     id: 'ioi',
     name: 'IOI Stage',
     icon: <FileText className="w-6 h-6" />,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-500/10',
-    borderColor: 'border-blue-500/20',
+    color: 'text-white',
+    bgColor: 'bg-white/5',
+    borderColor: 'border-white/10',
     description: 'Indications of Interest are coming in. This is where buyers set anchors — and where most sellers make their first mistake by falling in love with the highest number.',
     redLines: [
       {
@@ -352,7 +352,7 @@ export function WhenToWalk() {
     if (walkCount === 1) return { level: 'Serious Concern', color: 'text-red-400', bg: 'bg-red-500/10', border: 'border-red-500/20', advice: 'You have at least one walk-away signal. This doesn\'t automatically mean you should kill the deal, but it means you should have a very serious conversation with your attorney and advisor. If the buyer won\'t address this specific issue, walk.' };
     if (pauseCount >= 2) return { level: 'Pause & Reassess', color: 'text-orange-400', bg: 'bg-orange-500/10', border: 'border-orange-500/20', advice: 'Multiple yellow flags are present. The deal isn\'t dead, but the process needs adjustment. Address each pause signal with your advisory team before proceeding. Don\'t let momentum override your judgment.' };
     if (totalFlags >= 4) return { level: 'Negotiate Hard', color: 'text-yellow-400', bg: 'bg-yellow-500/10', border: 'border-yellow-500/20', advice: 'You have several negotiation points to address. None are individually deal-breaking, but the pattern suggests the buyer is testing your boundaries. Push back firmly on each point. A buyer who respects pushback is a buyer you can work with.' };
-    if (totalFlags >= 1) return { level: 'Manageable Issues', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20', advice: 'You have a few items to address, but nothing that should derail the deal. These are normal negotiation points. Bring them to your attorney and advisor to resolve through standard deal mechanics.' };
+    if (totalFlags >= 1) return { level: 'Manageable Issues', color: 'text-white', bg: 'bg-white/5', border: 'border-white/10', advice: 'You have a few items to address, but nothing that should derail the deal. These are normal negotiation points. Bring them to your attorney and advisor to resolve through standard deal mechanics.' };
     return { level: 'Green Light', color: 'text-green-400', bg: 'bg-green-500/10', border: 'border-green-500/20', advice: 'Based on your responses, the deal looks clean. No major red flags or walk-away signals. Continue with confidence, but stay alert — new issues can surface at any stage. Keep your alternatives warm until the wire hits.' };
   };
 
@@ -484,7 +484,7 @@ export function WhenToWalk() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Card className="bg-white/5 border-white/10">
               <CardContent className="p-5">
-                <Users className="w-8 h-8 text-blue-400 mb-3" />
+                <Users className="w-8 h-8 text-white mb-3" />
                 <h3 className="text-white font-semibold mb-2">Run a Competitive Process</h3>
                 <p className="text-white/60 text-sm">3-5 bidders minimum. The ability to say "we have other interested parties" isn't a bluff — it's a strategy. An investment banker's 1-3% fee pays for itself 10x in competitive tension.</p>
               </CardContent>

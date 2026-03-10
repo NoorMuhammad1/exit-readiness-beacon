@@ -11,7 +11,7 @@ const MergerMathPage = () => {
           <h1 className="text-4xl font-bold text-foreground">
             Merger Math
           </h1>
-          <Badge className="bg-blue-500/20 text-blue-400 border-blue-500/30 text-xs px-2 py-0.5">
+          <Badge className="bg-white/10 text-white border-white/15 text-xs px-2 py-0.5">
             <Sparkles className="w-3 h-3 mr-1" />
             NEW
           </Badge>

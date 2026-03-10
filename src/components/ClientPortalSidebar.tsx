@@ -104,7 +104,7 @@ export function ClientPortalSidebar() {
                               className={`text-[10px] px-1.5 py-0 h-4 ml-1 ${
                                 module.enhancement === 'ENHANCED'
                                   ? 'bg-emerald-500/20 text-emerald-400 border-emerald-500/30'
-                                  : 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+                                  : 'bg-white/10 text-white border-white/15'
                               }`}
                             >
                               {module.enhancement}

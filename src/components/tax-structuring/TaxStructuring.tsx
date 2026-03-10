@@ -232,9 +232,9 @@ export function TaxStructuring() {
               </CardContent>
             </Card>
 
-            <Card className="bg-blue-500/5 border-blue-500/20">
+            <Card className="bg-white/20/5 border-white/10">
               <CardHeader className="pb-3">
-                <CardTitle className="text-blue-400 text-lg flex items-center gap-2">
+                <CardTitle className="text-white text-lg flex items-center gap-2">
                   <DollarSign className="w-5 h-5" />
                   Asset Sale — Buyer's Preference
                 </CardTitle>
@@ -246,11 +246,11 @@ export function TaxStructuring() {
                 </p>
                 <div className="space-y-2">
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-white mt-0.5 shrink-0" />
                     <span className="text-white/60 text-sm">Buyer gets a "stepped-up" tax basis — can depreciate the purchase price</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 className="w-4 h-4 text-blue-400 mt-0.5 shrink-0" />
+                    <CheckCircle2 className="w-4 h-4 text-white mt-0.5 shrink-0" />
                     <span className="text-white/60 text-sm">Buyer cherry-picks assets, avoids unknown liabilities</span>
                   </div>
                   <div className="flex items-start gap-2">
@@ -336,7 +336,7 @@ export function TaxStructuring() {
                     <tr className="border-b border-white/10">
                       <th className="text-left py-3 text-white/40 text-xs uppercase w-1/3">Feature</th>
                       <th className="text-center py-3 text-green-400 text-xs uppercase w-1/3">Stock Sale</th>
-                      <th className="text-center py-3 text-blue-400 text-xs uppercase w-1/3">Asset Sale</th>
+                      <th className="text-center py-3 text-white text-xs uppercase w-1/3">Asset Sale</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -384,7 +384,7 @@ export function TaxStructuring() {
                   <p className="text-white/50 text-xs">The depreciation step-up they want — the full purchase price can be written off over time.</p>
                 </div>
                 <div className="bg-white/[0.03] rounded-lg p-4">
-                  <h4 className="text-blue-400 font-medium text-sm mb-1">What the seller gets</h4>
+                  <h4 className="text-white font-medium text-sm mb-1">What the seller gets</h4>
                   <p className="text-white/50 text-xs">A cleaner legal transfer. But the tax treatment is the same as an asset sale — so the seller still pays the blended rate.</p>
                 </div>
               </div>
@@ -567,9 +567,9 @@ export function TaxStructuring() {
             </Card>
 
             {/* Asset Sale */}
-            <Card className="bg-blue-500/5 border-blue-500/20">
+            <Card className="bg-white/20/5 border-white/10">
               <CardHeader className="pb-2">
-                <CardTitle className="text-blue-400 text-base">Asset Sale</CardTitle>
+                <CardTitle className="text-white text-base">Asset Sale</CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2 text-sm font-mono">
@@ -585,7 +585,7 @@ export function TaxStructuring() {
                   <div className="flex justify-between text-white/50 py-1 border-b border-white/10">
                     <span>Ordinary income</span><span>−{fmt(ordinaryTax)}</span>
                   </div>
-                  <div className="flex justify-between text-blue-400 font-bold py-2 border-t border-blue-500/30">
+                  <div className="flex justify-between text-white font-bold py-2 border-t border-white/15">
                     <span>Net Proceeds</span><span>{fmt(assetNetProceeds)}</span>
                   </div>
                 </div>
