@@ -57,9 +57,33 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 
 ---
 
-## Enhancement Roadmap
+## Current Status
 
-Each enhancement is independent. We tackle them one at a time, in whatever order Frank chooses.
+**WAVE 1 (Enhancements #1-#12): COMPLETE** — All 12 built across Sessions 2-7
+**WAVE 2 (Enhancements #13-#22): COMPLETE** — All 10 built across Sessions 9-24
+**Deal Structure Lab: COMPLETE** — Frank's original concept, built Session 23
+**Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
+**Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
+
+**Total modules live: 44**
+
+---
+
+## What's Left — Prioritized
+
+1. **Deal Structure Lab UI overhaul** — Frank flagged UI needs work. Functional but not polished.
+2. **Phase 4 — Thin module upgrades** — Base modules not yet enhanced: Add Backs, Data Room, HoldCo Structure, Top Performers, Strategy Doc Builder
+3. **Phase 5 — Platform features** — PE Readiness Score, Growth Story Builder, Downloadable Deal Package
+4. **Navigation restructure** — Pillar vs Supplemental distinction + industry tags (Frank needs to provide pillar course list)
+5. **Purple theme** — App-wide UI redesign (reference: `ui-reference.png`)
+6. **Settings polish** — ~94% done, minor tweaks
+7. **Team Invite feature** — Plan in `TEAM-INVITE-PLAN.md`, 5-7 sessions, requires Supabase auth migration
+
+---
+
+## Enhancement Roadmap (Reference — All Complete)
+
+All 22 enhancements are built. Reference details below.
 
 ### Enhancement 1: Sector-Tailored DD Checklists
 **Status:** COMPLETE (Session 5, commit d28cfea)
