@@ -64,9 +64,9 @@ The ideas come from `C:\Users\FrankDalton\myProjects\financial-services-plugins`
 **Deal Structure Lab: COMPLETE** — Frank's original concept, built Session 23
 **Phase 2 Modules (6): COMPLETE** — QoE, Working Capital, Tax Structuring, Rollover Equity, Emotional Side, When to Walk Away
 **Buyer Perspective Series (5): COMPLETE** — The Auction, PE Eyes, 24-Month Countdown, Purchase Agreement Guide, LBO Explainer
-**WAVE 3 START: IC Memo Builder** — Session 25
+**WAVE 3: IC Memo Builder** — Session 25, **DD Framework + 100-Day Plan** — Session 26
 
-**Total modules live: 45**
+**Total modules live: 47**
 
 ---
 
@@ -246,6 +246,30 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 ---
 
 ## Session Log
+
+### Session 26 — Mar 9, 2026
+- **Built DD Framework** — Wave 3 module, "Is This Business Worth What We're Paying?"
+  - 4 tabs: Workstreams / Timeline / Red Flags / Quiz
+  - Tab 1 — Workstreams: 6 DD workstreams (Financial, Commercial, Legal, Management, Operational, HR & Benefits) with left nav showing per-workstream progress bars. Each workstream has owner, timing, purpose, and interactive checklist. 60+ items total, critical items flagged, click to expand detail. Overall progress bar at top.
+  - Tab 2 — Timeline: LOI to Close, 6 phases (Day 0 through Day 45–90). Each phase shows parallel workstream activity + buyer focus. Working capital insight card at bottom.
+  - Tab 3 — Red Flags: 12 DD findings filterable by severity (KILL/HIGH/MEDIUM) and by workstream. Real patterns: revenue pulled forward, CoC triggers, IP in founder's name, QoE gap, cohort decay, worker misclassification.
+  - Tab 4 — Quiz: 5 scenario questions from inside a real DD process (QoE EBITDA gap, customer churn risk, IP ownership, operational Excel dependency, undisclosed litigation).
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/dd-framework`, NEW badge
+  - New files: `src/components/dd-framework/DDFramework.tsx`, `src/pages/week-4/DDFrameworkPage.tsx`
+- Commit: `18bd49e` — pushed to noor_frank_playground
+- **Built 100-Day Plan** — Wave 3 module, "The Deal Closed. Now the Real Work Starts."
+  - 4 tabs: Plan / Value Levers / Mistakes / KPIs
+  - Tab 1 — Plan: 3 pillars (Stabilize Days 1–30, Assess Days 31–60, Accelerate Days 61–100) with interactive checklist. 24 tasks total, critical items flagged, each expands with detail. Per-pillar progress bars + 100-day clock visual in sidebar.
+  - Tab 2 — Value Levers: 4 levers (Revenue Growth 35%, Margin Expansion 25%, M&A/Add-Ons 25%, Multiple Expansion 15%) with weighted bar visualization. Each expands with specific initiatives + IC interpretation. Warning card on the mistake most operators make.
+  - Tab 3 — Mistakes: 7 documented patterns (moving too fast, ignoring finance upgrade, no initiative owners, retention plans unexecuted, no add-on foundation, misaligned incentives, treating PE as silent capital). Each expandable with cost and fix.
+  - Tab 4 — KPIs: 4 categories (Revenue, Profitability, Operational, M&A Pipeline) in grid layout. Board reporting cadence (monthly/quarterly/annual). NRR as the single predictive metric.
+  - Educational module — no data inputs, no localStorage, no Company Profile auto-fill
+  - Route: `/portal/week-4/hundred-day-plan`, NEW badge
+  - New files: `src/components/hundred-day-plan/HundredDayPlan.tsx`, `src/pages/week-4/HundredDayPlanPage.tsx`
+- Commit: `c194689` — pushed to noor_frank_playground
+- **Total modules: 47** — Wave 3 rolling
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
 
 ### Session 25 — Mar 9, 2026
 - **Built IC Memo Builder** — Wave 3 module, "The Document That Gets a Deal Approved or Killed"
