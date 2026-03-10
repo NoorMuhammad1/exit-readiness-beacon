@@ -1631,7 +1631,6 @@ export default function PostCloseFundraising() {
                           lineHeight: 1.6,
                           transition: "all .15s",
                           cursor: quizRevealed ? "default" : "pointer",
-                          ,
                         }}
                       >
                         <span
@@ -1689,7 +1688,6 @@ export default function PostCloseFundraising() {
                       letterSpacing: 2,
                       borderRadius: 3,
                       cursor: "pointer",
-                      ,
                     }}
                   >
                     {quizIdx < QUIZ.length - 1 ? "NEXT \u2192" : "RESULTS \u2192"}
@@ -1749,7 +1747,6 @@ export default function PostCloseFundraising() {
                   letterSpacing: 2,
                   borderRadius: 3,
                   cursor: "pointer",
-                  ,
                 }}
               >
                 RETAKE
