@@ -420,7 +420,7 @@ export function ComparableAnalysis() {
   // ─── Tab Content ──────────────────────────────────────────────────
 
   const renderTab0 = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       {/* Hero */}
       <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6">
         <h2 className="text-2xl font-bold text-white mb-3">How Do You Stack Up?</h2>
@@ -589,7 +589,7 @@ export function ComparableAnalysis() {
     }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Overall Assessment Card */}
         <div className={`bg-gradient-to-br from-${assessment.color}-500/10 to-${assessment.color}-500/5 border border-${assessment.color}-500/20 rounded-xl p-6`}>
           <div className="flex items-center justify-between mb-3">
@@ -712,7 +712,7 @@ export function ComparableAnalysis() {
     const scoreEntries = Object.values(scores);
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Header */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-1">Comparable Company Analysis Report</h2>

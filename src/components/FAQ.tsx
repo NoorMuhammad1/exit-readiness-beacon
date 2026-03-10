@@ -231,7 +231,7 @@ const FAQ = () => {
   return (
     <section className="py-16 bg-background">
       <div className="container px-4 md:px-6">
-        <div className="max-w-4xl mx-auto">
+        <div>
           {/* Header */}
           <div className="text-center space-y-4 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">

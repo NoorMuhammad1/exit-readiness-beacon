@@ -356,7 +356,7 @@ const TimelineBar: React.FC<{ stages: DealStage[]; activeStage: number; onSelect
 // ── Section Card ─────────────────────────────────────────────────
 
 const SectionCard: React.FC<{ title: string; icon: React.ReactNode; items: string[]; color: string }> = ({ title, icon, items, color }) => (
-  <Card className="bg-black/30 border-white/10">
+  <Card className="bg-white/5 border-white/10">
     <CardHeader className="pb-3">
       <CardTitle className={`text-sm font-semibold flex items-center gap-2 ${color}`}>
         {icon} {title}
@@ -427,7 +427,7 @@ const StageDetail: React.FC<{ stage: DealStage }> = ({ stage }) => (
     </div>
 
     {/* Who's Involved */}
-    <Card className="bg-black/30 border-white/10">
+    <Card className="bg-white/5 border-white/10">
       <CardContent className="pt-5">
         <div className="flex items-center gap-2 mb-3">
           <Users className="w-4 h-4 text-purple-400" />
@@ -493,7 +493,7 @@ export const DealProcessRoadmap: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Overview Card */}
       <Card className="bg-gradient-to-r from-blue-500/10 to-purple-500/10 border-blue-500/20">
         <CardHeader>
@@ -521,7 +521,7 @@ export const DealProcessRoadmap: React.FC = () => {
       </Card>
 
       {/* Timeline Navigation */}
-      <Card className="bg-black/20 border-white/10">
+      <Card className="bg-white/[0.03] border-white/10">
         <CardContent className="pt-5 pb-3">
           <TimelineBar stages={dealStages} activeStage={activeStage} onSelect={setActiveStage} />
         </CardContent>

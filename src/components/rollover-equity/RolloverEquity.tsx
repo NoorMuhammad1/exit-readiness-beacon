@@ -178,7 +178,7 @@ export function RolloverEquity() {
   ];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -231,7 +231,7 @@ export function RolloverEquity() {
                   You receive <strong className="text-white">70-80% of the purchase price in cash</strong> at closing.
                   This is your guaranteed payout — it's in your bank account, taxed, and done.
                 </p>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] rounded-lg p-3">
                   <div className="text-white/40 text-xs mb-1">Example: $20M deal, 25% rollover</div>
                   <div className="text-green-400 text-2xl font-bold">$15M cash at close</div>
                 </div>
@@ -251,7 +251,7 @@ export function RolloverEquity() {
                   (typically 3-5 years later), <strong className="text-white">your slice gets paid out
                   at the new, higher valuation.</strong>
                 </p>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] rounded-lg p-3">
                   <div className="text-white/40 text-xs mb-1">If company doubles in value...</div>
                   <div className="text-purple-400 text-2xl font-bold">$5M → $10M+</div>
                 </div>
@@ -494,7 +494,7 @@ export function RolloverEquity() {
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-black/20 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-lg p-4">
                   <h4 className="text-white font-medium text-sm mb-2">Drag-Along (PE protects itself)</h4>
                   <p className="text-white/60 text-xs leading-relaxed">
                     When the PE firm decides to sell, they can <strong className="text-white">"drag" all minority
@@ -502,7 +502,7 @@ export function RolloverEquity() {
                     the PE firm from holdouts who could derail a deal.
                   </p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-lg p-4">
                   <h4 className="text-white font-medium text-sm mb-2">Tag-Along (You protect yourself)</h4>
                   <p className="text-white/60 text-xs leading-relaxed">
                     If the PE firm sells their stake, you have the right to <strong className="text-white">"tag along"

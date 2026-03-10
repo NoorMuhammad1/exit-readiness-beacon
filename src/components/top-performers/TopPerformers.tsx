@@ -665,7 +665,7 @@ export const TopPerformers: React.FC = () => {
   const { Component } = PAGES[currentPage];
   
   return (
-    <div className="max-w-6xl mx-auto">
+    <div>
       <div className="mb-8">
         <Progress value={(currentPage + 1) / PAGES.length * 100} className="h-2" />
         <div className="flex justify-between mt-2 text-sm text-muted-foreground">

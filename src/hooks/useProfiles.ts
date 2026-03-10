@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
+import { apiClient } from '@/lib/api/client';
 
 export interface UserProfile {
   id: string;
@@ -19,16 +19,9 @@ export const useProfiles = () => {
   return useQuery({
     queryKey: ['profiles'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('profiles')
-        .select(`
-          *,
-          role:user_roles(*)
-        `)
-        .order('created_at', { ascending: false });
-      
-      if (error) throw error;
-      return data as UserProfile[];
+      // Backend doesn't have a profiles endpoint yet
+      // Return empty array for now
+      return [] as UserProfile[];
     },
   });
 };
@@ -37,26 +30,11 @@ export const useProfileStats = () => {
   return useQuery({
     queryKey: ['profile-stats'],
     queryFn: async () => {
-      const { count: totalCount, error: totalError } = await supabase
-        .from('profiles')
-        .select('*', { count: 'exact', head: true });
-
-      const { count: adminCount, error: adminError } = await supabase
-        .from('profiles')
-        .select(`
-          *,
-          role:user_roles!inner(*)
-        `, { count: 'exact', head: true })
-        .eq('user_roles.name', 'admin');
-
-      if (totalError) throw totalError;
-      if (adminError) throw adminError;
-
-      console.log('Profile stats:', { totalCount, adminCount });
-
+      // Backend doesn't have profile stats endpoint yet
+      // Return default stats
       return {
-        total: totalCount || 0,
-        admins: adminCount || 0,
+        total: 0,
+        admins: 0,
       };
     },
   });

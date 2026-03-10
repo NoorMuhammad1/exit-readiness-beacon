@@ -471,7 +471,7 @@ export function EmotionalReadiness() {
   const scaleLabels = ['Strongly Disagree', 'Disagree', 'Neutral', 'Agree', 'Strongly Agree'];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -510,7 +510,7 @@ export function EmotionalReadiness() {
                 process with fewer regrets, better deal terms, and a smoother transition. Sellers who don't prepare often
                 make costly mistakes under stress — or walk away from good deals.
               </p>
-              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
+              <div className="bg-white/5 rounded-lg p-4 border border-yellow-500/20">
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-yellow-400 mt-0.5 shrink-0" />
                   <p className="text-yellow-200/80 text-sm">
@@ -657,7 +657,7 @@ export function EmotionalReadiness() {
                         )}
 
                         {challenge.advice && (
-                          <div className="bg-black/20 rounded-lg p-4 border border-white/10">
+                          <div className="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                             <div className="flex items-start gap-2">
                               <Shield className="w-4 h-4 text-green-400 mt-0.5 shrink-0" />
                               <p className="text-white/70 text-sm"><strong className="text-green-400">How to handle it:</strong> {challenge.advice}</p>
@@ -807,7 +807,7 @@ export function EmotionalReadiness() {
                     </div>
 
                     {/* Why It Matters */}
-                    <div className="bg-black/20 rounded-lg p-4 border border-white/10">
+                    <div className="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                       <div className="flex items-start gap-2">
                         <Lightbulb className="w-4 h-4 text-yellow-400 mt-0.5 shrink-0" />
                         <div>

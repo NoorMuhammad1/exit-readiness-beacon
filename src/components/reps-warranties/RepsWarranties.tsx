@@ -447,7 +447,7 @@ export function RepsWarranties() {
   ];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -608,7 +608,7 @@ export function RepsWarranties() {
                     tip: 'RWI is increasingly common in PE deals. It can reduce your escrow holdback to 0.5-1% of deal value instead of the typical 10-15%. Ask about it early.'
                   },
                 ].map((item, i) => (
-                  <div key={i} className="bg-black/20 rounded-lg p-4">
+                  <div key={i} className="bg-white/[0.03] rounded-lg p-4">
                     <h4 className="text-white font-medium text-sm mb-1">{item.title}</h4>
                     <p className="text-white/60 text-xs leading-relaxed mb-2">{item.description}</p>
                     <div className="flex items-start gap-2">
@@ -745,7 +745,7 @@ export function RepsWarranties() {
                   {isExpanded && (
                     <div className="px-5 pb-5 space-y-3 border-t border-white/5 pt-4">
                       {category.reps.map((rep, i) => (
-                        <div key={i} className="bg-black/20 rounded-lg p-4">
+                        <div key={i} className="bg-white/[0.03] rounded-lg p-4">
                           <div className="flex items-center gap-2 mb-2">
                             <h4 className="text-white font-medium text-sm">{rep.name}</h4>
                             <Badge className={`text-xs ${

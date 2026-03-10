@@ -48,7 +48,7 @@ export const AssetFreeEducation: React.FC = () => {
   };
   
   return (
-    <div className="max-w-4xl mx-auto">
+    <div>
       <div className="mb-8">
         <Progress value={(currentPage + 1) / pages.length * 100} className="h-2" />
         <div className="flex justify-between mt-2 text-sm text-muted-foreground">

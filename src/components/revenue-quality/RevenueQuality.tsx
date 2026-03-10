@@ -485,7 +485,7 @@ export const RevenueQuality: React.FC = () => {
   // ── RENDER ──────────────────────────────────────────
 
   return (
-    <div className="space-y-6 max-w-6xl mx-auto">
+    <div className="space-y-6">
       <Tabs value={activeTab} onValueChange={setActiveTab}>
         <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="revenue">Revenue Profile</TabsTrigger>

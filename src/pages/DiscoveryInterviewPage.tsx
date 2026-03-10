@@ -95,7 +95,7 @@ export default function DiscoveryInterviewPage() {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="p-6">
       <Card className="mb-8">
         <CardHeader>
           <div className="flex items-center gap-3">

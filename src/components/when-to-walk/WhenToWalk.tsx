@@ -428,7 +428,7 @@ export function WhenToWalk() {
   };
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -466,7 +466,7 @@ export function WhenToWalk() {
                 have alternatives — and the willingness to use them — cannot push you past fair terms.
                 The moment a buyer senses you NEED this deal, you've already lost millions.
               </p>
-              <div className="bg-black/30 rounded-lg p-4 border border-red-500/20">
+              <div className="bg-white/5 rounded-lg p-4 border border-red-500/20">
                 <div className="flex items-start gap-3">
                   <Zap className="w-5 h-5 text-red-400 mt-0.5 shrink-0" />
                   <p className="text-red-200/80 text-sm">
@@ -611,7 +611,7 @@ export function WhenToWalk() {
                   {stage.redLines.map(redLine => {
                     const sev = severityConfig[redLine.severity];
                     return (
-                      <div key={redLine.id} className="bg-black/20 rounded-lg p-4 border border-white/10 space-y-3">
+                      <div key={redLine.id} className="bg-white/[0.03] rounded-lg p-4 border border-white/10 space-y-3">
                         <div className="flex items-start gap-3">
                           <span className={sev.color}>{sev.icon}</span>
                           <div className="flex-1">
@@ -746,7 +746,7 @@ export function WhenToWalk() {
                     </div>
 
                     {/* Explanation */}
-                    <div className="bg-black/20 rounded-lg p-4 border border-white/10">
+                    <div className="bg-white/[0.03] rounded-lg p-4 border border-white/10">
                       <div className="flex items-start gap-2">
                         <Lightbulb className="w-4 h-4 text-yellow-400 mt-0.5 shrink-0" />
                         <div>
@@ -924,7 +924,7 @@ export function WhenToWalk() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     {getWalkFlags().map(q => (
-                      <div key={q.id} className="bg-black/20 rounded-lg p-4 border border-red-500/10">
+                      <div key={q.id} className="bg-white/[0.03] rounded-lg p-4 border border-red-500/10">
                         <div className="flex items-center gap-2 mb-1">
                           <Badge className="bg-white/10 text-white/60 border-white/20 text-xs">{q.stage}</Badge>
                         </div>
@@ -946,7 +946,7 @@ export function WhenToWalk() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     {getPauseFlags().map(q => (
-                      <div key={q.id} className="bg-black/20 rounded-lg p-4 border border-orange-500/10">
+                      <div key={q.id} className="bg-white/[0.03] rounded-lg p-4 border border-orange-500/10">
                         <div className="flex items-center gap-2 mb-1">
                           <Badge className="bg-white/10 text-white/60 border-white/20 text-xs">{q.stage}</Badge>
                         </div>
@@ -968,7 +968,7 @@ export function WhenToWalk() {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     {getNegotiateFlags().map(q => (
-                      <div key={q.id} className="bg-black/20 rounded-lg p-4 border border-yellow-500/10">
+                      <div key={q.id} className="bg-white/[0.03] rounded-lg p-4 border border-yellow-500/10">
                         <div className="flex items-center gap-2 mb-1">
                           <Badge className="bg-white/10 text-white/60 border-white/20 text-xs">{q.stage}</Badge>
                         </div>

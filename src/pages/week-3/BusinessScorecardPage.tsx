@@ -5,7 +5,7 @@ import { BusinessScorecard } from '@/components/business-scorecard/BusinessScore
 const BusinessScorecardPage = () => {
   return (
     <div className="space-y-6">
-      <div className="max-w-4xl mx-auto text-center mb-8">
+      <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-foreground mb-4">
           Business Scorecard
         </h1>

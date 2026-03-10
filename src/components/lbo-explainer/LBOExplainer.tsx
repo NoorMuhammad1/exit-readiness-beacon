@@ -205,7 +205,7 @@ export function LBOExplainer() {
   ];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -549,19 +549,19 @@ export function LBOExplainer() {
             <CardContent className="p-8">
               <h2 className="text-2xl font-bold text-white mb-4">The PE Firm's Returns</h2>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-black/30 rounded-lg p-4 text-center">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-green-400">{moic.toFixed(2)}x</div>
                   <div className="text-white/50 text-xs mt-1">MOIC</div>
                 </div>
-                <div className="bg-black/30 rounded-lg p-4 text-center">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
                   <div className="text-3xl font-bold text-green-400">{fmtPct(irr)}</div>
                   <div className="text-white/50 text-xs mt-1">IRR</div>
                 </div>
-                <div className="bg-black/30 rounded-lg p-4 text-center">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
                   <div className="text-2xl font-bold text-white">{fmt(equityInvested)}</div>
                   <div className="text-white/50 text-xs mt-1">Equity In</div>
                 </div>
-                <div className="bg-black/30 rounded-lg p-4 text-center">
+                <div className="bg-white/5 rounded-lg p-4 text-center">
                   <div className="text-2xl font-bold text-green-400">{fmt(exitEquity)}</div>
                   <div className="text-white/50 text-xs mt-1">Equity Out</div>
                 </div>

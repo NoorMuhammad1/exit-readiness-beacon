@@ -246,7 +246,7 @@ ${strategy.vision5Year || '[Not provided]'}
 
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+      <div>
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-white mb-2">Strategy Document Builder</h1>
           <p className="text-white/70">Create a comprehensive strategic plan for your business exit</p>
@@ -297,7 +297,7 @@ ${strategy.vision5Year || '[Not provided]'}
               <textarea
                 value={strategy.visionStatement}
                 onChange={(e) => setStrategy({ ...strategy, visionStatement: e.target.value })}
-                className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
                 rows={3}
                 placeholder="e.g., To be the leading provider of sustainable HVAC solutions in the Southeast, recognized for innovation and exceptional service..."
               />
@@ -309,7 +309,7 @@ ${strategy.vision5Year || '[Not provided]'}
               <textarea
                 value={strategy.missionStatement}
                 onChange={(e) => setStrategy({ ...strategy, missionStatement: e.target.value })}
-                className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
                 rows={3}
                 placeholder="e.g., We deliver energy-efficient climate control solutions that improve comfort and reduce environmental impact..."
               />
@@ -329,7 +329,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       newValues[index] = e.target.value;
                       setStrategy({ ...strategy, coreValues: newValues });
                     }}
-                    className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
                     placeholder={`Core value ${index + 1}`}
                   />
                 ))}
@@ -367,7 +367,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       newStrengths[index] = e.target.value;
                       setStrategy({ ...strategy, strengths: newStrengths });
                     }}
-                    className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
                     placeholder="e.g., Strong customer relationships"
                   />
                 ))}
@@ -400,7 +400,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       newWeaknesses[index] = e.target.value;
                       setStrategy({ ...strategy, weaknesses: newWeaknesses });
                     }}
-                    className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
                     placeholder="e.g., Limited geographic presence"
                   />
                 ))}
@@ -433,7 +433,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       newOpportunities[index] = e.target.value;
                       setStrategy({ ...strategy, opportunities: newOpportunities });
                     }}
-                    className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
                     placeholder="e.g., Growing demand for green technology"
                   />
                 ))}
@@ -466,7 +466,7 @@ ${strategy.vision5Year || '[Not provided]'}
                       newThreats[index] = e.target.value;
                       setStrategy({ ...strategy, threats: newThreats });
                     }}
-                    className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm"
                     placeholder="e.g., New environmental regulations"
                   />
                 ))}
@@ -504,7 +504,7 @@ ${strategy.vision5Year || '[Not provided]'}
                             );
                             setStrategy({ ...strategy, initiatives90Day: updated });
                           }}
-                          className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                         />
                       </div>
                       <div>
@@ -518,7 +518,7 @@ ${strategy.vision5Year || '[Not provided]'}
                             );
                             setStrategy({ ...strategy, initiatives90Day: updated });
                           }}
-                          className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                         />
                       </div>
                       <div>
@@ -532,7 +532,7 @@ ${strategy.vision5Year || '[Not provided]'}
                             );
                             setStrategy({ ...strategy, initiatives90Day: updated });
                           }}
-                          className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                         />
                       </div>
                       <div>
@@ -546,7 +546,7 @@ ${strategy.vision5Year || '[Not provided]'}
                             );
                             setStrategy({ ...strategy, initiatives90Day: updated });
                           }}
-                          className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                          className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                         />
                       </div>
                     </div>
@@ -600,7 +600,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         );
                         setStrategy({ ...strategy, goals12Month: updated });
                       }}
-                      className="bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                     >
                       <option value="Revenue">Revenue</option>
                       <option value="Operations">Operations</option>
@@ -617,7 +617,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         );
                         setStrategy({ ...strategy, goals12Month: updated });
                       }}
-                      className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                       placeholder="e.g., Expand into 2 new markets"
                     />
                     <button
@@ -665,7 +665,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         );
                         setStrategy({ ...strategy, goals24Month: updated });
                       }}
-                      className="bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                     >
                       <option value="Revenue">Revenue</option>
                       <option value="Operations">Operations</option>
@@ -682,7 +682,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         );
                         setStrategy({ ...strategy, goals24Month: updated });
                       }}
-                      className="flex-1 bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="flex-1 bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                       placeholder="e.g., Achieve market leadership in region"
                     />
                     <button
@@ -723,7 +723,7 @@ ${strategy.vision5Year || '[Not provided]'}
               <textarea
                 value={strategy.vision5Year}
                 onChange={(e) => setStrategy({ ...strategy, vision5Year: e.target.value })}
-                className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
+                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white resize-none"
                 rows={4}
                 placeholder="e.g., Regional market leader with $50M revenue, 200+ employees, and expansion into adjacent markets..."
               />
@@ -749,7 +749,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         newProjections[index] = Number(e.target.value);
                         setStrategy({ ...strategy, revenueProjections: newProjections });
                       }}
-                      className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                       placeholder="0"
                     />
                   </div>
@@ -772,7 +772,7 @@ ${strategy.vision5Year || '[Not provided]'}
                         newProjections[index] = Number(e.target.value);
                         setStrategy({ ...strategy, ebitdaProjections: newProjections });
                       }}
-                      className="w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white"
+                      className="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white"
                       placeholder="0"
                     />
                   </div>

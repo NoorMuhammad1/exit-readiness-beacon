@@ -179,7 +179,7 @@ export function WorkingCapital() {
   ];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -213,7 +213,7 @@ export function WorkingCapital() {
                 This happens more than you'd think. Working capital adjustments are the #1 source of post-closing disputes
                 in M&A deals. The concept is simple, but the math gets complicated — and that's where sellers get hurt.
               </p>
-              <div className="bg-black/30 rounded-lg p-4 border border-yellow-500/20">
+              <div className="bg-white/5 rounded-lg p-4 border border-yellow-500/20">
                 <div className="flex items-start gap-3">
                   <AlertTriangle className="w-5 h-5 text-yellow-400 mt-0.5 shrink-0" />
                   <p className="text-yellow-200/80 text-sm">
@@ -239,7 +239,7 @@ export function WorkingCapital() {
                 Working capital is the money your business needs to operate day-to-day. It's the difference between
                 what you're owed (current assets) and what you owe (current liabilities).
               </p>
-              <div className="bg-black/20 rounded-lg p-5 font-mono text-center">
+              <div className="bg-white/[0.03] rounded-lg p-5 font-mono text-center">
                 <div className="text-white/60 text-sm mb-2">The Formula</div>
                 <div className="text-xl text-white">
                   <span className="text-green-400">Current Assets</span>
@@ -426,7 +426,7 @@ export function WorkingCapital() {
                 { tactic: 'Including unfavorable items', desc: 'Adding gift card liabilities, loyalty point obligations, or warranty reserves that inflate liabilities.', defense: 'Push back on anything not in the normal course of business or that you can\'t control.' },
                 { tactic: 'Tight collar or no collar', desc: 'A small collar (1-2%) or no collar means every dollar of deviation triggers an adjustment.', defense: 'Negotiate for 5-10% collar. Industry standard is 5%.' },
               ].map((item, i) => (
-                <div key={i} className="bg-black/20 rounded-lg p-4">
+                <div key={i} className="bg-white/[0.03] rounded-lg p-4">
                   <h4 className="text-white font-medium text-sm">{item.tactic}</h4>
                   <p className="text-white/50 text-xs mt-1">{item.desc}</p>
                   <p className="text-green-300/80 text-xs mt-2"><strong className="text-green-400">Your defense:</strong> {item.defense}</p>
@@ -475,7 +475,7 @@ export function WorkingCapital() {
                 <select
                   value={closingMonth}
                   onChange={e => setClosingMonth(parseInt(e.target.value))}
-                  className="mt-1 w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-purple-500"
+                  className="mt-1 w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-purple-500"
                 >
                   {months.map((m, i) => (
                     <option key={i} value={i}>{m}</option>
@@ -540,7 +540,7 @@ export function WorkingCapital() {
                                 value={item.monthly[mi] || ''}
                                 onChange={e => updateMonthly(item.id, mi, e.target.value)}
                                 placeholder="0"
-                                className="w-full bg-black/30 border border-white/10 rounded px-2 py-1 text-white text-xs text-right focus:outline-none focus:border-purple-500 disabled:opacity-30"
+                                className="w-full bg-white/5 border border-white/10 rounded px-2 py-1 text-white text-xs text-right focus:outline-none focus:border-purple-500 disabled:opacity-30"
                               />
                             </td>
                           ))}
@@ -627,21 +627,21 @@ export function WorkingCapital() {
                 <CardContent className="p-8">
                   <h2 className="text-2xl font-bold text-white mb-4">Your Working Capital Analysis</h2>
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div className="bg-black/30 rounded-lg p-4 text-center">
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
                       <div className="text-2xl font-bold text-purple-300">{fmt(avgWC)}</div>
                       <div className="text-white/50 text-xs mt-1">12-Mo Avg (Peg)</div>
                     </div>
-                    <div className="bg-black/30 rounded-lg p-4 text-center">
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
                       <div className="text-2xl font-bold text-white">{fmt(closingWC)}</div>
                       <div className="text-white/50 text-xs mt-1">Closing WC ({months[closingMonth]})</div>
                     </div>
-                    <div className="bg-black/30 rounded-lg p-4 text-center">
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
                       <div className={`text-2xl font-bold ${deviation >= 0 ? 'text-green-400' : 'text-red-400'}`}>
                         {deviation >= 0 ? '+' : ''}{fmt(deviation)}
                       </div>
                       <div className="text-white/50 text-xs mt-1">Deviation from Peg</div>
                     </div>
-                    <div className="bg-black/30 rounded-lg p-4 text-center">
+                    <div className="bg-white/5 rounded-lg p-4 text-center">
                       <div className={`text-2xl font-bold ${
                         adjustment === 0 ? 'text-green-400' : adjustment > 0 ? 'text-green-400' : 'text-red-400'
                       }`}>

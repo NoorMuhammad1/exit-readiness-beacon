@@ -122,7 +122,7 @@ const SettingsPage = () => {
         </defs>
       </svg>
 
-      <div className="relative max-w-4xl mx-auto px-8 py-14">
+      <div className="relative px-8 py-14">
         {/* Header */}
         <div className="mb-12 text-center">
           <div className="inline-flex items-center justify-center gap-3 mb-4">

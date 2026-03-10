@@ -244,7 +244,7 @@ export default function KnowYourBuyerPage() {
 
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+      <div>
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
             <h1 className="text-3xl font-bold text-white">{KnowYourBuyerModule.title}</h1>
@@ -261,26 +261,35 @@ export default function KnowYourBuyerPage() {
         <div className="mb-12">
           <h2 className="text-xl font-semibold text-white mb-6">Quick Diagnostic</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {quizQuestions.map(q => (
-              <div key={q.id} className="bg-white/5 border border-white/10 rounded-xl p-6 backdrop-blur-sm">
-                <p className="text-white mb-4">{q.question}</p>
-                <div className="space-y-2">
-                  {q.options.map(option => (
-                    <button
-                      key={option}
-                      onClick={() => setQuizAnswers({ ...quizAnswers, [q.id]: option })}
-                      className={`w-full text-left px-4 py-2 rounded-lg transition ${
-                        quizAnswers[q.id] === option
-                          ? "bg-blue-500/20 border border-blue-500/50 text-white"
-                          : "bg-black/20 border border-white/10 text-white/70 hover:bg-white/5"
-                      }`}
-                    >
-                      {option}
-                    </button>
-                  ))}
+            {quizQuestions.map(q => {
+              const accentMap: Record<string, { border: string; label: string; selected: string }> = {
+                revenue: { border: "border-green-500/20", label: "text-green-400", selected: "bg-green-500/20 border-green-500/50" },
+                ebitda: { border: "border-blue-500/20", label: "text-blue-400", selected: "bg-blue-500/20 border-blue-500/50" },
+                growth: { border: "border-purple-500/20", label: "text-purple-400", selected: "bg-purple-500/20 border-purple-500/50" },
+                timeline: { border: "border-amber-500/20", label: "text-amber-400", selected: "bg-amber-500/20 border-amber-500/50" },
+              };
+              const accent = accentMap[q.id] || accentMap.revenue;
+              return (
+                <div key={q.id} className={`bg-white/5 border ${accent.border} rounded-xl p-6`}>
+                  <p className={`${accent.label} font-medium mb-4`}>{q.question}</p>
+                  <div className="space-y-2">
+                    {q.options.map(option => (
+                      <button
+                        key={option}
+                        onClick={() => setQuizAnswers({ ...quizAnswers, [q.id]: option })}
+                        className={`w-full text-left px-4 py-2 rounded-lg transition border ${
+                          quizAnswers[q.id] === option
+                            ? `${accent.selected} text-white`
+                            : "bg-white/[0.03] border-white/10 text-white/70 hover:bg-white/5"
+                        }`}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
@@ -292,16 +301,22 @@ export default function KnowYourBuyerPage() {
             {getSortedBuyers().map((buyer, index) => {
               const score = buyerScores[buyer.id] || 0;
               const isTopMatch = index === 0 && score > 50;
+              const fitColors: Record<string, { border: string; scoreTxt: string; bg: string }> = {
+                HIGH: { border: "border-green-500/30", scoreTxt: "text-green-400", bg: "bg-green-500/5" },
+                MEDIUM: { border: "border-amber-500/30", scoreTxt: "text-amber-400", bg: "bg-amber-500/5" },
+                LOW: { border: "border-white/10", scoreTxt: "text-blue-400", bg: "bg-white/5" },
+              };
+              const fit = fitColors[buyer.yourFit] || fitColors.LOW;
               return (
                 <div
                   key={buyer.id}
                   onClick={() => setSelectedBuyer(buyer.id)}
-                  className={`bg-white/5 border rounded-xl p-6 backdrop-blur-sm cursor-pointer transition ${
+                  className={`border rounded-xl p-6 cursor-pointer transition ${
                     selectedBuyer === buyer.id
                       ? "border-blue-500/50 bg-blue-500/10"
                       : isTopMatch
-                      ? "border-green-500/50"
-                      : "border-white/10 hover:bg-white/10"
+                      ? `${fit.bg} border-green-500/50`
+                      : `${fit.bg} ${fit.border} hover:bg-white/10`
                   }`}
                 >
                   <div className="flex justify-between items-start mb-4">
@@ -311,7 +326,7 @@ export default function KnowYourBuyerPage() {
                   <p className="text-sm text-white/70 mb-2">{buyer.sweetSpot}</p>
                   <p className="text-sm text-white/60 mb-4">{buyer.whatTheyWant}</p>
                   <div className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-blue-400">{score}%</div>
+                    <div className={`text-2xl font-bold ${fit.scoreTxt}`}>{score}%</div>
                     <ChevronRight className="w-5 h-5 text-white/30" />
                   </div>
                 </div>
@@ -375,26 +390,26 @@ export default function KnowYourBuyerPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
             {/* Strategic Buyers */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <div className="bg-blue-500/5 border border-blue-500/20 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Building2 className="w-6 h-6 text-blue-400" />
                 <h3 className="text-lg font-semibold text-white">Strategic Buyers</h3>
               </div>
               <p className="text-white/60 text-sm mb-4">Companies that buy you because you make their existing business stronger.</p>
               <div className="space-y-3">
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Direct Competitors</p>
                   <p className="text-white/50 text-xs">Want your market share, customers, or geographic reach</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Adjacent Players</p>
                   <p className="text-white/50 text-xs">In a related space — your product fills a gap in their offering</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Vertical Integrators</p>
                   <p className="text-white/50 text-xs">Want to own more of the supply chain — your company is upstream or downstream</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-blue-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Platform Builders</p>
                   <p className="text-white/50 text-xs">Assembling a group of companies under one roof — you fit the puzzle</p>
                 </div>
@@ -402,22 +417,22 @@ export default function KnowYourBuyerPage() {
             </div>
 
             {/* Financial Sponsors */}
-            <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+            <div className="bg-green-500/5 border border-green-500/20 rounded-xl p-6">
               <div className="flex items-center gap-3 mb-4">
                 <Landmark className="w-6 h-6 text-green-400" />
                 <h3 className="text-lg font-semibold text-white">Financial Sponsors</h3>
               </div>
               <p className="text-white/60 text-sm mb-4">Investors who buy you to grow the business and sell it later at a profit.</p>
               <div className="space-y-3">
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-green-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Platform Investors</p>
                   <p className="text-white/50 text-xs">You become the foundation — they'll bolt on more companies around you</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-green-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Add-On Buyers</p>
                   <p className="text-white/50 text-xs">They already own a platform — you get added to it for scale or capability</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-3">
+                <div className="bg-white/[0.03] border border-green-500/10 rounded-lg p-3">
                   <p className="text-white text-sm font-medium">Growth Equity</p>
                   <p className="text-white/50 text-xs">Minority or majority stake — they inject capital and expertise to accelerate growth</p>
                 </div>
@@ -426,7 +441,7 @@ export default function KnowYourBuyerPage() {
           </div>
 
           {/* Tiered Prioritization */}
-          <div className="bg-white/5 border border-white/10 rounded-xl p-6">
+          <div className="bg-purple-500/5 border border-purple-500/20 rounded-xl p-6">
             <div className="flex items-center gap-3 mb-4">
               <Layers className="w-6 h-6 text-purple-400" />
               <h3 className="text-lg font-semibold text-white">How Bankers Prioritize Your Buyer List</h3>

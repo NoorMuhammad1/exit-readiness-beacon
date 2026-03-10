@@ -523,7 +523,7 @@ export default function ExecutiveDiscoveryInterviewPage() {
 
     return (
       <div className="min-h-screen bg-background p-6">
-        <div className="max-w-6xl mx-auto">
+        <div>
           <div className="text-center mb-12">
             <h1 className="text-4xl font-bold text-foreground mb-8">Your Executive Discovery Results</h1>
             

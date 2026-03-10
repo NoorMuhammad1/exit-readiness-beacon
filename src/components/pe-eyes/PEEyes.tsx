@@ -428,7 +428,7 @@ export const PEEyes: React.FC = () => {
   // ── Tab 1: What PE Sees ───────────────────────────────────────
 
   const renderWhatPESees = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -527,7 +527,7 @@ export const PEEyes: React.FC = () => {
   // ── Tab 2: Enter Numbers ──────────────────────────────────────
 
   const renderEnterNumbers = () => (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -710,7 +710,7 @@ export const PEEyes: React.FC = () => {
   const renderRedFlags = () => {
     if (!hasData) {
       return (
-        <div className="max-w-4xl mx-auto">
+        <div>
           <Card className="bg-card border-border">
             <CardContent className="p-8 text-center">
               <BarChart3 className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
@@ -731,7 +731,7 @@ export const PEEyes: React.FC = () => {
     const ebitdaMargin = totalRevenue > 0 ? (adjustedEBITDA / totalRevenue) * 100 : 0;
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Summary Dashboard */}
         <Card className="bg-card border-border">
           <CardHeader>
@@ -895,7 +895,7 @@ export const PEEyes: React.FC = () => {
   const renderReport = () => {
     if (!hasData) {
       return (
-        <div className="max-w-4xl mx-auto">
+        <div>
           <Card className="bg-card border-border">
             <CardContent className="p-8 text-center">
               <BarChart3 className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
@@ -934,7 +934,7 @@ export const PEEyes: React.FC = () => {
     }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Overall Verdict */}
         <Card className={`border ${verdictBg}`}>
           <CardContent className="p-8 text-center">
@@ -1067,7 +1067,7 @@ export const PEEyes: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 max-w-4xl mx-auto">
+      <div className="flex flex-wrap gap-2">
         {tabs.map((tab, idx) => (
           <button
             key={idx}

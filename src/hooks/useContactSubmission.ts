@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { apiClient } from '@/lib/api/client';
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactFormData {
@@ -61,68 +61,47 @@ export const useContactSubmission = () => {
 
   const submitContact = async (formData: ContactFormData, ndaRecordId?: string) => {
     setIsSubmitting(true);
-    
+
     try {
-      console.log('Starting contact submission with data:', { 
-        email: formData.email, 
+      console.log('Starting contact submission with data:', {
+        email: formData.email,
         companyName: formData.companyName,
-        ndaRecordId 
+        ndaRecordId
       });
-      
+
       // Get user's IP address
-      const ipResponse = await fetch('https://api.ipify.org?format=json');
-      const { ip } = await ipResponse.json();
-      console.log('Got IP address:', ip);
-
-      const insertData = {
-        nda_record_id: ndaRecordId,
-        contact_email: formData.email,
-        company_name: formData.companyName,
-        industry: formData.industry,
-        founded_year: formData.founded ? parseInt(formData.founded) : null,
-        employee_count: formData.employees,
-        revenue_2025: formData.revenue2025,
-        revenue_2024: formData.revenue2024,
-        revenue_2023: formData.revenue2023,
-        revenue_2022: formData.revenue2022,
-        investment_type: formData.investmentType,
-        entity_type: formData.entityType,
-        ownership_type: formData.ownershipType,
-        ownership_structure: formData.owners,
-        pnl_availability: formData.pnlAvailability,
-        tax_returns_availability: formData.taxReturnsAvailability,
-        balance_sheets_availability: formData.balanceSheetsAvailability,
-        exit_timeline: formData.exitTimeline,
-        exit_type: formData.exitType,
-        current_challenges: formData.currentChallenges,
-        preferred_contact: formData.preferredContact,
-        job_title: formData.jobTitle,
-        company_size: formData.companySize,
-        how_did_you_hear: formData.howDidYouHear,
-        add_backs: formData.addBacks,
-        ip_address: ip,
-        status: 'new'
-      };
-      
-      console.log('Attempting to insert data:', insertData);
-
-      // Submit contact inquiry to Supabase (anonymous insert allowed by RLS)
-      const { data, error } = await supabase
-        .from('contact_inquiries')
-        .insert(insertData)
-        .select()
-        .single();
-
-      if (error) {
-        throw error;
+      let ip = '';
+      try {
+        const ipResponse = await fetch('https://api.ipify.org?format=json');
+        const ipData = await ipResponse.json();
+        ip = ipData.ip;
+        console.log('Got IP address:', ip);
+      } catch (e) {
+        console.warn('Failed to get IP address:', e);
       }
 
-      // Assessment access logging removed to prevent submission errors
+      const inquiryData = {
+        companyName: formData.companyName,
+        contactName: formData.jobTitle || 'Unknown',
+        email: formData.email,
+        phone: formData.phone || '',
+        message: `
+Industry: ${formData.industry}
+Founded: ${formData.founded}
+Employees: ${formData.employees}
+Revenue 2025: ${formData.revenue2025}
+Exit Timeline: ${formData.exitTimeline}
+Exit Type: ${formData.exitType}
+Current Challenges: ${formData.currentChallenges}
+        `.trim(),
+      };
+
+      const data = await apiClient.createInquiry(inquiryData);
 
       // Store submission for local access
       localStorage.setItem('meridian_assessment_submitted', JSON.stringify({
-        id: data?.id,
-        submittedAt: data?.created_at,
+        id: data.inquiry?.id,
+        submittedAt: new Date().toISOString(),
         companyName: formData.companyName
       }));
 
@@ -135,7 +114,7 @@ export const useContactSubmission = () => {
     } catch (error: any) {
       console.error('Contact submission error:', error);
       toast({
-        title: "Submission Failed", 
+        title: "Submission Failed",
         description: "There was an error submitting your assessment. Please try again.",
         variant: "destructive",
       });

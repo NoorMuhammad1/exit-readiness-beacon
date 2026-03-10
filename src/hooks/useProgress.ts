@@ -1,6 +1,5 @@
-
 import { useState, useEffect } from 'react';
-import { supabase } from '@/integrations/supabase/client';
+import { apiClient } from '@/lib/api/client';
 import { useAuth } from './useAuth';
 import { getModuleCountByWeek } from '@/config/moduleConfig';
 
@@ -58,28 +57,23 @@ export const useProgress = () => {
     }
 
     try {
-      const { data, error } = await supabase
-        .from('client_progress')
-        .select('*')
-        .eq('user_id', user.id)
-        .order('week_number, created_at');
-
-      if (error) throw error;
+      const response = await apiClient.getProgress();
+      const data = response.progress;
 
       setProgress(data || []);
-      
+
       // Calculate week progress and unlock status using proper logic
       const weekProgressData: WeekProgress[] = [];
-      
+
       for (let week = 1; week <= 4; week++) {
-        const weekModules = (data || []).filter(p => p.week_number === week);
-        const completedCount = weekModules.filter(m => m.completed_at).length;
+        const weekModules = (data || []).filter((p: any) => p.week_number === week);
+        const completedCount = weekModules.filter((m: any) => m.completed_at).length;
         const totalCount = getModuleCountByWeek(week);
         const progressPercent = Math.round((completedCount / totalCount) * 100);
-        
+
         // Calculate unlock status based on previous week completion and user role
         const isUnlocked = calculateWeekUnlockStatus(week, data || []);
-        
+
         weekProgressData.push({
           weekNumber: week,
           completedModules: completedCount,
@@ -88,7 +82,7 @@ export const useProgress = () => {
           progress: progressPercent
         });
       }
-      
+
       setWeekProgress(weekProgressData);
     } catch (error) {
       console.error('Error fetching progress:', error);
@@ -103,36 +97,13 @@ export const useProgress = () => {
     if (!user) return;
 
     try {
-      // Check if progress record already exists
-      const { data: existing } = await supabase
-        .from('client_progress')
-        .select('*')
-        .eq('user_id', user.id)
-        .eq('module_name', moduleName)
-        .eq('week_number', weekNumber)
-        .maybeSingle();
-
-      if (existing) {
-        // Update existing record to mark as complete
-        const { error } = await supabase
-          .from('client_progress')
-          .update({ completed_at: new Date().toISOString() })
-          .eq('id', existing.id);
-
-        if (error) throw error;
-      } else {
-        // Insert new progress record
-        const { error } = await supabase
-          .from('client_progress')
-          .insert({
-            user_id: user.id,
-            module_name: moduleName,
-            week_number: weekNumber,
-            completed_at: new Date().toISOString()
-          });
-
-        if (error) throw error;
-      }
+      // Note: Backend expects moduleId but we're using moduleName for now
+      await apiClient.updateProgress({
+        weekNumber,
+        moduleName,
+        moduleId: moduleName, // Use moduleName as moduleId for now
+        completed: true,
+      });
 
       // Refresh progress data
       await fetchProgress();

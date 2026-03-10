@@ -4,7 +4,7 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/hooks/useAuth';
-import { supabase } from '@/integrations/supabase/client';
+// import { supabase } from '@/integrations/supabase/client'; // Removed - using MongoDB backend
 import { calculateEBITDA } from '@/lib/calculations/ebitda';
 import { 
   Calculator, 
@@ -294,7 +294,7 @@ export default function EBITDACalculatorPage() {
             type="number"
             value={data.revenue || ''}
             onChange={(e) => setData({...data, revenue: Number(e.target.value)})}
-            className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
             placeholder="0"
           />
         </div>
@@ -305,7 +305,7 @@ export default function EBITDACalculatorPage() {
             type="number"
             value={data.cogs || ''}
             onChange={(e) => setData({...data, cogs: Number(e.target.value)})}
-            className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
             placeholder="0"
           />
         </div>
@@ -316,7 +316,7 @@ export default function EBITDACalculatorPage() {
             type="number"
             value={data.opex || ''}
             onChange={(e) => setData({...data, opex: Number(e.target.value)})}
-            className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+            className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
             placeholder="0"
           />
         </div>
@@ -330,7 +330,7 @@ export default function EBITDACalculatorPage() {
               type="number"
               value={data.ownerSalary || ''}
               onChange={(e) => setData({...data, ownerSalary: Number(e.target.value)})}
-              className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
               placeholder="Owner Salary"
             />
             
@@ -338,7 +338,7 @@ export default function EBITDACalculatorPage() {
               type="number"
               value={data.personalVehicle || ''}
               onChange={(e) => setData({...data, personalVehicle: Number(e.target.value)})}
-              className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
               placeholder="Personal Vehicle"
             />
             
@@ -346,7 +346,7 @@ export default function EBITDACalculatorPage() {
               type="number"
               value={data.travelMeals || ''}
               onChange={(e) => setData({...data, travelMeals: Number(e.target.value)})}
-              className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
               placeholder="Travel & Meals"
             />
             
@@ -354,7 +354,7 @@ export default function EBITDACalculatorPage() {
               type="number"
               value={data.legalFees || ''}
               onChange={(e) => setData({...data, legalFees: Number(e.target.value)})}
-              className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
               placeholder="One-time Legal Fees"
             />
             
@@ -362,7 +362,7 @@ export default function EBITDACalculatorPage() {
               type="number"
               value={data.otherNonRecurring || ''}
               onChange={(e) => setData({...data, otherNonRecurring: Number(e.target.value)})}
-              className="w-full bg-black/30 border border-white/10 rounded-lg px-4 py-2 text-white"
+              className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2 text-white"
               placeholder="Other Non-recurring"
             />
           </div>
@@ -456,7 +456,7 @@ export default function EBITDACalculatorPage() {
 
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+      <div>
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-bold text-white">EBITDA Calculator - Side by Side Comparison</h1>
           <button

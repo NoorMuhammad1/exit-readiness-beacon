@@ -462,7 +462,7 @@ export function LifeAfterExit() {
   const q = QUIZ[quizIndex];
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div>
       {/* Tab Navigation */}
       <div className="flex flex-wrap gap-2 mb-8 border-b border-border/40 pb-4">
         {tabs.map(tab => (

@@ -436,7 +436,7 @@ export const TheAuction: React.FC = () => {
   // ── Tab 1: Why Process Wins ───────────────────────────────────
 
   const renderWhyProcessWins = () => (
-    <div className="space-y-8 max-w-4xl mx-auto">
+    <div className="space-y-8">
       {/* The Core Truth */}
       <Card className="bg-card border-border">
         <CardHeader>
@@ -600,7 +600,7 @@ export const TheAuction: React.FC = () => {
   // ── Tab 2: The 8 Stages ───────────────────────────────────────
 
   const renderStages = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -722,7 +722,7 @@ export const TheAuction: React.FC = () => {
   // ── Tab 3: Process Readiness Check ────────────────────────────
 
   const renderReadinessCheck = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -853,7 +853,7 @@ export const TheAuction: React.FC = () => {
 
     if (answeredCount < totalQuestions) {
       return (
-        <div className="max-w-4xl mx-auto">
+        <div>
           <Card className="bg-card border-border">
             <CardContent className="p-8 text-center">
               <Shield className="w-16 h-16 text-muted-foreground mx-auto mb-4" />
@@ -874,7 +874,7 @@ export const TheAuction: React.FC = () => {
     }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Overall Score */}
         <Card className={`border ${score.verdictBg}`}>
           <CardContent className="p-8 text-center">
@@ -1019,7 +1019,7 @@ export const TheAuction: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Tab Navigation */}
-      <div className="flex flex-wrap gap-2 max-w-4xl mx-auto">
+      <div className="flex flex-wrap gap-2">
         {tabs.map((tab, idx) => (
           <button
             key={idx}

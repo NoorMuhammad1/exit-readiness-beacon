@@ -54,7 +54,7 @@ export const EarnoutsMultipliersEducation: React.FC = () => {
   };
   
   return (
-    <div className="max-w-6xl mx-auto">
+    <div>
       {/* Progress Bar */}
       <div className="mb-8">
         <Progress value={(currentPage + 1) / pages.length * 100} className="h-2" />

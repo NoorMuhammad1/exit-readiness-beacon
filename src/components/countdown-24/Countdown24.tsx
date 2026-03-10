@@ -256,7 +256,7 @@ export const Countdown24: React.FC = () => {
   // ── Tab 1: The Timeline ───────────────────────────────────────
 
   const renderTimeline = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -359,7 +359,7 @@ export const Countdown24: React.FC = () => {
   // ── Tab 2: Your Countdown ─────────────────────────────────────
 
   const renderCountdown = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -525,7 +525,7 @@ export const Countdown24: React.FC = () => {
     }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         <Card className={`border ${verdictBg}`}>
           <CardContent className="p-8 text-center">
             <p className="text-sm text-muted-foreground uppercase tracking-wide mb-2">24-Month Countdown Status</p>
@@ -603,7 +603,7 @@ export const Countdown24: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2 max-w-4xl mx-auto">
+      <div className="flex flex-wrap gap-2">
         {tabs.map((tab, idx) => (
           <button
             key={idx}

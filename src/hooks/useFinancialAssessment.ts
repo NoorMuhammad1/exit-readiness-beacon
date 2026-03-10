@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
+import { apiClient } from '@/lib/api/client';
 import { useToast } from '@/hooks/use-toast';
 
 export interface FinancialAssessment {
@@ -43,14 +43,9 @@ export const useFinancialAssessment = (companyId: string) => {
   return useQuery({
     queryKey: ['financial-assessment', companyId],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('financial_assessments')
-        .select('*')
-        .eq('company_id', companyId)
-        .maybeSingle();
-      
-      if (error) throw error;
-      return data as FinancialAssessment | null;
+      const response = await apiClient.getAssessments();
+      const assessment = response.assessments.find((a: any) => a.company_id === companyId);
+      return assessment as FinancialAssessment | null;
     },
     enabled: !!companyId,
   });
@@ -60,14 +55,9 @@ export const useAddBackCategories = (assessmentId: string) => {
   return useQuery({
     queryKey: ['add-back-categories', assessmentId],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('add_back_categories')
-        .select('*')
-        .eq('assessment_id', assessmentId)
-        .order('category');
-      
-      if (error) throw error;
-      return data as AddBackCategory[];
+      // Backend doesn't have add-back categories endpoint yet
+      // Return empty array for now
+      return [] as AddBackCategory[];
     },
     enabled: !!assessmentId,
   });
@@ -77,13 +67,9 @@ export const useIndustryBenchmarks = () => {
   return useQuery({
     queryKey: ['industry-benchmarks'],
     queryFn: async () => {
-      const { data, error } = await supabase
-        .from('industry_benchmarks')
-        .select('*')
-        .order('industry');
-      
-      if (error) throw error;
-      return data as IndustryBenchmark[];
+      // Backend doesn't have industry benchmarks endpoint yet
+      // Return empty array for now
+      return [] as IndustryBenchmark[];
     },
   });
 };
@@ -94,23 +80,17 @@ export const useCreateFinancialAssessment = () => {
 
   return useMutation({
     mutationFn: async (assessment: Partial<FinancialAssessment> & { company_id: string }) => {
-      const { data, error } = await supabase
-        .from('financial_assessments')
-        .insert(assessment)
-        .select()
-        .single();
-
-      if (error) throw error;
+      const data = await apiClient.createAssessment(assessment);
       return data;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       queryClient.invalidateQueries({ queryKey: ['financial-assessment', data.company_id] });
       toast({
         title: "Success",
         description: "Financial assessment created successfully",
       });
     },
-    onError: (error) => {
+    onError: (error: any) => {
       toast({
         title: "Error",
         description: "Failed to create financial assessment: " + error.message,
@@ -126,24 +106,17 @@ export const useUpdateFinancialAssessment = () => {
 
   return useMutation({
     mutationFn: async ({ id, updates }: { id: string; updates: Partial<FinancialAssessment> }) => {
-      const { data, error } = await supabase
-        .from('financial_assessments')
-        .update(updates)
-        .eq('id', id)
-        .select()
-        .single();
-
-      if (error) throw error;
+      const data = await apiClient.updateAssessment(id, updates);
       return data;
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       queryClient.invalidateQueries({ queryKey: ['financial-assessment', data.company_id] });
       toast({
         title: "Success",
         description: "Financial assessment updated successfully",
       });
     },
-    onError: (error) => {
+    onError: (error: any) => {
       toast({
         title: "Error",
         description: "Failed to update financial assessment: " + error.message,
@@ -158,62 +131,19 @@ export const useUpdateAddBackCategory = () => {
   const { toast } = useToast();
 
   return useMutation({
-    mutationFn: async ({ categoryId, amount, isApplied, assessmentId }: { 
-      categoryId: string; 
-      amount: number; 
-      isApplied: boolean; 
+    mutationFn: async ({ categoryId, amount, isApplied, assessmentId }: {
+      categoryId: string;
+      amount: number;
+      isApplied: boolean;
       assessmentId: string;
     }) => {
-      // First try to update existing category
-      const { data: existingData } = await supabase
-        .from('add_back_categories')
-        .select('*')
-        .eq('id', categoryId)
-        .maybeSingle();
-
-      if (existingData) {
-        // Update existing category
-        const { data, error } = await supabase
-          .from('add_back_categories')
-          .update({ amount, is_applied: isApplied })
-          .eq('id', categoryId)
-          .select()
-          .single();
-
-        if (error) throw error;
-        return data;
-      } else {
-        // Create new category - this handles the default categories
-        const categoryNames: Record<string, { category: string; description: string }> = {
-          'owner-salary': { category: 'Owner Salary Add-Back', description: 'Excess owner compensation above market rate' },
-          'personal-vehicles': { category: 'Personal Vehicle Expenses', description: 'Vehicle expenses not related to business operations' },
-          'travel-meals': { category: 'Travel & Meals', description: 'Personal travel and meal expenses' },
-          'legal-professional': { category: 'Legal & Professional Fees', description: 'One-time or non-recurring professional fees' },
-          'other-expenses': { category: 'Other Non-Recurring Expenses', description: 'Other one-time or personal expenses' },
-        };
-
-        const categoryInfo = categoryNames[categoryId] || { category: 'Custom Category', description: 'Custom add-back category' };
-
-        const { data, error } = await supabase
-          .from('add_back_categories')
-          .insert({
-            assessment_id: assessmentId,
-            category: categoryInfo.category,
-            description: categoryInfo.description,
-            amount,
-            is_applied: isApplied
-          })
-          .select()
-          .single();
-
-        if (error) throw error;
-        return data;
-      }
+      // Backend doesn't have add-back categories endpoint yet
+      throw new Error('Add-back categories not yet implemented in backend');
     },
-    onSuccess: (data) => {
+    onSuccess: (data: any) => {
       queryClient.invalidateQueries({ queryKey: ['add-back-categories', data.assessment_id] });
     },
-    onError: (error) => {
+    onError: (error: any) => {
       toast({
         title: "Error",
         description: "Failed to update add-back category: " + error.message,

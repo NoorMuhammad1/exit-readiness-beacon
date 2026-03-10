@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Duplicate cloned directory
+exit-readiness-beacon/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

@@ -188,7 +188,13 @@ export const DealStructureLab = () => {
   const [qDone, setQDone] = useState(false);
 
   // ── Accent color system ──
-  const ac = chair === "seller" ? "#3B82F6" : "#5a8a9a";
+  const ac = chair === "seller" ? "#3B82F6" : "#5a8a9a"; // kept for slider accentColor only
+  const isSeller = chair === "seller";
+  const acText = isSeller ? "text-blue-400" : "text-teal-400";
+  const acBorder = isSeller ? "border-blue-500/30" : "border-teal-500/30";
+  const acBorderSolid = isSeller ? "border-l-blue-500" : "border-l-teal-500";
+  const acBg = isSeller ? "bg-blue-500" : "bg-teal-500";
+  const acBgSubtle = isSeller ? "bg-blue-500/10" : "bg-teal-500/10";
 
   // ── Structure Calcs ──
   const gain = dealSize - taxBasis;
@@ -261,12 +267,8 @@ export const DealStructureLab = () => {
   const TABS = ["structure", "earnout", "rollover", "escrow & ppa", "seller finance", "quiz"];
 
   return (
-    <div
-      className="min-h-screen font-mono text-[#ddd8cc] px-5 py-7 max-w-4xl mx-auto"
-      style={{ background: "#0f1d3d" }}
-    >
+    <div className="min-h-screen text-white/80 px-5 py-7">
       <style>{`
-
         .dsl-range { width: 100%; }
         .dsl-range::-webkit-slider-thumb { cursor: pointer; }
       `}</style>
@@ -274,45 +276,41 @@ export const DealStructureLab = () => {
       {/* Header */}
       <div className="mb-5">
         <div className="flex items-baseline gap-3 mb-1">
-          <div className="text-4xl tracking-[5px] leading-none" style={{ color: ac }}>DEAL STRUCTURE</div>
-          <div className="text-4xl tracking-[5px] leading-none text-[#222]" >LAB</div>
+          <div className={`text-4xl tracking-wide leading-none ${acText}`}>Deal Structure Lab</div>
         </div>
-        <div className="text-[10px] text-[#2a2838] tracking-[3px]">MODULE #5 &middot; STOCK VS ASSET &middot; EARNOUT &middot; ROLLOVER &middot; PPA &middot; SELLER FINANCE</div>
+        <div className="text-xs text-white/40 mt-1">Five calculators. Both sides of the table. The math that decides what you actually take home.</div>
       </div>
 
       {/* Chair toggle */}
       <div className="flex gap-2.5 mb-5 items-center">
-        <div className="text-[10px] text-[#444] tracking-[2px] mr-1">YOU ARE:</div>
-        {([
-          ["seller", "#3B82F6", "SELLER \u2014 maximize net proceeds"],
-          ["buyer", "#5a8a9a", "BUYER \u2014 minimize tax leakage & risk"]
-        ] as const).map(([c, col, label]) => (
-          <button
-            key={c}
-            onClick={() => setChair(c)}
-            className="px-5 py-2 rounded text-[10px] tracking-[2px] transition-all border"
-            style={{
-              borderColor: chair === c ? col : "#1c2a4a",
-              color: chair === c ? col : "#444",
-              background: chair === c ? col + "11" : "transparent"
-            }}
-          >
-            {label}
-          </button>
-        ))}
+        <div className="text-xs text-white/40 mr-1">YOU ARE:</div>
+        <button
+          onClick={() => setChair("seller")}
+          className={`px-5 py-2 rounded text-xs tracking-wide transition-all border ${
+            isSeller ? "border-blue-500/50 text-blue-400 bg-blue-500/10" : "border-white/10 text-white/30"
+          }`}
+        >
+          SELLER — maximize net proceeds
+        </button>
+        <button
+          onClick={() => setChair("buyer")}
+          className={`px-5 py-2 rounded text-xs tracking-wide transition-all border ${
+            !isSeller ? "border-teal-500/50 text-teal-400 bg-teal-500/10" : "border-white/10 text-white/30"
+          }`}
+        >
+          BUYER — minimize tax leakage & risk
+        </button>
       </div>
 
       {/* Tabs */}
-      <div className="border-b border-[#17305a] mb-6 flex flex-wrap">
+      <div className="border-b border-white/10 mb-6 flex flex-wrap">
         {TABS.map(t => (
           <button
             key={t}
             onClick={() => setTab(t)}
-            className="bg-transparent border-none px-3.5 py-2 text-[10px] tracking-[2px] transition-all border-b-2"
-            style={{
-              color: tab === t ? ac : "#2e2e3a",
-              borderBottomColor: tab === t ? ac : "transparent"
-            }}
+            className={`bg-transparent border-none px-3.5 py-2.5 text-xs tracking-wide transition-all border-b-2 ${
+              tab === t ? `${acText} ${isSeller ? "border-b-blue-500" : "border-b-teal-500"}` : "text-white/20 border-b-transparent"
+            }`}
           >
             {t.toUpperCase()}
           </button>
@@ -324,15 +322,15 @@ export const DealStructureLab = () => {
          ══════════════════════════════════════════════════════════════════════ */}
       {tab === "structure" && (
         <div>
-          <p className="text-[11px] text-[#555] mb-5 leading-[1.7]">
+          <p className="text-sm text-white/40 mb-5 leading-relaxed">
             {chair === "seller"
               ? "Stock sale = capital gains treatment on the full gain. Asset sale = ordinary income on recaptured depreciation + capital gains on the rest. The delta is often seven figures."
               : "Asset sale gives you a step-up in basis \u2014 more depreciation post-close, lower taxes for years. Stock sale means you inherit the seller's basis and all unknown liabilities."}
           </p>
 
           {/* Inputs */}
-          <div className="bg-[#0b0c16] border rounded-md p-[18px] mb-4" style={{ borderColor: ac + "33" }}>
-            <div className="text-[10px] tracking-[3px] mb-[18px]" style={{ color: ac }}>DEAL INPUTS</div>
+          <div className={`bg-white/5 border rounded-lg p-5 mb-4 ${acBorder}`}>
+            <div className={`text-xs tracking-wide mb-4 ${acText}`}>DEAL INPUTS</div>
             <div className="grid grid-cols-3 gap-5">
               {([
                 ["PURCHASE PRICE", dealSize, setDealSize, 1_000_000, 50_000_000, 500_000],
@@ -341,8 +339,8 @@ export const DealStructureLab = () => {
               ] as const).map(([label, val, set, min, max, step]) => (
                 <div key={label as string}>
                   <div className="flex justify-between mb-1.5">
-                    <span className="text-[10px] text-[#555] tracking-[1px]">{label as string}</span>
-                    <span className="text-[11px]" style={{ color: ac }}>
+                    <span className="text-xs text-white/40 tracking-wide">{label as string}</span>
+                    <span className={`text-sm ${acText}`}>
                       {label === "STATE TAX RATE" ? `${val}%` : fmt(val as number)}
                     </span>
                   </div>
@@ -361,17 +359,14 @@ export const DealStructureLab = () => {
             </div>
 
             <div className="mt-4 flex gap-3 items-center">
-              <span className="text-[10px] text-[#555] tracking-[1px]">ENTITY TYPE:</span>
+              <span className="text-xs text-white/40 tracking-wide">ENTITY TYPE:</span>
               {([["s-corp", "S-Corp / LLC (Pass-Through)"], ["c-corp", "C-Corp"]] as const).map(([v, l]) => (
                 <button
                   key={v}
                   onClick={() => setEntityType(v)}
-                  className="px-3.5 py-1.5 border rounded text-[10px] tracking-[1px] transition-all"
-                  style={{
-                    borderColor: entityType === v ? ac : "#1c2a4a",
-                    color: entityType === v ? ac : "#444",
-                    background: entityType === v ? ac + "11" : "transparent"
-                  }}
+                  className={`px-3.5 py-1.5 border rounded text-xs tracking-wide transition-all ${
+                    entityType === v ? `${acText} ${acBorder} ${acBgSubtle}` : "border-white/10 text-white/30"
+                  }`}
                 >
                   {l}
                 </button>
@@ -379,12 +374,9 @@ export const DealStructureLab = () => {
               {entityType === "c-corp" && (
                 <button
                   onClick={() => setH10(b => !b)}
-                  className="px-3.5 py-1.5 border rounded text-[10px] tracking-[1px] transition-all"
-                  style={{
-                    borderColor: h10 ? "#6a8a9a" : "#1c2a4a",
-                    color: h10 ? "#6a8a9a" : "#444",
-                    background: h10 ? "#0a121a" : "transparent"
-                  }}
+                  className={`px-3.5 py-1.5 border rounded text-xs tracking-wide transition-all ${
+                    h10 ? "border-teal-500/30 text-teal-400 bg-teal-500/10" : "border-white/10 text-white/30"
+                  }`}
                 >
                   338(h)(10) ELECTION {h10 ? "ON" : "OFF"}
                 </button>
@@ -395,35 +387,30 @@ export const DealStructureLab = () => {
           {/* Results comparison */}
           <div className="grid grid-cols-2 gap-3 mb-4">
             {([
-              { label: "STOCK SALE", tax: stockTax, net: stockNet, color: "#5a8a6a", badge: chair === "seller" ? "SELLER PREFERS" : "BUYER AVOIDS" },
-              { label: "ASSET SALE", tax: assetTax, net: assetNet, color: chair === "buyer" ? "#5a8a6a" : "#c06060", badge: chair === "buyer" ? "BUYER PREFERS" : "SELLER AVOIDS" }
+              { label: "STOCK SALE", tax: stockTax, net: stockNet, cls: "text-green-400 border-l-green-500", badgeCls: "bg-green-500/10 text-green-400", badge: isSeller ? "SELLER PREFERS" : "BUYER AVOIDS" },
+              { label: "ASSET SALE", tax: assetTax, net: assetNet, cls: !isSeller ? "text-green-400 border-l-green-500" : "text-red-400 border-l-red-500", badgeCls: !isSeller ? "bg-green-500/10 text-green-400" : "bg-red-500/10 text-red-400", badge: !isSeller ? "BUYER PREFERS" : "SELLER AVOIDS" }
             ]).map(s => (
-              <div key={s.label} className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]" style={{ borderLeftWidth: 3, borderLeftColor: s.color }}>
+              <div key={s.label} className={`bg-white/5 border border-white/10 border-l-[3px] rounded-lg p-5 ${s.cls.split(' ').filter(c => c.startsWith('border-l-')).join(' ')}`}>
                 <div className="flex justify-between mb-3.5">
-                  <div className="text-lg tracking-[3px]" style={{ color: s.color }}>{s.label}</div>
-                  <div
-                    className="text-[9px] px-2 py-0.5 rounded tracking-[1px]"
-                    style={{ background: s.color + "22", color: s.color }}
-                  >
-                    {s.badge}
-                  </div>
+                  <div className={`text-lg tracking-wide ${s.cls.split(' ').filter(c => c.startsWith('text-')).join(' ')}`}>{s.label}</div>
+                  <div className={`text-xs px-2 py-0.5 rounded tracking-wide ${s.badgeCls}`}>{s.badge}</div>
                 </div>
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <div className="text-[10px] text-[#555] tracking-[1px]">TOTAL GAIN</div>
-                    <div className="text-lg mt-0.5 text-[#ddd] tracking-wider" >{fmt(gain)}</div>
+                    <div className="text-xs text-white/40 tracking-wide">TOTAL GAIN</div>
+                    <div className="text-lg mt-0.5 text-white/90 tracking-wider">{fmt(gain)}</div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#555] tracking-[1px]">TAX BURDEN</div>
-                    <div className="text-lg mt-0.5 text-[#c06060] tracking-wider" >{fmt(s.tax)}</div>
+                    <div className="text-xs text-white/40 tracking-wide">TAX BURDEN</div>
+                    <div className="text-lg mt-0.5 text-red-400 tracking-wider">{fmt(s.tax)}</div>
                   </div>
                   <div className="col-span-2">
-                    <div className="text-[10px] text-[#555] tracking-[1px]">NET PROCEEDS</div>
-                    <div className="text-[28px] mt-0.5 tracking-wider" style={{ color: s.color }}>{fmt(s.net)}</div>
+                    <div className="text-xs text-white/40 tracking-wide">NET PROCEEDS</div>
+                    <div className={`text-2xl mt-0.5 tracking-wider ${s.cls.split(' ').filter(c => c.startsWith('text-')).join(' ')}`}>{fmt(s.net)}</div>
                   </div>
                   <div>
-                    <div className="text-[10px] text-[#555] tracking-[1px]">EFFECTIVE RATE</div>
-                    <div className="text-sm mt-0.5 text-[#888]">{fmtPct((s.tax / gain) * 100)}</div>
+                    <div className="text-xs text-white/40 tracking-wide">EFFECTIVE RATE</div>
+                    <div className="text-sm mt-0.5 text-white/60">{fmtPct((s.tax / gain) * 100)}</div>
                   </div>
                 </div>
               </div>
@@ -431,16 +418,16 @@ export const DealStructureLab = () => {
           </div>
 
           {/* Delta */}
-          <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]" style={{ borderColor: ac + "44", background: "#09091422" }}>
+          <div className={`bg-white/5 border rounded-lg p-5 ${acBorder}`}>
             <div className="flex justify-between items-center">
               <div>
-                <div className="text-[10px] text-[#555] tracking-[1px] mb-1">
-                  STRUCTURE DELTA &mdash; {chair === "seller" ? "SELLER COST OF ACCEPTING ASSET SALE" : "BUYER BENEFIT OF PUSHING ASSET SALE"}
+                <div className="text-xs text-white/40 tracking-wide mb-1">
+                  STRUCTURE DELTA &mdash; {isSeller ? "SELLER COST OF ACCEPTING ASSET SALE" : "BUYER BENEFIT OF PUSHING ASSET SALE"}
                 </div>
-                <div className="text-[32px] tracking-wider" style={{ color: ac }}>{fmt(Math.abs(delta))}</div>
+                <div className={`text-3xl tracking-wider ${acText}`}>{fmt(Math.abs(delta))}</div>
               </div>
-              <div className="text-[11px] text-[#666] max-w-[55%] leading-[1.7] text-right">
-                {chair === "seller"
+              <div className="text-sm text-white/45 max-w-[55%] leading-relaxed text-right">
+                {isSeller
                   ? "This is what you leave on the table by accepting an asset sale at the same price. A smart seller uses this number to demand a price premium to offset the tax cost."
                   : `This is the buyer's tax benefit from structuring as an asset sale. Use this as a lever: offer the seller ${fmt(delta * 0.4)}\u2013${fmt(delta * 0.6)} more to cover their incremental tax cost \u2014 net positive for both sides.`}
               </div>
@@ -449,10 +436,10 @@ export const DealStructureLab = () => {
 
           {/* 338(h)(10) explainer */}
           {entityType === "c-corp" && (
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px] mt-3" style={{ borderLeftWidth: 3, borderLeftColor: "#6a8a9a" }}>
-              <div className="text-sm text-[#6a8a9a] tracking-[3px] mb-2" >338(h)(10) ELECTION</div>
-              <p className="text-[11px] text-[#888] leading-[1.8]">
-                Allows a stock sale to be treated as an asset purchase for tax purposes. Buyer gets the step-up in basis and accelerated depreciation. Seller bears incremental tax cost &mdash; but buyer typically compensates through a higher headline price. Net result: <span className="text-[#6a8a9a]">closes the gap between buyer and seller preferences without changing legal structure.</span>
+            <div className="bg-white/5 border border-white/10 border-l-[3px] border-l-teal-500 rounded-lg p-5 mt-3">
+              <div className="text-sm text-teal-400 tracking-wide mb-2">338(h)(10) ELECTION</div>
+              <p className="text-sm text-white/60 leading-relaxed">
+                Allows a stock sale to be treated as an asset purchase for tax purposes. Buyer gets the step-up in basis and accelerated depreciation. Seller bears incremental tax cost &mdash; but buyer typically compensates through a higher headline price. Net result: <span className="text-teal-400">closes the gap between buyer and seller preferences without changing legal structure.</span>
               </p>
             </div>
           )}
@@ -464,7 +451,7 @@ export const DealStructureLab = () => {
          ══════════════════════════════════════════════════════════════════════ */}
       {tab === "earnout" && (
         <div>
-          <p className="text-[11px] text-[#555] mb-5 leading-[1.7]">
+          <p className="text-sm text-white/40 mb-5 leading-relaxed">
             {chair === "seller"
               ? "Earnouts bridge valuation gaps but you give up control of the metric. Know your floor, your target, and your ceiling \u2014 then negotiate the accounting methodology harder than the numbers."
               : "Earnouts let you pay tomorrow's price only if tomorrow's performance arrives. Structure thresholds carefully \u2014 too easy and you overpay; too hard and management disengages."}
@@ -472,33 +459,33 @@ export const DealStructureLab = () => {
 
           <div className="grid grid-cols-2 gap-4 mb-4">
             {/* Structure inputs */}
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>DEAL STRUCTURE</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>DEAL STRUCTURE</div>
               {([
                 ["BASE PRICE (AT CLOSE)", basePrice, setBasePrice, 1_000_000, 30_000_000, 500_000],
                 ["EARNOUT MAX POTENTIAL", earnoutMax, setEarnoutMax, 500_000, 10_000_000, 250_000],
               ] as [string, number, (v: number) => void, number, number, number][]).map(([label, val, set, min, max, step]) => (
                 <div key={label} className="mb-3.5">
                   <div className="flex justify-between mb-1.5">
-                    <span className="text-[10px] text-[#555] tracking-[1px]">{label}</span>
-                    <span className="text-[11px]" style={{ color: ac }}>{fmt(val)}</span>
+                    <span className="text-xs text-white/40 tracking-wide">{label}</span>
+                    <span className={`text-sm ${acText}`}>{fmt(val)}</span>
                   </div>
                   <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={min} max={max} step={step} value={val} onChange={e => set(+e.target.value)} />
                 </div>
               ))}
               <div className="mb-3.5">
-                <span className="text-[10px] text-[#555] tracking-[1px]">EARNOUT METRIC</span>
+                <span className="text-xs text-white/40 tracking-wide">EARNOUT METRIC</span>
                 <select
                   value={earnoutMetric}
                   onChange={e => setEarnoutMetric(e.target.value)}
-                  className="ml-3 bg-[#17305a] border border-[#1c2a4a] text-[#ccc] text-[11px] px-2.5 py-1.5 rounded outline-none"
-                  style={{ fontFamily: "inherit" }}
+                  className="ml-3 bg-white/10 border border-white/10 text-white/80 text-sm px-2.5 py-1.5 rounded outline-none"
+
                 >
                   {EARNOUT_METRICS.map(m => <option key={m}>{m}</option>)}
                 </select>
               </div>
-              <div className="border-t border-[#1c2a4a] pt-3.5">
-                <div className="text-[10px] text-[#444] tracking-[2px] mb-2.5">THRESHOLD / TARGET / STRETCH</div>
+              <div className="border-t border-white/10 pt-3.5">
+                <div className="text-xs text-white/30 tracking-wide mb-2.5">THRESHOLD / TARGET / STRETCH</div>
                 {([
                   ["THRESHOLD (0% earned below)", threshold, setThreshold],
                   ["TARGET (70% earned at)", target, setTarget],
@@ -506,8 +493,8 @@ export const DealStructureLab = () => {
                 ] as [string, number, (v: number) => void][]).map(([label, val, set]) => (
                   <div key={label} className="mb-2.5">
                     <div className="flex justify-between mb-1">
-                      <span className="text-[9px] text-[#555]">{label}</span>
-                      <span className="text-[10px]" style={{ color: ac }}>{fmt(val)}</span>
+                      <span className="text-xs text-white/40">{label}</span>
+                      <span className={`text-xs ${acText}`}>{fmt(val)}</span>
                     </div>
                     <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={500_000} max={10_000_000} step={100_000} value={val} onChange={e => set(+e.target.value)} />
                   </div>
@@ -516,26 +503,26 @@ export const DealStructureLab = () => {
             </div>
 
             {/* Scenario inputs */}
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>PERFORMANCE SCENARIOS</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>PERFORMANCE SCENARIOS</div>
               {([
                 { label: "MISS SCENARIO", val: miss, set: setMiss, col: "#c06060", earned: missEarn },
                 { label: "BASE SCENARIO", val: base, set: setBase, col: "#3B82F6", earned: baseEarn },
                 { label: "HIT SCENARIO", val: hit, set: setHit, col: "#5a8a6a", earned: hitEarn },
               ]).map(s => (
-                <div key={s.label} className="mb-4 p-3 bg-[#0f1d3d] rounded" style={{ border: `1px solid ${s.col}22` }}>
+                <div key={s.label} className="mb-4 p-3 bg-white/[0.03] rounded" style={{ border: `1px solid ${s.col}22` }}>
                   <div className="flex justify-between mb-2">
-                    <span className="text-[13px] tracking-[2px]" style={{ color: s.col }}>{s.label}</span>
-                    <span className="text-[11px]" style={{ color: s.col }}>{earnoutMetric}: {fmt(s.val)}</span>
+                    <span className="text-sm tracking-wide" style={{ color: s.col }}>{s.label}</span>
+                    <span className="text-sm" style={{ color: s.col }}>{earnoutMetric}: {fmt(s.val)}</span>
                   </div>
                   <input type="range" className="dsl-range w-full" style={{ accentColor: s.col }} min={500_000} max={10_000_000} step={100_000} value={s.val} onChange={e => s.set(+e.target.value)} />
                   <div className="grid grid-cols-2 gap-2 mt-2.5">
                     <div>
-                      <div className="text-[9px] text-[#444]">EARNOUT EARNED</div>
+                      <div className="text-xs text-white/30">EARNOUT EARNED</div>
                       <div className="text-base mt-0.5 tracking-wider" style={{ color: s.col }}>{fmt(s.earned)}</div>
                     </div>
                     <div>
-                      <div className="text-[9px] text-[#444]">TOTAL DEAL VALUE</div>
+                      <div className="text-xs text-white/30">TOTAL DEAL VALUE</div>
                       <div className="text-base mt-0.5 tracking-wider" style={{ color: s.col }}>{fmt(basePrice + s.earned)}</div>
                     </div>
                   </div>
@@ -545,14 +532,14 @@ export const DealStructureLab = () => {
           </div>
 
           {/* Earnout protection rules */}
-          <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]" style={{ borderLeftWidth: 3, borderLeftColor: ac }}>
-            <div className="text-[10px] tracking-[3px] mb-3" style={{ color: ac }}>
+          <div className={`bg-white/5 border border-white/10 border-l-[3px] rounded-lg p-5 ${acBorderSolid}`}>
+            <div className={`text-xs tracking-wide mb-3 ${acText}`}>
               {chair === "seller" ? "SELLER PROTECTION CHECKLIST \u2014 NEGOTIATE THESE OR DON'T TAKE THE EARNOUT" : "BUYER STRUCTURING RULES \u2014 PROTECT YOURSELF FROM DISPUTE"}
             </div>
             <div className="grid grid-cols-2 gap-2">
               {(chair === "seller" ? SELLER_EARNOUT_CHECKLIST : BUYER_EARNOUT_CHECKLIST).map((item, i) => (
-                <div key={i} className="flex gap-2 text-[10px] text-[#777] items-start">
-                  <span className="shrink-0" style={{ color: ac }}>&rarr;</span>{item}
+                <div key={i} className="flex gap-2 text-xs text-white/50 items-start">
+                  <span className={`shrink-0 ${acText}`}>&rarr;</span>{item}
                 </div>
               ))}
             </div>
@@ -565,50 +552,50 @@ export const DealStructureLab = () => {
          ══════════════════════════════════════════════════════════════════════ */}
       {tab === "rollover" && (
         <div>
-          <p className="text-[11px] text-[#555] mb-5 leading-[1.7]">
+          <p className="text-sm text-white/40 mb-5 leading-relaxed">
             {chair === "seller"
               ? "Rollover equity is a bet on the buyer's ability to create value. You take less cash today in exchange for a second bite at the apple. The question: do you trust the buyer's thesis more than you trust your own reinvestment options?"
               : "Rollover equity aligns the seller with your exit thesis. They have skin in the game post-close. Standard is 10\u201320%. Less than 10% signals low conviction. More than 25% may create governance tension."}
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>ROLLOVER INPUTS</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>ROLLOVER INPUTS</div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">COMPANY VALUE AT CLOSE</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{fmt(totalVal)}</span>
+                  <span className="text-xs text-white/40 tracking-wide">COMPANY VALUE AT CLOSE</span>
+                  <span className={`text-sm ${acText}`}>{fmt(totalVal)}</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={2_000_000} max={50_000_000} step={500_000} value={totalVal} onChange={e => setTotalVal(+e.target.value)} />
               </div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">ROLLOVER %</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{rolloverPct}%</span>
+                  <span className="text-xs text-white/40 tracking-wide">ROLLOVER %</span>
+                  <span className={`text-sm ${acText}`}>{rolloverPct}%</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={5} max={35} step={1} value={rolloverPct} onChange={e => setRolloverPct(+e.target.value)} />
-                <div className="flex justify-between text-[9px] text-[#333] mt-0.5">
+                <div className="flex justify-between text-xs text-white/20 mt-0.5">
                   <span>Minimal (5%)</span><span>Standard (15%)</span><span>Heavy (35%)</span>
                 </div>
               </div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">EXIT MULTIPLE (on entry)</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{exitMultiple}x</span>
+                  <span className="text-xs text-white/40 tracking-wide">EXIT MULTIPLE (on entry)</span>
+                  <span className={`text-sm ${acText}`}>{exitMultiple}x</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={1.0} max={6.0} step={0.25} value={exitMultiple} onChange={e => setExitMultiple(+e.target.value)} />
               </div>
               <div>
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">HOLD PERIOD (years)</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{holdYears} yrs</span>
+                  <span className="text-xs text-white/40 tracking-wide">HOLD PERIOD (years)</span>
+                  <span className={`text-sm ${acText}`}>{holdYears} yrs</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={2} max={8} step={1} value={holdYears} onChange={e => setHoldYears(+e.target.value)} />
               </div>
             </div>
 
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>ROLLOVER OUTCOME</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>ROLLOVER OUTCOME</div>
               <div className="grid gap-3">
                 {([
                   { label: "ROLLOVER AMOUNT", val: fmt(rolloverAmt), color: "#888", note: "Equity you're leaving at the table" },
@@ -617,20 +604,20 @@ export const DealStructureLab = () => {
                   { label: "ROLLOVER NET (after tax)", val: fmt(rolloverNet), color: "#5a8a6a", note: "LTCG + NIIT on gain" },
                   { label: "TOTAL NET PROCEEDS", val: fmt(totalNet), color: ac, note: "Cash at close + rollover net" },
                 ]).map(row => (
-                  <div key={row.label} className="flex justify-between items-center border-b border-[#17305a] pb-2.5">
+                  <div key={row.label} className="flex justify-between items-center border-b border-white/10 pb-2.5">
                     <div>
-                      <div className="text-[10px] text-[#555]">{row.label}</div>
-                      <div className="text-[9px] text-[#333] mt-0.5">{row.note}</div>
+                      <div className="text-xs text-white/40">{row.label}</div>
+                      <div className="text-xs text-white/20 mt-0.5">{row.note}</div>
                     </div>
                     <div className="text-lg tracking-wider" style={{ color: row.color }}>{row.val}</div>
                   </div>
                 ))}
               </div>
 
-              <div className="mt-3.5 p-3 bg-[#0a0e0a] border border-[#1a3a1a] rounded">
-                <div className="text-[10px] text-[#5a8a6a] tracking-[2px] mb-1">ROLLOVER MOIC</div>
-                <div className="text-[26px] text-[#7aba7a] tracking-wider" >{fmtX(rolloverExit / rolloverAmt)}</div>
-                <div className="text-[10px] text-[#444] mt-1">
+              <div className="mt-3.5 p-3 bg-green-500/5 border border-green-500/20 rounded">
+                <div className="text-xs text-green-500 tracking-wide mb-1">ROLLOVER MOIC</div>
+                <div className="text-2xl text-green-400 tracking-wider" >{fmtX(rolloverExit / rolloverAmt)}</div>
+                <div className="text-xs text-white/30 mt-1">
                   IRR &asymp; {fmtPct(((rolloverExit / rolloverAmt) ** (1 / holdYears) - 1) * 100)} over {holdYears} years
                 </div>
               </div>
@@ -638,14 +625,14 @@ export const DealStructureLab = () => {
           </div>
 
           {/* Rollover negotiation tips */}
-          <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]" style={{ borderLeftWidth: 3, borderLeftColor: ac }}>
-            <div className="text-[10px] tracking-[3px] mb-3" style={{ color: ac }}>
+          <div className={`bg-white/5 border border-white/10 border-l-[3px] rounded-lg p-5 ${acBorderSolid}`}>
+            <div className={`text-xs tracking-wide mb-3 ${acText}`}>
               {chair === "seller" ? "WHAT TO NEGOTIATE IN YOUR ROLLOVER TERMS" : "HOW TO STRUCTURE ROLLOVER TO ALIGN SELLER"}
             </div>
             <div className="grid grid-cols-2 gap-2">
               {(chair === "seller" ? SELLER_ROLLOVER_TIPS : BUYER_ROLLOVER_TIPS).map((item, i) => (
-                <div key={i} className="flex gap-2 text-[10px] text-[#777] items-start">
-                  <span className="shrink-0" style={{ color: ac }}>&rarr;</span>{item}
+                <div key={i} className="flex gap-2 text-xs text-white/50 items-start">
+                  <span className={`shrink-0 ${acText}`}>&rarr;</span>{item}
                 </div>
               ))}
             </div>
@@ -658,15 +645,15 @@ export const DealStructureLab = () => {
          ══════════════════════════════════════════════════════════════════════ */}
       {tab === "escrow & ppa" && (
         <div>
-          <p className="text-[11px] text-[#555] mb-5 leading-[1.7]">
+          <p className="text-sm text-white/40 mb-5 leading-relaxed">
             {chair === "seller"
               ? "Escrow is deferred proceeds. Working capital pegs can claw back money after close. Understand exactly what you're signing before you treat the headline number as your number."
               : "PPA and escrow are your post-close protection mechanisms. Working capital pegs prevent sellers from draining cash before close. R&W escrow gives you recourse on misrepresentations."}
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>DEAL INPUTS</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>DEAL INPUTS</div>
               {([
                 ["PURCHASE PRICE", ppaDeal, setPpaDeal, 2_000_000, 50_000_000, 500_000],
                 ["WC PEG (negotiated target)", wcPeg, setWcPeg, 200_000, 5_000_000, 50_000],
@@ -674,40 +661,40 @@ export const DealStructureLab = () => {
               ] as [string, number, (v: number) => void, number, number, number][]).map(([label, val, set, min, max, step]) => (
                 <div key={label} className="mb-3.5">
                   <div className="flex justify-between mb-1.5">
-                    <span className="text-[10px] text-[#555] tracking-[1px]">{label}</span>
-                    <span className="text-[11px]" style={{ color: ac }}>{fmt(val)}</span>
+                    <span className="text-xs text-white/40 tracking-wide">{label}</span>
+                    <span className={`text-sm ${acText}`}>{fmt(val)}</span>
                   </div>
                   <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={min} max={max} step={step} value={val} onChange={e => set(+e.target.value)} />
                 </div>
               ))}
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">R&W ESCROW %</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{escrowPct}% = {fmt(ppaDeal * escrowPct / 100)}</span>
+                  <span className="text-xs text-white/40 tracking-wide">R&W ESCROW %</span>
+                  <span className={`text-sm ${acText}`}>{escrowPct}% = {fmt(ppaDeal * escrowPct / 100)}</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={5} max={20} step={1} value={escrowPct} onChange={e => setEscrowPct(+e.target.value)} />
               </div>
               <div>
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">ESCROW RELEASE PERIOD</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{escrowMonths} months</span>
+                  <span className="text-xs text-white/40 tracking-wide">ESCROW RELEASE PERIOD</span>
+                  <span className={`text-sm ${acText}`}>{escrowMonths} months</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={6} max={36} step={6} value={escrowMonths} onChange={e => setEscrowMonths(+e.target.value)} />
               </div>
             </div>
 
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>CASH FLOW TIMELINE</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>CASH FLOW TIMELINE</div>
               {([
                 { label: "CASH AT CLOSE", val: cashAtClosePPA, color: ac, when: "Day 0", note: "Purchase price minus escrow, adjusted for WC" },
                 { label: "WC ADJUSTMENT", val: wcAdj, color: wcAdj >= 0 ? "#5a8a6a" : "#c06060", when: "Day 60\u201390", note: wcAdj >= 0 ? "Actual WC exceeded peg \u2014 you receive more" : "Actual WC below peg \u2014 clawback from escrow" },
                 { label: "ESCROW RELEASE", val: escrowRelease, color: "#5a8a9a", when: `Month ${escrowMonths}`, note: "Assuming no R&W claims filed" },
                 { label: "TOTAL PROCEEDS", val: ppaDeal + Math.max(0, wcAdj), color: "#3B82F6", when: "Final", note: "Assumes no R&W claims" },
               ]).map(s => (
-                <div key={s.label} className="flex justify-between items-center border-b border-[#17305a] pb-2.5 mb-2.5">
+                <div key={s.label} className="flex justify-between items-center border-b border-white/10 pb-2.5 mb-2.5">
                   <div>
-                    <div className="text-[10px] text-[#555]">{s.label}</div>
-                    <div className="text-[9px] text-[#333] mt-0.5">{s.when} &middot; {s.note}</div>
+                    <div className="text-xs text-white/40">{s.label}</div>
+                    <div className="text-xs text-white/20 mt-0.5">{s.when} &middot; {s.note}</div>
                   </div>
                   <div className="text-lg tracking-wider" style={{ color: s.color }}>{fmt(s.val)}</div>
                 </div>
@@ -716,23 +703,22 @@ export const DealStructureLab = () => {
           </div>
 
           {/* Escrow types */}
-          <div className="text-[10px] text-[#555] tracking-[3px] mb-3">ESCROW TYPE REFERENCE &mdash; CLICK TO EXPAND</div>
+          <div className="text-xs text-white/40 tracking-wide mb-3">ESCROW TYPE REFERENCE &mdash; CLICK TO EXPAND</div>
           {ESCROW_PURPOSES.map(ep => (
             <div
               key={ep.id}
-              className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px] mb-2 cursor-pointer"
-              style={{ borderLeftWidth: 3, borderLeftColor: activeEscrow === ep.id ? ac : ac + "33" }}
+              className={`bg-white/5 border border-white/10 border-l-[3px] rounded-lg p-5 mb-2 cursor-pointer ${activeEscrow === ep.id ? acBorderSolid : acBorder}`}
               onClick={() => setActiveEscrow(activeEscrow === ep.id ? null : ep.id)}
             >
               <div className="flex justify-between items-center">
-                <div className="text-sm tracking-[2px]" style={{ color: ac }}>{ep.label}</div>
-                <div className="flex gap-4 text-[10px]">
-                  <span className="text-[#555]">Typical: <span className="text-[#888]">{ep.typical}</span></span>
-                  <span className="text-[#555]">Duration: <span className="text-[#888]">{ep.duration}</span></span>
+                <div className={`text-sm tracking-wide ${acText}`}>{ep.label}</div>
+                <div className="flex gap-4 text-xs">
+                  <span className="text-white/40">Typical: <span className="text-white/60">{ep.typical}</span></span>
+                  <span className="text-white/40">Duration: <span className="text-white/60">{ep.duration}</span></span>
                 </div>
               </div>
               {activeEscrow === ep.id && (
-                <div className="mt-2.5 pt-2.5 border-t border-[#17305a] text-[11px] text-[#888] leading-[1.7]">{ep.note}</div>
+                <div className="mt-2.5 pt-2.5 border-t border-white/10 text-sm text-white/60 leading-relaxed">{ep.note}</div>
               )}
             </div>
           ))}
@@ -744,50 +730,50 @@ export const DealStructureLab = () => {
          ══════════════════════════════════════════════════════════════════════ */}
       {tab === "seller finance" && (
         <div>
-          <p className="text-[11px] text-[#555] mb-5 leading-[1.7]">
+          <p className="text-sm text-white/40 mb-5 leading-relaxed">
             {chair === "seller"
               ? "Seller financing means you become the bank. You get paid over time with interest \u2014 but if the buyer defaults, you're an unsecured creditor of the business you just sold. Demand security or don't do it."
               : "Seller notes reduce the equity you need to raise at close. They also signal seller confidence \u2014 a seller who won't finance is telling you something about their conviction in future performance."}
           </p>
 
           <div className="grid grid-cols-2 gap-4 mb-4">
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>NOTE TERMS</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>NOTE TERMS</div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">TOTAL DEAL SIZE</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{fmt(sfDeal)}</span>
+                  <span className="text-xs text-white/40 tracking-wide">TOTAL DEAL SIZE</span>
+                  <span className={`text-sm ${acText}`}>{fmt(sfDeal)}</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={1_000_000} max={30_000_000} step={500_000} value={sfDeal} onChange={e => setSfDeal(+e.target.value)} />
               </div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">NOTE SIZE (% of deal)</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{sfPct}% = {fmt(sfNote)}</span>
+                  <span className="text-xs text-white/40 tracking-wide">NOTE SIZE (% of deal)</span>
+                  <span className={`text-sm ${acText}`}>{sfPct}% = {fmt(sfNote)}</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={5} max={50} step={5} value={sfPct} onChange={e => setSfPct(+e.target.value)} />
-                <div className="flex justify-between text-[9px] text-[#333] mt-0.5">
+                <div className="flex justify-between text-xs text-white/20 mt-0.5">
                   <span>Small (5%)</span><span>Standard (20%)</span><span>Large (50%)</span>
                 </div>
               </div>
               <div className="mb-3.5">
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">INTEREST RATE</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{sfRate}%</span>
+                  <span className="text-xs text-white/40 tracking-wide">INTEREST RATE</span>
+                  <span className={`text-sm ${acText}`}>{sfRate}%</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={3.0} max={12.0} step={0.5} value={sfRate} onChange={e => setSfRate(+e.target.value)} />
               </div>
               <div>
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-[10px] text-[#555] tracking-[1px]">TERM (years)</span>
-                  <span className="text-[11px]" style={{ color: ac }}>{sfYears} years</span>
+                  <span className="text-xs text-white/40 tracking-wide">TERM (years)</span>
+                  <span className={`text-sm ${acText}`}>{sfYears} years</span>
                 </div>
                 <input type="range" className="dsl-range w-full" style={{ accentColor: ac }} min={2} max={10} step={1} value={sfYears} onChange={e => setSfYears(+e.target.value)} />
               </div>
             </div>
 
-            <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]">
-              <div className="text-[10px] tracking-[3px] mb-4" style={{ color: ac }}>NOTE ECONOMICS</div>
+            <div className="bg-white/5 border border-white/10 rounded-lg p-5">
+              <div className={`text-xs tracking-wide mb-4 ${acText}`}>NOTE ECONOMICS</div>
               <div className="grid gap-3">
                 {([
                   { label: "CASH AT CLOSE", val: fmt(sfCash), color: ac, note: "Buyer pays this at signing" },
@@ -796,10 +782,10 @@ export const DealStructureLab = () => {
                   { label: "TOTAL INTEREST", val: fmt(totalInterest), color: "#5a8a6a", note: "Your return for financing the buyer" },
                   { label: "TOTAL RECEIVED", val: fmt(totalReceived), color: "#3B82F6", note: "Over full term (no default)" },
                 ]).map(row => (
-                  <div key={row.label} className="flex justify-between items-center border-b border-[#17305a] pb-2.5">
+                  <div key={row.label} className="flex justify-between items-center border-b border-white/10 pb-2.5">
                     <div>
-                      <div className="text-[10px] text-[#555]">{row.label}</div>
-                      <div className="text-[9px] text-[#333] mt-0.5">{row.note}</div>
+                      <div className="text-xs text-white/40">{row.label}</div>
+                      <div className="text-xs text-white/20 mt-0.5">{row.note}</div>
                     </div>
                     <div className="text-lg tracking-wider" style={{ color: row.color }}>{row.val}</div>
                   </div>
@@ -809,14 +795,14 @@ export const DealStructureLab = () => {
           </div>
 
           {/* Protection requirements */}
-          <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px]" style={{ borderLeftWidth: 3, borderLeftColor: "#c06060" }}>
-            <div className="text-[10px] text-[#c06060] tracking-[3px] mb-3">
+          <div className="bg-white/5 border border-white/10 border-l-[3px] border-l-red-500 rounded-lg p-5">
+            <div className="text-xs text-red-400 tracking-wide mb-3">
               {chair === "seller" ? "\u2691 SELLER NOTE PROTECTION \u2014 REQUIRE ALL OF THESE" : "BUYER NOTE OBLIGATIONS \u2014 WHAT SELLER WILL DEMAND"}
             </div>
             <div className="grid grid-cols-2 gap-2">
               {(chair === "seller" ? SELLER_NOTE_PROTECTION : BUYER_NOTE_OBLIGATIONS).map((item, i) => (
-                <div key={i} className="flex gap-2 text-[10px] text-[#777] items-start">
-                  <span className="shrink-0 text-[#c06060]">&rarr;</span>{item}
+                <div key={i} className="flex gap-2 text-xs text-white/50 items-start">
+                  <span className="shrink-0 text-red-400">&rarr;</span>{item}
                 </div>
               ))}
             </div>
@@ -831,42 +817,36 @@ export const DealStructureLab = () => {
         <div>
           {!qDone ? (
             <div>
-              <div className="flex justify-between text-[10px] text-[#555] mb-5">
+              <div className="flex justify-between text-xs text-white/40 mb-5">
                 <span>QUESTION {qi + 1} OF {STRUCT_QUIZ.length}</span>
-                <span style={{ color: ac }}>SCORE: {qScore}/{qi + (qSel !== null ? 1 : 0)}</span>
+                <span className={acText}>SCORE: {qScore}/{qi + (qSel !== null ? 1 : 0)}</span>
               </div>
-              <div className="bg-[#0b0c16] border border-[#1c2a4a] rounded-md p-[18px] mb-4">
-                <div className="text-[13px] text-[#ddd] leading-[1.8] mb-6">{STRUCT_QUIZ[qi].q}</div>
+              <div className="bg-white/5 border border-white/10 rounded-lg p-5 mb-4">
+                <div className="text-sm text-white/90 leading-relaxed mb-6">{STRUCT_QUIZ[qi].q}</div>
                 {STRUCT_QUIZ[qi].opts.map((o, i) => {
                   const isCorrect = i === STRUCT_QUIZ[qi].ans;
                   const isSelected = i === qSel;
-                  let borderColor = "#1c2a4a";
-                  let bgColor = "#0b0c16";
-                  let textColor = "#999";
+                  let btnCls = "border-white/10 bg-white/5 text-white/70";
                   if (qSel !== null) {
-                    if (isCorrect) { borderColor = "#5a8a6a"; bgColor = "#0a180a"; textColor = "#7aba8a"; }
-                    else if (isSelected) { borderColor = "#8a3a3a"; bgColor = "#180a0a"; textColor = "#ba7a7a"; }
+                    if (isCorrect) btnCls = "border-green-500/40 bg-green-500/5 text-green-400";
+                    else if (isSelected) btnCls = "border-red-500/40 bg-red-500/5 text-red-300";
                   }
                   return (
                     <button
                       key={i}
                       onClick={() => handleQ(i)}
                       disabled={qSel !== null}
-                      className="w-full text-left py-2.5 px-3.5 rounded mb-1.5 text-[11px] transition-all border"
-                      style={{ borderColor, background: bgColor, color: textColor }}
+                      className={`w-full text-left py-2.5 px-3.5 rounded mb-1.5 text-sm transition-all border ${btnCls}`}
                     >
-                      <span className="text-[#555] mr-2.5">{String.fromCharCode(65 + i)}.</span>{o}
+                      <span className="text-white/40 mr-2.5">{String.fromCharCode(65 + i)}.</span>{o}
                     </button>
                   );
                 })}
                 {qSel !== null && (
                   <div
-                    className="mt-3.5 p-3 rounded text-[11px] leading-[1.7] border"
-                    style={{
-                      background: qSel === STRUCT_QUIZ[qi].ans ? "#0a160a" : "#160a0a",
-                      borderColor: qSel === STRUCT_QUIZ[qi].ans ? "#3a6a3a" : "#6a3a3a",
-                      color: qSel === STRUCT_QUIZ[qi].ans ? "#7aba7a" : "#ba7a7a"
-                    }}
+                    className={`mt-3.5 p-3 rounded text-sm leading-relaxed border ${
+                      qSel === STRUCT_QUIZ[qi].ans ? "bg-green-500/5 border-green-500/30 text-green-400" : "bg-red-500/5 border-red-500/30 text-red-300"
+                    }`}
                   >
                     <span className="font-semibold">{qSel === STRUCT_QUIZ[qi].ans ? "\u2713 CORRECT \u2014 " : "\u2717 INCORRECT \u2014 "}</span>
                     {STRUCT_QUIZ[qi].exp}
@@ -876,8 +856,7 @@ export const DealStructureLab = () => {
               {qSel !== null && (
                 <button
                   onClick={() => { if (qi + 1 >= STRUCT_QUIZ.length) setQDone(true); else { setQi(q => q + 1); setQSel(null); } }}
-                  className="border-none px-7 py-2.5 text-[11px] tracking-[2px] rounded text-[#0f1d3d]"
-                  style={{ background: ac }}
+                  className={`border-none px-7 py-2.5 text-sm tracking-wide rounded text-white ${acBg}`}
                 >
                   {qi + 1 < STRUCT_QUIZ.length ? "NEXT \u2192" : "RESULTS \u2192"}
                 </button>
@@ -885,16 +864,15 @@ export const DealStructureLab = () => {
             </div>
           ) : (
             <div className="text-center py-12">
-              <div className="text-[56px] tracking-[5px]" style={{ color: ac }}>{qScore}/{STRUCT_QUIZ.length}</div>
-              <div className="text-xs text-[#888] mt-2 mb-8">
+              <div className={`text-5xl tracking-wide ${acText}`}>{qScore}/{STRUCT_QUIZ.length}</div>
+              <div className="text-xs text-white/60 mt-2 mb-8">
                 {qScore === STRUCT_QUIZ.length ? "DEAL COUNSEL LEVEL \u2014 You structure deals, not just close them." :
                  qScore >= 3 ? "SENIOR ASSOCIATE \u2014 Solid mechanics. Review the structure delta calc." :
                  "ANALYST \u2014 Run the calculators in every tab before retaking. The numbers teach the concepts."}
               </div>
               <button
                 onClick={() => { setQi(0); setQSel(null); setQScore(0); setQDone(false); }}
-                className="bg-transparent px-7 py-2.5 text-[11px] tracking-[2px] rounded border"
-                style={{ borderColor: ac, color: ac }}
+                className={`bg-transparent px-7 py-2.5 text-sm tracking-wide rounded border ${acText} ${acBorder}`}
               >
                 RETAKE
               </button>
@@ -904,8 +882,8 @@ export const DealStructureLab = () => {
       )}
 
       {/* Curriculum arc */}
-      <div className="mt-8 px-4 py-3 bg-[#080910] border border-[#17305a] rounded-md">
-        <div className="text-[9px] text-[#1e1e2a] tracking-[3px] mb-2">CURRICULUM ARC</div>
+      <div className="mt-8 px-4 py-3 bg-white/[0.02] border border-white/10 rounded-lg">
+        <div className="text-xs text-white/15 tracking-wide mb-2">CURRICULUM ARC</div>
         <div className="flex gap-2 flex-wrap">
           {([
             ["Synergy Engine", "built", "#5a8a6a"],
@@ -917,7 +895,7 @@ export const DealStructureLab = () => {
           ] as const).map(([name, status, color]) => (
             <div
               key={name}
-              className="px-2.5 py-0.5 rounded text-[9px] tracking-[1px] border"
+              className="px-2.5 py-0.5 rounded text-xs tracking-wide border"
               style={{ borderColor: color + "33", color }}
             >
               {name} <span className="opacity-50">&middot; {status}</span>
@@ -926,7 +904,7 @@ export const DealStructureLab = () => {
         </div>
       </div>
 
-      <div className="mt-2.5 text-[9px] text-[#14141e] text-center tracking-[1px]">
+      <div className="mt-2.5 text-xs text-white/10 text-center tracking-wide">
         MODULE #5 &middot; DEAL STRUCTURE LAB &middot; FOR EDUCATIONAL PURPOSES ONLY
       </div>
     </div>

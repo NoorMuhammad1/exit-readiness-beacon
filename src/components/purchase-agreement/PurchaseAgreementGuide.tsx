@@ -278,7 +278,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
   // ── Tab 1: The 15 Clauses ────────────────────────────────────
 
   const renderClauses = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -367,7 +367,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
   // ── Tab 2: Agreement Check ────────────────────────────────────
 
   const renderCheck = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <Card className="bg-card border-border">
         <CardHeader>
           <CardTitle className="flex items-center gap-3">
@@ -449,7 +449,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
     else { verdict = 'Heavily Buyer-Favored — Significant Risk'; verdictColor = 'text-red-400'; verdictBg = 'bg-red-500/10 border-red-500/20'; }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         <Card className={`border ${verdictBg}`}>
           <CardContent className="p-8 text-center">
             <p className="text-sm text-muted-foreground uppercase tracking-wide mb-2">Purchase Agreement Assessment</p>
@@ -543,7 +543,7 @@ export const PurchaseAgreementGuide: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex flex-wrap gap-2 max-w-4xl mx-auto">
+      <div className="flex flex-wrap gap-2">
         {tabs.map((tab, idx) => (
           <button key={idx} onClick={() => setActiveTab(idx)}
             className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${

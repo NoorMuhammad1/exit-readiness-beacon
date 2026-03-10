@@ -89,7 +89,7 @@ export default function IndustryMultiplesPage() {
 
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+      <div>
         <ModuleProgress currentModule={5} />
         
         {/* Header */}

@@ -352,7 +352,7 @@ export function DCFValuation() {
   // ─── Tab 0: Educational ───────────────────────────────────────────
 
   const renderTab0 = () => (
-    <div className="space-y-6 max-w-4xl mx-auto">
+    <div className="space-y-6">
       <div className="bg-gradient-to-br from-blue-500/10 to-purple-500/10 border border-blue-500/20 rounded-xl p-6">
         <h2 className="text-2xl font-bold text-white mb-3">What's Your Business Really Worth?</h2>
         <p className="text-gray-300 leading-relaxed">
@@ -546,7 +546,7 @@ export function DCFValuation() {
     }
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Scenario Summary Cards */}
         <div className="grid grid-cols-3 gap-4">
           {scenarios.map(s => {
@@ -680,7 +680,7 @@ export function DCFValuation() {
     const bull = scenarios[2];
 
     return (
-      <div className="space-y-6 max-w-4xl mx-auto">
+      <div className="space-y-6">
         {/* Header */}
         <div className="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
           <h2 className="text-2xl font-bold text-white mb-1">DCF Valuation Report</h2>

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { supabase } from '@/integrations/supabase/client';
+import { apiClient } from '@/lib/api/client';
 
 export interface ActivityLogEntry {
   id: string;
@@ -15,24 +15,19 @@ export const useActivityLog = (filters?: { companyId?: string; userId?: string }
   return useQuery({
     queryKey: ['activity-log', filters],
     queryFn: async () => {
-      let query = supabase
-        .from('activity_log')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .limit(50);
+      const response = await apiClient.getActivityLogs(1, 50);
+      let logs = response.logs;
 
+      // Apply filters client-side
       if (filters?.companyId) {
-        query = query.eq('company_id', filters.companyId);
-      }
-      
-      if (filters?.userId) {
-        query = query.eq('user_id', filters.userId);
+        logs = logs.filter((log: any) => log.company_id === filters.companyId);
       }
 
-      const { data, error } = await query;
-      
-      if (error) throw error;
-      return data as ActivityLogEntry[];
+      if (filters?.userId) {
+        logs = logs.filter((log: any) => log.user_id === filters.userId);
+      }
+
+      return logs as ActivityLogEntry[];
     },
   });
 };

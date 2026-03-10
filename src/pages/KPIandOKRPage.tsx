@@ -591,7 +591,7 @@ ${i + 1}. ${kr.keyResult}
 
   return (
     <div className="min-h-screen p-6">
-      <div className="max-w-7xl mx-auto">
+      <div>
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-2">
@@ -687,7 +687,7 @@ ${i + 1}. ${kr.keyResult}
                             addMetric('KPI', template);
                             setShowTemplates(false);
                           }}
-                          className="text-left p-3 bg-black/30 border border-white/10 rounded-lg hover:bg-white/10 transition"
+                          className="text-left p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition"
                         >
                           <p className="text-white text-sm font-medium">{template.metricName}</p>
                           <p className="text-white/60 text-xs">Target: {template.targetValue} {template.unitOfMeasure}</p>
@@ -709,7 +709,7 @@ ${i + 1}. ${kr.keyResult}
                             addMetric('KPI', template);
                             setShowTemplates(false);
                           }}
-                          className="text-left p-3 bg-black/30 border border-white/10 rounded-lg hover:bg-white/10 transition"
+                          className="text-left p-3 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition"
                         >
                           <p className="text-white text-sm font-medium">{template.metricName}</p>
                           <p className="text-white/60 text-xs">Target: {template.targetValue.toLocaleString()} {template.unitOfMeasure}</p>
@@ -743,7 +743,7 @@ ${i + 1}. ${kr.keyResult}
               {metrics.length > 0 && (
                 <div className="space-y-3 mb-6">
                   {metrics.filter(m => m.metricType === activeTab).map((metric) => (
-                    <div key={metric.id} className="bg-black/20 rounded-lg p-4">
+                    <div key={metric.id} className="bg-white/[0.03] rounded-lg p-4">
                       <div className="flex justify-between items-start mb-2">
                         <input
                           type="text"
@@ -766,7 +766,7 @@ ${i + 1}. ${kr.keyResult}
                             type="number"
                             value={metric.currentValue}
                             onChange={(e) => updateMetric(metric.id, { currentValue: Number(e.target.value) })}
-                            className="w-full bg-black/20 border border-white/20 text-white p-2 rounded text-sm"
+                            className="w-full bg-white/[0.03] border border-white/20 text-white p-2 rounded text-sm"
                           />
                         </div>
                         <div>
@@ -775,7 +775,7 @@ ${i + 1}. ${kr.keyResult}
                             type="number"
                             value={metric.targetValue}
                             onChange={(e) => updateMetric(metric.id, { targetValue: Number(e.target.value) })}
-                            className="w-full bg-black/20 border border-white/20 text-white p-2 rounded text-sm"
+                            className="w-full bg-white/[0.03] border border-white/20 text-white p-2 rounded text-sm"
                           />
                         </div>
                         <div>
@@ -784,7 +784,7 @@ ${i + 1}. ${kr.keyResult}
                             type="text"
                             value={metric.unitOfMeasure}
                             onChange={(e) => updateMetric(metric.id, { unitOfMeasure: e.target.value })}
-                            className="w-full bg-black/20 border border-white/20 text-white p-2 rounded text-sm"
+                            className="w-full bg-white/[0.03] border border-white/20 text-white p-2 rounded text-sm"
                             placeholder="%,$,etc"
                           />
                         </div>
@@ -797,7 +797,7 @@ ${i + 1}. ${kr.keyResult}
                             type="text"
                             value={metric.owner || ''}
                             onChange={(e) => updateMetric(metric.id, { owner: e.target.value })}
-                            className="w-full bg-black/20 border border-white/20 text-white p-2 rounded text-sm"
+                            className="w-full bg-white/[0.03] border border-white/20 text-white p-2 rounded text-sm"
                             placeholder="Responsible person"
                           />
                         </div>
@@ -807,7 +807,7 @@ ${i + 1}. ${kr.keyResult}
                             type="text"
                             value={metric.department || ''}
                             onChange={(e) => updateMetric(metric.id, { department: e.target.value })}
-                            className="w-full bg-black/20 border border-white/20 text-white p-2 rounded text-sm"
+                            className="w-full bg-white/[0.03] border border-white/20 text-white p-2 rounded text-sm"
                             placeholder="e.g., Sales, Marketing"
                           />
                         </div>

@@ -3,7 +3,7 @@ import FinancialDataRoom from '@/components/financial-data-room/FinancialDataRoo
 
 const FinancialDataRoomPage: React.FC = () => {
   return (
-    <div className="max-w-6xl mx-auto space-y-6">
+    <div className="space-y-6">
       <div>
         <div className="flex items-center gap-3 mb-2">
           <h1 className="text-3xl font-bold text-white">Financial Data Room Prep</h1>

@@ -158,7 +158,7 @@ export function TaxStructuring() {
   ];
 
   return (
-    <div className="space-y-6 max-w-5xl mx-auto">
+    <div className="space-y-6">
       {/* Tab Bar */}
       <div className="flex gap-2 border-b border-white/10 pb-2 overflow-x-auto">
         {tabs.map(tab => (
@@ -379,11 +379,11 @@ export function TaxStructuring() {
                 <em> asset sale for tax purposes</em>.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-3">
-                <div className="bg-black/20 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-lg p-4">
                   <h4 className="text-green-400 font-medium text-sm mb-1">What the buyer gets</h4>
                   <p className="text-white/50 text-xs">The depreciation step-up they want — the full purchase price can be written off over time.</p>
                 </div>
-                <div className="bg-black/20 rounded-lg p-4">
+                <div className="bg-white/[0.03] rounded-lg p-4">
                   <h4 className="text-blue-400 font-medium text-sm mb-1">What the seller gets</h4>
                   <p className="text-white/50 text-xs">A cleaner legal transfer. But the tax treatment is the same as an asset sale — so the seller still pays the blended rate.</p>
                 </div>
@@ -469,7 +469,7 @@ export function TaxStructuring() {
                 <select
                   value={inputs.entityType}
                   onChange={e => setInputs(prev => ({ ...prev, entityType: e.target.value as TaxInputs['entityType'] }))}
-                  className="mt-2 w-full bg-black/30 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-purple-500"
+                  className="mt-2 w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2 text-white text-sm focus:outline-none focus:border-purple-500"
                 >
                   <option value="s-corp">S-Corporation</option>
                   <option value="llc">LLC (Pass-Through)</option>

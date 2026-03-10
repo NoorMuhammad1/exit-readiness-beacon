@@ -5,7 +5,7 @@ import { TopPerformers } from '@/components/top-performers/TopPerformers';
 const TopPerformersPage = () => {
   return (
     <div className="space-y-6">
-      <div className="max-w-4xl mx-auto text-center mb-8">
+      <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-foreground mb-4">
           Top Performers Analysis
         </h1>
