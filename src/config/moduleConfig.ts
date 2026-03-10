@@ -82,7 +82,8 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'IC Memo Builder', path: '/portal/week-4/ic-memo', weekNumber: 4, order: 13, enhancement: 'NEW' },
   { name: 'DD Framework', path: '/portal/week-4/dd-framework', weekNumber: 4, order: 14, enhancement: 'NEW' },
   { name: '100-Day Plan', path: '/portal/week-4/hundred-day-plan', weekNumber: 4, order: 15, enhancement: 'NEW' },
-  { name: 'Cap Table Mechanics', path: '/portal/week-4/cap-table', weekNumber: 4, order: 16, enhancement: 'NEW' }
+  { name: 'Cap Table Mechanics', path: '/portal/week-4/cap-table', weekNumber: 4, order: 16, enhancement: 'NEW' },
+  { name: 'Exit Planning', path: '/portal/week-4/exit-planning', weekNumber: 4, order: 17, enhancement: 'NEW' }
 ];
 
 // Helper function to get modules by week
