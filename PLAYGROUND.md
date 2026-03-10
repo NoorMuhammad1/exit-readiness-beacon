@@ -249,6 +249,22 @@ These were identified from a deep dive into the Anthropic financial-services-plu
 
 ## Session Log
 
+### Session 30 — Mar 10, 2026
+- **Site-wide UI reskin** — unified dark navy theme, removed all gold/black styling
+  - Lightened CSS variables in `src/index.css`: background 5%→12%, cards 9%→19%, sidebar kept darker at 8% for visual separation
+  - Replaced 384 hardcoded hex colors across 10 component files:
+    - Gold `#c8a84b` → Blue `#3B82F6` (142 occurrences)
+    - Near-black backgrounds (`#07080f`, `#0a0b14`) → Portal navy `#0f1d3d`
+    - Card backgrounds (`#10111c`, `#12121e`) → Portal card `#17305a`
+    - Borders (`#181826`, `#1e1e2c`) → Portal border `#1c2a4a`
+    - Body text `#d8d4cc` → Standard `#e5e7eb`
+  - Removed 141 font overrides (IBM Plex Mono + Anton) — all modules now inherit portal font
+  - Files reskinned: CapTable, CompanyOnePager, DDFramework, DealStructureLab, ExitPlanning, HundredDayPlan, ICMemo, LifeAfterExit, PEPitchDeckBuilder, PostCloseFundraising
+  - Added **Rule 10** to PLAYGROUND.md: no hardcoded colors or fonts in components, ever. All styling through Tailwind CSS classes referencing CSS variables. LBO Explainer is the reference implementation.
+  - Entire site now visually consistent — one change to `index.css` updates all 50 modules
+- Commit: `f0dba59` — pushed to noor_frank_playground
+- **Next:** Deal Structure Lab UI overhaul, Phase 4 thin module upgrades, Phase 5 platform features
+
 ### Session 29 — Mar 10, 2026
 - **Built Post-Close Fundraising** — "I Just Closed" bucket, dilution math for platform add-on acquisitions
   - 4 tabs: How It Works / Dilution / Raise Types / Quiz
