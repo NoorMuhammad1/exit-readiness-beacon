@@ -47,6 +47,7 @@ export const moduleConfigurations: ModuleConfig[] = [
   { name: 'Data Room', path: '/portal/week-2/data-room', weekNumber: 2, order: 11 },
   { name: 'Merger Math', path: '/portal/week-2/merger-math', weekNumber: 2, order: 12, enhancement: 'NEW' },
   { name: 'The Process Letter', path: '/portal/week-2/process-letter', weekNumber: 2, order: 13, enhancement: 'NEW' },
+  { name: 'Life After Exit', path: '/portal/week-2/life-after-exit', weekNumber: 2, order: 14, enhancement: 'NEW' },
 
   // Performance — valuation tools grouped, then diagnostics
   { name: 'EBITDA Calculator', path: '/portal/week-3/ebitda-calculator', weekNumber: 3, order: 1 },
